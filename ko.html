@@ -31,11 +31,17 @@
             background: #ffffff;
         }
 
-        /* Navigation */
+        /* =========================
+           Navigation
+        ========================= */
 
         header {
             background: #102a43;
             color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
 
         .nav {
@@ -51,6 +57,7 @@
             font-size: 22px;
             font-weight: bold;
             letter-spacing: 0.3px;
+            white-space: nowrap;
         }
 
         .nav-links {
@@ -63,19 +70,28 @@
             text-decoration: none;
             margin-left: 25px;
             font-size: 14px;
+            font-weight: 500;
         }
 
         .nav a:hover {
-            text-decoration: underline;
+            color: #d9e2ec;
         }
 
-        /* Hero */
+        .language {
+            border-left: 1px solid rgba(255,255,255,0.35);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        /* =========================
+           Hero
+        ========================= */
 
         .hero {
             background:
                 linear-gradient(
-                    rgba(16,42,67,0.96),
-                    rgba(36,59,83,0.96)
+                    rgba(16,42,67,0.97),
+                    rgba(36,59,83,0.97)
                 );
 
             color: white;
@@ -90,14 +106,14 @@
         }
 
         .hero h2 {
-            color: #ffffff;
+            color: white;
             font-size: 24px;
             margin: 0 0 20px;
             font-weight: normal;
         }
 
         .hero p {
-            max-width: 780px;
+            max-width: 800px;
             margin: auto;
             font-size: 18px;
             color: #d9e2ec;
@@ -118,7 +134,9 @@
             background: #e6edf3;
         }
 
-        /* General */
+        /* =========================
+           General
+        ========================= */
 
         .container {
             max-width: 1100px;
@@ -139,7 +157,9 @@
             font-size: 17px;
         }
 
-        /* About */
+        /* =========================
+           About
+        ========================= */
 
         .about-box {
             background: #f5f7fa;
@@ -148,7 +168,9 @@
             margin-top: 30px;
         }
 
-        /* Government */
+        /* =========================
+           Government
+        ========================= */
 
         .government {
             background: #f5f7fa;
@@ -179,7 +201,9 @@
             margin-bottom: 0;
         }
 
-        /* Services */
+        /* =========================
+           Services
+        ========================= */
 
         .service-grid {
             display: grid;
@@ -205,7 +229,9 @@
             color: #52606d;
         }
 
-        /* Products */
+        /* =========================
+           Products
+        ========================= */
 
         .products {
             background: white;
@@ -225,7 +251,9 @@
             background: #243b53;
         }
 
-        /* Company Information */
+        /* =========================
+           Company Information
+        ========================= */
 
         .company-info {
             background: #f5f7fa;
@@ -249,7 +277,18 @@
             color: #102a43;
         }
 
-        /* Contact */
+        .company-table a {
+            color: #102a43;
+            text-decoration: none;
+        }
+
+        .company-table a:hover {
+            text-decoration: underline;
+        }
+
+        /* =========================
+           Contact
+        ========================= */
 
         .contact {
             background: #102a43;
@@ -273,7 +312,9 @@
             text-decoration: underline;
         }
 
-        /* Footer */
+        /* =========================
+           Footer
+        ========================= */
 
         footer {
             background: #0b1f33;
@@ -283,22 +324,32 @@
             font-size: 14px;
         }
 
-        /* Mobile */
+        /* =========================
+           Mobile
+        ========================= */
 
         @media (max-width: 800px) {
 
             .nav {
                 flex-direction: column;
+                padding: 15px;
             }
 
             .nav-links {
-                margin-top: 15px;
+                margin-top: 12px;
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
             .nav a {
                 margin: 5px 8px;
+                font-size: 13px;
+            }
+
+            .language {
+                border-left: none;
+                padding-left: 0;
+                margin-left: 0;
             }
 
             .hero {
@@ -331,7 +382,9 @@
 <body>
 
 
-<!-- Navigation -->
+<!-- =========================
+     Navigation
+========================= -->
 
 <header>
 
@@ -347,24 +400,24 @@
                 홈
             </a>
 
-            <a href="ko.html#about">
-                회사소개
-            </a>
-
             <a href="ko.html#government">
                 정부조달
             </a>
 
-            <!-- IMPORTANT: English product page -->
+            <!-- 중요: 제품은 영어 products.html로 연결 -->
             <a href="products.html">
                 제품
             </a>
 
-            <a href="ko.html#contact">
-                문의하기
+            <a href="ko.html#about">
+                회사소개
             </a>
 
-            <a href="index.html">
+            <a href="ko.html#contact">
+                연락처
+            </a>
+
+            <a href="index.html" class="language">
                 English
             </a>
 
@@ -375,7 +428,9 @@
 </header>
 
 
-<!-- Hero -->
+<!-- =========================
+     Hero
+========================= -->
 
 <section class="hero">
 
@@ -388,9 +443,11 @@
     </h2>
 
     <p>
+
         Primax Global, Inc.는 미국 연방정부 및 공공기관을 비롯하여
         기업 고객에게 다양한 제품과 솔루션을 공급하는
         정부조달 전문 기업입니다.
+
     </p>
 
     <a class="hero-button"
@@ -403,7 +460,9 @@
 </section>
 
 
-<!-- About -->
+<!-- =========================
+     About
+========================= -->
 
 <section id="about">
 
@@ -435,7 +494,7 @@
 
                 Primax Global은 제조업체 및 유통업체와 협력하여
                 정부기관 및 기업 고객의 구매 요구사항에 맞는
-                제품을 sourcing하고 공급합니다.
+                다양한 제품을 sourcing하고 공급합니다.
 
                 고객의 조달 요구에 신속하고 효율적으로 대응하는 것을
                 핵심 가치로 하고 있습니다.
@@ -449,7 +508,9 @@
 </section>
 
 
-<!-- Government -->
+<!-- =========================
+     Government
+========================= -->
 
 <section id="government"
          class="government">
@@ -528,7 +589,9 @@
 </section>
 
 
-<!-- Services -->
+<!-- =========================
+     Services
+========================= -->
 
 <section>
 
@@ -622,7 +685,9 @@
 </section>
 
 
-<!-- Products -->
+<!-- =========================
+     Products
+========================= -->
 
 <section class="products">
 
@@ -641,7 +706,7 @@
         </p>
 
 
-        <!-- IMPORTANT: This must be products.html -->
+        <!-- 정확히 products.html로 연결 -->
 
         <a class="product-button"
            href="products.html">
@@ -655,7 +720,9 @@
 </section>
 
 
-<!-- Company Information -->
+<!-- =========================
+     Company Information
+========================= -->
 
 <section class="company-info">
 
@@ -667,6 +734,7 @@
 
 
         <table class="company-table">
+
 
             <tr>
 
@@ -688,8 +756,10 @@
                 </td>
 
                 <td>
+
                     3660 Wilshire Blvd, Suite 512<br>
                     Los Angeles, CA 90010
+
                 </td>
 
             </tr>
@@ -702,9 +772,11 @@
                 </td>
 
                 <td>
+
                     <a href="tel:2132470011">
                         213-247-0011
                     </a>
+
                 </td>
 
             </tr>
@@ -717,9 +789,11 @@
                 </td>
 
                 <td>
+
                     <a href="mailto:david@primaxfed.com">
                         david@primaxfed.com
                     </a>
+
                 </td>
 
             </tr>
@@ -745,7 +819,9 @@
 </section>
 
 
-<!-- Contact -->
+<!-- =========================
+     Contact
+========================= -->
 
 <section id="contact"
          class="contact">
@@ -793,7 +869,9 @@
 </section>
 
 
-<!-- Footer -->
+<!-- =========================
+     Footer
+========================= -->
 
 <footer>
 
