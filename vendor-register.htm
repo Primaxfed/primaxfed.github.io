@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,6 +21,7 @@
 
         body {
             margin: 0;
+
             font-family:
                 Arial,
                 "Noto Sans KR",
@@ -32,7 +32,10 @@
             color: #1f2933;
         }
 
-        /* Header */
+
+        /* ==============================
+           HEADER
+        ============================== */
 
         header {
             background: #102a43;
@@ -42,6 +45,7 @@
         .nav {
             max-width: 1150px;
             margin: auto;
+
             padding: 18px 25px;
 
             display: flex;
@@ -62,7 +66,9 @@
         .nav a {
             color: white;
             text-decoration: none;
+
             margin-left: 24px;
+
             font-size: 14px;
         }
 
@@ -70,20 +76,34 @@
             text-decoration: underline;
         }
 
-        /* Registration */
+
+        /* ==============================
+           PAGE
+        ============================== */
 
         .page {
-            min-height: calc(100vh - 150px);
+
+            min-height:
+                calc(100vh - 150px);
 
             display: flex;
+
             justify-content: center;
+
             align-items: flex-start;
 
             padding: 60px 20px;
         }
 
+
+        /* ==============================
+           REGISTRATION BOX
+        ============================== */
+
         .register-box {
+
             width: 100%;
+
             max-width: 600px;
 
             background: white;
@@ -96,7 +116,9 @@
                 0 4px 20px rgba(0,0,0,0.08);
         }
 
+
         h1 {
+
             margin-top: 0;
 
             color: #102a43;
@@ -106,7 +128,9 @@
             font-size: 30px;
         }
 
+
         .subtitle {
+
             text-align: center;
 
             color: #52606d;
@@ -114,7 +138,13 @@
             margin-bottom: 35px;
         }
 
+
+        /* ==============================
+           FORM
+        ============================== */
+
         label {
+
             display: block;
 
             font-weight: bold;
@@ -124,8 +154,8 @@
             color: #102a43;
         }
 
-        input,
-        textarea {
+
+        input {
 
             width: 100%;
 
@@ -142,8 +172,8 @@
             font-family: inherit;
         }
 
-        input:focus,
-        textarea:focus {
+
+        input:focus {
 
             outline: none;
 
@@ -152,6 +182,11 @@
             box-shadow:
                 0 0 0 2px rgba(16,42,67,0.1);
         }
+
+
+        /* ==============================
+           BUTTON
+        ============================== */
 
         button {
 
@@ -174,9 +209,12 @@
             cursor: pointer;
         }
 
+
         button:hover {
+
             background: #243b53;
         }
+
 
         button:disabled {
 
@@ -184,6 +222,11 @@
 
             cursor: not-allowed;
         }
+
+
+        /* ==============================
+           MESSAGE
+        ============================== */
 
         .message {
 
@@ -198,6 +241,7 @@
             text-align: center;
         }
 
+
         .success {
 
             display: block;
@@ -206,6 +250,7 @@
 
             color: #256029;
         }
+
 
         .error {
 
@@ -216,6 +261,11 @@
             color: #a61b1b;
         }
 
+
+        /* ==============================
+           LOGIN LINK
+        ============================== */
+
         .login-link {
 
             text-align: center;
@@ -224,6 +274,7 @@
 
             color: #52606d;
         }
+
 
         .login-link a {
 
@@ -234,13 +285,22 @@
             text-decoration: none;
         }
 
+
         .login-link a:hover {
+
             text-decoration: underline;
         }
 
+
         .required {
+
             color: #c0392b;
         }
+
+
+        /* ==============================
+           FOOTER
+        ============================== */
 
         footer {
 
@@ -255,27 +315,35 @@
             font-size: 14px;
         }
 
-        /* Mobile */
+
+        /* ==============================
+           MOBILE
+        ============================== */
 
         @media (max-width: 700px) {
 
             .nav {
+
                 flex-direction: column;
             }
 
             .nav-links {
+
                 margin-top: 15px;
             }
 
             .nav a {
+
                 margin: 5px 8px;
             }
 
             .register-box {
+
                 padding: 25px;
             }
 
             h1 {
+
                 font-size: 26px;
             }
 
@@ -289,7 +357,9 @@
 <body>
 
 
-<!-- Navigation -->
+<!-- =========================================
+     HEADER
+========================================= -->
 
 <header>
 
@@ -328,7 +398,9 @@
 </header>
 
 
-<!-- Registration -->
+<!-- =========================================
+     REGISTRATION PAGE
+========================================= -->
 
 <main class="page">
 
@@ -346,14 +418,19 @@
         </p>
 
 
+        <!-- =====================================
+             REGISTRATION FORM
+        ====================================== -->
+
         <form id="vendorForm">
 
 
-            <!-- Company -->
+            <!-- COMPANY NAME -->
 
             <label for="company_name">
 
                 Company Name
+
                 <span class="required">*</span>
 
             </label>
@@ -361,15 +438,17 @@
             <input
                 type="text"
                 id="company_name"
+                name="company_name"
                 required
                 placeholder="Your Company Name">
 
 
-            <!-- Contact -->
+            <!-- CONTACT NAME -->
 
             <label for="contact_name">
 
                 Contact Name
+
                 <span class="required">*</span>
 
             </label>
@@ -377,15 +456,17 @@
             <input
                 type="text"
                 id="contact_name"
+                name="contact_name"
                 required
                 placeholder="Full Name">
 
 
-            <!-- Email -->
+            <!-- EMAIL -->
 
             <label for="email">
 
                 Email
+
                 <span class="required">*</span>
 
             </label>
@@ -393,15 +474,17 @@
             <input
                 type="email"
                 id="email"
+                name="email"
                 required
                 placeholder="company@example.com">
 
 
-            <!-- Phone -->
+            <!-- PHONE -->
 
             <label for="phone">
 
                 Phone
+
                 <span class="required">*</span>
 
             </label>
@@ -409,11 +492,12 @@
             <input
                 type="tel"
                 id="phone"
+                name="phone"
                 required
                 placeholder="213-555-1234">
 
 
-            <!-- Website -->
+            <!-- WEBSITE -->
 
             <label for="website">
 
@@ -424,14 +508,16 @@
             <input
                 type="url"
                 id="website"
+                name="website"
                 placeholder="https://www.example.com">
 
 
-            <!-- Password -->
+            <!-- PASSWORD -->
 
             <label for="password">
 
                 Password
+
                 <span class="required">*</span>
 
             </label>
@@ -439,12 +525,13 @@
             <input
                 type="password"
                 id="password"
+                name="password"
                 required
                 minlength="8"
                 placeholder="Minimum 8 characters">
 
 
-            <!-- Button -->
+            <!-- SUBMIT BUTTON -->
 
             <button
                 type="submit"
@@ -455,17 +542,18 @@
             </button>
 
 
-            <!-- Message -->
+            <!-- MESSAGE -->
 
             <div
                 id="message"
                 class="message">
-
             </div>
 
 
         </form>
 
+
+        <!-- LOGIN -->
 
         <div class="login-link">
 
@@ -482,6 +570,10 @@
 </main>
 
 
+<!-- =========================================
+     FOOTER
+========================================= -->
+
 <footer>
 
     Primax Global, Inc.<br>
@@ -496,69 +588,75 @@
 
 
 
-<!-- Supabase -->
+<!-- =========================================
+     SUPABASE JAVASCRIPT LIBRARY
+========================================= -->
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 <script>
 
 
 /* =====================================================
-   SUPABASE CONFIGURATION
-   ===================================================== */
+   1. SUPABASE CONNECTION
+===================================================== */
 
 const SUPABASE_URL =
     "https://nhjapidacizvhebtpzah.supabase.co";
 
 
-/*
-   IMPORTANT:
-
-   Put your Supabase Publishable Key below.
-
-   DO NOT put the secret/service_role key here.
-*/
-
-const SUPABASE_ANON_KEY =
-    "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
 
 
 const supabaseClient =
     window.supabase.createClient(
+
         SUPABASE_URL,
-        SUPABASE_ANON_KEY
+
+        SUPABASE_PUBLISHABLE_KEY
+
     );
 
 
-
 /* =====================================================
-   FORM
-   ===================================================== */
+   2. GET FORM ELEMENTS
+===================================================== */
 
 const form =
     document.getElementById("vendorForm");
 
+
 const button =
     document.getElementById("registerButton");
+
 
 const message =
     document.getElementById("message");
 
 
+/* =====================================================
+   3. FORM SUBMIT
+===================================================== */
 
 form.addEventListener(
+
     "submit",
+
     async function(event) {
 
         event.preventDefault();
 
 
+        /* Clear previous message */
+
         message.className = "message";
 
         message.textContent = "";
 
+
+        /* Disable button */
 
         button.disabled = true;
 
@@ -570,8 +668,8 @@ form.addEventListener(
 
 
             /* =========================================
-               GET FORM DATA
-               ========================================= */
+               4. READ FORM DATA
+            ========================================= */
 
             const companyName =
                 document
@@ -614,23 +712,26 @@ form.addEventListener(
                 .value;
 
 
-
             /* =========================================
-               CREATE SUPABASE AUTH ACCOUNT
-               ========================================= */
+               5. CREATE SUPABASE AUTH USER
+            ========================================= */
 
             const {
+
                 data: authData,
+
                 error: authError
-            } =
-                await supabaseClient.auth.signUp({
 
-                    email: email,
+            } = await supabaseClient.auth.signUp({
 
-                    password: password
+                email: email,
 
-                });
+                password: password
 
+            });
+
+
+            /* Check Auth error */
 
             if (authError) {
 
@@ -638,6 +739,8 @@ form.addEventListener(
 
             }
 
+
+            /* Check user */
 
             if (!authData.user) {
 
@@ -652,19 +755,22 @@ form.addEventListener(
                 authData.user.id;
 
 
-
             /* =========================================
-               CREATE VENDOR PROFILE
-               ========================================= */
+               6. CREATE VENDOR PROFILE
+            ========================================= */
 
             const {
+
                 error: vendorError
-            } =
-                await supabaseClient
+
+            } = await supabaseClient
+
                 .from("vendors")
+
                 .insert({
 
-                    user_id: userId,
+                    user_id:
+                        userId,
 
                     company_name:
                         companyName,
@@ -687,6 +793,8 @@ form.addEventListener(
                 });
 
 
+            /* Check database error */
+
             if (vendorError) {
 
                 throw vendorError;
@@ -694,28 +802,37 @@ form.addEventListener(
             }
 
 
-
             /* =========================================
-               SUCCESS
-               ========================================= */
+               7. SUCCESS
+            ========================================= */
 
             message.className =
                 "message success";
+
 
             message.textContent =
                 "Registration successful! " +
                 "Please check your email to confirm your account.";
 
 
+            /* Clear form */
+
             form.reset();
 
 
         }
 
+
+        /* =============================================
+           8. ERROR
+        ============================================= */
+
         catch(error) {
 
-
-            console.error(error);
+            console.error(
+                "Registration Error:",
+                error
+            );
 
 
             message.className =
@@ -729,6 +846,10 @@ form.addEventListener(
         }
 
 
+        /* =============================================
+           9. ENABLE BUTTON AGAIN
+        ============================================= */
+
         finally {
 
             button.disabled = false;
@@ -739,6 +860,7 @@ form.addEventListener(
         }
 
     }
+
 );
 
 </script>
