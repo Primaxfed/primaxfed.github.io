@@ -11,7 +11,7 @@
     <title>Vendor Registration | Primax Global, Inc.</title>
 
     <meta name="description"
-          content="Vendor registration for Primax Global, Inc.">
+          content="Vendor registration portal for Primax Global, Inc.">
 
     <style>
 
@@ -29,42 +29,53 @@
                 sans-serif;
 
             background: #f5f7fa;
+
             color: #1f2933;
         }
 
 
-        /* ==============================
+        /* =========================================
            HEADER
-        ============================== */
+        ========================================= */
 
         header {
             background: #102a43;
             color: white;
         }
 
+
         .nav {
             max-width: 1150px;
+
             margin: auto;
 
             padding: 18px 25px;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
         }
 
+
         .logo {
             font-size: 22px;
+
             font-weight: bold;
         }
 
+
         .nav-links {
             display: flex;
+
             align-items: center;
         }
 
+
         .nav a {
             color: white;
+
             text-decoration: none;
 
             margin-left: 24px;
@@ -72,14 +83,15 @@
             font-size: 14px;
         }
 
+
         .nav a:hover {
             text-decoration: underline;
         }
 
 
-        /* ==============================
+        /* =========================================
            PAGE
-        ============================== */
+        ========================================= */
 
         .page {
 
@@ -96,9 +108,9 @@
         }
 
 
-        /* ==============================
+        /* =========================================
            REGISTRATION BOX
-        ============================== */
+        ========================================= */
 
         .register-box {
 
@@ -121,6 +133,8 @@
 
             margin-top: 0;
 
+            margin-bottom: 10px;
+
             color: #102a43;
 
             text-align: center;
@@ -136,12 +150,14 @@
             color: #52606d;
 
             margin-bottom: 35px;
+
+            line-height: 1.5;
         }
 
 
-        /* ==============================
+        /* =========================================
            FORM
-        ============================== */
+        ========================================= */
 
         label {
 
@@ -163,7 +179,8 @@
 
             margin-bottom: 20px;
 
-            border: 1px solid #cbd5e1;
+            border:
+                1px solid #cbd5e1;
 
             border-radius: 5px;
 
@@ -180,13 +197,30 @@
             border-color: #102a43;
 
             box-shadow:
-                0 0 0 2px rgba(16,42,67,0.1);
+                0 0 0 2px
+                rgba(16,42,67,0.1);
         }
 
 
-        /* ==============================
+        /* =========================================
+           PASSWORD
+        ========================================= */
+
+        .password-help {
+
+            margin-top: -12px;
+
+            margin-bottom: 20px;
+
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        /* =========================================
            BUTTON
-        ============================== */
+        ========================================= */
 
         button {
 
@@ -224,9 +258,9 @@
         }
 
 
-        /* ==============================
+        /* =========================================
            MESSAGE
-        ============================== */
+        ========================================= */
 
         .message {
 
@@ -239,6 +273,8 @@
             display: none;
 
             text-align: center;
+
+            line-height: 1.5;
         }
 
 
@@ -262,9 +298,9 @@
         }
 
 
-        /* ==============================
+        /* =========================================
            LOGIN LINK
-        ============================== */
+        ========================================= */
 
         .login-link {
 
@@ -273,6 +309,8 @@
             margin-top: 25px;
 
             color: #52606d;
+
+            line-height: 1.5;
         }
 
 
@@ -298,9 +336,9 @@
         }
 
 
-        /* ==============================
+        /* =========================================
            FOOTER
-        ============================== */
+        ========================================= */
 
         footer {
 
@@ -313,12 +351,14 @@
             padding: 25px;
 
             font-size: 14px;
+
+            line-height: 1.6;
         }
 
 
-        /* ==============================
+        /* =========================================
            MOBILE
-        ============================== */
+        ========================================= */
 
         @media (max-width: 700px) {
 
@@ -327,20 +367,28 @@
                 flex-direction: column;
             }
 
+
             .nav-links {
 
                 margin-top: 15px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
             }
+
 
             .nav a {
 
                 margin: 5px 8px;
             }
 
+
             .register-box {
 
                 padding: 25px;
             }
+
 
             h1 {
 
@@ -369,23 +417,28 @@
             Primax Global, Inc.
         </div>
 
+
         <div class="nav-links">
 
             <a href="index.html">
                 Home
             </a>
 
+
             <a href="index.html#government">
                 Government
             </a>
+
 
             <a href="products.html">
                 Products
             </a>
 
+
             <a href="index.html#about">
                 About
             </a>
+
 
             <a href="index.html#contact">
                 Contact
@@ -398,6 +451,7 @@
 </header>
 
 
+
 <!-- =========================================
      REGISTRATION PAGE
 ========================================= -->
@@ -406,9 +460,11 @@
 
     <div class="register-box">
 
+
         <h1>
             Vendor Registration
         </h1>
+
 
         <p class="subtitle">
 
@@ -416,6 +472,7 @@
             Primax Global, Inc.
 
         </p>
+
 
 
         <!-- =====================================
@@ -435,12 +492,16 @@
 
             </label>
 
+
             <input
                 type="text"
                 id="company_name"
                 name="company_name"
                 required
+                autocomplete="organization"
+                maxlength="200"
                 placeholder="Your Company Name">
+
 
 
             <!-- CONTACT NAME -->
@@ -453,12 +514,16 @@
 
             </label>
 
+
             <input
                 type="text"
                 id="contact_name"
                 name="contact_name"
                 required
+                autocomplete="name"
+                maxlength="150"
                 placeholder="Full Name">
+
 
 
             <!-- EMAIL -->
@@ -471,12 +536,16 @@
 
             </label>
 
+
             <input
                 type="email"
                 id="email"
                 name="email"
                 required
+                autocomplete="email"
+                maxlength="254"
                 placeholder="company@example.com">
+
 
 
             <!-- PHONE -->
@@ -489,12 +558,16 @@
 
             </label>
 
+
             <input
                 type="tel"
                 id="phone"
                 name="phone"
                 required
+                autocomplete="tel"
+                maxlength="30"
                 placeholder="213-555-1234">
+
 
 
             <!-- WEBSITE -->
@@ -505,11 +578,15 @@
 
             </label>
 
+
             <input
                 type="url"
                 id="website"
                 name="website"
+                autocomplete="url"
+                maxlength="500"
                 placeholder="https://www.example.com">
+
 
 
             <!-- PASSWORD -->
@@ -522,16 +599,26 @@
 
             </label>
 
+
             <input
                 type="password"
                 id="password"
                 name="password"
                 required
                 minlength="8"
+                autocomplete="new-password"
                 placeholder="Minimum 8 characters">
 
 
-            <!-- SUBMIT BUTTON -->
+            <div class="password-help">
+
+                Password must contain at least 8 characters.
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
 
             <button
                 type="submit"
@@ -540,6 +627,7 @@
                 Create Vendor Account
 
             </button>
+
 
 
             <!-- MESSAGE -->
@@ -551,6 +639,7 @@
 
 
         </form>
+
 
 
         <!-- LOGIN -->
@@ -565,9 +654,11 @@
 
         </div>
 
+
     </div>
 
 </main>
+
 
 
 <!-- =========================================
@@ -595,12 +686,12 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
+
 <script>
 
-
-/* =====================================================
-   1. SUPABASE CONNECTION
-===================================================== */
+/* =================================================
+   1. SUPABASE CONFIGURATION
+================================================= */
 
 const SUPABASE_URL =
     "https://nhjapidacizvhebtpzah.supabase.co";
@@ -612,17 +703,15 @@ const SUPABASE_PUBLISHABLE_KEY =
 
 const supabaseClient =
     window.supabase.createClient(
-
         SUPABASE_URL,
-
         SUPABASE_PUBLISHABLE_KEY
-
     );
 
 
-/* =====================================================
-   2. GET FORM ELEMENTS
-===================================================== */
+
+/* =================================================
+   2. FORM ELEMENTS
+================================================= */
 
 const form =
     document.getElementById("vendorForm");
@@ -636,27 +725,48 @@ const message =
     document.getElementById("message");
 
 
-/* =====================================================
-   3. FORM SUBMIT
-===================================================== */
+
+/* =================================================
+   3. MESSAGE FUNCTION
+================================================= */
+
+function showMessage(text, type) {
+
+    message.className =
+        "message " + type;
+
+    message.textContent =
+        text;
+
+}
+
+
+
+/* =================================================
+   4. FORM SUBMIT
+================================================= */
 
 form.addEventListener(
-
     "submit",
-
     async function(event) {
 
         event.preventDefault();
 
 
-        /* Clear previous message */
+        /* -----------------------------------------
+           Clear previous message
+        ----------------------------------------- */
 
-        message.className = "message";
+        message.className =
+            "message";
 
-        message.textContent = "";
+        message.textContent =
+            "";
 
 
-        /* Disable button */
+        /* -----------------------------------------
+           Disable button
+        ----------------------------------------- */
 
         button.disabled = true;
 
@@ -667,9 +777,9 @@ form.addEventListener(
         try {
 
 
-            /* =========================================
-               4. READ FORM DATA
-            ========================================= */
+            /* =====================================
+               5. READ FORM DATA
+            ===================================== */
 
             const companyName =
                 document
@@ -689,7 +799,8 @@ form.addEventListener(
                 document
                 .getElementById("email")
                 .value
-                .trim();
+                .trim()
+                .toLowerCase();
 
 
             const phone =
@@ -712,9 +823,60 @@ form.addEventListener(
                 .value;
 
 
-            /* =========================================
-               5. CREATE SUPABASE AUTH USER
-            ========================================= */
+
+            /* =====================================
+               6. BASIC VALIDATION
+            ===================================== */
+
+            if (!companyName) {
+
+                throw new Error(
+                    "Please enter your company name."
+                );
+
+            }
+
+
+            if (!contactName) {
+
+                throw new Error(
+                    "Please enter your contact name."
+                );
+
+            }
+
+
+            if (!email) {
+
+                throw new Error(
+                    "Please enter your email address."
+                );
+
+            }
+
+
+            if (!phone) {
+
+                throw new Error(
+                    "Please enter your phone number."
+                );
+
+            }
+
+
+            if (password.length < 8) {
+
+                throw new Error(
+                    "Password must contain at least 8 characters."
+                );
+
+            }
+
+
+
+            /* =====================================
+               7. CREATE SUPABASE AUTH ACCOUNT
+            ===================================== */
 
             const {
 
@@ -726,12 +888,23 @@ form.addEventListener(
 
                 email: email,
 
-                password: password
+                password: password,
+
+                options: {
+
+                    emailRedirectTo:
+                        window.location.origin +
+                        "/vendor-login.html"
+
+                }
 
             });
 
 
-            /* Check Auth error */
+
+            /* =====================================
+               8. AUTH ERROR
+            ===================================== */
 
             if (authError) {
 
@@ -740,12 +913,10 @@ form.addEventListener(
             }
 
 
-            /* Check user */
-
             if (!authData.user) {
 
                 throw new Error(
-                    "Account could not be created."
+                    "Unable to create your account. Please try again."
                 );
 
             }
@@ -755,11 +926,14 @@ form.addEventListener(
                 authData.user.id;
 
 
-            /* =========================================
-               6. CREATE VENDOR PROFILE
-            ========================================= */
+
+            /* =====================================
+               9. CREATE VENDOR PROFILE
+            ===================================== */
 
             const {
+
+                data: vendorData,
 
                 error: vendorError
 
@@ -790,65 +964,164 @@ form.addEventListener(
                     status:
                         "pending"
 
-                });
+                })
+
+                .select(
+                    "id, company_name, contact_name, email, status"
+                )
+
+                .single();
 
 
-            /* Check database error */
+
+            /* =====================================
+               10. VENDOR DATABASE ERROR
+            ===================================== */
 
             if (vendorError) {
 
-                throw vendorError;
+                console.error(
+                    "Vendor profile error:",
+                    vendorError
+                );
+
+
+                /*
+                   The Auth account may already exist.
+                   Tell the user to contact Primax
+                   rather than exposing database details.
+                */
+
+                throw new Error(
+                    "Your account was created, but your vendor profile could not be completed. " +
+                    "Please contact Primax Global support."
+                );
 
             }
 
 
-            /* =========================================
-               7. SUCCESS
-            ========================================= */
 
-            message.className =
-                "message success";
+            /* =====================================
+               11. SAVE NON-SENSITIVE INFORMATION
+            ===================================== */
+
+            localStorage.setItem(
+                "primax_vendor_company",
+                vendorData.company_name
+            );
 
 
-            message.textContent =
+            localStorage.setItem(
+                "primax_vendor_status",
+                vendorData.status
+            );
+
+
+
+            /* =====================================
+               12. SUCCESS MESSAGE
+            ===================================== */
+
+            showMessage(
+
                 "Registration successful! " +
-                "Please check your email to confirm your account.";
+                "Please check your email to confirm your account. " +
+                "After confirmation, you can sign in through Vendor Login.",
+
+                "success"
+
+            );
 
 
-            /* Clear form */
+            /* Clear password field */
 
-            form.reset();
+            document
+                .getElementById("password")
+                .value = "";
+
+
+            /* Keep company/contact information visible */
 
 
         }
 
 
-        /* =============================================
-           8. ERROR
-        ============================================= */
+        /* =========================================
+           13. ERROR HANDLING
+        ========================================= */
 
         catch(error) {
 
             console.error(
-                "Registration Error:",
+                "Vendor registration error:",
                 error
             );
 
 
-            message.className =
-                "message error";
-
-
-            message.textContent =
-                error.message ||
+            let errorMessage =
                 "Registration failed. Please try again.";
+
+
+            /* -------------------------------------
+               Common Supabase errors
+            ------------------------------------- */
+
+            if (
+                error.message &&
+                error.message.toLowerCase()
+                    .includes("user already registered")
+            ) {
+
+                errorMessage =
+                    "An account with this email already exists. " +
+                    "Please use Vendor Login or reset your password.";
+
+            }
+
+
+            else if (
+                error.message &&
+                error.message.toLowerCase()
+                    .includes("password")
+            ) {
+
+                errorMessage =
+                    error.message;
+
+            }
+
+
+            else if (
+                error.message &&
+                error.message.toLowerCase()
+                    .includes("invalid email")
+            ) {
+
+                errorMessage =
+                    "Please enter a valid email address.";
+
+            }
+
+
+            else if (error.message) {
+
+                errorMessage =
+                    error.message;
+
+            }
+
+
+            showMessage(
+                errorMessage,
+                "error"
+            );
 
         }
 
 
-        /* =============================================
-           9. ENABLE BUTTON AGAIN
-        ============================================= */
+        /* =========================================
+           14. ENABLE BUTTON
+        ========================================= */
 
         finally {
 
@@ -860,7 +1133,6 @@ form.addEventListener(
         }
 
     }
-
 );
 
 </script>
