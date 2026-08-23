@@ -1,1 +1,426 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Products | Primax Global, Inc.</title>
+
+    <meta name="description"
+          content="Products and vendor categories supplied by Primax Global, Inc.">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #1f2933;
+            line-height: 1.6;
+            background: #ffffff;
+        }
+
+        header {
+            background: #102a43;
+            color: white;
+        }
+
+        .nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: #243b53;
+            color: white;
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin: 0 0 15px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #d9e2ec;
+        }
+
+        .container {
+            max-width: 1050px;
+            margin: auto;
+            padding: 60px 25px;
+        }
+
+        h2 {
+            color: #102a43;
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .intro {
+            font-size: 18px;
+            color: #52606d;
+            margin-bottom: 45px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+        }
+
+        .product-card {
+            border: 1px solid #d9e2ec;
+            border-radius: 7px;
+            padding: 30px;
+            background: #f8fafc;
+        }
+
+        .product-card h3 {
+            color: #102a43;
+            font-size: 22px;
+            margin-top: 0;
+        }
+
+        .product-card p {
+            color: #52606d;
+        }
+
+        .product-card ul {
+            padding-left: 20px;
+        }
+
+        .vendor {
+            margin-top: 50px;
+        }
+
+        .vendor-card {
+            border-left: 4px solid #102a43;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            background: #f8fafc;
+        }
+
+        .vendor-card h3 {
+            margin-top: 0;
+            color: #102a43;
+        }
+
+        .contact {
+            background: #102a43;
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        footer {
+            background: #0b1f33;
+            color: #bcccdc;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 750px) {
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+            }
+
+            .nav a {
+                margin: 0 7px;
+                font-size: 13px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="nav">
+
+        <div class="logo">
+            Primax Global, Inc.
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">Home</a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#government">
+                Government
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <h1>Products & Vendors</h1>
+
+    <p>
+        Selected products and solutions available
+        through the Primax Global vendor network.
+    </p>
+
+</section>
+
+
+<div class="container">
+
+
+    <h2>Product Categories</h2>
+
+    <p class="intro">
+
+        Primax Global, Inc. works with qualified manufacturers,
+        distributors, and vendors to provide products for
+        government, enterprise, and commercial customers.
+
+    </p>
+
+
+    <div class="product-grid">
+
+
+        <div class="product-card">
+
+            <h3>IT Hardware & Electronics</h3>
+
+            <p>
+                Technology products and equipment supporting
+                government and enterprise operations.
+            </p>
+
+            <ul>
+                <li>Computers & Workstations</li>
+                <li>Computer Accessories</li>
+                <li>Networking Equipment</li>
+                <li>Peripherals</li>
+                <li>Electronics</li>
+            </ul>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <h3>Cosmetics & Personal Care</h3>
+
+            <p>
+                Selected beauty, skincare, personal care,
+                and grooming products from qualified vendors.
+            </p>
+
+            <ul>
+                <li>Skincare Products</li>
+                <li>Beauty Products</li>
+                <li>Personal Care</li>
+                <li>Grooming Products</li>
+            </ul>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <h3>Commercial Products</h3>
+
+            <p>
+                A growing selection of commercial and
+                specialty products for institutional and
+                government procurement.
+            </p>
+
+            <ul>
+                <li>Consumer Products</li>
+                <li>Office Products</li>
+                <li>Commercial Supplies</li>
+                <li>Specialty Products</li>
+            </ul>
+
+        </div>
+
+
+        <div class="product-card">
+
+            <h3>Industrial & Specialty Products</h3>
+
+            <p>
+                Equipment, components, supplies, and
+                specialty products sourced according to
+                customer requirements.
+            </p>
+
+            <ul>
+                <li>Industrial Equipment</li>
+                <li>Components</li>
+                <li>Maintenance Supplies</li>
+                <li>Specialty Equipment</li>
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="vendor">
+
+        <h2>Featured Vendors</h2>
+
+        <p class="intro">
+
+            Our vendor portfolio includes manufacturers,
+            distributors, and product suppliers supporting
+            our government and commercial customers.
+
+        </p>
+
+
+        <!-- Replace the examples below with your actual vendors -->
+
+        <div class="vendor-card">
+
+            <h3>Vendor Name</h3>
+
+            <p>
+                Cosmetics and personal care products including
+                skincare, beauty, and grooming products.
+            </p>
+
+            <strong>
+                Product Categories:
+            </strong>
+
+            Skincare · Beauty · Personal Care
+
+        </div>
+
+
+        <div class="vendor-card">
+
+            <h3>Vendor Name</h3>
+
+            <p>
+                Technology and electronic products supporting
+                business and government requirements.
+            </p>
+
+            <strong>
+                Product Categories:
+            </strong>
+
+            IT Hardware · Electronics · Accessories
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<section class="contact">
+
+    <div class="container">
+
+        <h2>Government & Enterprise Supply</h2>
+
+        <p>
+            For product availability, government procurement
+            requirements, or vendor inquiries, please contact
+            Primax Global, Inc.
+        </p>
+
+        <p>
+            <strong>
+                sales@primaxfed.com
+            </strong>
+            <br>
+            213-247-0011
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    &copy; 2026 Primax Global, Inc.
+    All Rights Reserved.
+
+</footer>
+
+
+</body>
+
+</html>
