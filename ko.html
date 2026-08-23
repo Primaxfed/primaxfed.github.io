@@ -11,7 +11,7 @@
     <title>Primax Global, Inc. | 미국 정부조달 공급업체</title>
 
     <meta name="description"
-          content="Primax Global, Inc.는 미국 연방정부 및 공공기관에 다양한 제품과 솔루션을 공급하는 승인된 정부조달 공급업체입니다.">
+          content="Primax Global, Inc.는 미국 연방정부 및 공공기관에 다양한 제품과 솔루션을 공급하는 정부조달 전문기업입니다. 제조업체 및 공급업체와 협력하여 정부조달 시장에 제품을 공급합니다.">
 
     <style>
 
@@ -21,357 +21,757 @@
 
         body {
             margin: 0;
+
             font-family:
                 Arial,
                 "Noto Sans KR",
                 "Malgun Gothic",
                 sans-serif;
+
             color: #1f2933;
+
             line-height: 1.7;
+
             background: #ffffff;
         }
 
-        /* =========================
-           Navigation
-        ========================= */
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
 
         header {
+
             background: #102a43;
+
             color: white;
+
             position: sticky;
+
             top: 0;
+
             z-index: 1000;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+
+            box-shadow:
+                0 2px 8px rgba(0,0,0,0.15);
         }
 
+
         .nav {
+
             max-width: 1150px;
+
             margin: auto;
+
             padding: 18px 25px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
         }
 
+
         .logo {
+
             font-size: 22px;
+
             font-weight: bold;
+
             letter-spacing: 0.3px;
+
             white-space: nowrap;
         }
 
+
         .nav-links {
+
             display: flex;
+
             align-items: center;
+
+            flex-wrap: wrap;
         }
 
+
         .nav a {
+
             color: white;
+
             text-decoration: none;
-            margin-left: 25px;
+
+            margin-left: 22px;
+
             font-size: 14px;
+
             font-weight: 500;
         }
 
+
         .nav a:hover {
+
             color: #d9e2ec;
         }
 
+
         .language {
-            border-left: 1px solid rgba(255,255,255,0.35);
+
+            border-left:
+                1px solid
+                rgba(255,255,255,0.35);
+
             padding-left: 20px;
-            margin-left: 10px;
+
+            margin-left: 15px !important;
         }
 
-        /* =========================
-           Hero
-        ========================= */
+
+        /* =========================================
+           VENDOR NAV BUTTON
+        ========================================= */
+
+        .vendor-nav {
+
+            background: white;
+
+            color: #102a43 !important;
+
+            padding: 8px 14px;
+
+            border-radius: 5px;
+
+            font-weight: bold !important;
+        }
+
+
+        .vendor-nav:hover {
+
+            background: #e6edf3;
+
+            color: #102a43 !important;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
 
         .hero {
+
             background:
+
                 linear-gradient(
                     rgba(16,42,67,0.97),
                     rgba(36,59,83,0.97)
                 );
 
             color: white;
+
             text-align: center;
+
             padding: 95px 20px;
         }
 
+
         .hero h1 {
+
             font-size: 46px;
-            margin: 0 0 18px;
+
+            margin:
+                0 0 18px;
+
             letter-spacing: 0.5px;
         }
 
+
         .hero h2 {
+
             color: white;
+
             font-size: 24px;
-            margin: 0 0 20px;
+
+            margin:
+                0 0 20px;
+
             font-weight: normal;
         }
 
+
         .hero p {
+
             max-width: 800px;
+
             margin: auto;
+
             font-size: 18px;
+
             color: #d9e2ec;
         }
 
-        .hero-button {
-            display: inline-block;
+
+        .hero-buttons {
+
             margin-top: 30px;
-            padding: 13px 28px;
+
+            display: flex;
+
+            justify-content: center;
+
+            gap: 12px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .hero-button {
+
+            display: inline-block;
+
+            padding:
+                13px 28px;
+
             background: white;
+
             color: #102a43;
+
             text-decoration: none;
+
             border-radius: 5px;
+
             font-weight: bold;
         }
 
+
         .hero-button:hover {
+
             background: #e6edf3;
         }
 
-        /* =========================
-           General
-        ========================= */
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 70px 25px;
+        .hero-button.secondary {
+
+            background: transparent;
+
+            color: white;
+
+            border:
+                1px solid
+                rgba(255,255,255,0.7);
         }
 
+
+        .hero-button.secondary:hover {
+
+            background:
+                rgba(255,255,255,0.1);
+        }
+
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
+        .container {
+
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding:
+                70px 25px;
+        }
+
+
         h2 {
+
             color: #102a43;
+
             font-size: 30px;
+
             margin-top: 0;
+
             margin-bottom: 20px;
         }
 
+
         .section-intro {
+
             max-width: 850px;
+
             color: #52606d;
+
             font-size: 17px;
         }
 
-        /* =========================
-           About
-        ========================= */
+
+        /* =========================================
+           ABOUT
+        ========================================= */
 
         .about-box {
+
             background: #f5f7fa;
-            border-left: 5px solid #102a43;
+
+            border-left:
+                5px solid #102a43;
+
             padding: 30px;
+
             margin-top: 30px;
         }
 
-        /* =========================
-           Government
-        ========================= */
+
+        /* =========================================
+           GOVERNMENT
+        ========================================= */
 
         .government {
+
             background: #f5f7fa;
         }
 
+
         .government-grid {
+
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
             gap: 25px;
+
             margin-top: 35px;
         }
 
+
         .government-card {
+
             background: white;
-            border: 1px solid #d9e2ec;
+
+            border:
+                1px solid #d9e2ec;
+
             padding: 28px;
+
             border-radius: 6px;
         }
 
+
         .government-card h3 {
+
             color: #102a43;
+
             margin-top: 0;
+
             font-size: 20px;
         }
 
+
         .government-card p {
+
             color: #52606d;
+
             margin-bottom: 0;
         }
 
-        /* =========================
-           Services
-        ========================= */
+
+        /* =========================================
+           SERVICES
+        ========================================= */
 
         .service-grid {
+
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
             gap: 25px;
+
             margin-top: 35px;
         }
 
+
         .service-card {
-            border: 1px solid #d9e2ec;
+
+            border:
+                1px solid #d9e2ec;
+
             border-radius: 6px;
+
             padding: 28px;
+
             background: white;
         }
 
+
         .service-card h3 {
+
             color: #102a43;
+
             margin-top: 0;
+
             font-size: 20px;
         }
 
+
         .service-card p {
+
             color: #52606d;
         }
 
-        /* =========================
-           Products
-        ========================= */
+
+        /* =========================================
+           PRODUCTS
+        ========================================= */
 
         .products {
+
             background: white;
         }
 
+
         .product-button {
+
             display: inline-block;
+
             margin-top: 15px;
-            padding: 11px 22px;
+
+            padding:
+                11px 22px;
+
             background: #102a43;
+
             color: white;
+
             text-decoration: none;
+
             border-radius: 5px;
         }
 
+
         .product-button:hover {
+
             background: #243b53;
         }
 
-        /* =========================
-           Company Information
-        ========================= */
 
-        .company-info {
+        /* =========================================
+           VENDOR SECTION
+        ========================================= */
+
+        .vendor-section {
+
             background: #f5f7fa;
         }
 
+
+        .vendor-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 25px;
+
+            margin-top: 35px;
+        }
+
+
+        .vendor-card {
+
+            background: white;
+
+            border:
+                1px solid #d9e2ec;
+
+            border-radius: 8px;
+
+            padding: 32px;
+
+            box-shadow:
+                0 3px 12px
+                rgba(0,0,0,0.04);
+        }
+
+
+        .vendor-card h3 {
+
+            margin-top: 0;
+
+            color: #102a43;
+
+            font-size: 21px;
+        }
+
+
+        .vendor-card p {
+
+            color: #52606d;
+
+            min-height: 75px;
+        }
+
+
+        .vendor-button {
+
+            display: inline-block;
+
+            padding:
+                11px 20px;
+
+            border-radius: 5px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            background: #102a43;
+
+            color: white;
+        }
+
+
+        .vendor-button:hover {
+
+            background: #243b53;
+        }
+
+
+        .vendor-button.outline {
+
+            background: white;
+
+            color: #102a43;
+
+            border:
+                1px solid #102a43;
+
+            margin-left: 8px;
+        }
+
+
+        .vendor-button.outline:hover {
+
+            background: #f0f4f8;
+        }
+
+
+        .vendor-note {
+
+            margin-top: 25px;
+
+            padding: 18px 20px;
+
+            background: #e8f1f8;
+
+            border-left:
+                4px solid #102a43;
+
+            color: #334e68;
+
+            border-radius: 4px;
+        }
+
+
+        /* =========================================
+           COMPANY INFORMATION
+        ========================================= */
+
+        .company-info {
+
+            background: white;
+        }
+
+
         .company-table {
+
             width: 100%;
+
             max-width: 800px;
+
             border-collapse: collapse;
+
             margin-top: 30px;
         }
 
+
         .company-table td {
+
             padding: 15px;
-            border-bottom: 1px solid #d9e2ec;
+
+            border-bottom:
+                1px solid #d9e2ec;
         }
+
 
         .company-table td:first-child {
+
             width: 220px;
+
             font-weight: bold;
+
             color: #102a43;
         }
 
+
         .company-table a {
+
             color: #102a43;
+
             text-decoration: none;
         }
 
+
         .company-table a:hover {
+
             text-decoration: underline;
         }
 
-        /* =========================
-           Contact
-        ========================= */
+
+        /* =========================================
+           CONTACT
+        ========================================= */
 
         .contact {
+
             background: #102a43;
+
             color: white;
         }
+
 
         .contact h2 {
+
             color: white;
         }
 
+
         .contact p {
+
             color: #d9e2ec;
         }
 
+
         .contact a {
+
             color: white;
+
             text-decoration: none;
         }
 
+
         .contact a:hover {
+
             text-decoration: underline;
         }
 
-        /* =========================
-           Footer
-        ========================= */
+
+        /* =========================================
+           FOOTER
+        ========================================= */
 
         footer {
+
             background: #0b1f33;
+
             color: #bcccdc;
+
             text-align: center;
+
             padding: 28px 20px;
+
             font-size: 14px;
         }
 
-        /* =========================
-           Mobile
-        ========================= */
+
+        /* =========================================
+           MOBILE
+        ========================================= */
 
         @media (max-width: 800px) {
 
             .nav {
+
                 flex-direction: column;
+
                 padding: 15px;
             }
 
+
             .nav-links {
+
                 margin-top: 12px;
+
                 flex-wrap: wrap;
+
                 justify-content: center;
             }
 
+
             .nav a {
-                margin: 5px 8px;
+
+                margin:
+                    5px 8px;
+
                 font-size: 13px;
             }
 
+
             .language {
+
                 border-left: none;
+
                 padding-left: 0;
-                margin-left: 0;
+
+                margin-left: 0 !important;
             }
+
 
             .hero {
-                padding: 70px 20px;
+
+                padding:
+                    70px 20px;
             }
 
+
             .hero h1 {
+
                 font-size: 36px;
             }
 
+
             .hero h2 {
+
                 font-size: 20px;
             }
 
+
             .government-grid,
-            .service-grid {
+
+            .service-grid,
+
+            .vendor-grid {
+
                 grid-template-columns: 1fr;
             }
 
+
             .company-table td:first-child {
+
                 width: 35%;
             }
+
+
+            .vendor-button.outline {
+
+                margin-left: 0;
+
+                margin-top: 10px;
+            }
+
         }
 
     </style>
@@ -382,44 +782,76 @@
 <body>
 
 
-<!-- =========================
-     Navigation
-========================= -->
+<!-- =========================================
+     NAVIGATION
+========================================= -->
 
 <header>
 
     <div class="nav">
 
+
         <div class="logo">
+
             Primax Global, Inc.
+
         </div>
 
+
         <div class="nav-links">
+
 
             <a href="ko.html">
                 홈
             </a>
 
+
             <a href="ko.html#government">
                 정부조달
             </a>
 
-            <!-- 중요: 제품은 영어 products.html로 연결 -->
+
             <a href="products.html">
                 제품
             </a>
+
+
+            <a href="ko.html#vendor">
+                공급업체
+            </a>
+
 
             <a href="ko.html#about">
                 회사소개
             </a>
 
+
             <a href="ko.html#contact">
                 연락처
             </a>
 
-            <a href="index.html" class="language">
-                English
+
+            <!-- VENDOR LOGIN -->
+
+            <a
+                href="vendor-login.html"
+                class="vendor-nav">
+
+                Vendor Login
+
             </a>
+
+
+            <!-- LANGUAGE -->
+
+            <a
+                href="index.html"
+                class="language">
+
+                English
+
+            </a>
+
 
         </div>
 
@@ -428,104 +860,155 @@
 </header>
 
 
-<!-- =========================
-     Hero
-========================= -->
+
+<!-- =========================================
+     HERO
+========================================= -->
 
 <section class="hero">
 
+
     <h1>
+
         Primax Global, Inc.
+
     </h1>
 
+
     <h2>
+
         미국 정부조달 및 기업용 제품 공급업체
+
     </h2>
+
 
     <p>
 
-        Primax Global, Inc.는 미국 연방정부 및 공공기관을 비롯하여
-        기업 고객에게 다양한 제품과 솔루션을 공급하는
+        Primax Global, Inc.는 미국 연방정부 및
+        공공기관을 비롯하여 기업 고객에게
+        다양한 제품과 솔루션을 공급하는
         정부조달 전문 기업입니다.
 
     </p>
 
-    <a class="hero-button"
-       href="ko.html#government">
 
-        정부조달 사업 보기
+    <div class="hero-buttons">
 
-    </a>
+
+        <a
+            class="hero-button"
+            href="ko.html#government">
+
+            정부조달 사업 보기
+
+        </a>
+
+
+        <a
+            class="hero-button secondary"
+            href="#vendor">
+
+            공급업체 등록
+
+        </a>
+
+
+    </div>
+
 
 </section>
 
 
-<!-- =========================
-     About
-========================= -->
+
+<!-- =========================================
+     ABOUT
+========================================= -->
 
 <section id="about">
 
+
     <div class="container">
 
+
         <h2>
+
             회사소개
+
         </h2>
+
 
         <p class="section-intro">
 
-            Primax Global, Inc.는 미국 캘리포니아주에 기반을 둔
-            정부조달 및 기업용 제품 공급업체입니다.
+            Primax Global, Inc.는 미국 캘리포니아주에
+            기반을 둔 정부조달 및 기업용 제품
+            공급업체입니다.
 
-            당사는 IT 하드웨어, 전자제품, 상업용 제품,
-            산업용 및 전문 제품 등 다양한 제품을
-            고객의 요구사항에 맞추어 공급하고 있습니다.
+            당사는 IT 하드웨어, 전자제품,
+            상업용 제품, 산업용 및 전문 제품 등
+            다양한 제품을 고객의 요구사항에 맞추어
+            공급하고 있습니다.
 
         </p>
 
 
         <div class="about-box">
 
+
             <strong>
-                정부 및 공공기관을 위한 신뢰할 수 있는 공급 파트너
+
+                정부 및 공공기관을 위한
+                신뢰할 수 있는 공급 파트너
+
             </strong>
+
 
             <p>
 
-                Primax Global은 제조업체 및 유통업체와 협력하여
-                정부기관 및 기업 고객의 구매 요구사항에 맞는
+                Primax Global은 제조업체 및
+                유통업체와 협력하여 정부기관 및
+                기업 고객의 구매 요구사항에 맞는
                 다양한 제품을 sourcing하고 공급합니다.
 
-                고객의 조달 요구에 신속하고 효율적으로 대응하는 것을
-                핵심 가치로 하고 있습니다.
+                고객의 조달 요구에 신속하고 효율적으로
+                대응하는 것을 핵심 가치로 하고 있습니다.
 
             </p>
 
+
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- =========================
-     Government
-========================= -->
 
-<section id="government"
-         class="government">
+<!-- =========================================
+     GOVERNMENT
+========================================= -->
+
+<section
+    id="government"
+    class="government">
+
 
     <div class="container">
 
+
         <h2>
+
             미국 정부조달
+
         </h2>
+
 
         <p class="section-intro">
 
-            Primax Global, Inc.는 미국 정부 및 공공기관의
-            조달시장에 참여하는 승인된 공급업체로서
-            다양한 제품과 장비를 공급하고 있습니다.
+            Primax Global, Inc.는 미국 정부 및
+            공공기관의 조달시장에 참여하여
+            다양한 제품과 장비를 공급합니다.
 
         </p>
 
@@ -535,25 +1018,35 @@
 
             <div class="government-card">
 
+
                 <h3>
+
                     Federal Government
+
                 </h3>
+
 
                 <p>
 
-                    미국 연방정부 기관의 제품 및 장비
-                    조달 요구사항에 대응합니다.
+                    미국 연방정부 기관의
+                    제품 및 장비 조달 요구사항에
+                    대응합니다.
 
                 </p>
+
 
             </div>
 
 
             <div class="government-card">
 
+
                 <h3>
+
                     Defense Procurement
+
                 </h3>
+
 
                 <p>
 
@@ -562,49 +1055,63 @@
 
                 </p>
 
+
             </div>
 
 
             <div class="government-card">
 
+
                 <h3>
+
                     Government Marketplaces
+
                 </h3>
+
 
                 <p>
 
                     FedMall 및 미국 정부기관의
-                    전자조달 환경에서 요구되는 제품을
-                    공급하는 정부조달 사업자입니다.
+                    전자조달 환경에서 요구되는
+                    다양한 제품을 공급합니다.
 
                 </p>
+
 
             </div>
 
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- =========================
-     Services
-========================= -->
+
+<!-- =========================================
+     SERVICES
+========================================= -->
 
 <section>
 
+
     <div class="container">
 
+
         <h2>
+
             주요 사업분야
+
         </h2>
+
 
         <p class="section-intro">
 
-            고객의 조달 요구사항에 맞춰 다양한 제품군을
-            sourcing하고 공급합니다.
+            고객의 조달 요구사항에 맞춰
+            다양한 제품군을 sourcing하고 공급합니다.
 
         </p>
 
@@ -614,9 +1121,13 @@
 
             <div class="service-card">
 
+
                 <h3>
+
                     IT 하드웨어 및 전자제품
+
                 </h3>
+
 
                 <p>
 
@@ -626,46 +1137,63 @@
 
                 </p>
 
+
             </div>
 
 
             <div class="service-card">
 
+
                 <h3>
+
                     정부 및 공공기관 조달
+
                 </h3>
+
 
                 <p>
 
-                    정부기관 및 공공부문의 구매 요구사항에
-                    맞는 제품을 sourcing하고 공급합니다.
+                    정부기관 및 공공부문의 구매
+                    요구사항에 맞는 제품을 sourcing하고
+                    공급합니다.
 
                 </p>
+
 
             </div>
 
 
             <div class="service-card">
 
+
                 <h3>
+
                     기업용 제품
+
                 </h3>
+
 
                 <p>
 
                     기업 및 기관의 운영에 필요한
-                    다양한 상업용 제품과 장비를 제공합니다.
+                    다양한 상업용 제품과 장비를
+                    제공합니다.
 
                 </p>
+
 
             </div>
 
 
             <div class="service-card">
 
+
                 <h3>
+
                     산업 및 전문 제품
+
                 </h3>
+
 
                 <p>
 
@@ -675,27 +1203,36 @@
 
                 </p>
 
+
             </div>
 
 
         </div>
 
+
     </div>
+
 
 </section>
 
 
-<!-- =========================
-     Products
-========================= -->
+
+<!-- =========================================
+     PRODUCTS
+========================================= -->
 
 <section class="products">
 
+
     <div class="container">
 
+
         <h2>
+
             제품 및 공급업체
+
         </h2>
+
 
         <p class="section-intro">
 
@@ -706,30 +1243,165 @@
         </p>
 
 
-        <!-- 정확히 products.html로 연결 -->
-
-        <a class="product-button"
-           href="products.html">
+        <a
+            class="product-button"
+            href="products.html">
 
             제품 및 공급업체 보기 →
 
         </a>
 
+
     </div>
+
 
 </section>
 
 
-<!-- =========================
-     Company Information
-========================= -->
 
-<section class="company-info">
+<!-- =========================================
+     VENDOR PARTNER SECTION
+========================================= -->
+
+<section
+    id="vendor"
+    class="vendor-section">
+
 
     <div class="container">
 
+
         <h2>
+
+            공급업체 파트너
+
+        </h2>
+
+
+        <p class="section-intro">
+
+            Primax Global, Inc.는 미국 정부조달 및
+            기업시장에 제품을 공급하기 위해
+            제조업체, 유통업체 및 전문 공급업체와
+            협력하고 있습니다.
+
+            귀사의 제품을 Primax Global의
+            공급업체 네트워크에 등록하실 수 있습니다.
+
+        </p>
+
+
+        <div class="vendor-grid">
+
+
+            <!-- REGISTER -->
+
+            <div class="vendor-card">
+
+
+                <h3>
+
+                    새로운 공급업체 등록
+
+                </h3>
+
+
+                <p>
+
+                    Primax Global과 함께
+                    정부조달 및 기업시장에
+                    제품을 공급하고자 하는
+                    제조업체 및 공급업체는
+                    온라인으로 등록할 수 있습니다.
+
+                </p>
+
+
+                <a
+                    href="vendor-register.htm"
+                    class="vendor-button">
+
+                    Vendor Registration
+
+                </a>
+
+
+            </div>
+
+
+
+            <!-- LOGIN -->
+
+            <div class="vendor-card">
+
+
+                <h3>
+
+                    기존 공급업체 로그인
+
+                </h3>
+
+
+                <p>
+
+                    이미 등록된 공급업체는
+                    Vendor Portal에 로그인하여
+                    회사 정보, 공급 제품 및
+                    계정 상태를 확인할 수 있습니다.
+
+                </p>
+
+
+                <a
+                    href="vendor-login.html"
+                    class="vendor-button">
+
+                    Vendor Login
+
+                </a>
+
+
+            </div>
+
+
+        </div>
+
+
+        <div class="vendor-note">
+
+            <strong>
+                참고:
+            </strong>
+
+            공급업체 등록은 Primax Global의
+            내부 검토 및 승인 절차를 거칩니다.
+            등록 자체가 공급계약 또는 구매를
+            보장하는 것은 아닙니다.
+
+        </div>
+
+
+    </div>
+
+
+</section>
+
+
+
+<!-- =========================================
+     COMPANY INFORMATION
+========================================= -->
+
+<section class="company-info">
+
+
+    <div class="container">
+
+
+        <h2>
+
             회사 정보
+
         </h2>
 
 
@@ -757,7 +1429,9 @@
 
                 <td>
 
-                    3660 Wilshire Blvd, Suite 512<br>
+                    3660 Wilshire Blvd,
+                    Suite 512<br>
+
                     Los Angeles, CA 90010
 
                 </td>
@@ -774,7 +1448,9 @@
                 <td>
 
                     <a href="tel:2132470011">
+
                         213-247-0011
+
                     </a>
 
                 </td>
@@ -790,8 +1466,11 @@
 
                 <td>
 
-                    <a href="mailto:david@primaxfed.com">
+                    <a
+                        href="mailto:david@primaxfed.com">
+
                         david@primaxfed.com
+
                     </a>
 
                 </td>
@@ -806,7 +1485,9 @@
                 </td>
 
                 <td>
+
                     214A5
+
                 </td>
 
             </tr>
@@ -814,64 +1495,91 @@
 
         </table>
 
+
     </div>
+
 
 </section>
 
 
-<!-- =========================
-     Contact
-========================= -->
 
-<section id="contact"
-         class="contact">
+<!-- =========================================
+     CONTACT
+========================================= -->
+
+<section
+    id="contact"
+    class="contact">
+
 
     <div class="container">
 
+
         <h2>
+
             문의하기
+
         </h2>
+
 
         <p>
 
-            정부조달, 제품 공급, 제품 문의 및
-            공급업체 관련 문의사항이 있으시면
-            Primax Global, Inc.로 연락해 주십시오.
+            정부조달, 제품 공급,
+            제품 문의 및 공급업체 관련 문의사항이
+            있으시면 Primax Global, Inc.로
+            연락해 주십시오.
 
         </p>
 
 
         <p>
 
+
             <strong>
+
                 전화:
+
             </strong>
 
+
             <a href="tel:2132470011">
+
                 213-247-0011
+
             </a>
+
 
             <br>
 
 
             <strong>
+
                 이메일:
+
             </strong>
 
-            <a href="mailto:david@primaxfed.com">
+
+            <a
+                href="mailto:david@primaxfed.com">
+
                 david@primaxfed.com
+
             </a>
+
 
         </p>
 
+
     </div>
+
 
 </section>
 
 
-<!-- =========================
-     Footer
-========================= -->
+
+<!-- =========================================
+     FOOTER
+========================================= -->
 
 <footer>
 
