@@ -6,144 +6,294 @@
 
     <title>Primax Global, Inc. | Government & Federal Supply</title>
 
-    <meta name="description" content="Primax Global, Inc. is a U.S. government supplier providing products and procurement solutions to federal agencies and military customers.">
+    <meta name="description" content="Primax Global, Inc. is a U.S.-based government supplier providing products and procurement solutions to federal agencies, Department of Defense and military customers.">
 
     <style>
         * {
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.6;
+            line-height: 1.65;
             color: #26323d;
             background: #ffffff;
         }
 
+        /* HEADER */
         header {
-            background: #172534;
+            background:
+                linear-gradient(rgba(15, 28, 42, 0.96), rgba(15, 28, 42, 0.96));
             color: white;
-            padding: 55px 20px;
+            padding: 65px 20px 55px;
             text-align: center;
             border-bottom: 5px solid #b58b3a;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.7em;
-            letter-spacing: 0.5px;
+            font-size: 3em;
+            letter-spacing: 1px;
         }
 
         header p {
             margin: 12px 0 0;
-            font-size: 1.15em;
-            color: #d8dee5;
+            font-size: 1.2em;
+            color: #d9e0e6;
         }
 
-        .container {
-            max-width: 1050px;
-            margin: 0 auto;
-            padding: 50px 25px;
+        .header-line {
+            width: 80px;
+            height: 3px;
+            background: #b58b3a;
+            margin: 25px auto 0;
         }
 
-        .intro {
+        /* NAVIGATION */
+        nav {
+            background: #101c28;
             text-align: center;
-            margin-bottom: 50px;
+            padding: 14px 10px;
+            border-bottom: 1px solid #2b3b4a;
         }
 
-        .intro h2 {
-            font-size: 2em;
+        nav a {
+            color: #e6ebef;
+            text-decoration: none;
+            margin: 0 18px;
+            font-size: 0.95em;
+        }
+
+        nav a:hover {
+            color: #d9b66d;
+        }
+
+        /* MAIN */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 55px 25px;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 20px 10px 50px;
+        }
+
+        .hero h2 {
+            font-size: 2.25em;
             color: #172534;
             margin-bottom: 15px;
         }
 
-        .intro p {
+        .hero p {
             max-width: 850px;
             margin: 0 auto;
-            font-size: 1.08em;
+            font-size: 1.1em;
+            color: #4b5965;
         }
 
+        .badge {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 10px 22px;
+            border: 1px solid #b58b3a;
+            color: #8b6828;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            background: #faf8f3;
+        }
+
+        /* SECTIONS */
         .section {
-            margin-bottom: 45px;
+            margin-bottom: 55px;
         }
 
-        h2 {
+        h2.section-title {
             color: #172534;
+            font-size: 1.85em;
             border-bottom: 2px solid #b58b3a;
-            padding-bottom: 8px;
-            margin-bottom: 20px;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
         }
 
+        .section p {
+            font-size: 1.03em;
+        }
+
+        /* GOVERNMENT */
+        .government-box {
+            background: #f5f7f9;
+            border-left: 6px solid #b58b3a;
+            padding: 30px;
+            margin-top: 20px;
+        }
+
+        .government-box h3 {
+            margin-top: 0;
+            color: #172534;
+            font-size: 1.35em;
+        }
+
+        .government-code {
+            margin-top: 22px;
+            display: inline-block;
+            padding: 10px 18px;
+            background: #172534;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        /* SERVICES */
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
         }
 
         .service {
-            background: #f5f7f9;
+            background: #f7f8fa;
             border: 1px solid #dfe4e8;
-            padding: 25px;
-            border-radius: 5px;
+            padding: 28px;
+            border-radius: 4px;
+            transition: 0.2s;
+        }
+
+        .service:hover {
+            border-color: #b58b3a;
+            transform: translateY(-2px);
         }
 
         .service h3 {
             margin-top: 0;
             color: #172534;
-            font-size: 1.15em;
+            font-size: 1.2em;
         }
 
-        .government {
-            background: #f5f7f9;
-            border-left: 5px solid #b58b3a;
-            padding: 25px;
-            margin-top: 20px;
+        .service p {
+            margin-bottom: 0;
+            color: #52606c;
         }
 
-        .government strong {
-            color: #172534;
+        /* PROCUREMENT */
+        .procurement-list {
+            background: #f7f8fa;
+            padding: 30px 35px;
+            border: 1px solid #dfe4e8;
         }
 
+        .procurement-list ul {
+            margin: 0;
+            padding-left: 22px;
+        }
+
+        .procurement-list li {
+            margin: 10px 0;
+        }
+
+        /* CONTACT */
         .contact {
             background: #172534;
             color: white;
-            padding: 35px;
-            border-radius: 5px;
+            padding: 40px;
+            border-radius: 4px;
         }
 
-        .contact h2 {
+        .contact h2.section-title {
             color: white;
             border-bottom-color: #b58b3a;
         }
 
         .contact p {
-            margin: 8px 0;
+            margin: 10px 0;
         }
 
         .contact strong {
             color: #d9b66d;
         }
 
+        .contact a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+
+        .contact a:hover {
+            color: #d9b66d;
+        }
+
+        .contact-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 22px;
+            background: #b58b3a;
+            color: white !important;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .contact-button:hover {
+            background: #96742f;
+        }
+
+        /* FOOTER */
         footer {
-            background: #101a23;
-            color: #bfc7cf;
+            background: #0d1721;
+            color: #aeb8c1;
             text-align: center;
-            padding: 25px 20px;
+            padding: 28px 20px;
             font-size: 0.9em;
         }
 
-        @media (max-width: 600px) {
+        footer strong {
+            color: #d9b66d;
+        }
+
+        /* MOBILE */
+        @media (max-width: 700px) {
+
+            header {
+                padding: 50px 20px 45px;
+            }
+
             header h1 {
-                font-size: 2em;
+                font-size: 2.2em;
             }
 
             header p {
                 font-size: 1em;
             }
 
+            nav {
+                padding: 12px 5px;
+            }
+
+            nav a {
+                margin: 0 7px;
+                font-size: 0.85em;
+            }
+
             .container {
-                padding: 35px 20px;
+                padding: 40px 20px;
+            }
+
+            .hero h2 {
+                font-size: 1.8em;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .contact {
+                padding: 30px 25px;
             }
         }
     </style>
@@ -151,138 +301,283 @@
 
 <body>
 
+<!-- HEADER -->
 <header>
     <h1>Primax Global, Inc.</h1>
-    <p>Government & Federal Supply Solutions</p>
+
+    <p>Government &amp; Federal Supply Solutions</p>
+
+    <div class="header-line"></div>
 </header>
+
+
+<!-- NAVIGATION -->
+<nav>
+    <a href="#about">About</a>
+    <a href="#government">Government Supply</a>
+    <a href="#services">Services</a>
+    <a href="#procurement">Procurement</a>
+    <a href="#contact">Contact</a>
+</nav>
+
 
 <div class="container">
 
-    <div class="intro">
-        <h2>Serving Government & Military Customers</h2>
+    <!-- HERO -->
+    <section class="hero">
+
+        <h2>Serving Government &amp; Military Customers</h2>
 
         <p>
-            Primax Global, Inc. is a U.S.-based government supplier providing
-            products, procurement support, and supply solutions to federal
-            government and military customers.
+            Primax Global, Inc. is a U.S.-based government supplier
+            providing products, procurement support, and supply solutions
+            to federal government and military customers.
         </p>
-    </div>
+
+        <div class="badge">
+            APPROVED GOVERNMENT SUPPLIER
+        </div>
+
+    </section>
 
 
-    <div class="section">
-        <h2>About Primax Global</h2>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+
+        <h2 class="section-title">About Primax Global, Inc.</h2>
 
         <p>
-            Primax Global, Inc. is a California-based government and commercial
-            supplier serving the procurement needs of U.S. government agencies
+            Primax Global, Inc. is a California-based government and
+            commercial supplier serving the procurement requirements of
+            U.S. government agencies, Department of Defense organizations,
             and institutional customers.
         </p>
 
         <p>
-            Our company provides a broad range of products and procurement
-            solutions designed to support government operations, facilities,
-            information technology, and mission requirements.
+            We provide sourcing, procurement, and supply solutions across
+            a broad range of commercial, industrial, technology, and
+            operational products.
         </p>
 
         <p>
-            Primax Global, Inc. is an approved government vendor and is
-            positioned to supply products through authorized government
-            procurement channels.
+            Our focus is on reliable product sourcing, competitive
+            procurement, responsive customer service, and dependable
+            fulfillment for government and institutional requirements.
         </p>
-    </div>
+
+    </section>
 
 
-    <div class="section">
-        <h2>Government Supply & Procurement</h2>
+    <!-- GOVERNMENT SUPPLY -->
+    <section class="section" id="government">
 
-        <div class="government">
+        <h2 class="section-title">Government &amp; Federal Supply</h2>
+
+        <div class="government-box">
+
+            <h3>Federal Government &amp; Department of Defense Supply</h3>
+
             <p>
-                <strong>Federal Government Supplier</strong>
+                Primax Global, Inc. is an approved government vendor
+                providing products and procurement solutions through
+                authorized federal government purchasing channels.
             </p>
 
             <p>
-                Primax Global, Inc. supplies products to U.S. government
-                customers through federal procurement channels, including
-                government purchasing systems and military supply programs.
+                Our government supply activities support the procurement
+                requirements of federal agencies and Department of Defense
+                customers, including military organizations.
             </p>
 
             <p>
-                Our customers and procurement channels may include the
-                <strong>U.S. Army, U.S. Air Force, U.S. Navy, and U.S. Marine Corps</strong>,
-                as well as other federal and government organizations.
+                Primax Global, Inc. is positioned to supply products through
+                government procurement programs and authorized purchasing
+                systems, including FedMall and other federal procurement
+                channels.
             </p>
 
             <p>
-                <strong>Government Supply Code: 214A5</strong>
+                Government customers and procurement organizations may
+                include the <strong>U.S. Army, U.S. Air Force,
+                U.S. Navy, and U.S. Marine Corps</strong>, as well as
+                other federal agencies and government organizations.
             </p>
+
+            <div class="government-code">
+                Government Supply Code: 214A5
+            </div>
+
         </div>
-    </div>
+
+    </section>
 
 
-    <div class="section">
-        <h2>Our Services</h2>
+    <!-- SERVICES -->
+    <section class="section" id="services">
+
+        <h2 class="section-title">Our Services</h2>
 
         <div class="services">
 
             <div class="service">
+
                 <h3>Government Product Supply</h3>
+
                 <p>
-                    Procurement and supply of commercial and industrial
-                    products for government and institutional customers.
+                    Procurement and supply of commercial, industrial,
+                    technical, and operational products for government
+                    and institutional customers.
                 </p>
+
             </div>
 
+
             <div class="service">
+
                 <h3>Federal Procurement</h3>
+
                 <p>
-                    Support for government purchasing requirements and
-                    federal procurement channels.
+                    Support for federal purchasing requirements,
+                    product sourcing, quotation support, and government
+                    procurement channels.
                 </p>
+
             </div>
 
-            <div class="service">
-                <h3>IT & Technology Products</h3>
-                <p>
-                    Information technology hardware, equipment, peripherals,
-                    and related enterprise products.
-                </p>
-            </div>
 
             <div class="service">
-                <h3>Commercial & Industrial Products</h3>
+
+                <h3>IT &amp; Technology Products</h3>
+
+                <p>
+                    Information technology hardware, computing equipment,
+                    peripherals, networking products, and related
+                    enterprise technology solutions.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <h3>Commercial &amp; Industrial Products</h3>
+
                 <p>
                     Sourcing and supply of products from qualified
-                    manufacturers and suppliers to meet government requirements.
+                    manufacturers and distributors to meet government
+                    purchasing requirements.
                 </p>
+
             </div>
 
         </div>
-    </div>
+
+    </section>
 
 
-    <div class="section">
-        <h2>Government Customers & Procurement Channels</h2>
+    <!-- PROCUREMENT CHANNELS -->
+    <section class="section" id="procurement">
 
-        <p>
-            Primax Global, Inc. supports government procurement requirements
-            through established federal purchasing channels and programs.
-        </p>
+        <h2 class="section-title">
+            Government Customers &amp; Procurement Channels
+        </h2>
 
-        <ul>
-            <li>U.S. Federal Government Agencies</li>
-            <li>U.S. Department of Defense</li>
-            <li>U.S. Army</li>
-            <li>U.S. Air Force</li>
-            <li>U.S. Navy</li>
-            <li>U.S. Marine Corps</li>
-            <li>Federal Government Procurement Programs</li>
-            <li>FedMall and authorized government purchasing channels</li>
-        </ul>
-    </div>
+        <div class="procurement-list">
+
+            <p>
+                Primax Global, Inc. supports government procurement
+                requirements through established federal purchasing
+                channels and programs.
+            </p>
+
+            <ul>
+
+                <li>U.S. Federal Government Agencies</li>
+
+                <li>U.S. Department of Defense</li>
+
+                <li>U.S. Army</li>
+
+                <li>U.S. Air Force</li>
+
+                <li>U.S. Navy</li>
+
+                <li>U.S. Marine Corps</li>
+
+                <li>Federal Government Procurement Programs</li>
+
+                <li>FedMall and authorized government purchasing channels</li>
+
+            </ul>
+
+        </div>
+
+    </section>
 
 
-    <div class="section contact">
-        <h2>Contact Information</h2>
+    <!-- WHY PRIMAX -->
+    <section class="section">
+
+        <h2 class="section-title">Why Primax Global</h2>
+
+        <div class="services">
+
+            <div class="service">
+
+                <h3>Government Focused</h3>
+
+                <p>
+                    Dedicated to supporting government and institutional
+                    procurement requirements.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <h3>Reliable Sourcing</h3>
+
+                <p>
+                    We work to identify dependable products and qualified
+                    sources to meet customer requirements.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <h3>Responsive Service</h3>
+
+                <p>
+                    We provide direct communication and responsive support
+                    throughout the procurement process.
+                </p>
+
+            </div>
+
+
+            <div class="service">
+
+                <h3>Nationwide Supply</h3>
+
+                <p>
+                    Supporting government and institutional customers
+                    with product sourcing and fulfillment capabilities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+
+        <h2 class="section-title">Contact Information</h2>
 
         <p>
             <strong>Primax Global, Inc.</strong>
@@ -296,21 +591,47 @@
         </p>
 
         <p>
-            <strong>Email:</strong>
-            david@primaxfed.com
+            <strong>Phone:</strong><br>
+            <a href="tel:+12132470011">213-247-0011</a>
         </p>
 
         <p>
-            <strong>Government Supply Code:</strong>
+            <strong>Email:</strong><br>
+            <a href="mailto:sales@primaxfed.com">
+                sales@primaxfed.com
+            </a>
+        </p>
+
+        <p>
+            <strong>Government Supply Code:</strong><br>
             214A5
         </p>
-    </div>
+
+        <a class="contact-button"
+           href="mailto:sales@primaxfed.com">
+            Contact Primax Global
+        </a>
+
+    </section>
 
 </div>
 
 
+<!-- FOOTER -->
 <footer>
-    &copy; 2026 Primax Global, Inc. All Rights Reserved.
+
+    <p>
+        <strong>Primax Global, Inc.</strong>
+    </p>
+
+    <p>
+        Government &amp; Federal Supply Solutions
+    </p>
+
+    <p>
+        &copy; 2026 Primax Global, Inc. All Rights Reserved.
+    </p>
+
 </footer>
 
 </body>
