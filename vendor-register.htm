@@ -1,1 +1,749 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Vendor Registration | Primax Global, Inc.</title>
+
+    <meta name="description"
+          content="Vendor registration for Primax Global, Inc.">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Arial,
+                "Noto Sans KR",
+                "Malgun Gothic",
+                sans-serif;
+
+            background: #f5f7fa;
+            color: #1f2933;
+        }
+
+        /* Header */
+
+        header {
+            background: #102a43;
+            color: white;
+        }
+
+        .nav {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Registration */
+
+        .page {
+            min-height: calc(100vh - 150px);
+
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+
+            padding: 60px 20px;
+        }
+
+        .register-box {
+            width: 100%;
+            max-width: 600px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            margin-top: 0;
+
+            color: #102a43;
+
+            text-align: center;
+
+            font-size: 30px;
+        }
+
+        .subtitle {
+            text-align: center;
+
+            color: #52606d;
+
+            margin-bottom: 35px;
+        }
+
+        label {
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+
+            color: #102a43;
+        }
+
+        input,
+        textarea {
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+
+            font-family: inherit;
+        }
+
+        input:focus,
+        textarea:focus {
+
+            outline: none;
+
+            border-color: #102a43;
+
+            box-shadow:
+                0 0 0 2px rgba(16,42,67,0.1);
+        }
+
+        button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            background: #102a43;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #243b53;
+        }
+
+        button:disabled {
+
+            background: #9aa5b1;
+
+            cursor: not-allowed;
+        }
+
+        .message {
+
+            margin-top: 20px;
+
+            padding: 14px;
+
+            border-radius: 5px;
+
+            display: none;
+
+            text-align: center;
+        }
+
+        .success {
+
+            display: block;
+
+            background: #e8f5e9;
+
+            color: #256029;
+        }
+
+        .error {
+
+            display: block;
+
+            background: #fdecec;
+
+            color: #a61b1b;
+        }
+
+        .login-link {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #52606d;
+        }
+
+        .login-link a {
+
+            color: #102a43;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+        }
+
+        .required {
+            color: #c0392b;
+        }
+
+        footer {
+
+            background: #0b1f33;
+
+            color: #bcccdc;
+
+            text-align: center;
+
+            padding: 25px;
+
+            font-size: 14px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 700px) {
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+            }
+
+            .nav a {
+                margin: 5px 8px;
+            }
+
+            .register-box {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- Navigation -->
+
+<header>
+
+    <div class="nav">
+
+        <div class="logo">
+            Primax Global, Inc.
+        </div>
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#government">
+                Government
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- Registration -->
+
+<main class="page">
+
+    <div class="register-box">
+
+        <h1>
+            Vendor Registration
+        </h1>
+
+        <p class="subtitle">
+
+            Register your company with
+            Primax Global, Inc.
+
+        </p>
+
+
+        <form id="vendorForm">
+
+
+            <!-- Company -->
+
+            <label for="company_name">
+
+                Company Name
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="text"
+                id="company_name"
+                required
+                placeholder="Your Company Name">
+
+
+            <!-- Contact -->
+
+            <label for="contact_name">
+
+                Contact Name
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="text"
+                id="contact_name"
+                required
+                placeholder="Full Name">
+
+
+            <!-- Email -->
+
+            <label for="email">
+
+                Email
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                required
+                placeholder="company@example.com">
+
+
+            <!-- Phone -->
+
+            <label for="phone">
+
+                Phone
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                required
+                placeholder="213-555-1234">
+
+
+            <!-- Website -->
+
+            <label for="website">
+
+                Website
+
+            </label>
+
+            <input
+                type="url"
+                id="website"
+                placeholder="https://www.example.com">
+
+
+            <!-- Password -->
+
+            <label for="password">
+
+                Password
+                <span class="required">*</span>
+
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                required
+                minlength="8"
+                placeholder="Minimum 8 characters">
+
+
+            <!-- Button -->
+
+            <button
+                type="submit"
+                id="registerButton">
+
+                Create Vendor Account
+
+            </button>
+
+
+            <!-- Message -->
+
+            <div
+                id="message"
+                class="message">
+
+            </div>
+
+
+        </form>
+
+
+        <div class="login-link">
+
+            Already registered?
+
+            <a href="vendor-login.html">
+                Vendor Login
+            </a>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<footer>
+
+    Primax Global, Inc.<br>
+
+    3660 Wilshire Blvd, Suite 512,
+    Los Angeles, CA 90010<br>
+
+    © 2026 Primax Global, Inc.
+    All Rights Reserved.
+
+</footer>
+
+
+
+<!-- Supabase -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
+
+
+<script>
+
+
+/* =====================================================
+   SUPABASE CONFIGURATION
+   ===================================================== */
+
+const SUPABASE_URL =
+    "https://nhjapidacizvhebtpzah.supabase.co";
+
+
+/*
+   IMPORTANT:
+
+   Put your Supabase Publishable Key below.
+
+   DO NOT put the secret/service_role key here.
+*/
+
+const SUPABASE_ANON_KEY =
+    "PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+
+/* =====================================================
+   FORM
+   ===================================================== */
+
+const form =
+    document.getElementById("vendorForm");
+
+const button =
+    document.getElementById("registerButton");
+
+const message =
+    document.getElementById("message");
+
+
+
+form.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        message.className = "message";
+
+        message.textContent = "";
+
+
+        button.disabled = true;
+
+        button.textContent =
+            "Creating Account...";
+
+
+        try {
+
+
+            /* =========================================
+               GET FORM DATA
+               ========================================= */
+
+            const companyName =
+                document
+                .getElementById("company_name")
+                .value
+                .trim();
+
+
+            const contactName =
+                document
+                .getElementById("contact_name")
+                .value
+                .trim();
+
+
+            const email =
+                document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+            const phone =
+                document
+                .getElementById("phone")
+                .value
+                .trim();
+
+
+            const website =
+                document
+                .getElementById("website")
+                .value
+                .trim();
+
+
+            const password =
+                document
+                .getElementById("password")
+                .value;
+
+
+
+            /* =========================================
+               CREATE SUPABASE AUTH ACCOUNT
+               ========================================= */
+
+            const {
+                data: authData,
+                error: authError
+            } =
+                await supabaseClient.auth.signUp({
+
+                    email: email,
+
+                    password: password
+
+                });
+
+
+            if (authError) {
+
+                throw authError;
+
+            }
+
+
+            if (!authData.user) {
+
+                throw new Error(
+                    "Account could not be created."
+                );
+
+            }
+
+
+            const userId =
+                authData.user.id;
+
+
+
+            /* =========================================
+               CREATE VENDOR PROFILE
+               ========================================= */
+
+            const {
+                error: vendorError
+            } =
+                await supabaseClient
+                .from("vendors")
+                .insert({
+
+                    user_id: userId,
+
+                    company_name:
+                        companyName,
+
+                    contact_name:
+                        contactName,
+
+                    email:
+                        email,
+
+                    phone:
+                        phone,
+
+                    website:
+                        website || null,
+
+                    status:
+                        "pending"
+
+                });
+
+
+            if (vendorError) {
+
+                throw vendorError;
+
+            }
+
+
+
+            /* =========================================
+               SUCCESS
+               ========================================= */
+
+            message.className =
+                "message success";
+
+            message.textContent =
+                "Registration successful! " +
+                "Please check your email to confirm your account.";
+
+
+            form.reset();
+
+
+        }
+
+        catch(error) {
+
+
+            console.error(error);
+
+
+            message.className =
+                "message error";
+
+
+            message.textContent =
+                error.message ||
+                "Registration failed. Please try again.";
+
+        }
+
+
+        finally {
+
+            button.disabled = false;
+
+            button.textContent =
+                "Create Vendor Account";
+
+        }
+
+    }
+);
+
+</script>
+
+
+</body>
+
+</html>
