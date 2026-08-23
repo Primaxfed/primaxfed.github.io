@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Vendor Login | Primax Global, Inc.</title>
+
+    <meta name="description"
+          content="Vendor login for Primax Global, Inc.">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* =========================================
+           BODY
+        ========================================= */
+
+        body {
+
+            margin: 0;
+
+            font-family:
+                Arial,
+                "Noto Sans KR",
+                "Malgun Gothic",
+                sans-serif;
+
+            background: #f5f7fa;
+
+            color: #1f2933;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            background: #102a43;
+
+            color: white;
+        }
+
+
+        .nav {
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 18px 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+        }
+
+
+        .logo {
+
+            font-size: 22px;
+
+            font-weight: bold;
+        }
+
+
+        .nav-links {
+
+            display: flex;
+
+            align-items: center;
+        }
+
+
+        .nav a {
+
+            color: white;
+
+            text-decoration: none;
+
+            margin-left: 24px;
+
+            font-size: 14px;
+        }
+
+
+        .nav a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           LOGIN PAGE
+        ========================================= */
+
+        .page {
+
+            min-height:
+                calc(100vh - 150px);
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: flex-start;
+
+            padding: 80px 20px;
+        }
+
+
+        /* =========================================
+           LOGIN BOX
+        ========================================= */
+
+        .login-box {
+
+            width: 100%;
+
+            max-width: 500px;
+
+            background: white;
+
+            padding: 40px;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 4px 20px rgba(0,0,0,0.08);
+        }
+
+
+        h1 {
+
+            margin-top: 0;
+
+            margin-bottom: 10px;
+
+            color: #102a43;
+
+            text-align: center;
+
+            font-size: 30px;
+        }
+
+
+        .subtitle {
+
+            text-align: center;
+
+            color: #52606d;
+
+            margin-bottom: 35px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        label {
+
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+
+            color: #102a43;
+        }
+
+
+        input {
+
+            width: 100%;
+
+            padding: 13px;
+
+            margin-bottom: 20px;
+
+            border: 1px solid #cbd5e1;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+
+            font-family: inherit;
+        }
+
+
+        input:focus {
+
+            outline: none;
+
+            border-color: #102a43;
+
+            box-shadow:
+                0 0 0 2px rgba(16,42,67,0.1);
+        }
+
+
+        /* =========================================
+           PASSWORD AREA
+        ========================================= */
+
+        .password-row {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 7px;
+        }
+
+
+        .password-row label {
+
+            margin-bottom: 0;
+        }
+
+
+        .forgot-link {
+
+            font-size: 13px;
+
+            color: #102a43;
+
+            text-decoration: none;
+        }
+
+
+        .forgot-link:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           LOGIN BUTTON
+        ========================================= */
+
+        button {
+
+            width: 100%;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            background: #102a43;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            margin-top: 5px;
+        }
+
+
+        button:hover {
+
+            background: #243b53;
+        }
+
+
+        button:disabled {
+
+            background: #9aa5b1;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =========================================
+           MESSAGE
+        ========================================= */
+
+        .message {
+
+            margin-top: 20px;
+
+            padding: 14px;
+
+            border-radius: 5px;
+
+            display: none;
+
+            text-align: center;
+
+            line-height: 1.5;
+        }
+
+
+        .success {
+
+            display: block;
+
+            background: #e8f5e9;
+
+            color: #256029;
+        }
+
+
+        .error {
+
+            display: block;
+
+            background: #fdecec;
+
+            color: #a61b1b;
+        }
+
+
+        /* =========================================
+           REGISTER LINK
+        ========================================= */
+
+        .register-link {
+
+            text-align: center;
+
+            margin-top: 25px;
+
+            color: #52606d;
+
+            font-size: 14px;
+        }
+
+
+        .register-link a {
+
+            color: #102a43;
+
+            font-weight: bold;
+
+            text-decoration: none;
+        }
+
+
+        .register-link a:hover {
+
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            background: #0b1f33;
+
+            color: #bcccdc;
+
+            text-align: center;
+
+            padding: 25px;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
+
+            .nav {
+
+                flex-direction: column;
+            }
+
+
+            .nav-links {
+
+                margin-top: 15px;
+            }
+
+
+            .nav a {
+
+                margin: 5px 8px;
+            }
+
+
+            .login-box {
+
+                padding: 25px;
+            }
+
+
+            h1 {
+
+                font-size: 26px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================================
+     HEADER
+========================================= -->
+
+<header>
+
+    <div class="nav">
+
+        <div class="logo">
+            Primax Global, Inc.
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="index.html">
+                Home
+            </a>
+
+
+            <a href="index.html#government">
+                Government
+            </a>
+
+
+            <a href="products.html">
+                Products
+            </a>
+
+
+            <a href="index.html#about">
+                About
+            </a>
+
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================
+     LOGIN PAGE
+========================================= -->
+
+<main class="page">
+
+    <div class="login-box">
+
+
+        <h1>
+            Vendor Login
+        </h1>
+
+
+        <p class="subtitle">
+
+            Sign in to your
+            Primax Global vendor account.
+
+        </p>
+
+
+
+        <!-- =====================================
+             LOGIN FORM
+        ====================================== -->
+
+        <form id="loginForm">
+
+
+            <!-- EMAIL -->
+
+            <label for="email">
+
+                Email Address
+
+            </label>
+
+
+            <input
+
+                type="email"
+
+                id="email"
+
+                name="email"
+
+                required
+
+                autocomplete="email"
+
+                placeholder="company@example.com"
+            >
+
+
+
+            <!-- PASSWORD -->
+
+            <div class="password-row">
+
+                <label for="password">
+
+                    Password
+
+                </label>
+
+
+                <a
+                    href="vendor-forgot-password.html"
+                    class="forgot-link">
+
+                    Forgot Password?
+
+                </a>
+
+            </div>
+
+
+            <input
+
+                type="password"
+
+                id="password"
+
+                name="password"
+
+                required
+
+                autocomplete="current-password"
+
+                placeholder="Enter your password"
+            >
+
+
+
+            <!-- LOGIN BUTTON -->
+
+            <button
+
+                type="submit"
+
+                id="loginButton">
+
+                Vendor Login
+
+            </button>
+
+
+
+            <!-- MESSAGE -->
+
+            <div
+
+                id="message"
+
+                class="message">
+
+            </div>
+
+
+        </form>
+
+
+
+        <!-- =====================================
+             REGISTER
+        ====================================== -->
+
+        <div class="register-link">
+
+            Don't have a vendor account?
+
+            <a href="vendor-register.html">
+
+                Register Your Company
+
+            </a>
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- =========================================
+     FOOTER
+========================================= -->
+
+<footer>
+
+    Primax Global, Inc.<br>
+
+    3660 Wilshire Blvd, Suite 512,
+    Los Angeles, CA 90010<br>
+
+    © 2026 Primax Global, Inc.
+    All Rights Reserved.
+
+</footer>
+
+
+
+<!-- =========================================
+     SUPABASE JAVASCRIPT LIBRARY
+========================================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+
+<script>
+
+/* =====================================================
+   1. SUPABASE CONFIGURATION
+===================================================== */
+
+const SUPABASE_URL =
+    "https://nhjapidacizvhebtpzah.supabase.co";
+
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+
+        SUPABASE_URL,
+
+        SUPABASE_PUBLISHABLE_KEY
+
+    );
+
+
+
+/* =====================================================
+   2. GET HTML ELEMENTS
+===================================================== */
+
+const loginForm =
+    document.getElementById("loginForm");
+
+
+const loginButton =
+    document.getElementById("loginButton");
+
+
+const message =
+    document.getElementById("message");
+
+
+
+/* =====================================================
+   3. CHECK EXISTING SESSION
+===================================================== */
+
+async function checkExistingSession() {
+
+    try {
+
+        const {
+
+            data: {
+                session
+            }
+
+        } = await supabaseClient
+            .auth
+            .getSession();
+
+
+        if (session) {
+
+            window.location.href =
+                "vendor-dashboard.html";
+
+        }
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Session check error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* Run session check */
+
+checkExistingSession();
+
+
+
+/* =====================================================
+   4. LOGIN FORM
+===================================================== */
+
+loginForm.addEventListener(
+
+    "submit",
+
+    async function(event) {
+
+        event.preventDefault();
+
+
+        /* Clear old message */
+
+        message.className =
+            "message";
+
+        message.textContent =
+            "";
+
+
+        /* Disable button */
+
+        loginButton.disabled =
+            true;
+
+        loginButton.textContent =
+            "Signing In...";
+
+
+        try {
+
+
+            /* =========================================
+               5. GET LOGIN INFORMATION
+            ========================================= */
+
+            const email =
+                document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+            const password =
+                document
+                .getElementById("password")
+                .value;
+
+
+
+            /* =========================================
+               6. SUPABASE LOGIN
+            ========================================= */
+
+            const {
+
+                data,
+                error
+
+            } = await supabaseClient
+                .auth
+                .signInWithPassword({
+
+                    email:
+                        email,
+
+                    password:
+                        password
+
+                });
+
+
+
+            /* =========================================
+               7. CHECK LOGIN ERROR
+            ========================================= */
+
+            if (error) {
+
+                throw error;
+
+            }
+
+
+            if (!data.user) {
+
+                throw new Error(
+                    "Login failed. Please try again."
+                );
+
+            }
+
+
+
+            /* =========================================
+               8. CHECK VENDOR PROFILE
+            ========================================= */
+
+            const {
+
+                data: vendor,
+
+                error: vendorError
+
+            } = await supabaseClient
+
+                .from("vendors")
+
+                .select(
+                    "id, company_name, status"
+                )
+
+                .eq(
+                    "user_id",
+                    data.user.id
+                )
+
+                .maybeSingle();
+
+
+
+            if (vendorError) {
+
+                throw vendorError;
+
+            }
+
+
+
+            /* =========================================
+               9. VENDOR PROFILE NOT FOUND
+            ========================================= */
+
+            if (!vendor) {
+
+                await supabaseClient
+                    .auth
+                    .signOut();
+
+
+                throw new Error(
+                    "Vendor profile was not found. " +
+                    "Please contact Primax Global."
+                );
+
+            }
+
+
+
+            /* =========================================
+               10. CHECK VENDOR STATUS
+            ========================================= */
+
+            if (
+                vendor.status ===
+                "rejected"
+            ) {
+
+                await supabaseClient
+                    .auth
+                    .signOut();
+
+
+                throw new Error(
+                    "Your vendor application has been rejected. " +
+                    "Please contact Primax Global."
+                );
+
+            }
+
+
+
+            /* =========================================
+               11. LOGIN SUCCESS
+            ========================================= */
+
+            message.className =
+                "message success";
+
+
+            message.textContent =
+                "Login successful. Redirecting...";
+
+
+            /* =========================================
+               12. GO TO DASHBOARD
+            ========================================= */
+
+            setTimeout(
+
+                function() {
+
+                    window.location.href =
+                        "vendor-dashboard.html";
+
+                },
+
+                700
+
+            );
+
+
+        }
+
+
+        /* =============================================
+           13. LOGIN ERROR
+        ============================================= */
+
+        catch(error) {
+
+            console.error(
+                "Login Error:",
+                error
+            );
+
+
+            message.className =
+                "message error";
+
+
+            let errorMessage =
+                "Login failed. Please check your email and password.";
+
+
+            if (
+                error.message &&
+                error.message
+                    .toLowerCase()
+                    .includes("email not confirmed")
+            ) {
+
+                errorMessage =
+                    "Please confirm your email address before logging in.";
+
+            }
+
+
+            else if (
+                error.message &&
+                error.message
+                    .toLowerCase()
+                    .includes("invalid login credentials")
+            ) {
+
+                errorMessage =
+                    "Incorrect email or password.";
+
+            }
+
+
+            message.textContent =
+                errorMessage;
+
+        }
+
+
+        /* =============================================
+           14. ENABLE BUTTON
+        ============================================= */
+
+        finally {
+
+            loginButton.disabled =
+                false;
+
+            loginButton.textContent =
+                "Vendor Login";
+
+        }
+
+    }
+
+);
+
+</script>
+
+
+</body>
+
+</html>
