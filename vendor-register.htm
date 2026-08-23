@@ -11,7 +11,7 @@
     <title>Vendor Registration | Primax Global, Inc.</title>
 
     <meta name="description"
-          content="Vendor registration portal for Primax Global, Inc.">
+          content="Register as a vendor with Primax Global, Inc.">
 
     <style>
 
@@ -21,7 +21,6 @@
 
         body {
             margin: 0;
-
             font-family:
                 Arial,
                 "Noto Sans KR",
@@ -29,93 +28,63 @@
                 sans-serif;
 
             background: #f5f7fa;
-
             color: #1f2933;
         }
 
-
-        /* =========================================
-           HEADER
-        ========================================= */
+        /* HEADER */
 
         header {
             background: #102a43;
             color: white;
         }
 
-
         .nav {
             max-width: 1150px;
-
             margin: auto;
-
             padding: 18px 25px;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
         }
 
-
         .logo {
             font-size: 22px;
-
             font-weight: bold;
         }
 
-
         .nav-links {
             display: flex;
-
             align-items: center;
         }
 
-
         .nav a {
             color: white;
-
             text-decoration: none;
-
             margin-left: 24px;
-
             font-size: 14px;
         }
-
 
         .nav a:hover {
             text-decoration: underline;
         }
 
-
-        /* =========================================
-           PAGE
-        ========================================= */
+        /* PAGE */
 
         .page {
-
-            min-height:
-                calc(100vh - 150px);
+            min-height: calc(100vh - 150px);
 
             display: flex;
-
             justify-content: center;
-
             align-items: flex-start;
 
             padding: 60px 20px;
         }
 
-
-        /* =========================================
-           REGISTRATION BOX
-        ========================================= */
+        /* REGISTRATION BOX */
 
         .register-box {
-
             width: 100%;
-
             max-width: 600px;
 
             background: white;
@@ -128,11 +97,8 @@
                 0 4px 20px rgba(0,0,0,0.08);
         }
 
-
         h1 {
-
             margin-top: 0;
-
             margin-bottom: 10px;
 
             color: #102a43;
@@ -142,9 +108,7 @@
             font-size: 30px;
         }
 
-
         .subtitle {
-
             text-align: center;
 
             color: #52606d;
@@ -154,13 +118,9 @@
             line-height: 1.5;
         }
 
-
-        /* =========================================
-           FORM
-        ========================================= */
+        /* FORM */
 
         label {
-
             display: block;
 
             font-weight: bold;
@@ -170,17 +130,14 @@
             color: #102a43;
         }
 
-
         input {
-
             width: 100%;
 
             padding: 13px;
 
             margin-bottom: 20px;
 
-            border:
-                1px solid #cbd5e1;
+            border: 1px solid #cbd5e1;
 
             border-radius: 5px;
 
@@ -189,25 +146,16 @@
             font-family: inherit;
         }
 
-
         input:focus {
-
             outline: none;
 
             border-color: #102a43;
 
             box-shadow:
-                0 0 0 2px
-                rgba(16,42,67,0.1);
+                0 0 0 2px rgba(16,42,67,0.1);
         }
 
-
-        /* =========================================
-           PASSWORD
-        ========================================= */
-
         .password-help {
-
             margin-top: -12px;
 
             margin-bottom: 20px;
@@ -217,13 +165,9 @@
             color: #6b7280;
         }
 
-
-        /* =========================================
-           BUTTON
-        ========================================= */
+        /* BUTTON */
 
         button {
-
             width: 100%;
 
             padding: 14px;
@@ -243,27 +187,18 @@
             cursor: pointer;
         }
 
-
         button:hover {
-
             background: #243b53;
         }
 
-
         button:disabled {
-
             background: #9aa5b1;
-
             cursor: not-allowed;
         }
 
-
-        /* =========================================
-           MESSAGE
-        ========================================= */
+        /* MESSAGE */
 
         .message {
-
             margin-top: 20px;
 
             padding: 14px;
@@ -277,9 +212,7 @@
             line-height: 1.5;
         }
 
-
         .success {
-
             display: block;
 
             background: #e8f5e9;
@@ -287,9 +220,7 @@
             color: #256029;
         }
 
-
         .error {
-
             display: block;
 
             background: #fdecec;
@@ -297,13 +228,9 @@
             color: #a61b1b;
         }
 
-
-        /* =========================================
-           LOGIN LINK
-        ========================================= */
+        /* LOGIN */
 
         .login-link {
-
             text-align: center;
 
             margin-top: 25px;
@@ -313,9 +240,7 @@
             line-height: 1.5;
         }
 
-
         .login-link a {
-
             color: #102a43;
 
             font-weight: bold;
@@ -323,25 +248,17 @@
             text-decoration: none;
         }
 
-
         .login-link a:hover {
-
             text-decoration: underline;
         }
 
-
         .required {
-
             color: #c0392b;
         }
 
-
-        /* =========================================
-           FOOTER
-        ========================================= */
+        /* FOOTER */
 
         footer {
-
             background: #0b1f33;
 
             color: #bcccdc;
@@ -355,21 +272,15 @@
             line-height: 1.6;
         }
 
-
-        /* =========================================
-           MOBILE
-        ========================================= */
+        /* MOBILE */
 
         @media (max-width: 700px) {
 
             .nav {
-
                 flex-direction: column;
             }
 
-
             .nav-links {
-
                 margin-top: 15px;
 
                 flex-wrap: wrap;
@@ -377,24 +288,17 @@
                 justify-content: center;
             }
 
-
             .nav a {
-
                 margin: 5px 8px;
             }
 
-
             .register-box {
-
                 padding: 25px;
             }
 
-
             h1 {
-
                 font-size: 26px;
             }
-
         }
 
     </style>
@@ -405,10 +309,6 @@
 <body>
 
 
-<!-- =========================================
-     HEADER
-========================================= -->
-
 <header>
 
     <div class="nav">
@@ -417,28 +317,23 @@
             Primax Global, Inc.
         </div>
 
-
         <div class="nav-links">
 
             <a href="index.html">
                 Home
             </a>
 
-
             <a href="index.html#government">
                 Government
             </a>
-
 
             <a href="products.html">
                 Products
             </a>
 
-
             <a href="index.html#about">
                 About
             </a>
-
 
             <a href="index.html#contact">
                 Contact
@@ -451,79 +346,59 @@
 </header>
 
 
-
-<!-- =========================================
-     REGISTRATION PAGE
-========================================= -->
-
 <main class="page">
 
     <div class="register-box">
-
 
         <h1>
             Vendor Registration
         </h1>
 
-
         <p class="subtitle">
-
             Register your company with
             Primax Global, Inc.
-
         </p>
 
-
-
-        <!-- =====================================
-             REGISTRATION FORM
-        ====================================== -->
 
         <form id="vendorForm">
 
 
-            <!-- COMPANY NAME -->
+            <!-- COMPANY -->
 
             <label for="company_name">
 
                 Company Name
-
                 <span class="required">*</span>
 
             </label>
-
 
             <input
                 type="text"
                 id="company_name"
                 name="company_name"
                 required
-                autocomplete="organization"
                 maxlength="200"
+                autocomplete="organization"
                 placeholder="Your Company Name">
 
 
-
-            <!-- CONTACT NAME -->
+            <!-- CONTACT -->
 
             <label for="contact_name">
 
                 Contact Name
-
                 <span class="required">*</span>
 
             </label>
-
 
             <input
                 type="text"
                 id="contact_name"
                 name="contact_name"
                 required
-                autocomplete="name"
                 maxlength="150"
+                autocomplete="name"
                 placeholder="Full Name">
-
 
 
             <!-- EMAIL -->
@@ -531,21 +406,18 @@
             <label for="email">
 
                 Email
-
                 <span class="required">*</span>
 
             </label>
-
 
             <input
                 type="email"
                 id="email"
                 name="email"
                 required
-                autocomplete="email"
                 maxlength="254"
+                autocomplete="email"
                 placeholder="company@example.com">
-
 
 
             <!-- PHONE -->
@@ -553,21 +425,18 @@
             <label for="phone">
 
                 Phone
-
                 <span class="required">*</span>
 
             </label>
-
 
             <input
                 type="tel"
                 id="phone"
                 name="phone"
                 required
-                autocomplete="tel"
                 maxlength="30"
+                autocomplete="tel"
                 placeholder="213-555-1234">
-
 
 
             <!-- WEBSITE -->
@@ -578,15 +447,13 @@
 
             </label>
 
-
             <input
                 type="url"
                 id="website"
                 name="website"
-                autocomplete="url"
                 maxlength="500"
+                autocomplete="url"
                 placeholder="https://www.example.com">
-
 
 
             <!-- PASSWORD -->
@@ -594,11 +461,9 @@
             <label for="password">
 
                 Password
-
                 <span class="required">*</span>
 
             </label>
-
 
             <input
                 type="password"
@@ -609,16 +474,12 @@
                 autocomplete="new-password"
                 placeholder="Minimum 8 characters">
 
-
             <div class="password-help">
-
                 Password must contain at least 8 characters.
-
             </div>
 
 
-
-            <!-- SUBMIT -->
+            <!-- BUTTON -->
 
             <button
                 type="submit"
@@ -627,7 +488,6 @@
                 Create Vendor Account
 
             </button>
-
 
 
             <!-- MESSAGE -->
@@ -641,9 +501,6 @@
         </form>
 
 
-
-        <!-- LOGIN -->
-
         <div class="login-link">
 
             Already registered?
@@ -654,16 +511,10 @@
 
         </div>
 
-
     </div>
 
 </main>
 
-
-
-<!-- =========================================
-     FOOTER
-========================================= -->
 
 <footer>
 
@@ -678,28 +529,16 @@
 </footer>
 
 
-
-<!-- =========================================
-     SUPABASE JAVASCRIPT LIBRARY
-========================================= -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 
 
 <script>
 
-/* =================================================
-   1. SUPABASE CONFIGURATION
-================================================= */
-
 const SUPABASE_URL =
     "https://nhjapidacizvhebtpzah.supabase.co";
 
-
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
-
 
 const supabaseClient =
     window.supabase.createClient(
@@ -708,27 +547,15 @@ const supabaseClient =
     );
 
 
-
-/* =================================================
-   2. FORM ELEMENTS
-================================================= */
-
 const form =
     document.getElementById("vendorForm");
-
 
 const button =
     document.getElementById("registerButton");
 
-
 const message =
     document.getElementById("message");
 
-
-
-/* =================================================
-   3. MESSAGE FUNCTION
-================================================= */
 
 function showMessage(text, type) {
 
@@ -737,14 +564,8 @@ function showMessage(text, type) {
 
     message.textContent =
         text;
-
 }
 
-
-
-/* =================================================
-   4. FORM SUBMIT
-================================================= */
 
 form.addEventListener(
     "submit",
@@ -753,20 +574,12 @@ form.addEventListener(
         event.preventDefault();
 
 
-        /* -----------------------------------------
-           Clear previous message
-        ----------------------------------------- */
-
         message.className =
             "message";
 
         message.textContent =
             "";
 
-
-        /* -----------------------------------------
-           Disable button
-        ----------------------------------------- */
 
         button.disabled = true;
 
@@ -777,9 +590,9 @@ form.addEventListener(
         try {
 
 
-            /* =====================================
-               5. READ FORM DATA
-            ===================================== */
+            /* ==============================
+               READ FORM
+            ============================== */
 
             const companyName =
                 document
@@ -823,17 +636,15 @@ form.addEventListener(
                 .value;
 
 
-
-            /* =====================================
-               6. BASIC VALIDATION
-            ===================================== */
+            /* ==============================
+               VALIDATION
+            ============================== */
 
             if (!companyName) {
 
                 throw new Error(
                     "Please enter your company name."
                 );
-
             }
 
 
@@ -842,7 +653,6 @@ form.addEventListener(
                 throw new Error(
                     "Please enter your contact name."
                 );
-
             }
 
 
@@ -851,7 +661,6 @@ form.addEventListener(
                 throw new Error(
                     "Please enter your email address."
                 );
-
             }
 
 
@@ -860,7 +669,6 @@ form.addEventListener(
                 throw new Error(
                     "Please enter your phone number."
                 );
-
             }
 
 
@@ -869,186 +677,114 @@ form.addEventListener(
                 throw new Error(
                     "Password must contain at least 8 characters."
                 );
-
             }
 
 
-
-            /* =====================================
-               7. CREATE SUPABASE AUTH ACCOUNT
-            ===================================== */
+            /* ==============================
+               CREATE AUTH ACCOUNT
+            ============================== */
 
             const {
-
                 data: authData,
-
                 error: authError
+            } =
+                await supabaseClient.auth.signUp({
 
-            } = await supabaseClient.auth.signUp({
+                    email: email,
 
-                email: email,
+                    password: password,
 
-                password: password,
+                    options: {
 
-                options: {
+                        emailRedirectTo:
+                            "https://primaxfed.com/vendor-login.html"
 
-                    emailRedirectTo:
-                        window.location.origin +
-                        "/vendor-login.html"
+                    }
 
-                }
+                });
 
-            });
-
-
-
-            /* =====================================
-               8. AUTH ERROR
-            ===================================== */
 
             if (authError) {
 
                 throw authError;
-
             }
 
 
             if (!authData.user) {
 
                 throw new Error(
-                    "Unable to create your account. Please try again."
+                    "Unable to create your account."
                 );
+            }
+
+
+            /* ==============================
+               UPDATE VENDOR PROFILE
+               ONLY IF SESSION EXISTS
+            ============================== */
+
+            if (authData.session) {
+
+                const {
+                    error: updateError
+                } =
+                    await supabaseClient
+
+                        .from("vendors")
+
+                        .update({
+
+                            company_name:
+                                companyName,
+
+                            contact_name:
+                                contactName,
+
+                            phone:
+                                phone,
+
+                            website:
+                                website || null
+
+                        })
+
+                        .eq(
+                            "user_id",
+                            authData.user.id
+                        );
+
+
+                if (updateError) {
+
+                    console.error(
+                        "Profile update error:",
+                        updateError
+                    );
+
+                }
 
             }
 
 
-            const userId =
-                authData.user.id;
-
-
-
-            /* =====================================
-               9. CREATE VENDOR PROFILE
-            ===================================== */
-
-            const {
-
-                data: vendorData,
-
-                error: vendorError
-
-            } = await supabaseClient
-
-                .from("vendors")
-
-                .insert({
-
-                    user_id:
-                        userId,
-
-                    company_name:
-                        companyName,
-
-                    contact_name:
-                        contactName,
-
-                    email:
-                        email,
-
-                    phone:
-                        phone,
-
-                    website:
-                        website || null,
-
-                    status:
-                        "pending"
-
-                })
-
-                .select(
-                    "id, company_name, contact_name, email, status"
-                )
-
-                .single();
-
-
-
-            /* =====================================
-               10. VENDOR DATABASE ERROR
-            ===================================== */
-
-            if (vendorError) {
-
-                console.error(
-                    "Vendor profile error:",
-                    vendorError
-                );
-
-
-                /*
-                   The Auth account may already exist.
-                   Tell the user to contact Primax
-                   rather than exposing database details.
-                */
-
-                throw new Error(
-                    "Your account was created, but your vendor profile could not be completed. " +
-                    "Please contact Primax Global support."
-                );
-
-            }
-
-
-
-            /* =====================================
-               11. SAVE NON-SENSITIVE INFORMATION
-            ===================================== */
-
-            localStorage.setItem(
-                "primax_vendor_company",
-                vendorData.company_name
-            );
-
-
-            localStorage.setItem(
-                "primax_vendor_status",
-                vendorData.status
-            );
-
-
-
-            /* =====================================
-               12. SUCCESS MESSAGE
-            ===================================== */
+            /* ==============================
+               SUCCESS
+            ============================== */
 
             showMessage(
 
-                "Registration successful! " +
-                "Please check your email to confirm your account. " +
-                "After confirmation, you can sign in through Vendor Login.",
+                "Your vendor account has been created successfully. " +
+                "Please check your email and click the confirmation link. " +
+                "After confirming your email, return to Vendor Login.",
 
                 "success"
 
             );
 
 
-            /* Clear password field */
-
-            document
-                .getElementById("password")
-                .value = "";
-
-
-            /* Keep company/contact information visible */
+            form.reset();
 
 
         }
-
-
-        /* =========================================
-           13. ERROR HANDLING
-        ========================================= */
 
         catch(error) {
 
@@ -1062,14 +798,16 @@ form.addEventListener(
                 "Registration failed. Please try again.";
 
 
-            /* -------------------------------------
-               Common Supabase errors
-            ------------------------------------- */
+            const errorText =
+                error.message
+                ? error.message.toLowerCase()
+                : "";
+
 
             if (
-                error.message &&
-                error.message.toLowerCase()
-                    .includes("user already registered")
+                errorText.includes(
+                    "user already registered"
+                )
             ) {
 
                 errorMessage =
@@ -1080,25 +818,25 @@ form.addEventListener(
 
 
             else if (
-                error.message &&
-                error.message.toLowerCase()
-                    .includes("password")
+                errorText.includes(
+                    "invalid email"
+                )
             ) {
 
                 errorMessage =
-                    error.message;
+                    "Please enter a valid email address.";
 
             }
 
 
             else if (
-                error.message &&
-                error.message.toLowerCase()
-                    .includes("invalid email")
+                errorText.includes(
+                    "password"
+                )
             ) {
 
                 errorMessage =
-                    "Please enter a valid email address.";
+                    error.message;
 
             }
 
@@ -1118,10 +856,6 @@ form.addEventListener(
 
         }
 
-
-        /* =========================================
-           14. ENABLE BUTTON
-        ========================================= */
 
         finally {
 
