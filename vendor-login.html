@@ -11,7 +11,7 @@
     <title>Vendor Login | Primax Global, Inc.</title>
 
     <meta name="description"
-          content="Vendor login for Primax Global, Inc.">
+          content="Vendor login portal for Primax Global, Inc.">
 
     <style>
 
@@ -19,13 +19,7 @@
             box-sizing: border-box;
         }
 
-
-        /* =========================================
-           BODY
-        ========================================= */
-
         body {
-
             margin: 0;
 
             font-family:
@@ -45,7 +39,6 @@
         ========================================= */
 
         header {
-
             background: #102a43;
 
             color: white;
@@ -53,7 +46,6 @@
 
 
         .nav {
-
             max-width: 1150px;
 
             margin: auto;
@@ -69,7 +61,6 @@
 
 
         .logo {
-
             font-size: 22px;
 
             font-weight: bold;
@@ -77,7 +68,6 @@
 
 
         .nav-links {
-
             display: flex;
 
             align-items: center;
@@ -85,7 +75,6 @@
 
 
         .nav a {
-
             color: white;
 
             text-decoration: none;
@@ -97,7 +86,6 @@
 
 
         .nav a:hover {
-
             text-decoration: underline;
         }
 
@@ -117,13 +105,9 @@
 
             align-items: flex-start;
 
-            padding: 80px 20px;
+            padding: 70px 20px;
         }
 
-
-        /* =========================================
-           LOGIN BOX
-        ========================================= */
 
         .login-box {
 
@@ -138,7 +122,8 @@
             border-radius: 8px;
 
             box-shadow:
-                0 4px 20px rgba(0,0,0,0.08);
+                0 4px 20px
+                rgba(0,0,0,0.08);
         }
 
 
@@ -163,8 +148,6 @@
             color: #52606d;
 
             margin-bottom: 35px;
-
-            line-height: 1.5;
         }
 
 
@@ -192,7 +175,8 @@
 
             margin-bottom: 20px;
 
-            border: 1px solid #cbd5e1;
+            border:
+                1px solid #cbd5e1;
 
             border-radius: 5px;
 
@@ -209,12 +193,13 @@
             border-color: #102a43;
 
             box-shadow:
-                0 0 0 2px rgba(16,42,67,0.1);
+                0 0 0 2px
+                rgba(16,42,67,0.1);
         }
 
 
         /* =========================================
-           PASSWORD AREA
+           PASSWORD ROW
         ========================================= */
 
         .password-row {
@@ -274,8 +259,6 @@
             font-weight: bold;
 
             cursor: pointer;
-
-            margin-top: 5px;
         }
 
 
@@ -344,8 +327,6 @@
             margin-top: 25px;
 
             color: #52606d;
-
-            font-size: 14px;
         }
 
 
@@ -428,9 +409,9 @@
 <body>
 
 
-<!-- =========================================
-     HEADER
-========================================= -->
+<!-- =============================================
+     NAVIGATION
+============================================= -->
 
 <header>
 
@@ -475,11 +456,12 @@
 
 
 
-<!-- =========================================
-     LOGIN PAGE
-========================================= -->
+<!-- =============================================
+     LOGIN
+============================================= -->
 
 <main class="page">
+
 
     <div class="login-box">
 
@@ -498,9 +480,7 @@
 
 
 
-        <!-- =====================================
-             LOGIN FORM
-        ====================================== -->
+        <!-- LOGIN FORM -->
 
         <form id="loginForm">
 
@@ -515,19 +495,11 @@
 
 
             <input
-
                 type="email"
-
                 id="email"
-
-                name="email"
-
                 required
-
                 autocomplete="email"
-
-                placeholder="company@example.com"
-            >
+                placeholder="company@example.com">
 
 
 
@@ -543,7 +515,8 @@
 
 
                 <a
-                    href="vendor-forgot-password.html"
+                    href="#"
+                    id="forgotPassword"
                     class="forgot-link">
 
                     Forgot Password?
@@ -554,31 +527,21 @@
 
 
             <input
-
                 type="password"
-
                 id="password"
-
-                name="password"
-
                 required
-
                 autocomplete="current-password"
-
-                placeholder="Enter your password"
-            >
+                placeholder="Enter your password">
 
 
 
             <!-- LOGIN BUTTON -->
 
             <button
-
                 type="submit"
-
                 id="loginButton">
 
-                Vendor Login
+                Sign In
 
             </button>
 
@@ -587,9 +550,7 @@
             <!-- MESSAGE -->
 
             <div
-
                 id="message"
-
                 class="message">
 
             </div>
@@ -599,15 +560,13 @@
 
 
 
-        <!-- =====================================
-             REGISTER
-        ====================================== -->
+        <!-- REGISTER -->
 
         <div class="register-link">
 
             Don't have a vendor account?
 
-            <a href="vendor-register.html">
+            <a href="vendor-register.htm">
 
                 Register Your Company
 
@@ -622,9 +581,9 @@
 
 
 
-<!-- =========================================
+<!-- =============================================
      FOOTER
-========================================= -->
+============================================= -->
 
 <footer>
 
@@ -640,23 +599,33 @@
 
 
 
-<!-- =========================================
+<!-- =============================================
      SUPABASE JAVASCRIPT LIBRARY
-========================================= -->
+============================================= -->
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+</script>
 
 
 
 <script>
 
-/* =====================================================
-   1. SUPABASE CONFIGURATION
-===================================================== */
+/* =================================================
+   SUPABASE CONFIGURATION
+================================================= */
 
 const SUPABASE_URL =
     "https://nhjapidacizvhebtpzah.supabase.co";
 
+
+/*
+   IMPORTANT:
+
+   This is the PUBLIC / PUBLISHABLE key.
+
+   NEVER put the Supabase secret key here.
+*/
 
 const SUPABASE_PUBLISHABLE_KEY =
     "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
@@ -664,18 +633,15 @@ const SUPABASE_PUBLISHABLE_KEY =
 
 const supabaseClient =
     window.supabase.createClient(
-
         SUPABASE_URL,
-
         SUPABASE_PUBLISHABLE_KEY
-
     );
 
 
 
-/* =====================================================
-   2. GET HTML ELEMENTS
-===================================================== */
+/* =================================================
+   FORM ELEMENTS
+================================================= */
 
 const loginForm =
     document.getElementById("loginForm");
@@ -689,67 +655,38 @@ const message =
     document.getElementById("message");
 
 
-
-/* =====================================================
-   3. CHECK EXISTING SESSION
-===================================================== */
-
-async function checkExistingSession() {
-
-    try {
-
-        const {
-
-            data: {
-                session
-            }
-
-        } = await supabaseClient
-            .auth
-            .getSession();
+const forgotPassword =
+    document.getElementById("forgotPassword");
 
 
-        if (session) {
 
-            window.location.href =
-                "vendor-dashboard.html";
+/* =================================================
+   SHOW MESSAGE
+================================================= */
 
-        }
+function showMessage(text, type) {
 
-    }
+    message.className =
+        "message " + type;
 
-    catch(error) {
-
-        console.error(
-            "Session check error:",
-            error
-        );
-
-    }
-
+    message.textContent =
+        text;
 }
 
 
-/* Run session check */
 
-checkExistingSession();
-
-
-
-/* =====================================================
-   4. LOGIN FORM
-===================================================== */
+/* =================================================
+   VENDOR LOGIN
+================================================= */
 
 loginForm.addEventListener(
-
     "submit",
-
     async function(event) {
 
         event.preventDefault();
 
 
-        /* Clear old message */
+        /* Clear previous message */
 
         message.className =
             "message";
@@ -760,8 +697,7 @@ loginForm.addEventListener(
 
         /* Disable button */
 
-        loginButton.disabled =
-            true;
+        loginButton.disabled = true;
 
         loginButton.textContent =
             "Signing In...";
@@ -770,9 +706,9 @@ loginForm.addEventListener(
         try {
 
 
-            /* =========================================
-               5. GET LOGIN INFORMATION
-            ========================================= */
+            /* =====================================
+               GET LOGIN DATA
+            ===================================== */
 
             const email =
                 document
@@ -788,32 +724,28 @@ loginForm.addEventListener(
 
 
 
-            /* =========================================
-               6. SUPABASE LOGIN
-            ========================================= */
+            /* =====================================
+               SUPABASE LOGIN
+            ===================================== */
 
             const {
-
                 data,
                 error
-
-            } = await supabaseClient
+            } =
+                await supabaseClient
                 .auth
                 .signInWithPassword({
 
-                    email:
-                        email,
+                    email: email,
 
-                    password:
-                        password
+                    password: password
 
                 });
 
 
-
-            /* =========================================
-               7. CHECK LOGIN ERROR
-            ========================================= */
+            /* =====================================
+               LOGIN ERROR
+            ===================================== */
 
             if (error) {
 
@@ -832,9 +764,9 @@ loginForm.addEventListener(
 
 
 
-            /* =========================================
-               8. CHECK VENDOR PROFILE
-            ========================================= */
+            /* =====================================
+               CHECK VENDOR PROFILE
+            ===================================== */
 
             const {
 
@@ -842,12 +774,13 @@ loginForm.addEventListener(
 
                 error: vendorError
 
-            } = await supabaseClient
+            } =
+                await supabaseClient
 
                 .from("vendors")
 
                 .select(
-                    "id, company_name, status"
+                    "id, company_name, contact_name, status"
                 )
 
                 .eq(
@@ -855,31 +788,14 @@ loginForm.addEventListener(
                     data.user.id
                 )
 
-                .maybeSingle();
+                .single();
 
 
 
             if (vendorError) {
 
-                throw vendorError;
-
-            }
-
-
-
-            /* =========================================
-               9. VENDOR PROFILE NOT FOUND
-            ========================================= */
-
-            if (!vendor) {
-
-                await supabaseClient
-                    .auth
-                    .signOut();
-
-
                 throw new Error(
-                    "Vendor profile was not found. " +
+                    "Vendor profile not found. " +
                     "Please contact Primax Global."
                 );
 
@@ -887,19 +803,11 @@ loginForm.addEventListener(
 
 
 
-            /* =========================================
-               10. CHECK VENDOR STATUS
-            ========================================= */
+            /* =====================================
+               CHECK ACCOUNT STATUS
+            ===================================== */
 
-            if (
-                vendor.status ===
-                "rejected"
-            ) {
-
-                await supabaseClient
-                    .auth
-                    .signOut();
-
+            if (vendor.status === "rejected") {
 
                 throw new Error(
                     "Your vendor application has been rejected. " +
@@ -910,107 +818,167 @@ loginForm.addEventListener(
 
 
 
-            /* =========================================
-               11. LOGIN SUCCESS
-            ========================================= */
+            /* =====================================
+               LOGIN SUCCESS
+            ===================================== */
 
-            message.className =
-                "message success";
-
-
-            message.textContent =
-                "Login successful. Redirecting...";
+            showMessage(
+                "Login successful. Redirecting...",
+                "success"
+            );
 
 
-            /* =========================================
-               12. GO TO DASHBOARD
-            ========================================= */
+            /*
+               Save vendor information locally.
+
+               This is NOT used for security.
+               Supabase Auth session is the security layer.
+            */
+
+            localStorage.setItem(
+                "primax_vendor_company",
+                vendor.company_name
+            );
+
+
+            localStorage.setItem(
+                "primax_vendor_status",
+                vendor.status
+            );
+
+
+            /* =====================================
+               REDIRECT
+            ===================================== */
 
             setTimeout(
-
                 function() {
 
                     window.location.href =
                         "vendor-dashboard.html";
 
                 },
-
-                700
-
+                800
             );
-
 
         }
 
-
-        /* =============================================
-           13. LOGIN ERROR
-        ============================================= */
 
         catch(error) {
 
             console.error(
-                "Login Error:",
+                "Vendor login error:",
                 error
             );
 
 
-            message.className =
-                "message error";
-
-
-            let errorMessage =
-                "Login failed. Please check your email and password.";
-
-
-            if (
-                error.message &&
-                error.message
-                    .toLowerCase()
-                    .includes("email not confirmed")
-            ) {
-
-                errorMessage =
-                    "Please confirm your email address before logging in.";
-
-            }
-
-
-            else if (
-                error.message &&
-                error.message
-                    .toLowerCase()
-                    .includes("invalid login credentials")
-            ) {
-
-                errorMessage =
-                    "Incorrect email or password.";
-
-            }
-
-
-            message.textContent =
-                errorMessage;
+            showMessage(
+                error.message ||
+                "Unable to sign in. Please check your email and password.",
+                "error"
+            );
 
         }
 
 
-        /* =============================================
-           14. ENABLE BUTTON
-        ============================================= */
-
         finally {
 
-            loginButton.disabled =
-                false;
+            loginButton.disabled = false;
 
             loginButton.textContent =
-                "Vendor Login";
+                "Sign In";
 
         }
 
     }
+);
 
+
+
+/* =================================================
+   FORGOT PASSWORD
+================================================= */
+
+forgotPassword.addEventListener(
+    "click",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document
+            .getElementById("email")
+            .value
+            .trim();
+
+
+        if (!email) {
+
+            showMessage(
+                "Please enter your email address first.",
+                "error"
+            );
+
+            document
+            .getElementById("email")
+            .focus();
+
+            return;
+
+        }
+
+
+        try {
+
+
+            const {
+                error
+            } =
+                await supabaseClient
+                .auth
+                .resetPasswordForEmail(
+                    email,
+                    {
+                        redirectTo:
+                            window.location.origin +
+                            "/vendor-reset-password.html"
+                    }
+                );
+
+
+            if (error) {
+
+                throw error;
+
+            }
+
+
+            showMessage(
+                "Password reset instructions have been sent to your email.",
+                "success"
+            );
+
+        }
+
+
+        catch(error) {
+
+            console.error(
+                "Password reset error:",
+                error
+            );
+
+
+            showMessage(
+                error.message ||
+                "Unable to send password reset email.",
+                "error"
+            );
+
+        }
+
+    }
 );
 
 </script>
