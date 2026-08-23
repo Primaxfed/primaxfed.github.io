@@ -1,423 +1,624 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Primax Global, Inc. | Government & Enterprise Solutions</title>
+<title>Primax Global, Inc. | Approved U.S. Government Supplier</title>
 
-    <meta name="description"
-          content="Primax Global, Inc. is a U.S. government and enterprise supplier providing IT hardware, commercial products, and technology solutions.">
+<meta name="description"
+content="Primax Global, Inc. is an approved U.S. government supplier providing products and procurement solutions to federal government customers and commercial organizations.">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #1f2933;
-            line-height: 1.6;
-            background: #ffffff;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        header {
-            background: #102a43;
-            color: white;
-        }
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #243447;
+    background: #ffffff;
+    line-height: 1.6;
+}
 
-        .nav {
-            max-width: 1100px;
-            margin: auto;
-            padding: 18px 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+/* HEADER */
 
-        .logo {
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 0.5px;
-        }
+header {
+    background: #102a43;
+    color: white;
+}
 
-        .nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 25px;
-            font-size: 14px;
-        }
+.nav {
+    max-width: 1150px;
+    margin: auto;
+    padding: 20px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
-        .nav a:hover {
-            text-decoration: underline;
-        }
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: .3px;
+}
 
-        .hero {
-            background: #243b53;
-            color: white;
-            text-align: center;
-            padding: 90px 20px;
-        }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
 
-        .hero h1 {
-            font-size: 48px;
-            margin: 0 0 15px;
-        }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
 
-        .hero p {
-            font-size: 21px;
-            color: #d9e2ec;
-            max-width: 750px;
-            margin: auto;
-        }
+.nav-links a:hover {
+    text-decoration: underline;
+}
 
-        .button {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 13px 26px;
-            background: white;
-            color: #102a43;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 4px;
-        }
+.language {
+    border-left: 1px solid rgba(255,255,255,.35);
+    padding-left: 20px;
+}
 
-        .container {
-            max-width: 1050px;
-            margin: auto;
-            padding: 65px 25px;
-        }
+.language a {
+    font-weight: bold;
+}
 
-        .section {
-            margin-bottom: 60px;
-        }
+/* HERO */
 
-        h2 {
-            color: #102a43;
-            font-size: 30px;
-            margin-bottom: 20px;
-            border-bottom: 2px solid #d9e2ec;
-            padding-bottom: 10px;
-        }
+.hero {
+    background: linear-gradient(
+        rgba(16,42,67,.94),
+        rgba(36,59,83,.94)
+    );
 
-        .intro {
-            font-size: 18px;
-            color: #52606d;
-        }
+    color: white;
+    text-align: center;
+    padding: 95px 20px;
+}
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 30px;
-        }
+.hero h1 {
+    margin: 0;
+    font-size: 48px;
+    letter-spacing: .5px;
+}
 
-        .card {
-            border: 1px solid #d9e2ec;
-            padding: 28px;
-            border-radius: 6px;
-            background: #f8fafc;
-        }
+.hero h2 {
+    margin: 15px 0;
+    font-size: 25px;
+    font-weight: normal;
+    color: #d9e2ec;
+}
 
-        .card h3 {
-            color: #102a43;
-            margin-top: 0;
-        }
+.hero p {
+    max-width: 750px;
+    margin: 25px auto;
+    font-size: 18px;
+    color: #e6edf3;
+}
 
-        .government {
-            background: #f0f4f8;
-        }
+.badges {
+    margin-top: 35px;
+}
 
-        .government-box {
-            max-width: 1050px;
-            margin: auto;
-            padding: 65px 25px;
-        }
+.badge {
+    display: inline-block;
+    border: 1px solid rgba(255,255,255,.5);
+    padding: 10px 18px;
+    margin: 5px;
+    border-radius: 4px;
+    font-size: 13px;
+    letter-spacing: .5px;
+}
 
-        .code {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 10px 18px;
-            background: #102a43;
-            color: white;
-            font-weight: bold;
-            border-radius: 4px;
-            letter-spacing: 1px;
-        }
+/* CONTAINER */
 
-        .contact {
-            background: #102a43;
-            color: white;
-        }
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 70px 25px;
+}
 
-        .contact h2 {
-            color: white;
-            border-color: #486581;
-        }
+.section-title {
+    text-align: center;
+    color: #102a43;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
 
-        footer {
-            background: #0b1f33;
-            color: #bcccdc;
-            text-align: center;
-            padding: 25px 20px;
-            font-size: 14px;
-        }
+.section-intro {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 45px;
+    color: #52606d;
+    font-size: 17px;
+}
 
-        @media (max-width: 750px) {
+/* CARDS */
 
-            .nav {
-                flex-direction: column;
-            }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 25px;
+}
 
-            .nav-links {
-                margin-top: 15px;
-            }
+.card {
+    border: 1px solid #d9e2ec;
+    padding: 32px 25px;
+    border-radius: 6px;
+    background: #f8fafc;
+    text-align: center;
+}
 
-            .nav a {
-                margin: 0 8px;
-                font-size: 13px;
-            }
+.card h3 {
+    color: #102a43;
+    font-size: 21px;
+}
 
-            .hero h1 {
-                font-size: 36px;
-            }
+.card p {
+    color: #52606d;
+}
 
-            .hero p {
-                font-size: 18px;
-            }
+/* GOVERNMENT */
 
-            .cards {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+.government {
+    background: #f1f5f8;
+}
+
+.gov-box {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    border-left: 5px solid #102a43;
+    padding: 35px;
+}
+
+.gov-box h3 {
+    color: #102a43;
+    margin-top: 0;
+}
+
+.code {
+    display: inline-block;
+    background: #102a43;
+    color: white;
+    padding: 10px 18px;
+    margin-top: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* ABOUT */
+
+.about-text {
+    max-width: 850px;
+    margin: auto;
+    font-size: 17px;
+    color: #52606d;
+}
+
+/* CONTACT */
+
+.contact {
+    background: #102a43;
+    color: white;
+}
+
+.contact .section-title {
+    color: white;
+}
+
+.contact-info {
+    text-align: center;
+    font-size: 17px;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+}
+
+/* FOOTER */
+
+footer {
+    background: #0b1f33;
+    color: #bcccdc;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 13px;
+}
+
+.footer-company {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px) {
+
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .language {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero h2 {
+        font-size: 21px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
 </head>
+
 
 <body>
 
+
+<!-- HEADER -->
+
 <header>
-    <div class="nav">
 
-        <div class="logo">
-            Primax Global, Inc.
-        </div>
+<div class="nav">
 
-        <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#about">About</a>
-            <a href="#government">Government</a>
-            <a href="products.html">Products</a>
-            <a href="#contact">Contact</a>
-        </div>
+<div class="logo">
+Primax Global, Inc.
+</div>
 
-    </div>
+<div class="nav-links">
+
+<a href="index.html">Home</a>
+
+<a href="#government">
+Government
+</a>
+
+<a href="products.html">
+Products
+</a>
+
+<a href="#about">
+About
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+<div class="language">
+
+<a href="ko.html">
+한국어
+</a>
+
+</div>
+
+</div>
+
+</div>
+
 </header>
 
 
+<!-- HERO -->
+
 <section class="hero">
 
-    <h1>Primax Global, Inc.</h1>
+<h1>
+Primax Global, Inc.
+</h1>
 
-    <p>
-        Government & Enterprise Supply Solutions
-    </p>
+<h2>
+Approved U.S. Government Supplier
+</h2>
 
-    <p style="font-size:17px; margin-top:18px;">
-        Supplying quality products and technology solutions
-        to government and enterprise customers.
-    </p>
+<p>
 
-    <a class="button" href="products.html">
-        View Our Products
-    </a>
+Providing products and procurement solutions
+for federal government and commercial customers.
+
+</p>
+
+<div class="badges">
+
+<span class="badge">
+FEDERAL GOVERNMENT SUPPLIER
+</span>
+
+<span class="badge">
+APPROVED VENDOR
+</span>
+
+<span class="badge">
+SUPPLY CODE 214A5
+</span>
+
+</div>
 
 </section>
 
 
+<!-- SERVICES -->
+
+<section>
+
 <div class="container">
 
-    <section class="section" id="about">
+<h2 class="section-title">
+Our Capabilities
+</h2>
 
-        <h2>About Primax Global</h2>
+<p class="section-intro">
 
-        <p class="intro">
-            Primax Global, Inc. is a U.S.-based government and
-            commercial supplier providing a broad range of products,
-            technology equipment, and business solutions.
-        </p>
+Primax Global, Inc. provides product sourcing,
+procurement, and supply solutions for government
+and commercial customers.
 
-        <p>
-            We work with manufacturers, distributors, and qualified
-            vendors to source and supply products that meet the
-            requirements of government and enterprise customers.
-        </p>
-
-        <p>
-            Our focus is reliable procurement, responsive service,
-            competitive sourcing, and dependable delivery.
-        </p>
-
-    </section>
+</p>
 
 
-    <section class="section">
-
-        <h2>Our Capabilities</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>Government Supply</h3>
-
-                <p>
-                    Procurement and supply of commercial products
-                    and technology solutions for government customers.
-                </p>
-            </div>
+<div class="cards">
 
 
-            <div class="card">
-                <h3>IT & Technology</h3>
+<div class="card">
 
-                <p>
-                    Computer hardware, electronics, networking
-                    equipment, peripherals, and enterprise technology.
-                </p>
-            </div>
+<h3>
+Government Supply
+</h3>
 
+<p>
 
-            <div class="card">
-                <h3>Commercial Products</h3>
+Supplying products and equipment through
+authorized government procurement channels.
 
-                <p>
-                    A growing portfolio of consumer, commercial,
-                    industrial, and specialty products.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
+</p>
 
 </div>
 
+
+<div class="card">
+
+<h3>
+Products & Vendors
+</h3>
+
+<p>
+
+Access to a growing network of manufacturers,
+distributors, and product vendors.
+
+</p>
+
+<a href="products.html">
+
+View Products →
+
+</a>
+
+</div>
+
+
+<div class="card">
+
+<h3>
+Commercial Supply
+</h3>
+
+<p>
+
+Product sourcing and supply solutions for
+business and institutional customers.
+
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- GOVERNMENT -->
 
 <section class="government" id="government">
 
-    <div class="government-box">
-
-        <h2>Government Contracting</h2>
-
-        <p>
-            Primax Global, Inc. is an approved U.S. government
-            supplier serving federal and public-sector procurement
-            requirements.
-        </p>
-
-        <p>
-            Our company supports government purchasing through
-            authorized procurement channels and government
-            marketplaces, including federal and military
-            procurement programs.
-        </p>
-
-        <p>
-            We supply products to eligible government customers
-            and support procurement requirements across multiple
-            product categories.
-        </p>
-
-        <p>
-            <strong>Government Supply Code</strong>
-        </p>
-
-        <span class="code">214A5</span>
-
-    </div>
-
-</section>
-
-
 <div class="container">
 
-    <section class="section">
+<h2 class="section-title">
+Government Procurement
+</h2>
 
-        <h2>Why Primax Global</h2>
+<p class="section-intro">
 
-        <div class="cards">
+Primax Global, Inc. is an approved U.S. government
+supplier serving federal procurement requirements.
 
-            <div class="card">
-                <h3>Government Focused</h3>
-                <p>
-                    Dedicated to serving government and public-sector
-                    procurement requirements.
-                </p>
-            </div>
+</p>
 
-            <div class="card">
-                <h3>Reliable Sourcing</h3>
-                <p>
-                    We work with qualified vendors and manufacturers
-                    to source products competitively.
-                </p>
-            </div>
 
-            <div class="card">
-                <h3>Responsive Service</h3>
-                <p>
-                    Professional communication and dependable
-                    fulfillment for our customers.
-                </p>
-            </div>
+<div class="gov-box">
 
-        </div>
+<h3>
+Federal Government Supply
+</h3>
 
-    </section>
+<p>
+
+Primax Global, Inc. provides products and
+procurement solutions to federal government
+customers through authorized government
+procurement channels.
+
+</p>
+
+<p>
+
+Our company supports government purchasing
+requirements by sourcing products from qualified
+manufacturers, distributors, and vendors.
+
+</p>
+
+<div class="code">
+
+Federal Supply Code: 214A5
 
 </div>
 
+</div>
 
-<section class="contact" id="contact">
-
-    <div class="container">
-
-        <h2>Contact Us</h2>
-
-        <p>
-            <strong>Primax Global, Inc.</strong>
-        </p>
-
-        <p>
-            3660 Wilshire Blvd, Suite 512<br>
-            Los Angeles, CA 90010
-        </p>
-
-        <p>
-            <strong>Phone:</strong>
-            <a href="tel:2132470011" style="color:white;">
-                213-247-0011
-            </a>
-        </p>
-
-        <p>
-            <strong>Email:</strong>
-            <a href="mailto:david@primaxfed.com" style="color:white;">
-                david@primaxfed.com
-            </a>
-        </p>
-
-    </div>
+</div>
 
 </section>
 
 
+<!-- ABOUT -->
+
+<section id="about">
+
+<div class="container">
+
+<h2 class="section-title">
+About Primax Global
+</h2>
+
+<div class="about-text">
+
+<p>
+
+Primax Global, Inc. is a U.S.-based supplier
+providing products and procurement solutions
+to government and commercial customers.
+
+</p>
+
+<p>
+
+Our product portfolio includes IT hardware,
+electronics, industrial and specialty products,
+commercial products, personal care products,
+and other products sourced according to customer
+requirements.
+
+</p>
+
+<p>
+
+We work with qualified vendors and manufacturers
+to provide reliable products and responsive
+procurement support.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<h2 class="section-title">
+Contact Primax Global
+</h2>
+
+<div class="contact-info">
+
+<p>
+
+<strong>
+Primax Global, Inc.
+</strong>
+
+</p>
+
+<p>
+3660 Wilshire Blvd, Suite 512<br>
+Los Angeles, CA 90010
+</p>
+
+<p>
+
+Phone:
+<a href="tel:2132470011">
+213-247-0011
+</a>
+
+</p>
+
+<p>
+
+Email:
+<a href="mailto:david@primaxfed.com">
+david@primaxfed.com
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+
 <footer>
 
-    &copy; 2026 Primax Global, Inc.
-    All Rights Reserved.
+<div class="footer-company">
+Primax Global, Inc.
+</div>
+
+3660 Wilshire Blvd, Suite 512,
+Los Angeles, CA 90010
+
+<br><br>
+
+Federal Supply Code: 214A5
+
+<br><br>
+
+&copy; 2026 Primax Global, Inc.
+All Rights Reserved.
 
 </footer>
+
 
 </body>
 </html>
