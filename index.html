@@ -3,9 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Primax Global, Inc. | Federal Government Vendor</title>
-    <meta name="description" content="Primax Global, Inc. is a U.S. government vendor supplying commercial and industrial products to federal, state, and local government agencies.">
-    <meta name="keywords" content="Primax Global, government vendor, federal supplier, government procurement, industrial products, DoD supplier">
+
+    <meta name="description"
+          content="Primax Global, Inc. is a U.S. government vendor supplying commercial and industrial products to federal, state, and local government agencies.">
+
+    <meta name="keywords"
+          content="Primax Global, government vendor, federal supplier, government procurement, industrial products, DoD supplier">
 
     <style>
         * {
@@ -91,6 +96,24 @@
 
         .vendor-nav-button:hover {
             background: #e8eef3;
+            opacity: 1 !important;
+        }
+
+        /* =========================================
+           ADMIN VENDOR MANAGEMENT BUTTON
+           Hidden by default
+        ========================================= */
+        #adminVendorLink {
+            display: none;
+            background: #d9a441;
+            color: #102a43 !important;
+            padding: 9px 16px;
+            border-radius: 5px;
+            font-weight: 700 !important;
+        }
+
+        #adminVendorLink:hover {
+            background: #f0c36d;
             opacity: 1 !important;
         }
 
@@ -374,6 +397,7 @@
            MOBILE
         ========================================= */
         @media (max-width: 800px) {
+
             .nav-container {
                 flex-direction: column;
                 gap: 15px;
@@ -407,6 +431,7 @@
         }
 
         @media (max-width: 500px) {
+
             .logo {
                 font-size: 19px;
             }
@@ -433,146 +458,613 @@
         }
     </style>
 </head>
+
 <body>
 
-<!-- HEADER -->
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
+
     <div class="nav-container">
+
         <div class="logo">
             Primax Global, Inc.
         </div>
+
         <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="#government">Government</a>
-            <a href="products.html">Products</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="#government">
+                Government
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
             <!-- VENDOR PORTAL -->
-            <a href="#vendors" class="vendor-nav-button">Vendor Portal</a>
+            <a href="#vendors" class="vendor-nav-button">
+                Vendor Portal
+            </a>
+
+            <!-- =================================================
+                 ADMIN ONLY
+                 Hidden until Supabase confirms admin role
+            ================================================== -->
+            <a href="admin-vendors.html"
+               id="adminVendorLink">
+                Vendor Management
+            </a>
+
         </nav>
+
     </div>
+
 </header>
 
-<!-- HERO -->
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main>
-<section class="hero">
-    <div class="hero-content">
-        <h1>
-            Primax Global, Inc.
-            <span>Federal & Government Vendor</span>
-        </h1>
-        <p>
-            Supplying quality commercial, industrial, and specialty products to government agencies and institutional customers across the United States.
-        </p>
-        <div class="hero-buttons">
-            <a href="products.html" class="button button-primary">View Products</a>
-            <a href="#vendors" class="button button-outline">Vendor Portal</a>
-        </div>
-    </div>
-</section>
 
-<!-- GOVERNMENT -->
-<section id="government">
-    <div class="container">
-        <h2 class="section-title">Government Supply</h2>
-        <p class="section-subtitle">
-            Primax Global, Inc. supports government procurement requirements through reliable sourcing, product fulfillment, and vendor coordination.
-        </p>
-        <div class="government-grid">
-            <div class="government-card">
-                <h3>Federal Government</h3>
-                <p>Supporting federal procurement requirements with commercial, industrial, and specialty products.</p>
-            </div>
-            <div class="government-card">
-                <h3>Defense & Military</h3>
-                <p>Providing sourcing and supply support for defense and government customers.</p>
-            </div>
-            <div class="government-card">
-                <h3>Procurement Support</h3>
-                <p>Reliable vendor coordination, product sourcing, and fulfillment support.</p>
-            </div>
-        </div>
-    </div>
-</section>
+    <!-- =================================================
+         HERO
+    ================================================== -->
 
-<!-- ABOUT -->
-<section id="about">
-    <div class="container">
-        <h2 class="section-title">About Primax Global</h2>
-        <div class="about-content">
-            <p>Primax Global, Inc. is a U.S.-based government vendor focused on supplying products to government and institutional customers.</p>
-            <p>Our goal is to provide dependable sourcing, competitive pricing, and professional customer service throughout the procurement process.</p>
-        </div>
-    </div>
-</section>
+    <section class="hero">
 
-<!-- PRODUCTS -->
-<section id="products">
-    <div class="container">
-        <h2 class="section-title">Products</h2>
-        <p class="product-intro">
-            Browse products and product categories available through Primax Global, Inc.
-        </p>
-        <div class="products-button">
-            <a href="products.html" class="button button-primary" style="background:#102a43;color:#ffffff;">View Product Catalog</a>
-        </div>
-    </div>
-</section>
+        <div class="hero-content">
 
-<!-- VENDOR PORTAL -->
-<section id="vendors">
-    <div class="container">
-        <h2 class="section-title">Vendor Portal</h2>
-        <p class="section-subtitle">
-            Suppliers and manufacturers can register with Primax Global, Inc. to establish a vendor account and manage their vendor relationship.
-        </p>
-        <div class="vendor-grid">
-            <!-- LOGIN -->
-            <div class="vendor-card">
-                <h3>Existing Vendor</h3>
-                <p>Already registered with Primax Global? Sign in to access your vendor dashboard.</p>
-                <a href="vendor-login.html" class="button">Vendor Login</a>
+            <h1>
+                Primax Global, Inc.
+
+                <span>
+                    Federal & Government Vendor
+                </span>
+            </h1>
+
+            <p>
+                Supplying quality commercial, industrial, and specialty
+                products to government agencies and institutional customers
+                across the United States.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="products.html"
+                   class="button button-primary">
+                    View Products
+                </a>
+
+                <a href="#vendors"
+                   class="button button-outline">
+                    Vendor Portal
+                </a>
+
             </div>
-            <!-- REGISTER -->
-            <div class="vendor-card">
-                <h3>New Vendor</h3>
-                <p>Interested in becoming a Primax Global vendor? Create your vendor account to begin the registration process.</p>
-                <!-- 파일명 경로 수정됨: vendor-register.html -->
-                <a href="vendor-register.html" class="button">Become a Vendor</a>
-            </div>
-        </div>
-    </div>
-</section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <div class="container">
-        <h2 class="section-title">Contact</h2>
-        <div class="contact-box">
-            <h3>Primax Global, Inc.</h3>
-            <p>3660 Wilshire Blvd, Suite 512</p>
-            <p>Los Angeles, CA 90010</p>
-            <p>Phone: <a href="tel:2132470011">213-247-0011</a></p>
-            <p>Email: <a href="mailto:david@primaxfed.com">david@primaxfed.com</a></p>
         </div>
-    </div>
-</section>
+
+    </section>
+
+
+    <!-- =================================================
+         GOVERNMENT
+    ================================================== -->
+
+    <section id="government">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Government Supply
+            </h2>
+
+            <p class="section-subtitle">
+                Primax Global, Inc. supports government procurement
+                requirements through reliable sourcing, product fulfillment,
+                and vendor coordination.
+            </p>
+
+            <div class="government-grid">
+
+                <div class="government-card">
+
+                    <h3>
+                        Federal Government
+                    </h3>
+
+                    <p>
+                        Supporting federal procurement requirements with
+                        commercial, industrial, and specialty products.
+                    </p>
+
+                </div>
+
+
+                <div class="government-card">
+
+                    <h3>
+                        Defense & Military
+                    </h3>
+
+                    <p>
+                        Providing sourcing and supply support for defense
+                        and government customers.
+                    </p>
+
+                </div>
+
+
+                <div class="government-card">
+
+                    <h3>
+                        Procurement Support
+                    </h3>
+
+                    <p>
+                        Reliable vendor coordination, product sourcing,
+                        and fulfillment support.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         ABOUT
+    ================================================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                About Primax Global
+            </h2>
+
+            <div class="about-content">
+
+                <p>
+                    Primax Global, Inc. is a U.S.-based government vendor
+                    focused on supplying products to government and
+                    institutional customers.
+                </p>
+
+                <p>
+                    Our goal is to provide dependable sourcing,
+                    competitive pricing, and professional customer service
+                    throughout the procurement process.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         PRODUCTS
+    ================================================== -->
+
+    <section id="products">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Products
+            </h2>
+
+            <p class="product-intro">
+                Browse products and product categories available through
+                Primax Global, Inc.
+            </p>
+
+            <div class="products-button">
+
+                <a href="products.html"
+                   class="button button-primary"
+                   style="background:#102a43;color:#ffffff;">
+
+                    View Product Catalog
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         VENDOR PORTAL
+    ================================================== -->
+
+    <section id="vendors">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Vendor Portal
+            </h2>
+
+            <p class="section-subtitle">
+                Suppliers and manufacturers can register with
+                Primax Global, Inc. to establish a vendor account
+                and manage their vendor relationship.
+            </p>
+
+
+            <div class="vendor-grid">
+
+                <!-- EXISTING VENDOR -->
+
+                <div class="vendor-card">
+
+                    <h3>
+                        Existing Vendor
+                    </h3>
+
+                    <p>
+                        Already registered with Primax Global?
+                        Sign in to access your vendor dashboard.
+                    </p>
+
+                    <a href="vendor-login.html"
+                       class="button">
+
+                        Vendor Login
+
+                    </a>
+
+                </div>
+
+
+                <!-- NEW VENDOR -->
+
+                <div class="vendor-card">
+
+                    <h3>
+                        New Vendor
+                    </h3>
+
+                    <p>
+                        Interested in becoming a Primax Global vendor?
+                        Create your vendor account to begin the
+                        registration process.
+                    </p>
+
+                    <a href="vendor-register.html"
+                       class="button">
+
+                        Become a Vendor
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================================
+         CONTACT
+    ================================================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Contact
+            </h2>
+
+            <div class="contact-box">
+
+                <h3>
+                    Primax Global, Inc.
+                </h3>
+
+                <p>
+                    3660 Wilshire Blvd, Suite 512
+                </p>
+
+                <p>
+                    Los Angeles, CA 90010
+                </p>
+
+                <p>
+                    Phone:
+                    <a href="tel:2132470011">
+                        213-247-0011
+                    </a>
+                </p>
+
+                <p>
+                    Email:
+                    <a href="mailto:david@primaxfed.com">
+                        david@primaxfed.com
+                    </a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
 </main>
 
-<!-- FOOTER -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
 <footer>
+
     <div class="footer-links">
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="#government">Government</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="vendor-login.html">Vendor Portal</a>
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="products.html">
+            Products
+        </a>
+
+        <a href="#government">
+            Government
+        </a>
+
+        <a href="#about">
+            About
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+        <a href="vendor-login.html">
+            Vendor Portal
+        </a>
+
     </div>
+
     Primax Global, Inc.<br>
+
     3660 Wilshire Blvd, Suite 512, Los Angeles, CA 90010<br><br>
+
     © 2026 Primax Global, Inc. All Rights Reserved.
+
 </footer>
+
+
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+/* =========================================================
+   SUPABASE CONFIGURATION
+========================================================= */
+
+const SUPABASE_URL =
+    "https://nhjapidacizvhebtpzah.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+/* =========================================================
+   ADMIN VENDOR MANAGEMENT LINK
+========================================================= */
+
+const adminVendorLink =
+    document.getElementById("adminVendorLink");
+
+
+/* =========================================================
+   CHECK ADMIN STATUS
+========================================================= */
+
+async function checkAdminAccess() {
+
+    try {
+
+        /*
+         * STEP 1
+         * Get current Supabase session
+         */
+
+        const {
+            data: sessionData,
+            error: sessionError
+        } = await supabaseClient.auth.getSession();
+
+
+        if (sessionError) {
+
+            console.error(
+                "Session check error:",
+                sessionError
+            );
+
+            return;
+        }
+
+
+        const session =
+            sessionData.session;
+
+
+        /*
+         * No logged-in user
+         * Keep Vendor Management hidden
+         */
+
+        if (!session || !session.user) {
+
+            adminVendorLink.style.display = "none";
+
+            return;
+        }
+
+
+        const user =
+            session.user;
+
+
+        console.log(
+            "Logged-in user:",
+            user.email
+        );
+
+
+        /*
+         * STEP 2
+         * Check admin_users table
+         */
+
+        const {
+            data: adminRecord,
+            error: adminError
+        } = await supabaseClient
+            .from("admin_users")
+            .select("id, email, role")
+            .eq("user_id", user.id)
+            .eq("role", "admin")
+            .maybeSingle();
+
+
+        /*
+         * If admin_users query has an error
+         */
+
+        if (adminError) {
+
+            console.error(
+                "Admin check error:",
+                adminError
+            );
+
+            adminVendorLink.style.display = "none";
+
+            return;
+        }
+
+
+        /*
+         * STEP 3
+         * Admin confirmed
+         */
+
+        if (
+            adminRecord &&
+            adminRecord.role === "admin"
+        ) {
+
+            console.log(
+                "Admin access confirmed."
+            );
+
+            adminVendorLink.style.display =
+                "inline-block";
+
+        } else {
+
+            /*
+             * Not an admin
+             */
+
+            console.log(
+                "User is not an administrator."
+            );
+
+            adminVendorLink.style.display =
+                "none";
+        }
+
+    } catch (error) {
+
+        console.error(
+            "Unexpected admin check error:",
+            error
+        );
+
+        adminVendorLink.style.display =
+            "none";
+    }
+}
+
+
+/* =========================================================
+   RUN ADMIN CHECK
+========================================================= */
+
+checkAdminAccess();
+
+
+/* =========================================================
+   LISTEN FOR LOGIN / LOGOUT CHANGES
+========================================================= */
+
+supabaseClient.auth.onAuthStateChange(
+    function(event, session) {
+
+        /*
+         * Re-check admin status whenever
+         * authentication state changes.
+         */
+
+        if (session && session.user) {
+
+            checkAdminAccess();
+
+        } else {
+
+            adminVendorLink.style.display =
+                "none";
+        }
+
+    }
+);
+
+</script>
 
 </body>
 </html>
