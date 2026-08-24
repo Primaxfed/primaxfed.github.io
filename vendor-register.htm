@@ -309,11 +309,12 @@
    SUPABASE CONFIGURATION
 ========================================================= */
 const SUPABASE_URL = "https://nhjapidacizvhebtpzah.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+// Supabase 대시보드의 'anon' 'public' key (eyJ... 로 시작하는 문자열)로 교체해주세요.
+const SUPABASE_ANON_KEY = "YOUR_SUPABASE_ANON_KEY_HERE"; 
 
 const supabaseClient = window.supabase.createClient(
     SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
+    SUPABASE_ANON_KEY
 );
 
 /* =========================================================
@@ -387,7 +388,7 @@ form.addEventListener("submit", async function(event) {
             "success"
         );
 
-        document.getElementById("password").value = "";
+        form.reset();
         button.disabled = true;
         button.textContent = "Account Created";
 
