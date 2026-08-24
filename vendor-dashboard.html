@@ -1,487 +1,2701 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Vendor Dashboard | Primax Global, Inc.</title>
-    <meta name="description" content="Vendor Dashboard for Primax Global, Inc.">
+
+    <meta name="description"
+          content="Primax Global Vendor Dashboard">
 
     <style>
+
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            font-family: Arial, "Noto Sans KR", "Malgun Gothic", sans-serif;
+
+            font-family:
+                Arial,
+                "Noto Sans KR",
+                "Malgun Gothic",
+                sans-serif;
+
             background: #f5f7fa;
+
             color: #1f2933;
         }
 
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
         header {
+
             background: #102a43;
+
             color: white;
         }
 
+
         .nav {
+
             max-width: 1150px;
+
             margin: auto;
+
             padding: 18px 25px;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
         }
 
+
         .logo {
+
             font-size: 22px;
+
             font-weight: bold;
         }
 
+
         .nav-links {
+
             display: flex;
+
             align-items: center;
         }
 
-        .nav a, .nav button.btn-logout-link {
+
+        .nav a {
+
             color: white;
+
             text-decoration: none;
+
             margin-left: 24px;
+
             font-size: 14px;
-            background: transparent;
-            border: none;
-            cursor: pointer;
-            font-family: inherit;
         }
 
-        .nav a:hover, .nav button.btn-logout-link:hover {
+
+        .nav a:hover {
+
             text-decoration: underline;
         }
 
+
+        /* =====================================================
+           PAGE
+        ===================================================== */
+
         .page {
-            min-height: calc(100vh - 150px);
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
+
+            max-width: 1150px;
+
+            margin: auto;
+
+            padding: 45px 20px 70px;
         }
 
-        .dashboard-card {
-            background: white;
-            padding: 35px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            margin-bottom: 25px;
-        }
 
-        .dashboard-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #e4e7eb;
-            padding-bottom: 20px;
+        /* =====================================================
+           WELCOME
+        ===================================================== */
+
+        .welcome {
+
             margin-bottom: 30px;
         }
 
-        h1 {
+
+        .welcome h1 {
+
+            margin: 0 0 8px;
+
+            color: #102a43;
+
+            font-size: 30px;
+        }
+
+
+        .welcome p {
+
             margin: 0;
-            color: #102a43;
-            font-size: 28px;
-        }
 
-        .welcome-text {
             color: #52606d;
-            font-size: 15px;
-            margin-top: 5px;
+
+            font-size: 16px;
         }
 
-        .btn-logout {
-            background: #cbd5e1;
-            color: #102a43;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 5px;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 14px;
-        }
 
-        .btn-logout:hover {
-            background: #bcccdc;
-        }
+        /* =====================================================
+           STATUS
+        ===================================================== */
 
-        .section-title {
-            font-size: 18px;
-            font-weight: bold;
-            color: #102a43;
-            margin-bottom: 20px;
-        }
+        .status-card {
 
-        .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            background: white;
+
+            border-radius: 8px;
+
+            padding: 22px 25px;
+
+            margin-bottom: 25px;
+
+            box-shadow:
+                0 3px 15px rgba(0,0,0,0.06);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
             gap: 20px;
         }
 
-        .full-width {
-            grid-column: span 2;
+
+        .status-title {
+
+            font-weight: bold;
+
+            color: #102a43;
+
+            margin-bottom: 5px;
         }
 
-        label {
-            display: block;
-            font-weight: bold;
-            margin-bottom: 7px;
-            color: #102a43;
+
+        .status-description {
+
+            color: #52606d;
+
             font-size: 14px;
         }
 
-        input, select {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #cbd5e1;
-            border-radius: 5px;
-            font-size: 15px;
-            font-family: inherit;
-        }
 
-        input[readonly] {
-            background-color: #f1f5f9;
-            color: #64748b;
-            cursor: not-allowed;
-        }
+        .status-badge {
 
-        input:focus:not([readonly]), select:focus {
-            outline: none;
-            border-color: #102a43;
-            box-shadow: 0 0 0 2px rgba(16,42,67,0.1);
-        }
+            padding: 8px 16px;
 
-        .btn-save {
-            background: #102a43;
-            color: white;
-            border: none;
-            padding: 13px 25px;
-            border-radius: 5px;
-            font-size: 15px;
+            border-radius: 20px;
+
+            font-size: 13px;
+
             font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
+
+            text-transform: uppercase;
+
+            white-space: nowrap;
         }
 
-        .btn-save:hover {
-            background: #243b53;
+
+        .status-pending {
+
+            background: #fff4cc;
+
+            color: #8a6500;
         }
 
-        .btn-save:disabled {
-            background: #9aa5b1;
-            cursor: not-allowed;
-        }
 
-        .message {
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 5px;
-            display: none;
-            text-align: center;
-            line-height: 1.6;
-        }
+        .status-approved {
 
-        .success {
-            display: block;
             background: #e8f5e9;
+
             color: #256029;
         }
 
-        .error {
-            display: block;
+
+        .status-rejected {
+
             background: #fdecec;
+
             color: #a61b1b;
         }
 
-        /* Loading Spinner Overlay */
-        #loadingOverlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255, 255, 255, 0.9);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 18px;
-            font-weight: bold;
-            color: #102a43;
-            z-index: 9999;
+
+        /* =====================================================
+           GRID
+        ===================================================== */
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 25px;
         }
 
-        footer {
-            background: #0b1f33;
-            color: #bcccdc;
-            text-align: center;
-            padding: 25px;
+
+        .card {
+
+            background: white;
+
+            border-radius: 8px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 3px 15px rgba(0,0,0,0.06);
+        }
+
+
+        .card.full {
+
+            grid-column:
+                1 / -1;
+        }
+
+
+        .card h2 {
+
+            margin-top: 0;
+
+            margin-bottom: 25px;
+
+            color: #102a43;
+
+            font-size: 21px;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+            padding-bottom: 15px;
+        }
+
+
+        /* =====================================================
+           FORM
+        ===================================================== */
+
+        .form-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 18px;
+        }
+
+
+        .form-group {
+
+            margin-bottom: 20px;
+        }
+
+
+        label {
+
+            display: block;
+
+            font-weight: bold;
+
+            margin-bottom: 7px;
+
+            color: #102a43;
+
             font-size: 14px;
+        }
+
+
+        input,
+        select {
+
+            width: 100%;
+
+            padding: 12px;
+
+            border:
+                1px solid #cbd5e1;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+
+            font-family: inherit;
+
+            background: white;
+        }
+
+
+        input:focus,
+        select:focus {
+
+            outline: none;
+
+            border-color: #102a43;
+
+            box-shadow:
+                0 0 0 2px
+                rgba(16,42,67,0.1);
+        }
+
+
+        input[readonly] {
+
+            background: #f1f5f9;
+
+            color: #64748b;
+
+            cursor: not-allowed;
+        }
+
+
+        .save-button {
+
+            padding: 13px 25px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            background: #102a43;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .save-button:hover {
+
+            background: #243b53;
+        }
+
+
+        .save-button:disabled {
+
+            background: #9aa5b1;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =====================================================
+           MESSAGES
+        ===================================================== */
+
+        .message {
+
+            display: none;
+
+            margin-top: 18px;
+
+            padding: 13px 15px;
+
+            border-radius: 5px;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+
+        .success {
+
+            display: block;
+
+            background: #e8f5e9;
+
+            color: #256029;
+        }
+
+
+        .error {
+
+            display: block;
+
+            background: #fdecec;
+
+            color: #a61b1b;
+        }
+
+
+        /* =====================================================
+           DOCUMENT UPLOAD
+        ===================================================== */
+
+        .upload-box {
+
+            background: #f8fafc;
+
+            border:
+                1px solid #e2e8f0;
+
+            border-radius: 7px;
+
+            padding: 22px;
+
+            margin-bottom: 25px;
+        }
+
+
+        .upload-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 18px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .file-input {
+
+            background: white;
+
+            padding: 10px;
+
+            cursor: pointer;
+        }
+
+
+        .upload-button {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 5px;
+
+            background: #102a43;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .upload-button:hover {
+
+            background: #243b53;
+        }
+
+
+        .upload-button:disabled {
+
+            background: #9aa5b1;
+
+            cursor: not-allowed;
+        }
+
+
+        .upload-note {
+
+            margin-top: 10px;
+
+            color: #6b7280;
+
+            font-size: 12px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =====================================================
+           DOCUMENT TABLE
+        ===================================================== */
+
+        .documents-table-wrapper {
+
+            overflow-x: auto;
+        }
+
+
+        table {
+
+            width: 100%;
+
+            border-collapse: collapse;
+
+            min-width: 700px;
+        }
+
+
+        th {
+
+            text-align: left;
+
+            background: #f1f5f9;
+
+            color: #102a43;
+
+            padding: 13px;
+
+            font-size: 13px;
+
+            border-bottom:
+                1px solid #cbd5e1;
+        }
+
+
+        td {
+
+            padding: 14px 13px;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
+            font-size: 14px;
+
+            vertical-align: middle;
+        }
+
+
+        tr:hover td {
+
+            background: #fafafa;
+        }
+
+
+        .doc-name {
+
+            font-weight: bold;
+
+            color: #102a43;
+        }
+
+
+        .doc-type {
+
+            color: #52606d;
+
+            font-size: 13px;
+        }
+
+
+        .doc-actions {
+
+            white-space: nowrap;
+        }
+
+
+        .action-button {
+
+            border: none;
+
+            border-radius: 4px;
+
+            padding: 7px 11px;
+
+            margin-right: 5px;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .view-button {
+
+            background: #e8f0f7;
+
+            color: #102a43;
+        }
+
+
+        .delete-button {
+
+            background: #fdecec;
+
+            color: #a61b1b;
+        }
+
+
+        .action-button:hover {
+
+            opacity: 0.8;
+        }
+
+
+        .empty-documents {
+
+            text-align: center;
+
+            padding: 35px;
+
+            color: #6b7280;
+
+            background: #f8fafc;
+
+            border-radius: 6px;
+        }
+
+
+        /* =====================================================
+           LOADING
+        ===================================================== */
+
+        .loading {
+
+            text-align: center;
+
+            padding: 30px;
+
+            color: #52606d;
+        }
+
+
+        /* =====================================================
+           SIGN OUT
+        ===================================================== */
+
+        .signout-section {
+
+            text-align: center;
+
+            margin-top: 35px;
+        }
+
+
+        .signout-button {
+
+            padding: 10px 25px;
+
+            background: white;
+
+            color: #102a43;
+
+            border:
+                1px solid #102a43;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+
+        .signout-button:hover {
+
+            background: #102a43;
+
+            color: white;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+
+            background: #0b1f33;
+
+            color: #bcccdc;
+
+            text-align: center;
+
+            padding: 25px;
+
+            font-size: 14px;
+
             line-height: 1.6;
         }
 
-        @media (max-width: 700px) {
-            .nav {
-                flex-direction: column;
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .grid {
+
+                grid-template-columns:
+                    1fr;
             }
+
+
+            .card.full {
+
+                grid-column:
+                    auto;
+            }
+
+
+            .form-row {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .upload-grid {
+
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .status-card {
+
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .nav {
+
+                flex-direction:
+                    column;
+            }
+
 
             .nav-links {
+
                 margin-top: 15px;
-                flex-wrap: wrap;
-                justify-content: center;
+
+                flex-wrap:
+                    wrap;
+
+                justify-content:
+                    center;
             }
 
-            .nav a, .nav button.btn-logout-link {
-                margin: 5px 8px;
+
+            .nav a {
+
+                margin:
+                    5px 8px;
             }
 
-            .form-grid {
-                grid-template-columns: 1fr;
+
+            .page {
+
+                padding:
+                    30px 15px 50px;
             }
 
-            .full-width {
-                grid-column: span 1;
+
+            .card {
+
+                padding:
+                    22px;
             }
 
-            .dashboard-header {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 15px;
+
+            .welcome h1 {
+
+                font-size:
+                    26px;
             }
+
         }
+
     </style>
+
 </head>
+
+
 <body>
 
-<div id="loadingOverlay">
-    Loading vendor profile...
-</div>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
 <header>
+
     <div class="nav">
+
         <div class="logo">
             Primax Global, Inc.
         </div>
+
+
         <div class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="index.html#government">Government</a>
-            <a href="products.html">Products</a>
-            <a href="index.html#about">About</a>
-            <button type="button" class="btn-logout-link" onclick="handleLogout()">Sign Out</button>
+
+            <a href="index.html">
+                Home
+            </a>
+
+            <a href="index.html#government">
+                Government
+            </a>
+
+            <a href="products.html">
+                Products
+            </a>
+
+            <a href="index.html#about">
+                About
+            </a>
+
+            <a href="index.html#contact">
+                Contact
+            </a>
+
         </div>
+
     </div>
+
 </header>
 
+
+
+<!-- =========================================================
+     MAIN PAGE
+========================================================= -->
+
 <main class="page">
-    <div class="dashboard-card">
-        <div class="dashboard-header">
-            <div>
-                <h1>Vendor Profile</h1>
-                <div class="welcome-text" id="welcomeMessage">Welcome back</div>
+
+
+    <!-- WELCOME -->
+
+    <div class="welcome">
+
+        <h1>
+            Vendor Dashboard
+        </h1>
+
+        <p id="welcomeText">
+            Loading your vendor account...
+        </p>
+
+    </div>
+
+
+
+    <!-- STATUS -->
+
+    <div class="status-card">
+
+        <div>
+
+            <div class="status-title">
+                Vendor Account Status
             </div>
-            <button class="btn-logout" onclick="handleLogout()">Sign Out</button>
+
+            <div class="status-description">
+                Your vendor application status with Primax Global, Inc.
+            </div>
+
         </div>
 
-        <div class="section-title">Company Information</div>
 
-        <form id="profileForm">
-            <div class="form-grid">
-                <div class="full-width">
-                    <label for="companyName">Company Name</label>
-                    <input type="text" id="companyName" required placeholder="Company Name">
-                </div>
+        <div
+            id="statusBadge"
+            class="status-badge status-pending">
 
-                <div>
-                    <label for="contactName">Contact Name</label>
-                    <input type="text" id="contactName" required placeholder="Contact Person Name">
-                </div>
+            Pending
 
-                <div>
-                    <label for="email">Account Email (ReadOnly)</label>
-                    <input type="email" id="email" readonly>
-                </div>
+        </div>
 
-                <div>
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" placeholder="e.g. 213-555-0100">
-                </div>
-
-                <div>
-                    <label for="businessType">Business Type</label>
-                    <select id="businessType">
-                        <option value="">-- Select Business Type --</option>
-                        <option value="Manufacturer">Manufacturer</option>
-                        <option value="Distributor">Distributor / Wholesaler</option>
-                        <option value="Service Provider">Service Provider</option>
-                        <option value="Consultant">Consultant</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-
-                <div class="full-width">
-                    <label for="taxId">Tax ID / FEIN (ReadOnly)</label>
-                    <input type="text" id="taxId" readonly placeholder="Federal Tax ID">
-                </div>
-            </div>
-
-            <div style="margin-top: 25px;">
-                <button type="submit" id="saveButton" class="btn-save">Save Profile Changes</button>
-            </div>
-
-            <div id="message" class="message"></div>
-        </form>
     </div>
+
+
+
+    <!-- =====================================================
+         GRID
+    ===================================================== -->
+
+    <div class="grid">
+
+
+        <!-- =================================================
+             COMPANY INFORMATION
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                Company Information
+            </h2>
+
+
+            <form id="profileForm">
+
+
+                <div class="form-group">
+
+                    <label for="companyName">
+                        Company Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="companyName"
+                        maxlength="200"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="contactName">
+                        Contact Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="contactName"
+                        maxlength="150"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="email">
+                        Account Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        readonly>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="phone">
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        maxlength="30"
+                        required>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="website">
+                        Website
+                    </label>
+
+                    <input
+                        type="url"
+                        id="website"
+                        maxlength="500"
+                        placeholder="https://www.example.com">
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="businessType">
+                        Business Type
+                    </label>
+
+                    <select id="businessType">
+
+                        <option value="">
+                            -- Select Business Type --
+                        </option>
+
+                        <option value="Manufacturer">
+                            Manufacturer
+                        </option>
+
+                        <option value="Distributor / Wholesaler">
+                            Distributor / Wholesaler
+                        </option>
+
+                        <option value="Service Provider">
+                            Service Provider
+                        </option>
+
+                        <option value="Consultant">
+                            Consultant
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    id="saveButton"
+                    class="save-button">
+
+                    Save Profile Changes
+
+                </button>
+
+
+                <div
+                    id="profileMessage"
+                    class="message">
+                </div>
+
+
+            </form>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ACCOUNT INFORMATION
+        ================================================== -->
+
+        <section class="card">
+
+            <h2>
+                Vendor Account
+            </h2>
+
+
+            <div class="form-group">
+
+                <label>
+                    Account Email
+                </label>
+
+                <input
+                    type="email"
+                    id="accountEmail"
+                    readonly>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    User ID
+                </label>
+
+                <input
+                    type="text"
+                    id="userId"
+                    readonly>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Account Created
+                </label>
+
+                <input
+                    type="text"
+                    id="createdAt"
+                    readonly>
+
+            </div>
+
+
+            <div class="note"
+                 style="
+                    background:#f8fafc;
+                    padding:15px;
+                    border-radius:5px;
+                    color:#52606d;
+                    font-size:13px;
+                    line-height:1.6;
+                 ">
+
+                Your vendor account is securely managed through
+                Primax Global's authentication system.
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DOCUMENTS
+        ================================================== -->
+
+        <section class="card full">
+
+            <h2>
+                Vendor Documents
+            </h2>
+
+
+            <!-- UPLOAD -->
+
+            <div class="upload-box">
+
+                <div class="upload-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="documentType">
+                            Document Type
+                        </label>
+
+                        <select id="documentType">
+
+                            <option value="">
+                                -- Select Document Type --
+                            </option>
+
+                            <option value="W-9">
+                                W-9
+                            </option>
+
+                            <option value="Business License">
+                                Business License
+                            </option>
+
+                            <option value="Seller's Permit">
+                                Seller's Permit
+                            </option>
+
+                            <option value="Certificate of Insurance">
+                                Certificate of Insurance
+                            </option>
+
+                            <option value="Company Registration">
+                                Company Registration
+                            </option>
+
+                            <option value="Product Catalog">
+                                Product Catalog
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="documentFile">
+                            Select File
+                        </label>
+
+                        <input
+                            type="file"
+                            id="documentFile"
+                            class="file-input"
+                            accept=".pdf,.doc,.docx,.xls,.xlsx,.csv,.jpg,.jpeg,.png">
+
+                    </div>
+
+
+                </div>
+
+
+                <button
+                    type="button"
+                    id="uploadButton"
+                    class="upload-button">
+
+                    Upload Document
+
+                </button>
+
+
+                <div class="upload-note">
+
+                    Accepted file types:
+                    PDF, DOC, DOCX, XLS, XLSX, CSV, JPG, JPEG, PNG.
+                    Maximum recommended file size: 10 MB.
+
+                </div>
+
+
+                <div
+                    id="uploadMessage"
+                    class="message">
+                </div>
+
+            </div>
+
+
+
+            <!-- DOCUMENT LIST -->
+
+            <div
+                id="documentsContainer">
+
+                <div class="loading">
+                    Loading documents...
+                </div>
+
+            </div>
+
+
+        </section>
+
+
+    </div>
+
+
+
+    <!-- SIGN OUT -->
+
+    <div class="signout-section">
+
+        <button
+            type="button"
+            id="signOutButton"
+            class="signout-button">
+
+            Sign Out
+
+        </button>
+
+    </div>
+
+
 </main>
 
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
 <footer>
+
     Primax Global, Inc.<br>
-    3660 Wilshire Blvd, Suite 512, Los Angeles, CA 90010<br>
-    © 2026 Primax Global, Inc. All Rights Reserved.
+
+    3660 Wilshire Blvd, Suite 512,
+    Los Angeles, CA 90010<br>
+
+    © 2026 Primax Global, Inc.
+    All Rights Reserved.
+
 </footer>
 
+
+
+<!-- =========================================================
+     SUPABASE
+========================================================= -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
 <script>
+
 /* =========================================================
    SUPABASE CONFIGURATION
 ========================================================= */
-const SUPABASE_URL = "https://nhjapidacizvhebtpzah.supabase.co";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
 
-const supabaseClient = window.supabase.createClient(
-    SUPABASE_URL,
-    SUPABASE_PUBLISHABLE_KEY
-);
+const SUPABASE_URL =
+    "https://nhjapidacizvhebtpzah.supabase.co";
+
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
 
 /* =========================================================
-   GLOBAL STATE
+   STORAGE BUCKET
 ========================================================= */
-let currentUser = null;
+
+const DOCUMENT_BUCKET =
+    "vendor-documents";
+
 
 /* =========================================================
    DOM ELEMENTS
 ========================================================= */
-const loadingOverlay = document.getElementById("loadingOverlay");
-const profileForm = document.getElementById("profileForm");
-const saveButton = document.getElementById("saveButton");
-const messageBox = document.getElementById("message");
-const welcomeMessage = document.getElementById("welcomeMessage");
+
+const welcomeText =
+    document.getElementById("welcomeText");
+
+const statusBadge =
+    document.getElementById("statusBadge");
+
+const profileForm =
+    document.getElementById("profileForm");
+
+const saveButton =
+    document.getElementById("saveButton");
+
+const profileMessage =
+    document.getElementById("profileMessage");
+
+const uploadButton =
+    document.getElementById("uploadButton");
+
+const uploadMessage =
+    document.getElementById("uploadMessage");
+
+const documentsContainer =
+    document.getElementById("documentsContainer");
+
+const signOutButton =
+    document.getElementById("signOutButton");
+
 
 /* =========================================================
-   UI HELPERS
+   CURRENT USER
 ========================================================= */
-function showMessage(text, type) {
-    messageBox.className = "message " + type;
-    messageBox.textContent = text;
+
+let currentUser = null;
+
+let currentVendor = null;
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+function showMessage(element, text, type) {
+
+    element.className =
+        "message " + type;
+
+    element.textContent =
+        text;
+
 }
 
-/* =========================================================
-   AUTH CHECK & DATA INITIALIZATION
-========================================================= */
-async function initDashboard() {
-    try {
-        const { data: { session }, error: sessionError } = await supabaseClient.auth.getSession();
 
-        if (sessionError || !session) {
-            // 로그인 세션이 없으면 로그인 페이지로 자동 이동
-            window.location.href = "vendor-login.html";
+/* =========================================================
+   FORMAT DATE
+========================================================= */
+
+function formatDate(dateString) {
+
+    if (!dateString) {
+        return "";
+    }
+
+    const date =
+        new Date(dateString);
+
+    return date.toLocaleString(
+        "en-US",
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
+        }
+    );
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value) {
+
+    if (value === null ||
+        value === undefined) {
+
+        return "";
+    }
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+function updateStatus(status) {
+
+    const cleanStatus =
+        (status || "pending")
+        .toLowerCase();
+
+
+    statusBadge.className =
+        "status-badge";
+
+
+    if (cleanStatus === "approved") {
+
+        statusBadge.classList.add(
+            "status-approved"
+        );
+
+    }
+
+    else if (cleanStatus === "rejected") {
+
+        statusBadge.classList.add(
+            "status-rejected"
+        );
+
+    }
+
+    else {
+
+        statusBadge.classList.add(
+            "status-pending"
+        );
+
+    }
+
+
+    statusBadge.textContent =
+        status || "Pending";
+}
+
+
+/* =========================================================
+   LOAD USER
+========================================================= */
+
+async function loadUser() {
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient.auth.getUser();
+
+
+    if (error ||
+        !data ||
+        !data.user) {
+
+        window.location.href =
+            "vendor-login.html";
+
+        return false;
+    }
+
+
+    currentUser =
+        data.user;
+
+
+    return true;
+}
+
+
+/* =========================================================
+   LOAD VENDOR PROFILE
+========================================================= */
+
+async function loadVendorProfile() {
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+
+        .from("vendors")
+
+        .select(
+            "id,user_id,company_name,contact_name,email,phone,website,business_type,status,created_at,updated_at"
+        )
+
+        .eq(
+            "user_id",
+            currentUser.id
+        )
+
+        .maybeSingle();
+
+
+    if (error) {
+
+        console.error(
+            "Vendor profile error:",
+            error
+        );
+
+        throw new Error(
+            "Unable to load your vendor profile."
+        );
+    }
+
+
+    if (!data) {
+
+        throw new Error(
+            "Vendor profile not found. Please contact Primax Global."
+        );
+    }
+
+
+    currentVendor =
+        data;
+
+
+    /* =====================================================
+       DISPLAY
+    ===================================================== */
+
+    welcomeText.textContent =
+        "Welcome back, " +
+        (data.company_name ||
+         data.contact_name ||
+         "Vendor");
+
+
+    updateStatus(
+        data.status
+    );
+
+
+    document.getElementById(
+        "companyName"
+    ).value =
+        data.company_name || "";
+
+
+    document.getElementById(
+        "contactName"
+    ).value =
+        data.contact_name || "";
+
+
+    document.getElementById(
+        "email"
+    ).value =
+        data.email ||
+        currentUser.email ||
+        "";
+
+
+    document.getElementById(
+        "phone"
+    ).value =
+        data.phone || "";
+
+
+    document.getElementById(
+        "website"
+    ).value =
+        data.website || "";
+
+
+    document.getElementById(
+        "businessType"
+    ).value =
+        data.business_type || "";
+
+
+    document.getElementById(
+        "accountEmail"
+    ).value =
+        currentUser.email || "";
+
+
+    document.getElementById(
+        "userId"
+    ).value =
+        currentUser.id;
+
+
+    document.getElementById(
+        "createdAt"
+    ).value =
+        formatDate(
+            currentUser.created_at
+        );
+
+
+    await loadDocuments();
+}
+
+
+/* =========================================================
+   SAVE PROFILE
+========================================================= */
+
+profileForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        profileMessage.className =
+            "message";
+
+        profileMessage.textContent =
+            "";
+
+
+        saveButton.disabled =
+            true;
+
+        saveButton.textContent =
+            "Saving...";
+
+
+        try {
+
+            const companyName =
+                document.getElementById(
+                    "companyName"
+                ).value.trim();
+
+
+            const contactName =
+                document.getElementById(
+                    "contactName"
+                ).value.trim();
+
+
+            const phone =
+                document.getElementById(
+                    "phone"
+                ).value.trim();
+
+
+            const website =
+                document.getElementById(
+                    "website"
+                ).value.trim();
+
+
+            const businessType =
+                document.getElementById(
+                    "businessType"
+                ).value;
+
+
+            if (!companyName) {
+
+                throw new Error(
+                    "Company name is required."
+                );
+            }
+
+
+            if (!contactName) {
+
+                throw new Error(
+                    "Contact name is required."
+                );
+            }
+
+
+            if (!phone) {
+
+                throw new Error(
+                    "Phone number is required."
+                );
+            }
+
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient
+
+                .from("vendors")
+
+                .update({
+
+                    company_name:
+                        companyName,
+
+                    contact_name:
+                        contactName,
+
+                    phone:
+                        phone,
+
+                    website:
+                        website || null,
+
+                    business_type:
+                        businessType || null,
+
+                    updated_at:
+                        new Date().toISOString()
+
+                })
+
+                .eq(
+                    "user_id",
+                    currentUser.id
+                )
+
+                .select(
+                    "id,company_name,contact_name,email,phone,website,business_type,status"
+                )
+
+                .single();
+
+
+            if (error) {
+
+                console.error(
+                    "Profile update error:",
+                    error
+                );
+
+                throw error;
+            }
+
+
+            currentVendor =
+                data;
+
+
+            welcomeText.textContent =
+                "Welcome back, " +
+                data.company_name;
+
+
+            showMessage(
+
+                profileMessage,
+
+                "Vendor profile updated successfully!",
+
+                "success"
+
+            );
+
+        }
+
+        catch(error) {
+
+            console.error(
+                "Save profile error:",
+                error
+            );
+
+
+            showMessage(
+
+                profileMessage,
+
+                error.message ||
+                "Unable to save your profile.",
+
+                "error"
+
+            );
+
+        }
+
+        finally {
+
+            saveButton.disabled =
+                false;
+
+            saveButton.textContent =
+                "Save Profile Changes";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   UPLOAD DOCUMENT
+========================================================= */
+
+uploadButton.addEventListener(
+    "click",
+    async function() {
+
+        uploadMessage.className =
+            "message";
+
+        uploadMessage.textContent =
+            "";
+
+
+        const documentType =
+            document.getElementById(
+                "documentType"
+            ).value;
+
+
+        const fileInput =
+            document.getElementById(
+                "documentFile"
+            );
+
+
+        const file =
+            fileInput.files[0];
+
+
+        if (!documentType) {
+
+            showMessage(
+
+                uploadMessage,
+
+                "Please select a document type.",
+
+                "error"
+
+            );
+
             return;
         }
 
-        currentUser = session.user;
-        document.getElementById("email").value = currentUser.email || "";
 
-        // public.vendors 테이블에서 프로필 정보 가져오기
-        const { data: vendorData, error: dbError } = await supabaseClient
-            .from("vendors")
-            .select("*")
-            .eq("user_id", currentUser.id)
+        if (!file) {
+
+            showMessage(
+
+                uploadMessage,
+
+                "Please select a file.",
+
+                "error"
+
+            );
+
+            return;
+        }
+
+
+        /* =================================================
+           FILE SIZE
+        ================================================== */
+
+        const maxSize =
+            10 * 1024 * 1024;
+
+
+        if (file.size > maxSize) {
+
+            showMessage(
+
+                uploadMessage,
+
+                "File is too large. Please upload a file smaller than 10 MB.",
+
+                "error"
+
+            );
+
+            return;
+        }
+
+
+        uploadButton.disabled =
+            true;
+
+        uploadButton.textContent =
+            "Uploading...";
+
+
+        try {
+
+            /* =============================================
+               CREATE UNIQUE STORAGE PATH
+            ============================================== */
+
+            const cleanFileName =
+                file.name
+                    .replace(
+                        /[^a-zA-Z0-9._-]/g,
+                        "_"
+                    );
+
+
+            const filePath =
+                currentUser.id +
+                "/" +
+                Date.now() +
+                "_" +
+                cleanFileName;
+
+
+            /* =============================================
+               UPLOAD TO STORAGE
+            ============================================== */
+
+            const {
+                data: storageData,
+                error: storageError
+            } =
+                await supabaseClient
+
+                .storage
+
+                .from(
+                    DOCUMENT_BUCKET
+                )
+
+                .upload(
+                    filePath,
+                    file,
+                    {
+                        cacheControl:
+                            "3600",
+
+                        upsert:
+                            false,
+
+                        contentType:
+                            file.type ||
+                            "application/octet-stream"
+                    }
+                );
+
+
+            if (storageError) {
+
+                console.error(
+                    "Storage upload error:",
+                    storageError
+                );
+
+                throw storageError;
+            }
+
+
+            /* =============================================
+               SAVE DOCUMENT RECORD
+            ============================================== */
+
+            const {
+                data: documentData,
+                error: documentError
+            } =
+                await supabaseClient
+
+                .from(
+                    "vendor_documents"
+                )
+
+                .insert({
+
+                    user_id:
+                        currentUser.id,
+
+                    vendor_id:
+                        currentVendor.id,
+
+                    document_type:
+                        documentType,
+
+                    file_name:
+                        file.name,
+
+                    file_path:
+                        storageData.path,
+
+                    file_size:
+                        file.size,
+
+                    mime_type:
+                        file.type ||
+                        null,
+
+                    status:
+                        "submitted"
+
+                })
+
+                .select()
+                .single();
+
+
+            if (documentError) {
+
+                console.error(
+                    "Document database error:",
+                    documentError
+                );
+
+
+                /* =========================================
+                   ROLLBACK STORAGE FILE
+                ========================================== */
+
+                await supabaseClient
+
+                    .storage
+
+                    .from(
+                        DOCUMENT_BUCKET
+                    )
+
+                    .remove([
+                        filePath
+                    ]);
+
+
+                throw documentError;
+            }
+
+
+            console.log(
+                "Document uploaded:",
+                documentData
+            );
+
+
+            showMessage(
+
+                uploadMessage,
+
+                "Document uploaded successfully.",
+
+                "success"
+
+            );
+
+
+            /* Clear fields */
+
+            document.getElementById(
+                "documentType"
+            ).value = "";
+
+
+            fileInput.value = "";
+
+
+            /* Reload documents */
+
+            await loadDocuments();
+
+        }
+
+        catch(error) {
+
+            console.error(
+                "Upload error:",
+                error
+            );
+
+
+            showMessage(
+
+                uploadMessage,
+
+                error.message ||
+                "Unable to upload document.",
+
+                "error"
+
+            );
+
+        }
+
+        finally {
+
+            uploadButton.disabled =
+                false;
+
+            uploadButton.textContent =
+                "Upload Document";
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LOAD DOCUMENTS
+========================================================= */
+
+async function loadDocuments() {
+
+    documentsContainer.innerHTML =
+
+        '<div class="loading">Loading documents...</div>';
+
+
+    const {
+        data,
+        error
+    } =
+        await supabaseClient
+
+        .from(
+            "vendor_documents"
+        )
+
+        .select(
+            "id,document_type,file_name,file_path,file_size,mime_type,status,created_at"
+        )
+
+        .eq(
+            "user_id",
+            currentUser.id
+        )
+
+        .order(
+            "created_at",
+            {
+                ascending: false
+            }
+        );
+
+
+    if (error) {
+
+        console.error(
+            "Load documents error:",
+            error
+        );
+
+
+        documentsContainer.innerHTML =
+
+            '<div class="empty-documents">' +
+            'Unable to load documents. Please refresh the page.' +
+            '</div>';
+
+        return;
+    }
+
+
+    if (!data ||
+        data.length === 0) {
+
+        documentsContainer.innerHTML =
+
+            '<div class="empty-documents">' +
+            'No documents have been uploaded yet.' +
+            '</div>';
+
+        return;
+    }
+
+
+    let html =
+
+        '<div class="documents-table-wrapper">' +
+
+        '<table>' +
+
+        '<thead>' +
+
+        '<tr>' +
+
+        '<th>Document</th>' +
+
+        '<th>Type</th>' +
+
+        '<th>Status</th>' +
+
+        '<th>Uploaded</th>' +
+
+        '<th>Actions</th>' +
+
+        '</tr>' +
+
+        '</thead>' +
+
+        '<tbody>';
+
+
+    data.forEach(function(doc) {
+
+        html +=
+
+            '<tr>' +
+
+            '<td>' +
+
+            '<div class="doc-name">' +
+
+            escapeHtml(
+                doc.file_name
+            ) +
+
+            '</div>' +
+
+            '</td>' +
+
+            '<td>' +
+
+            '<div class="doc-type">' +
+
+            escapeHtml(
+                doc.document_type
+            ) +
+
+            '</div>' +
+
+            '</td>' +
+
+            '<td>' +
+
+            escapeHtml(
+                doc.status ||
+                "submitted"
+            ) +
+
+            '</td>' +
+
+            '<td>' +
+
+            formatDate(
+                doc.created_at
+            ) +
+
+            '</td>' +
+
+            '<td class="doc-actions">' +
+
+            '<button ' +
+
+            'type="button" ' +
+
+            'class="action-button view-button" ' +
+
+            'onclick="viewDocument(\'' +
+
+            doc.id +
+
+            '\')">' +
+
+            'View / Download' +
+
+            '</button>' +
+
+            '<button ' +
+
+            'type="button" ' +
+
+            'class="action-button delete-button" ' +
+
+            'onclick="deleteDocument(\'' +
+
+            doc.id +
+
+            '\')">' +
+
+            'Delete' +
+
+            '</button>' +
+
+            '</td>' +
+
+            '</tr>';
+
+    });
+
+
+    html +=
+
+        '</tbody>' +
+
+        '</table>' +
+
+        '</div>';
+
+
+    documentsContainer.innerHTML =
+        html;
+}
+
+
+/* =========================================================
+   VIEW DOCUMENT
+========================================================= */
+
+async function viewDocument(
+    documentId
+) {
+
+    try {
+
+        const {
+            data: documentData,
+            error
+        } =
+            await supabaseClient
+
+            .from(
+                "vendor_documents"
+            )
+
+            .select(
+                "id,file_path,file_name"
+            )
+
+            .eq(
+                "id",
+                documentId
+            )
+
+            .eq(
+                "user_id",
+                currentUser.id
+            )
+
             .single();
 
-        if (dbError && dbError.code !== "PGRST116") {
-            console.error("Error fetching vendor profile:", dbError);
+
+        if (error) {
+
+            throw error;
         }
 
-        if (vendorData) {
-            document.getElementById("companyName").value = vendorData.company_name || "";
-            document.getElementById("contactName").value = vendorData.contact_name || "";
-            document.getElementById("phone").value = vendorData.phone || "";
-            document.getElementById("businessType").value = vendorData.business_type || "";
-            document.getElementById("taxId").value = vendorData.tax_id || "";
 
-            welcomeMessage.textContent = `Welcome back, ${vendorData.company_name || currentUser.email}`;
-        } else {
-            welcomeMessage.textContent = `Welcome, ${currentUser.email}`;
+        const {
+            data: signedData,
+            error: signedError
+        } =
+            await supabaseClient
+
+            .storage
+
+            .from(
+                DOCUMENT_BUCKET
+            )
+
+            .createSignedUrl(
+                documentData.file_path,
+                3600,
+                {
+                    download:
+                        documentData.file_name
+                }
+            );
+
+
+        if (signedError) {
+
+            throw signedError;
         }
 
-    } catch (err) {
-        console.error("Dashboard initialization error:", err);
-    } finally {
-        loadingOverlay.style.display = "none";
+
+        if (!signedData ||
+            !signedData.signedUrl) {
+
+            throw new Error(
+                "Unable to create document link."
+            );
+        }
+
+
+        window.open(
+            signedData.signedUrl,
+            "_blank"
+        );
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "View document error:",
+            error
+        );
+
+        alert(
+            "Unable to open this document. Please try again."
+        );
     }
 }
 
-initDashboard();
 
 /* =========================================================
-   PROFILE UPDATE LOGIC
+   DELETE DOCUMENT
 ========================================================= */
-profileForm.addEventListener("submit", async function(event) {
-    event.preventDefault();
 
-    messageBox.className = "message";
-    messageBox.textContent = "";
+async function deleteDocument(
+    documentId
+) {
 
-    saveButton.disabled = true;
-    saveButton.textContent = "Saving...";
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this document?"
+        );
+
+
+    if (!confirmed) {
+
+        return;
+    }
+
 
     try {
-        const companyName = document.getElementById("companyName").value.trim();
-        const contactName = document.getElementById("contactName").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const businessType = document.getElementById("businessType").value;
 
-        if (!companyName || !contactName) {
-            throw new Error("Company Name and Contact Name are required.");
+        /* =============================================
+           GET DOCUMENT
+        ============================================== */
+
+        const {
+            data: documentData,
+            error
+        } =
+            await supabaseClient
+
+            .from(
+                "vendor_documents"
+            )
+
+            .select(
+                "id,file_path"
+            )
+
+            .eq(
+                "id",
+                documentId
+            )
+
+            .eq(
+                "user_id",
+                currentUser.id
+            )
+
+            .single();
+
+
+        if (error) {
+
+            throw error;
         }
 
-        // public.vendors 데이터 업데이트
-        const { error: updateError } = await supabaseClient
-            .from("vendors")
-            .update({
-                company_name: companyName,
-                contact_name: contactName,
-                phone: phone,
-                business_type: businessType,
-                updated_at: new Date().toISOString()
-            })
-            .eq("user_id", currentUser.id);
 
-        if (updateError) throw updateError;
+        /* =============================================
+           DELETE STORAGE FILE
+        ============================================== */
 
-        welcomeMessage.textContent = `Welcome back, ${companyName}`;
-        showMessage("Vendor profile updated successfully!", "success");
+        const {
+            error: storageError
+        } =
+            await supabaseClient
 
-    } catch (error) {
-        console.error("Profile save error:", error);
-        showMessage(error.message || "Failed to update profile. Please try again.", "error");
-    } finally {
-        saveButton.disabled = false;
-        saveButton.textContent = "Save Profile Changes";
+            .storage
+
+            .from(
+                DOCUMENT_BUCKET
+            )
+
+            .remove([
+                documentData.file_path
+            ]);
+
+
+        if (storageError) {
+
+            console.error(
+                "Storage delete error:",
+                storageError
+            );
+
+            throw storageError;
+        }
+
+
+        /* =============================================
+           DELETE DATABASE RECORD
+        ============================================== */
+
+        const {
+            error: databaseError
+        } =
+            await supabaseClient
+
+            .from(
+                "vendor_documents"
+            )
+
+            .delete()
+
+            .eq(
+                "id",
+                documentId
+            )
+
+            .eq(
+                "user_id",
+                currentUser.id
+            );
+
+
+        if (databaseError) {
+
+            throw databaseError;
+        }
+
+
+        await loadDocuments();
+
     }
-});
+
+    catch(error) {
+
+        console.error(
+            "Delete document error:",
+            error
+        );
+
+        alert(
+            "Unable to delete this document. Please try again."
+        );
+    }
+}
+
 
 /* =========================================================
-   LOGOUT LOGIC
+   SIGN OUT
 ========================================================= */
-async function handleLogout() {
+
+signOutButton.addEventListener(
+    "click",
+    async function() {
+
+        signOutButton.disabled =
+            true;
+
+        signOutButton.textContent =
+            "Signing Out...";
+
+
+        const {
+            error
+        } =
+            await supabaseClient.auth.signOut();
+
+
+        if (error) {
+
+            console.error(
+                "Sign out error:",
+                error
+            );
+
+            signOutButton.disabled =
+                false;
+
+            signOutButton.textContent =
+                "Sign Out";
+
+            alert(
+                "Unable to sign out. Please try again."
+            );
+
+            return;
+        }
+
+
+        window.location.href =
+            "vendor-login.html";
+
+    }
+);
+
+
+/* =========================================================
+   INITIALIZE DASHBOARD
+========================================================= */
+
+async function initializeDashboard() {
+
     try {
+
+        const loggedIn =
+            await loadUser();
+
+
+        if (!loggedIn) {
+
+            return;
+        }
+
+
+        await loadVendorProfile();
+
+    }
+
+    catch(error) {
+
+        console.error(
+            "Dashboard initialization error:",
+            error
+        );
+
+
+        alert(
+            error.message ||
+            "Unable to load your vendor dashboard."
+        );
+
+
         await supabaseClient.auth.signOut();
-        window.location.href = "vendor-login.html";
-    } catch (error) {
-        console.error("Sign out error:", error);
-        alert("Failed to sign out. Please try again.");
+
+
+        window.location.href =
+            "vendor-login.html";
     }
 }
+
+
+/* =========================================================
+   START
+========================================================= */
+
+initializeDashboard();
+
 </script>
 
+
 </body>
+
 </html>
