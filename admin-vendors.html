@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Vendor Management | Primax Global, Inc.</title>
+
+    <meta
+        name="description"
+        content="Primax Global, Inc. Administrator Vendor Management Portal"
+    >
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                Arial,
+                "Noto Sans KR",
+                "Malgun Gothic",
+                sans-serif;
+            background: #f5f7fa;
+            color: #1f2933;
+        }
+
+        header {
+            background: #102a43;
+            color: #ffffff;
+        }
+
+        .nav {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 18px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 24px;
+            font-size: 14px;
+        }
+
+        .nav a:hover {
+            text-decoration: underline;
+        }
+
+        .page {
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 45px 20px 60px;
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            color: #102a43;
+            font-size: 32px;
+        }
+
+        .subtitle {
+            margin: 0 0 30px;
+            color: #52606d;
+            line-height: 1.6;
+        }
+
+        .admin-bar {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+
+            padding: 18px 22px;
+            margin-bottom: 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .admin-info {
+            color: #52606d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .admin-info strong {
+            color: #102a43;
+        }
+
+        .logout-button {
+            border: none;
+            background: #102a43;
+            color: #ffffff;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .logout-button:hover {
+            background: #243b53;
+        }
+
+        .message {
+            display: none;
+            padding: 14px 18px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .message.success {
+            display: block;
+            background: #e8f5e9;
+            color: #256029;
+        }
+
+        .message.error {
+            display: block;
+            background: #fdecec;
+            color: #a61b1b;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 25px;
+        }
+
+        .stat-card {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+            padding: 22px;
+        }
+
+        .stat-label {
+            color: #6b7280;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .stat-value {
+            color: #102a43;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .section {
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section h2 {
+            margin: 0;
+            color: #102a43;
+            font-size: 23px;
+        }
+
+        .refresh-button {
+            border: 1px solid #cbd5e1;
+            background: #ffffff;
+            color: #102a43;
+            padding: 9px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .refresh-button:hover {
+            background: #f0f4f8;
+        }
+
+        .table-wrapper {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 1050px;
+        }
+
+        th {
+            background: #f0f4f8;
+            color: #102a43;
+            text-align: left;
+            padding: 13px 12px;
+            font-size: 13px;
+            border-bottom: 2px solid #d9e2ec;
+            white-space: nowrap;
+        }
+
+        td {
+            padding: 13px 12px;
+            border-bottom: 1px solid #e5e7eb;
+            vertical-align: middle;
+            font-size: 14px;
+        }
+
+        tr:hover td {
+            background: #fafbfc;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .status-pending {
+            background: #fff4cc;
+            color: #7a5d00;
+        }
+
+        .status-approved {
+            background: #e8f5e9;
+            color: #256029;
+        }
+
+        .status-rejected {
+            background: #fdecec;
+            color: #a61b1b;
+        }
+
+        .status-suspended {
+            background: #eeeeee;
+            color: #555555;
+        }
+
+        select {
+            padding: 8px 10px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            background: #ffffff;
+            font-size: 13px;
+        }
+
+        .action-button {
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 12px;
+            margin-right: 5px;
+        }
+
+        .view-button {
+            background: #102a43;
+            color: #ffffff;
+        }
+
+        .view-button:hover {
+            background: #243b53;
+        }
+
+        .save-button {
+            background: #1f7a4d;
+            color: #ffffff;
+        }
+
+        .save-button:hover {
+            background: #17613d;
+        }
+
+        .documents-container {
+            display: none;
+            margin-top: 18px;
+            padding: 20px;
+            background: #f8fafc;
+            border: 1px solid #d9e2ec;
+            border-radius: 7px;
+        }
+
+        .documents-container.visible {
+            display: block;
+        }
+
+        .documents-title {
+            color: #102a43;
+            font-size: 17px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .document-table {
+            min-width: 750px;
+        }
+
+        .document-table th {
+            background: #e9eef3;
+        }
+
+        .document-status {
+            display: inline-block;
+            padding: 5px 9px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: capitalize;
+        }
+
+        .document-status-uploaded {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .document-status-submitted {
+            background: #fff4cc;
+            color: #7a5d00;
+        }
+
+        .document-status-approved {
+            background: #e8f5e9;
+            color: #256029;
+        }
+
+        .document-status-rejected {
+            background: #fdecec;
+            color: #a61b1b;
+        }
+
+        .document-link {
+            color: #102a43;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .document-link:hover {
+            text-decoration: underline;
+        }
+
+        .empty {
+            padding: 25px;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        .loading {
+            padding: 30px;
+            text-align: center;
+            color: #52606d;
+        }
+
+        .danger {
+            background: #a61b1b;
+            color: #ffffff;
+        }
+
+        .danger:hover {
+            background: #7f1515;
+        }
+
+        footer {
+            background: #0b1f33;
+            color: #bcccdc;
+            text-align: center;
+            padding: 25px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 900px) {
+
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .admin-bar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .nav {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                margin-top: 15px;
+                justify-content: center;
+            }
+
+            .nav a {
+                margin: 5px 8px;
+            }
+
+            .page {
+                padding: 30px 15px 50px;
+            }
+
+            h1 {
+                font-size: 27px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav">
+
+        <div class="logo">
+            Primax Global, Inc.
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#government">Government</a>
+            <a href="products.html">Products</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
+        </div>
+
+    </div>
+</header>
+
+
+<main class="page">
+
+    <h1>Admin Vendor Management</h1>
+
+    <p class="subtitle">
+        Manage vendor registrations, applications, and submitted vendor documents.
+    </p>
+
+
+    <div class="admin-bar">
+
+        <div class="admin-info">
+            Signed in as
+            <strong id="adminEmail">Checking...</strong>
+            <br>
+            Primax Global, Inc. Administrator Portal
+        </div>
+
+        <button
+            type="button"
+            class="logout-button"
+            id="logoutButton"
+        >
+            Sign Out
+        </button>
+
+    </div>
+
+
+    <div id="message" class="message"></div>
+
+
+    <!-- =====================================================
+         STATISTICS
+    ====================================================== -->
+
+    <div class="stats">
+
+        <div class="stat-card">
+            <div class="stat-label">
+                Total Vendors
+            </div>
+
+            <div
+                class="stat-value"
+                id="totalVendors"
+            >
+                0
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-label">
+                Pending
+            </div>
+
+            <div
+                class="stat-value"
+                id="pendingVendors"
+            >
+                0
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-label">
+                Approved
+            </div>
+
+            <div
+                class="stat-value"
+                id="approvedVendors"
+            >
+                0
+            </div>
+        </div>
+
+
+        <div class="stat-card">
+            <div class="stat-label">
+                Rejected
+            </div>
+
+            <div
+                class="stat-value"
+                id="rejectedVendors"
+            >
+                0
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         VENDORS
+    ====================================================== -->
+
+    <section class="section">
+
+        <div class="section-header">
+
+            <h2>
+                Vendor Applications
+            </h2>
+
+            <button
+                type="button"
+                class="refresh-button"
+                id="refreshButton"
+            >
+                Refresh
+            </button>
+
+        </div>
+
+
+        <div
+            id="vendorsLoading"
+            class="loading"
+        >
+            Loading vendors...
+        </div>
+
+
+        <div
+            id="vendorsEmpty"
+            class="empty"
+            style="display:none;"
+        >
+            No vendor applications found.
+        </div>
+
+
+        <div
+            class="table-wrapper"
+            id="vendorsTableWrapper"
+            style="display:none;"
+        >
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Company</th>
+                        <th>Contact</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Business Type</th>
+                        <th>Status</th>
+                        <th>Created</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="vendorsTableBody"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+
+</main>
+
+
+<footer>
+
+    Primax Global, Inc.<br>
+
+    3660 Wilshire Blvd, Suite 512,
+    Los Angeles, CA 90010<br>
+
+    © 2026 Primax Global, Inc.
+    All Rights Reserved.
+
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+/* =========================================================
+   SUPABASE CONFIGURATION
+========================================================= */
+
+const SUPABASE_URL =
+    "https://nhjapidacizvhebtpzah.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+    );
+
+
+/* =========================================================
+   DOM
+========================================================= */
+
+const message =
+    document.getElementById("message");
+
+const adminEmail =
+    document.getElementById("adminEmail");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+const refreshButton =
+    document.getElementById("refreshButton");
+
+const vendorsLoading =
+    document.getElementById("vendorsLoading");
+
+const vendorsEmpty =
+    document.getElementById("vendorsEmpty");
+
+const vendorsTableWrapper =
+    document.getElementById("vendorsTableWrapper");
+
+const vendorsTableBody =
+    document.getElementById("vendorsTableBody");
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+function showMessage(text, type) {
+
+    message.className =
+        "message " + type;
+
+    message.textContent =
+        text;
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value) {
+
+    if (value === null || value === undefined) {
+        return "";
+    }
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
+
+/* =========================================================
+   FORMAT DATE
+========================================================= */
+
+function formatDate(value) {
+
+    if (!value) {
+        return "";
+    }
+
+    const date =
+        new Date(value);
+
+    if (Number.isNaN(date.getTime())) {
+        return value;
+    }
+
+    return date.toLocaleString(
+        "en-US",
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "2-digit"
+        }
+    );
+}
+
+
+/* =========================================================
+   STATUS CLASS
+========================================================= */
+
+function getStatusClass(status) {
+
+    const value =
+        String(status || "")
+        .toLowerCase();
+
+    if (value === "approved") {
+        return "status-approved";
+    }
+
+    if (value === "rejected") {
+        return "status-rejected";
+    }
+
+    if (value === "suspended") {
+        return "status-suspended";
+    }
+
+    return "status-pending";
+}
+
+
+/* =========================================================
+   CHECK ADMIN
+========================================================= */
+
+async function checkAdmin() {
+
+    try {
+
+        const {
+            data: {
+                session
+            }
+        } =
+            await supabaseClient.auth.getSession();
+
+
+        if (!session || !session.user) {
+
+            window.location.href =
+                "vendor-login.html";
+
+            return null;
+        }
+
+
+        const user =
+            session.user;
+
+
+        adminEmail.textContent =
+            user.email || "";
+
+
+        /*
+         * Check admin_users table.
+         */
+
+        const {
+            data: adminRecord,
+            error
+        } =
+            await supabaseClient
+                .from("admin_users")
+                .select("id,user_id,email,role")
+                .eq("user_id", user.id)
+                .eq("role", "admin")
+                .maybeSingle();
+
+
+        if (error) {
+
+            console.error(
+                "Admin check error:",
+                error
+            );
+
+            showMessage(
+                "Unable to verify administrator access.",
+                "error"
+            );
+
+            return null;
+        }
+
+
+        if (!adminRecord) {
+
+            showMessage(
+                "Administrator access denied.",
+                "error"
+            );
+
+            setTimeout(
+                function() {
+
+                    window.location.href =
+                        "vendor-login.html";
+
+                },
+                1800
+            );
+
+            return null;
+        }
+
+
+        return user;
+
+    } catch (error) {
+
+        console.error(
+            "Admin authentication error:",
+            error
+        );
+
+        showMessage(
+            "Authentication error. Please sign in again.",
+            "error"
+        );
+
+        return null;
+    }
+}
+
+
+/* =========================================================
+   LOAD VENDORS
+========================================================= */
+
+async function loadVendors() {
+
+    vendorsLoading.style.display =
+        "block";
+
+    vendorsEmpty.style.display =
+        "none";
+
+    vendorsTableWrapper.style.display =
+        "none";
+
+
+    vendorsTableBody.innerHTML =
+        "";
+
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .from("vendors")
+                .select(
+                    "id,user_id,company_name,contact_name,email,phone,website,business_type,status,created_at"
+                )
+                .order(
+                    "created_at",
+                    {
+                        ascending: false
+                    }
+                );
+
+
+        if (error) {
+
+            console.error(
+                "Load vendors error:",
+                error
+            );
+
+            throw error;
+        }
+
+
+        vendorsLoading.style.display =
+            "none";
+
+
+        if (!data || data.length === 0) {
+
+            vendorsEmpty.style.display =
+                "block";
+
+            updateStatistics([]);
+
+            return;
+        }
+
+
+        updateStatistics(data);
+
+
+        data.forEach(
+            function(vendor) {
+
+                const row =
+                    document.createElement("tr");
+
+
+                row.innerHTML = `
+
+                    <td>
+                        <strong>
+                            ${escapeHtml(vendor.company_name || "—")}
+                        </strong>
+                    </td>
+
+                    <td>
+                        ${escapeHtml(vendor.contact_name || "—")}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(vendor.email || "—")}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(vendor.phone || "—")}
+                    </td>
+
+                    <td>
+                        ${escapeHtml(vendor.business_type || "—")}
+                    </td>
+
+                    <td>
+
+                        <select
+                            class="vendor-status-select"
+                            data-vendor-id="${escapeHtml(vendor.id)}"
+                        >
+
+                            <option
+                                value="pending"
+                                ${vendor.status === "pending" ? "selected" : ""}
+                            >
+                                Pending
+                            </option>
+
+                            <option
+                                value="approved"
+                                ${vendor.status === "approved" ? "selected" : ""}
+                            >
+                                Approved
+                            </option>
+
+                            <option
+                                value="rejected"
+                                ${vendor.status === "rejected" ? "selected" : ""}
+                            >
+                                Rejected
+                            </option>
+
+                            <option
+                                value="suspended"
+                                ${vendor.status === "suspended" ? "selected" : ""}
+                            >
+                                Suspended
+                            </option>
+
+                        </select>
+
+                    </td>
+
+                    <td>
+                        ${formatDate(vendor.created_at)}
+                    </td>
+
+                    <td>
+
+                        <button
+                            type="button"
+                            class="action-button view-button"
+                            onclick="toggleDocuments(
+                                '${escapeHtml(vendor.id)}',
+                                this
+                            )"
+                        >
+                            Documents
+                        </button>
+
+                        <button
+                            type="button"
+                            class="action-button save-button"
+                            onclick="saveVendorStatus(
+                                '${escapeHtml(vendor.id)}',
+                                this
+                            )"
+                        >
+                            Save
+                        </button>
+
+                    </td>
+
+                `;
+
+
+                vendorsTableBody.appendChild(row);
+
+
+                const documentRow =
+                    document.createElement("tr");
+
+
+                documentRow.id =
+                    "documents-row-" + vendor.id;
+
+
+                documentRow.style.display =
+                    "none";
+
+
+                documentRow.innerHTML = `
+
+                    <td colspan="8">
+
+                        <div
+                            class="documents-container"
+                            id="documents-${escapeHtml(vendor.id)}"
+                        >
+
+                            <div class="documents-title">
+                                Vendor Documents
+                            </div>
+
+                            <div class="loading">
+                                Loading documents...
+                            </div>
+
+                        </div>
+
+                    </td>
+
+                `;
+
+
+                vendorsTableBody.appendChild(
+                    documentRow
+                );
+
+            }
+        );
+
+
+        vendorsTableWrapper.style.display =
+            "block";
+
+
+    } catch (error) {
+
+        vendorsLoading.style.display =
+            "none";
+
+        console.error(error);
+
+        showMessage(
+            "Unable to load vendors: " +
+            (error.message || "Unknown error"),
+            "error"
+        );
+    }
+}
+
+
+/* =========================================================
+   STATISTICS
+========================================================= */
+
+function updateStatistics(vendors) {
+
+    const total =
+        vendors.length;
+
+
+    const pending =
+        vendors.filter(
+            function(vendor) {
+                return vendor.status === "pending";
+            }
+        ).length;
+
+
+    const approved =
+        vendors.filter(
+            function(vendor) {
+                return vendor.status === "approved";
+            }
+        ).length;
+
+
+    const rejected =
+        vendors.filter(
+            function(vendor) {
+                return vendor.status === "rejected";
+            }
+        ).length;
+
+
+    document.getElementById(
+        "totalVendors"
+    ).textContent = total;
+
+
+    document.getElementById(
+        "pendingVendors"
+    ).textContent = pending;
+
+
+    document.getElementById(
+        "approvedVendors"
+    ).textContent = approved;
+
+
+    document.getElementById(
+        "rejectedVendors"
+    ).textContent = rejected;
+}
+
+
+/* =========================================================
+   SAVE VENDOR STATUS
+========================================================= */
+
+async function saveVendorStatus(
+    vendorId,
+    button
+) {
+
+    const select =
+        document.querySelector(
+            `.vendor-status-select[data-vendor-id="${vendorId}"]`
+        );
+
+
+    if (!select) {
+
+        showMessage(
+            "Status selector not found.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const newStatus =
+        select.value;
+
+
+    const originalText =
+        button.textContent;
+
+
+    button.disabled =
+        true;
+
+    button.textContent =
+        "Saving...";
+
+
+    try {
+
+        const {
+            error
+        } =
+            await supabaseClient
+                .from("vendors")
+                .update({
+                    status: newStatus,
+                    updated_at:
+                        new Date().toISOString()
+                })
+                .eq("id", vendorId);
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        showMessage(
+            "Vendor status updated successfully.",
+            "success"
+        );
+
+
+        await loadVendors();
+
+
+    } catch (error) {
+
+        console.error(
+            "Save vendor status error:",
+            error
+        );
+
+        showMessage(
+            "Unable to update vendor status: " +
+            (error.message || "Unknown error"),
+            "error"
+        );
+
+    } finally {
+
+        button.disabled =
+            false;
+
+        button.textContent =
+            originalText;
+    }
+}
+
+
+/* =========================================================
+   DOCUMENT STATUS CLASS
+========================================================= */
+
+function getDocumentStatusClass(status) {
+
+    const value =
+        String(status || "")
+        .toLowerCase();
+
+
+    if (value === "approved") {
+        return "document-status-approved";
+    }
+
+
+    if (value === "rejected") {
+        return "document-status-rejected";
+    }
+
+
+    if (value === "submitted") {
+        return "document-status-submitted";
+    }
+
+
+    return "document-status-uploaded";
+}
+
+
+/* =========================================================
+   LOAD VENDOR DOCUMENTS
+========================================================= */
+
+async function loadVendorDocuments(
+    vendorId
+) {
+
+    const container =
+        document.getElementById(
+            "documents-" + vendorId
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    container.innerHTML = `
+
+        <div class="documents-title">
+            Vendor Documents
+        </div>
+
+        <div class="loading">
+            Loading documents...
+        </div>
+
+    `;
+
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .from("vendor_documents")
+                .select(
+                    "id,vendor_id,user_id,document_type,file_name,file_path,file_size,mime_type,status,uploaded_at"
+                )
+                .eq(
+                    "vendor_id",
+                    vendorId
+                )
+                .order(
+                    "uploaded_at",
+                    {
+                        ascending: false
+                    }
+                );
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        if (!data || data.length === 0) {
+
+            container.innerHTML = `
+
+                <div class="documents-title">
+                    Vendor Documents
+                </div>
+
+                <div class="empty">
+                    No documents have been uploaded.
+                </div>
+
+            `;
+
+            return;
+        }
+
+
+        let html = `
+
+            <div class="documents-title">
+                Vendor Documents
+            </div>
+
+            <div class="table-wrapper">
+
+                <table class="document-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Document Type
+                            </th>
+
+                            <th>
+                                File Name
+                            </th>
+
+                            <th>
+                                Size
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Uploaded
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+        `;
+
+
+        data.forEach(
+            function(document) {
+
+                html += `
+
+                    <tr>
+
+                        <td>
+                            ${escapeHtml(
+                                document.document_type
+                            )}
+                        </td>
+
+                        <td>
+                            <strong>
+                                ${escapeHtml(
+                                    document.file_name
+                                )}
+                            </strong>
+                        </td>
+
+                        <td>
+                            ${formatFileSize(
+                                document.file_size
+                            )}
+                        </td>
+
+                        <td>
+
+                            <select
+                                id="document-status-${escapeHtml(document.id)}"
+                            >
+
+                                <option
+                                    value="uploaded"
+                                    ${document.status === "uploaded" ? "selected" : ""}
+                                >
+                                    Uploaded
+                                </option>
+
+                                <option
+                                    value="submitted"
+                                    ${document.status === "submitted" ? "selected" : ""}
+                                >
+                                    Submitted
+                                </option>
+
+                                <option
+                                    value="approved"
+                                    ${document.status === "approved" ? "selected" : ""}
+                                >
+                                    Approved
+                                </option>
+
+                                <option
+                                    value="rejected"
+                                    ${document.status === "rejected" ? "selected" : ""}
+                                >
+                                    Rejected
+                                </option>
+
+                            </select>
+
+                        </td>
+
+                        <td>
+                            ${formatDate(
+                                document.uploaded_at
+                            )}
+                        </td>
+
+                        <td>
+
+                            <button
+                                type="button"
+                                class="action-button view-button"
+                                onclick="downloadDocument(
+                                    '${escapeHtml(document.file_path)}'
+                                )"
+                            >
+                                Download
+                            </button>
+
+                            <button
+                                type="button"
+                                class="action-button save-button"
+                                onclick="saveDocumentStatus(
+                                    '${escapeHtml(document.id)}'
+                                )"
+                            >
+                                Save
+                            </button>
+
+                        </td>
+
+                    </tr>
+
+                `;
+            }
+        );
+
+
+        html += `
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        `;
+
+
+        container.innerHTML =
+            html;
+
+
+    } catch (error) {
+
+        console.error(
+            "Load documents error:",
+            error
+        );
+
+
+        container.innerHTML = `
+
+            <div class="documents-title">
+                Vendor Documents
+            </div>
+
+            <div class="message error">
+                Unable to load documents:
+                ${escapeHtml(
+                    error.message ||
+                    "Unknown error"
+                )}
+            </div>
+
+        `;
+    }
+}
+
+
+/* =========================================================
+   TOGGLE DOCUMENTS
+========================================================= */
+
+async function toggleDocuments(
+    vendorId,
+    button
+) {
+
+    const row =
+        document.getElementById(
+            "documents-row-" + vendorId
+        );
+
+
+    const container =
+        document.getElementById(
+            "documents-" + vendorId
+        );
+
+
+    if (!row || !container) {
+        return;
+    }
+
+
+    if (
+        row.style.display === "table-row"
+    ) {
+
+        row.style.display =
+            "none";
+
+        button.textContent =
+            "Documents";
+
+        return;
+    }
+
+
+    row.style.display =
+        "table-row";
+
+    button.textContent =
+        "Hide Documents";
+
+
+    await loadVendorDocuments(
+        vendorId
+    );
+}
+
+
+/* =========================================================
+   FILE SIZE
+========================================================= */
+
+function formatFileSize(bytes) {
+
+    if (
+        bytes === null ||
+        bytes === undefined ||
+        bytes === 0
+    ) {
+        return "—";
+    }
+
+
+    const units = [
+        "Bytes",
+        "KB",
+        "MB",
+        "GB"
+    ];
+
+
+    let size =
+        Number(bytes);
+
+
+    let unitIndex =
+        0;
+
+
+    while (
+        size >= 1024 &&
+        unitIndex < units.length - 1
+    ) {
+
+        size =
+            size / 1024;
+
+        unitIndex++;
+    }
+
+
+    return (
+        size.toFixed(
+            size >= 100 ? 0 :
+            size >= 10 ? 1 :
+            2
+        )
+        + " "
+        + units[unitIndex]
+    );
+}
+
+
+/* =========================================================
+   DOWNLOAD DOCUMENT
+========================================================= */
+
+async function downloadDocument(
+    filePath
+) {
+
+    try {
+
+        /*
+         * Create a temporary signed URL.
+         * Bucket:
+         * vendor-documents
+         */
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+                .storage
+                .from("vendor-documents")
+                .createSignedUrl(
+                    filePath,
+                    300
+                );
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        if (
+            !data ||
+            !data.signedUrl
+        ) {
+
+            throw new Error(
+                "Unable to create document download link."
+            );
+        }
+
+
+        window.open(
+            data.signedUrl,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Download document error:",
+            error
+        );
+
+
+        showMessage(
+            "Unable to download document: " +
+            (
+                error.message ||
+                "Unknown error"
+            ),
+            "error"
+        );
+    }
+}
+
+
+/* =========================================================
+   SAVE DOCUMENT STATUS
+========================================================= */
+
+async function saveDocumentStatus(
+    documentId
+) {
+
+    const select =
+        document.getElementById(
+            "document-status-" +
+            documentId
+        );
+
+
+    if (!select) {
+
+        showMessage(
+            "Document status selector not found.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const newStatus =
+        select.value;
+
+
+    try {
+
+        const {
+            error
+        } =
+            await supabaseClient
+                .from("vendor_documents")
+                .update({
+                    status: newStatus,
+                    updated_at:
+                        new Date().toISOString()
+                })
+                .eq(
+                    "id",
+                    documentId
+                );
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        showMessage(
+            "Document status updated successfully.",
+            "success"
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Save document status error:",
+            error
+        );
+
+
+        showMessage(
+            "Unable to update document status: " +
+            (
+                error.message ||
+                "Unknown error"
+            ),
+            "error"
+        );
+    }
+}
+
+
+/* =========================================================
+   SIGN OUT
+========================================================= */
+
+logoutButton.addEventListener(
+    "click",
+    async function() {
+
+        try {
+
+            await supabaseClient.auth.signOut();
+
+        } catch (error) {
+
+            console.error(
+                "Sign out error:",
+                error
+            );
+
+        } finally {
+
+            window.location.href =
+                "vendor-login.html";
+        }
+    }
+);
+
+
+/* =========================================================
+   REFRESH
+========================================================= */
+
+refreshButton.addEventListener(
+    "click",
+    async function() {
+
+        refreshButton.disabled =
+            true;
+
+        refreshButton.textContent =
+            "Refreshing...";
+
+
+        try {
+
+            await loadVendors();
+
+        } finally {
+
+            refreshButton.disabled =
+                false;
+
+            refreshButton.textContent =
+                "Refresh";
+        }
+    }
+);
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+async function initializeAdminPage() {
+
+    const user =
+        await checkAdmin();
+
+
+    if (!user) {
+        return;
+    }
+
+
+    await loadVendors();
+}
+
+
+initializeAdminPage();
+
+
+</script>
+
+</body>
+</html>
