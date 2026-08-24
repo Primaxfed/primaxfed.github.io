@@ -2,14 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vendor Registration | Primax Global, Inc.</title>
-
-    <meta name="description"
-          content="Register as a vendor with Primax Global, Inc.">
+    <meta name="description" content="Register as a vendor with Primax Global, Inc.">
 
     <style>
         * {
@@ -227,518 +222,194 @@
         }
     </style>
 </head>
-
 <body>
 
 <header>
     <div class="nav">
-
         <div class="logo">
             Primax Global, Inc.
         </div>
-
         <div class="nav-links">
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="index.html#government">
-                Government
-            </a>
-
-            <a href="products.html">
-                Products
-            </a>
-
-            <a href="index.html#about">
-                About
-            </a>
-
-            <a href="index.html#contact">
-                Contact
-            </a>
-
+            <a href="index.html">Home</a>
+            <a href="index.html#government">Government</a>
+            <a href="products.html">Products</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#contact">Contact</a>
         </div>
-
     </div>
 </header>
 
-
 <main class="page">
-
     <div class="register-box">
-
-        <h1>
-            Vendor Registration
-        </h1>
-
+        <h1>Vendor Registration</h1>
         <p class="subtitle">
             Register your company with Primax Global, Inc.
         </p>
 
-
         <form id="vendorForm">
-
             <label for="company_name">
-                Company Name
-                <span class="required">*</span>
+                Company Name <span class="required">*</span>
             </label>
-
-            <input
-                type="text"
-                id="company_name"
-                required
-                autocomplete="organization"
-                maxlength="200"
-                placeholder="Your Company Name">
-
+            <input type="text" id="company_name" required autocomplete="organization" maxlength="200" placeholder="Your Company Name">
 
             <label for="contact_name">
-                Contact Name
-                <span class="required">*</span>
+                Contact Name <span class="required">*</span>
             </label>
-
-            <input
-                type="text"
-                id="contact_name"
-                required
-                autocomplete="name"
-                maxlength="150"
-                placeholder="Full Name">
-
+            <input type="text" id="contact_name" required autocomplete="name" maxlength="150" placeholder="Full Name">
 
             <label for="email">
-                Email
-                <span class="required">*</span>
+                Email <span class="required">*</span>
             </label>
-
-            <input
-                type="email"
-                id="email"
-                required
-                autocomplete="email"
-                maxlength="254"
-                placeholder="company@example.com">
-
+            <input type="email" id="email" required autocomplete="email" maxlength="254" placeholder="company@example.com">
 
             <label for="phone">
-                Phone
-                <span class="required">*</span>
+                Phone <span class="required">*</span>
             </label>
-
-            <input
-                type="tel"
-                id="phone"
-                required
-                autocomplete="tel"
-                maxlength="30"
-                placeholder="213-555-1234">
-
+            <input type="tel" id="phone" required autocomplete="tel" maxlength="30" placeholder="213-555-1234">
 
             <label for="website">
                 Website
             </label>
-
-            <input
-                type="url"
-                id="website"
-                autocomplete="url"
-                maxlength="500"
-                placeholder="https://www.example.com">
-
+            <input type="url" id="website" autocomplete="url" maxlength="500" placeholder="https://www.example.com">
 
             <label for="password">
-                Password
-                <span class="required">*</span>
+                Password <span class="required">*</span>
             </label>
-
-            <input
-                type="password"
-                id="password"
-                required
-                minlength="8"
-                autocomplete="new-password"
-                placeholder="Minimum 8 characters">
-
+            <input type="password" id="password" required minlength="8" autocomplete="new-password" placeholder="Minimum 8 characters">
             <div class="password-help">
                 Password must contain at least 8 characters.
             </div>
 
-
-            <button
-                type="submit"
-                id="registerButton">
-
+            <button type="submit" id="registerButton">
                 Create Vendor Account
-
             </button>
 
-
-            <div
-                id="message"
-                class="message">
-            </div>
-
+            <div id="message" class="message"></div>
         </form>
 
-
         <div class="note">
-            After creating your account, please check your email
-            and click the confirmation link. Once your email is
-            confirmed, return to the Vendor Login page to complete
-            your vendor profile and access your account.
+            After creating your account, please check your email and click the confirmation link. Once your email is confirmed, return to the Vendor Login page to complete your vendor profile and access your account.
         </div>
-
 
         <div class="login-link">
-
-            Already registered?
-
-            <a href="vendor-login.html">
-                Vendor Login
-            </a>
-
+            Already registered? <a href="vendor-login.html">Vendor Login</a>
         </div>
-
     </div>
-
 </main>
 
-
 <footer>
-
     Primax Global, Inc.<br>
-
-    3660 Wilshire Blvd, Suite 512,
-    Los Angeles, CA 90010<br>
-
-    © 2026 Primax Global, Inc.
-    All Rights Reserved.
-
+    3660 Wilshire Blvd, Suite 512, Los Angeles, CA 90010<br>
+    © 2026 Primax Global, Inc. All Rights Reserved.
 </footer>
 
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
 <script>
-
 /* =========================================================
    SUPABASE CONFIGURATION
 ========================================================= */
-
-const SUPABASE_URL =
-    "https://nhjapidacizvhebtpzah.supabase.co";
-
-const SUPABASE_PUBLISHABLE_KEY =
-    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
-
-const supabaseClient =
-    window.supabase.createClient(
-        SUPABASE_URL,
-        SUPABASE_PUBLISHABLE_KEY
-    );
-
-
-/* =========================================================
-   ELEMENTS
-========================================================= */
-
-const form =
-    document.getElementById("vendorForm");
-
-const button =
-    document.getElementById("registerButton");
-
-const message =
-    document.getElementById("message");
-
-
-/* =========================================================
-   MESSAGE
-========================================================= */
-
-function showMessage(text, type) {
-
-    message.className =
-        "message " + type;
-
-    message.textContent =
-        text;
-}
-
-
-/* =========================================================
-   REGISTRATION
-========================================================= */
-
-form.addEventListener(
-    "submit",
-    async function(event) {
-
-        event.preventDefault();
-
-        message.className = "message";
-        message.textContent = "";
-
-        button.disabled = true;
-        button.textContent = "Creating Account...";
-
-
-        try {
-
-            /* -----------------------------------------
-               GET FORM VALUES
-            ----------------------------------------- */
-
-            const companyName =
-                document
-                .getElementById("company_name")
-                .value
-                .trim();
-
-            const contactName =
-                document
-                .getElementById("contact_name")
-                .value
-                .trim();
-
-            const email =
-                document
-                .getElementById("email")
-                .value
-                .trim()
-                .toLowerCase();
-
-            const phone =
-                document
-                .getElementById("phone")
-                .value
-                .trim();
-
-            const website =
-                document
-                .getElementById("website")
-                .value
-                .trim();
-
-            const password =
-                document
-                .getElementById("password")
-                .value;
-
-
-            /* -----------------------------------------
-               VALIDATION
-            ----------------------------------------- */
-
-            if (!companyName) {
-                throw new Error(
-                    "Please enter your company name."
-                );
-            }
-
-            if (!contactName) {
-                throw new Error(
-                    "Please enter your contact name."
-                );
-            }
-
-            if (!email) {
-                throw new Error(
-                    "Please enter your email address."
-                );
-            }
-
-            if (!phone) {
-                throw new Error(
-                    "Please enter your phone number."
-                );
-            }
-
-            if (password.length < 8) {
-                throw new Error(
-                    "Password must contain at least 8 characters."
-                );
-            }
-
-
-            /* -----------------------------------------
-               CREATE AUTH ACCOUNT ONLY
-               
-               IMPORTANT:
-               We DO NOT insert into vendors here.
-               The user must first confirm the email.
-            ----------------------------------------- */
-
-            const {
-                data,
-                error
-            } =
-            await supabaseClient.auth.signUp({
-
-                email: email,
-
-                password: password,
-
-                options: {
-
-                    data: {
-
-                        company_name:
-                            companyName,
-
-                        contact_name:
-                            contactName,
-
-                        phone:
-                            phone,
-
-                        website:
-                            website || null
-
-                    },
-
-                    emailRedirectTo:
-                        "https://primaxfed.com/vendor-login.html"
-
-                }
-
-            });
-
-
-            /* -----------------------------------------
-               AUTH ERROR
-            ----------------------------------------- */
-
-            if (error) {
-
-                console.error(
-                    "Supabase Auth Error:",
-                    error
-                );
-
-                throw error;
-            }
-
-
-            if (!data || !data.user) {
-
-                throw new Error(
-                    "Unable to create your account. Please try again."
-                );
-            }
-
-
-            /* -----------------------------------------
-               SUCCESS
-            ----------------------------------------- */
-
-            showMessage(
-
-                "Your account was created successfully! " +
-                "Please check your email and click the confirmation link. " +
-                "After confirming your email, return to Vendor Login " +
-                "to complete your vendor registration.",
-
-                "success"
-
-            );
-
-
-            /* -----------------------------------------
-               Clear password
-            ----------------------------------------- */
-
-            document
-                .getElementById("password")
-                .value = "";
-
-
-            /* -----------------------------------------
-               Disable registration temporarily
-            ----------------------------------------- */
-
-            button.disabled = true;
-
-            button.textContent =
-                "Account Created";
-
-
-        }
-
-        catch(error) {
-
-            console.error(
-                "Vendor registration error:",
-                error
-            );
-
-
-            let errorMessage =
-                "Registration failed. Please try again.";
-
-
-            if (
-                error.message &&
-                error.message
-                    .toLowerCase()
-                    .includes("user already registered")
-            ) {
-
-                errorMessage =
-                    "An account with this email already exists. " +
-                    "Please use Vendor Login or reset your password.";
-
-            }
-
-            else if (
-                error.message &&
-                error.message
-                    .toLowerCase()
-                    .includes("invalid email")
-            ) {
-
-                errorMessage =
-                    "Please enter a valid email address.";
-
-            }
-
-            else if (
-                error.message &&
-                error.message
-                    .toLowerCase()
-                    .includes("password")
-            ) {
-
-                errorMessage =
-                    error.message;
-
-            }
-
-            else if (error.message) {
-
-                errorMessage =
-                    error.message;
-
-            }
-
-
-            showMessage(
-                errorMessage,
-                "error"
-            );
-
-
-            button.disabled = false;
-
-            button.textContent =
-                "Create Vendor Account";
-        }
-
-    }
+const SUPABASE_URL = "https://nhjapidacizvhebtpzah.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_PUBLISHABLE_KEY
 );
 
+/* =========================================================
+   DOM ELEMENTS
+========================================================= */
+const form = document.getElementById("vendorForm");
+const button = document.getElementById("registerButton");
+const message = document.getElementById("message");
+
+/* =========================================================
+   UI HELPER
+========================================================= */
+function showMessage(text, type) {
+    message.className = "message " + type;
+    message.textContent = text;
+}
+
+/* =========================================================
+   REGISTRATION LOGIC
+========================================================= */
+form.addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    message.className = "message";
+    message.textContent = "";
+
+    button.disabled = true;
+    button.textContent = "Creating Account...";
+
+    try {
+        const companyName = document.getElementById("company_name").value.trim();
+        const contactName = document.getElementById("contact_name").value.trim();
+        const email = document.getElementById("email").value.trim().toLowerCase();
+        const phone = document.getElementById("phone").value.trim();
+        const website = document.getElementById("website").value.trim();
+        const password = document.getElementById("password").value;
+
+        // Validation Check
+        if (!companyName || !contactName || !email || !phone) {
+            throw new Error("Please fill in all required fields.");
+        }
+
+        if (password.length < 8) {
+            throw new Error("Password must contain at least 8 characters.");
+        }
+
+        // Supabase Auth SignUp
+        const { data, error } = await supabaseClient.auth.signUp({
+            email: email,
+            password: password,
+            options: {
+                data: {
+                    company_name: companyName,
+                    contact_name: contactName,
+                    phone: phone,
+                    website: website || null
+                },
+                emailRedirectTo: "https://primaxfed.com/vendor-login.html"
+            }
+        });
+
+        if (error) throw error;
+
+        if (!data || !data.user) {
+            throw new Error("Unable to create your account. Please try again.");
+        }
+
+        // Success UI Treatment
+        showMessage(
+            "Your account was created successfully! Please check your email and click the confirmation link to activate your account.",
+            "success"
+        );
+
+        document.getElementById("password").value = "";
+        button.disabled = true;
+        button.textContent = "Account Created";
+
+    } catch (error) {
+        console.error("Vendor registration error:", error);
+
+        let errorMessage = "Registration failed. Please try again.";
+
+        if (error.message && error.message.toLowerCase().includes("user already registered")) {
+            errorMessage = "An account with this email already exists. Please use Vendor Login.";
+        } else if (error.message && error.message.toLowerCase().includes("invalid email")) {
+            errorMessage = "Please enter a valid email address.";
+        } else if (error.message) {
+            errorMessage = error.message;
+        }
+
+        showMessage(errorMessage, "error");
+
+        button.disabled = false;
+        button.textContent = "Create Vendor Account";
+    }
+});
 </script>
 
 </body>
