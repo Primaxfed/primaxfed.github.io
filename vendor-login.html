@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
@@ -9,18 +10,11 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        Primax Global, Inc. | Federal Government Vendor
-    </title>
+    <title>Vendor Login | Primax Global, Inc.</title>
 
     <meta
         name="description"
-        content="Primax Global, Inc. is a U.S. government vendor supplying commercial and industrial products to federal, state, and local government agencies."
-    >
-
-    <meta
-        name="keywords"
-        content="Primax Global, government vendor, federal supplier, government procurement, industrial products, DoD supplier"
+        content="Vendor login portal for Primax Global, Inc."
     >
 
     <style>
@@ -31,25 +25,26 @@
             padding: 0;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            font-family: Arial, "Noto Sans", sans-serif;
-            line-height: 1.6;
+            font-family:
+                Arial,
+                "Noto Sans",
+                sans-serif;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #102a43 0%,
+                    #243b53 100%
+                );
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
             color: #1f2933;
-            background: #ffffff;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
         }
 
 
@@ -59,23 +54,19 @@
 
         header {
             background: #102a43;
+
             color: #ffffff;
 
-            position: sticky;
-            top: 0;
-
-            z-index: 1000;
+            padding: 18px 25px;
 
             box-shadow:
-                0 2px 10px rgba(0,0,0,0.12);
+                0 2px 10px rgba(0,0,0,.15);
         }
 
-        .nav-container {
-            max-width: 1200px;
+        .header-inner {
+            max-width: 1100px;
 
-            margin: 0 auto;
-
-            padding: 17px 25px;
+            margin: auto;
 
             display: flex;
 
@@ -88,425 +79,292 @@
             font-size: 21px;
 
             font-weight: 700;
-
-            letter-spacing: .2px;
         }
 
-        .nav-links {
-            display: flex;
-
-            align-items: center;
-
-            gap: 25px;
-        }
-
-        .nav-links a {
+        .home-link {
             color: #ffffff;
+
+            text-decoration: none;
 
             font-size: 14px;
 
             font-weight: 600;
-        }
-
-        .nav-links a:hover {
-            opacity: .8;
-        }
-
-
-        /* =========================================
-           VENDOR PORTAL BUTTON
-        ========================================= */
-
-        .vendor-nav-button {
-            background: #ffffff;
-
-            color: #102a43 !important;
-
-            padding: 9px 16px;
-
-            border-radius: 5px;
-
-            font-weight: 700 !important;
-        }
-
-        .vendor-nav-button:hover {
-            background: #e8eef3;
-
-            opacity: 1 !important;
-        }
-
-
-        /* =========================================
-           ADMIN VENDOR MANAGEMENT BUTTON
-           Hidden by default
-        ========================================= */
-
-        .admin-nav-button {
-            display: none;
-
-            background: #d97706;
-
-            color: #ffffff !important;
-
-            padding: 9px 16px;
-
-            border-radius: 5px;
-
-            font-weight: 700 !important;
-
-            box-shadow:
-                0 2px 5px rgba(0,0,0,0.15);
-        }
-
-        .admin-nav-button:hover {
-            background: #b45309;
-
-            opacity: 1 !important;
-        }
-
-
-        /* =========================================
-           HERO
-        ========================================= */
-
-        .hero {
-            background:
-                linear-gradient(
-                    135deg,
-                    #102a43 0%,
-                    #243b53 100%
-                );
-
-            color: #ffffff;
-
-            padding: 95px 25px 100px;
-
-            text-align: center;
-        }
-
-        .hero-content {
-            max-width: 900px;
-
-            margin: auto;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-
-            line-height: 1.15;
-
-            margin-bottom: 22px;
-        }
-
-        .hero h1 span {
-            display: block;
-
-            font-size: 22px;
-
-            font-weight: 400;
-
-            margin-top: 18px;
 
             opacity: .9;
         }
 
-        .hero p {
-            max-width: 750px;
-
-            margin: 0 auto 35px;
-
-            font-size: 18px;
-
-            line-height: 1.7;
-
-            color: #e6edf3;
+        .home-link:hover {
+            opacity: 1;
         }
 
-        .hero-buttons {
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
+        main {
+            flex: 1;
+
             display: flex;
+
+            align-items: center;
 
             justify-content: center;
 
-            gap: 14px;
-
-            flex-wrap: wrap;
-        }
-
-        .button {
-            display: inline-block;
-
-            padding: 13px 24px;
-
-            border-radius: 5px;
-
-            font-size: 15px;
-
-            font-weight: 700;
-
-            transition: .2s;
-        }
-
-        .button-primary {
-            background: #ffffff;
-
-            color: #102a43;
-        }
-
-        .button-primary:hover {
-            background: #e5ebf0;
-        }
-
-        .button-outline {
-            border: 1px solid #ffffff;
-
-            color: #ffffff;
-        }
-
-        .button-outline:hover {
-            background: rgba(255,255,255,.1);
+            padding: 50px 20px;
         }
 
 
         /* =========================================
-           GENERAL SECTION
+           LOGIN CARD
         ========================================= */
 
-        section {
-            padding: 75px 25px;
-        }
+        .login-card {
+            width: 100%;
 
-        .container {
-            max-width: 1150px;
+            max-width: 450px;
 
-            margin: auto;
-        }
-
-        .section-title {
-            text-align: center;
-
-            color: #102a43;
-
-            font-size: 32px;
-
-            margin-bottom: 15px;
-        }
-
-        .section-subtitle {
-            text-align: center;
-
-            max-width: 750px;
-
-            margin: 0 auto 45px;
-
-            color: #52606d;
-
-            font-size: 16px;
-        }
-
-
-        /* =========================================
-           GOVERNMENT
-        ========================================= */
-
-        #government {
-            background: #f5f7fa;
-        }
-
-        .government-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 25px;
-        }
-
-        .government-card {
             background: #ffffff;
 
-            padding: 30px;
+            border-radius: 10px;
 
-            border-radius: 7px;
-
-            border: 1px solid #e4e7eb;
+            padding: 42px 40px;
 
             box-shadow:
-                0 4px 15px rgba(0,0,0,.05);
+                0 15px 45px rgba(0,0,0,.25);
         }
 
-        .government-card h3 {
+
+        .login-card h1 {
+            text-align: center;
+
             color: #102a43;
 
-            margin-bottom: 12px;
-
-            font-size: 20px;
-        }
-
-        .government-card p {
-            color: #52606d;
-
-            font-size: 15px;
-        }
-
-
-        /* =========================================
-           ABOUT
-        ========================================= */
-
-        #about {
-            background: #ffffff;
-        }
-
-        .about-content {
-            max-width: 850px;
-
-            margin: auto;
-
-            text-align: center;
-        }
-
-        .about-content p {
-            margin-bottom: 18px;
-
-            color: #52606d;
-
-            font-size: 16px;
-        }
-
-
-        /* =========================================
-           PRODUCTS
-        ========================================= */
-
-        #products {
-            background: #f5f7fa;
-        }
-
-        .product-intro {
-            max-width: 800px;
-
-            margin: 0 auto 30px;
-
-            text-align: center;
-
-            color: #52606d;
-        }
-
-        .products-button {
-            text-align: center;
-
-            margin-top: 30px;
-        }
-
-
-        /* =========================================
-           VENDOR PORTAL
-        ========================================= */
-
-        #vendors {
-            background: #102a43;
-
-            color: #ffffff;
-        }
-
-        #vendors .section-title {
-            color: #ffffff;
-        }
-
-        #vendors .section-subtitle {
-            color: #d9e2ec;
-        }
-
-        .vendor-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 25px;
-
-            max-width: 850px;
-
-            margin: auto;
-        }
-
-        .vendor-card {
-            background: #ffffff;
-
-            color: #1f2933;
-
-            padding: 35px;
-
-            border-radius: 7px;
-
-            text-align: center;
-        }
-
-        .vendor-card h3 {
-            color: #102a43;
-
-            font-size: 23px;
-
-            margin-bottom: 12px;
-        }
-
-        .vendor-card p {
-            color: #52606d;
-
-            margin-bottom: 25px;
-
-            font-size: 15px;
-        }
-
-        .vendor-card .button {
-            background: #102a43;
-
-            color: #ffffff;
-        }
-
-        .vendor-card .button:hover {
-            background: #243b53;
-        }
-
-
-        /* =========================================
-           CONTACT
-        ========================================= */
-
-        #contact {
-            background: #ffffff;
-        }
-
-        .contact-box {
-            max-width: 750px;
-
-            margin: auto;
-
-            text-align: center;
-
-            padding: 35px;
-
-            border: 1px solid #e4e7eb;
-
-            border-radius: 7px;
-        }
-
-        .contact-box h3 {
-            color: #102a43;
-
-            margin-bottom: 18px;
-        }
-
-        .contact-box p {
-            color: #52606d;
+            font-size: 30px;
 
             margin-bottom: 8px;
         }
 
-        .contact-box a {
+
+        .login-subtitle {
+            text-align: center;
+
+            color: #627d98;
+
+            font-size: 15px;
+
+            margin-bottom: 32px;
+        }
+
+
+        /* =========================================
+           FORM
+        ========================================= */
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+
+            color: #243b53;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            margin-bottom: 7px;
+        }
+
+
+        .form-group input {
+            width: 100%;
+
+            padding: 13px 14px;
+
+            border: 1px solid #bcccdc;
+
+            border-radius: 5px;
+
+            font-size: 16px;
+
+            outline: none;
+
+            transition: border-color .2s,
+                        box-shadow .2s;
+        }
+
+
+        .form-group input:focus {
+            border-color: #102a43;
+
+            box-shadow:
+                0 0 0 3px rgba(16,42,67,.12);
+        }
+
+
+        /* =========================================
+           PASSWORD ROW
+        ========================================= */
+
+        .password-row {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 7px;
+        }
+
+
+        .password-row label {
+            margin-bottom: 0;
+        }
+
+
+        .forgot-link {
             color: #102a43;
 
+            font-size: 13px;
+
             font-weight: 600;
+
+            text-decoration: none;
+        }
+
+        .forgot-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           LOGIN BUTTON
+        ========================================= */
+
+        .login-button {
+            width: 100%;
+
+            border: none;
+
+            border-radius: 5px;
+
+            padding: 14px;
+
+            background: #102a43;
+
+            color: #ffffff;
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: background .2s;
+        }
+
+
+        .login-button:hover {
+            background: #243b53;
+        }
+
+
+        .login-button:disabled {
+            background: #829ab1;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =========================================
+           MESSAGE
+        ========================================= */
+
+        .message {
+            display: none;
+
+            margin-bottom: 20px;
+
+            padding: 12px 14px;
+
+            border-radius: 5px;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        .message.error {
+            display: block;
+
+            background: #fff5f5;
+
+            color: #b42318;
+
+            border: 1px solid #f5c2c0;
+        }
+
+
+        .message.success {
+            display: block;
+
+            background: #f0fdf4;
+
+            color: #166534;
+
+            border: 1px solid #bbf7d0;
+        }
+
+
+        /* =========================================
+           REGISTER
+        ========================================= */
+
+        .register-area {
+            text-align: center;
+
+            margin-top: 28px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid #e4e7eb;
+
+            color: #627d98;
+
+            font-size: 14px;
+        }
+
+
+        .register-link {
+            color: #102a43;
+
+            font-weight: 700;
+
+            text-decoration: none;
+        }
+
+        .register-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           SECURITY NOTE
+        ========================================= */
+
+        .security-note {
+            margin-top: 22px;
+
+            text-align: center;
+
+            color: #829ab1;
+
+            font-size: 12px;
+
+            line-height: 1.5;
         }
 
 
@@ -521,23 +379,9 @@
 
             text-align: center;
 
-            padding: 30px 20px;
+            padding: 20px;
 
-            font-size: 14px;
-        }
-
-        .footer-links {
-            margin-bottom: 15px;
-        }
-
-        .footer-links a {
-            margin: 0 9px;
-
-            color: #d9e2ec;
-        }
-
-        .footer-links a:hover {
-            text-decoration: underline;
+            font-size: 13px;
         }
 
 
@@ -545,69 +389,32 @@
            MOBILE
         ========================================= */
 
-        @media (max-width: 800px) {
-
-            .nav-container {
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-
-                justify-content: center;
-
-                gap: 13px;
-            }
-
-            .hero {
-                padding: 70px 20px;
-            }
-
-            .hero h1 {
-                font-size: 36px;
-            }
-
-            .government-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .vendor-grid {
-                grid-template-columns: 1fr;
-            }
-
-            section {
-                padding: 60px 20px;
-            }
-        }
-
-
         @media (max-width: 500px) {
 
+            header {
+                padding: 16px 18px;
+            }
+
             .logo {
-                font-size: 19px;
-            }
-
-            .nav-links a {
-                font-size: 13px;
-            }
-
-            .hero h1 {
-                font-size: 31px;
-            }
-
-            .hero h1 span {
                 font-size: 18px;
             }
 
-            .hero p {
-                font-size: 16px;
+            .home-link {
+                font-size: 13px;
             }
 
-            .section-title {
+            main {
+                padding: 30px 15px;
+            }
+
+            .login-card {
+                padding: 32px 25px;
+            }
+
+            .login-card h1 {
                 font-size: 27px;
             }
+
         }
 
     </style>
@@ -624,74 +431,18 @@
 
 <header>
 
-    <div class="nav-container">
+    <div class="header-inner">
 
         <div class="logo">
             Primax Global, Inc.
         </div>
 
-
-        <nav class="nav-links">
-
-            <a href="https://primaxfed.com/index.html">
-                Home
-            </a>
-
-
-            <a href="#government">
-                Government
-            </a>
-
-
-            <a href="https://primaxfed.com/products.html">
-                Products
-            </a>
-
-
-            <a href="#about">
-                About
-            </a>
-
-
-            <a href="#contact">
-                Contact
-            </a>
-
-
-            <!--
-                VENDOR PORTAL
-
-                반드시 LOGIN 페이지로 이동
-                Dashboard로 직접 이동하지 않습니다.
-            -->
-
-            <a
-                href="https://primaxfed.com/vendor-login.html"
-                class="vendor-nav-button"
-            >
-                Vendor Portal
-            </a>
-
-
-            <!--
-                ADMIN ONLY
-
-                기본적으로 숨겨져 있습니다.
-
-                Supabase Auth 로그인 후
-                admin_users.role = admin
-                인 경우에만 표시됩니다.
-            -->
-
-            <a
-                href="https://primaxfed.com/admin-vendors.html"
-                id="adminVendorManagement"
-                class="admin-nav-button"
-            >
-                Vendor Management
-            </a>
-
-        </nav>
+        <a
+            href="https://primaxfed.com/index.html"
+            class="home-link"
+        >
+            ← Back to Website
+        </a>
 
     </div>
 
@@ -705,374 +456,124 @@
 
 <main>
 
+    <div class="login-card">
 
-    <!-- =================================================
-         HERO
-    ================================================== -->
+        <h1>
+            Vendor Login
+        </h1>
 
-    <section class="hero">
-
-        <div class="hero-content">
-
-            <h1>
-
-                Primax Global, Inc.
-
-                <span>
-                    Federal & Government Vendor
-                </span>
-
-            </h1>
+        <p class="login-subtitle">
+            Sign in to access your Primax Global vendor portal.
+        </p>
 
 
-            <p>
-                Supplying quality commercial, industrial,
-                and specialty products to government agencies
-                and institutional customers across the United States.
-            </p>
+        <!-- MESSAGE -->
+
+        <div
+            id="message"
+            class="message"
+        ></div>
 
 
-            <div class="hero-buttons">
+        <!-- LOGIN FORM -->
 
-                <a
-                    href="https://primaxfed.com/products.html"
-                    class="button button-primary"
+        <form id="loginForm">
+
+
+            <!-- EMAIL -->
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email address"
+                    autocomplete="email"
+                    required
                 >
-                    View Products
-                </a>
-
-
-                <!--
-                    Vendor Portal
-                    → LOGIN PAGE
-                -->
-
-                <a
-                    href="https://primaxfed.com/vendor-login.html"
-                    class="button button-outline"
-                >
-                    Vendor Portal
-                </a>
 
             </div>
 
-        </div>
 
-    </section>
 
+            <!-- PASSWORD -->
 
+            <div class="form-group">
 
-    <!-- =================================================
-         GOVERNMENT
-    ================================================== -->
+                <div class="password-row">
 
-    <section id="government">
-
-        <div class="container">
-
-            <h2 class="section-title">
-                Government Supply
-            </h2>
-
-
-            <p class="section-subtitle">
-
-                Primax Global, Inc. supports government
-                procurement requirements through reliable sourcing,
-                product fulfillment, and vendor coordination.
-
-            </p>
-
-
-            <div class="government-grid">
-
-
-                <div class="government-card">
-
-                    <h3>
-                        Federal Government
-                    </h3>
-
-                    <p>
-                        Supporting federal procurement requirements
-                        with commercial, industrial, and specialty products.
-                    </p>
-
-                </div>
-
-
-
-                <div class="government-card">
-
-                    <h3>
-                        Defense & Military
-                    </h3>
-
-                    <p>
-                        Providing sourcing and supply support
-                        for defense and government customers.
-                    </p>
-
-                </div>
-
-
-
-                <div class="government-card">
-
-                    <h3>
-                        Procurement Support
-                    </h3>
-
-                    <p>
-                        Reliable vendor coordination,
-                        product sourcing, and fulfillment support.
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         ABOUT
-    ================================================== -->
-
-    <section id="about">
-
-        <div class="container">
-
-            <h2 class="section-title">
-                About Primax Global
-            </h2>
-
-
-            <div class="about-content">
-
-                <p>
-                    Primax Global, Inc. is a U.S.-based
-                    government vendor focused on supplying
-                    products to government and institutional customers.
-                </p>
-
-
-                <p>
-                    Our goal is to provide dependable sourcing,
-                    competitive pricing, and professional customer
-                    service throughout the procurement process.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         PRODUCTS
-    ================================================== -->
-
-    <section id="products">
-
-        <div class="container">
-
-            <h2 class="section-title">
-                Products
-            </h2>
-
-
-            <p class="product-intro">
-
-                Browse products and product categories available
-                through Primax Global, Inc.
-
-            </p>
-
-
-            <div class="products-button">
-
-                <a
-                    href="https://primaxfed.com/products.html"
-                    class="button"
-                    style="
-                        background:#102a43;
-                        color:#ffffff;
-                    "
-                >
-                    View Product Catalog
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =================================================
-         VENDOR PORTAL
-    ================================================== -->
-
-    <section id="vendors">
-
-        <div class="container">
-
-            <h2 class="section-title">
-                Vendor Portal
-            </h2>
-
-
-            <p class="section-subtitle">
-
-                Suppliers and manufacturers can register
-                with Primax Global, Inc. to establish a vendor
-                account and manage their vendor relationship.
-
-            </p>
-
-
-            <div class="vendor-grid">
-
-
-                <!-- =====================================
-                     EXISTING VENDOR
-                ====================================== -->
-
-                <div class="vendor-card">
-
-                    <h3>
-                        Existing Vendor
-                    </h3>
-
-
-                    <p>
-
-                        Already registered with Primax Global?
-                        Sign in to access your vendor dashboard.
-
-                    </p>
-
-
-                    <!--
-                        IMPORTANT:
-                        This goes to LOGIN.
-                        It does NOT go directly to dashboard.
-                    -->
+                    <label for="password">
+                        Password
+                    </label>
 
                     <a
-                        href="https://primaxfed.com/vendor-login.html"
-                        class="button"
+                        href="#"
+                        id="forgotPassword"
+                        class="forgot-link"
                     >
-                        Vendor Login
+                        Forgot Password?
                     </a>
 
                 </div>
 
 
-
-                <!-- =====================================
-                     NEW VENDOR
-                ====================================== -->
-
-                <div class="vendor-card">
-
-                    <h3>
-                        New Vendor
-                    </h3>
-
-
-                    <p>
-
-                        Interested in becoming a Primax Global vendor?
-                        Create your vendor account to begin the
-                        registration process.
-
-                    </p>
-
-
-                    <a
-                        href="https://primaxfed.com/vendor-register.html"
-                        class="button"
-                    >
-                        Become a Vendor
-                    </a>
-
-                </div>
-
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    autocomplete="current-password"
+                    required
+                >
 
             </div>
 
-        </div>
-
-    </section>
 
 
+            <!-- LOGIN BUTTON -->
 
-    <!-- =================================================
-         CONTACT
-    ================================================== -->
-
-    <section id="contact">
-
-        <div class="container">
-
-            <h2 class="section-title">
-                Contact
-            </h2>
+            <button
+                type="submit"
+                id="loginButton"
+                class="login-button"
+            >
+                Sign In
+            </button>
 
 
-            <div class="contact-box">
-
-                <h3>
-                    Primax Global, Inc.
-                </h3>
+        </form>
 
 
-                <p>
-                    3660 Wilshire Blvd, Suite 512
-                </p>
 
+        <!-- REGISTER -->
 
-                <p>
-                    Los Angeles, CA 90010
-                </p>
+        <div class="register-area">
 
+            Don't have a vendor account?
 
-                <p>
-
-                    Phone:
-
-                    <a href="tel:2132470011">
-                        213-247-0011
-                    </a>
-
-                </p>
-
-
-                <p>
-
-                    Email:
-
-                    <a href="mailto:david@primaxfed.com">
-                        david@primaxfed.com
-                    </a>
-
-                </p>
-
-            </div>
+            <a
+                href="https://primaxfed.com/vendor-register.html"
+                class="register-link"
+            >
+                Become a Vendor
+            </a>
 
         </div>
 
-    </section>
 
+        <div class="security-note">
+
+            Your account is securely authenticated through
+            Primax Global's vendor portal.
+
+        </div>
+
+    </div>
 
 </main>
 
@@ -1084,59 +585,10 @@
 
 <footer>
 
-    <div class="footer-links">
-
-
-        <a href="https://primaxfed.com/index.html">
-            Home
-        </a>
-
-
-        <a href="https://primaxfed.com/products.html">
-            Products
-        </a>
-
-
-        <a href="#government">
-            Government
-        </a>
-
-
-        <a href="#about">
-            About
-        </a>
-
-
-        <a href="#contact">
-            Contact
-        </a>
-
-
-        <!--
-            Footer Vendor Portal
-            → LOGIN PAGE
-        -->
-
-        <a href="https://primaxfed.com/vendor-login.html">
-            Vendor Portal
-        </a>
-
-
-    </div>
-
-
-    Primax Global, Inc.<br>
-
+    Primax Global, Inc.
+    &nbsp;|&nbsp;
     3660 Wilshire Blvd, Suite 512,
     Los Angeles, CA 90010
-
-
-    <br><br>
-
-
-    © 2026 Primax Global, Inc.
-    All Rights Reserved.
-
 
 </footer>
 
@@ -1173,219 +625,413 @@ const supabaseClient =
 
 
 /* =========================================================
-   ADMIN BUTTON
+   ELEMENTS
 ========================================================= */
 
-const adminButton =
-    document.getElementById(
-        "adminVendorManagement"
-    );
+const loginForm =
+    document.getElementById("loginForm");
+
+const loginButton =
+    document.getElementById("loginButton");
+
+const message =
+    document.getElementById("message");
+
+const forgotPassword =
+    document.getElementById("forgotPassword");
 
 
 
 /* =========================================================
-   CHECK ADMIN USER
+   SHOW MESSAGE
 ========================================================= */
 
-async function checkAdminAccess() {
+function showMessage(text, type) {
 
-    try {
+    message.textContent = text;
 
-
-        /* -----------------------------------------------
-           Step 1
-           현재 Supabase 로그인 사용자 확인
-        ------------------------------------------------ */
-
-        const {
-            data: userData,
-            error: userError
-        } = await supabaseClient.auth.getUser();
-
-
-        if (userError) {
-
-            console.log(
-                "Unable to get current user:",
-                userError.message
-            );
-
-            adminButton.style.display = "none";
-
-            return;
-        }
-
-
-        const user =
-            userData?.user;
-
-
-
-        /* -----------------------------------------------
-           로그인하지 않은 경우
-        ------------------------------------------------ */
-
-        if (!user) {
-
-            adminButton.style.display = "none";
-
-            return;
-        }
-
-
-
-        /* -----------------------------------------------
-           Step 2
-           admin_users 테이블에서
-           현재 사용자의 admin 권한 확인
-        ------------------------------------------------ */
-
-        const {
-            data: adminRecord,
-            error: adminError
-        } = await supabaseClient
-
-            .from("admin_users")
-
-            .select(
-                "id, email, role"
-            )
-
-            .eq(
-                "user_id",
-                user.id
-            )
-
-            .eq(
-                "role",
-                "admin"
-            )
-
-            .maybeSingle();
-
-
-
-        /* -----------------------------------------------
-           Admin record 확인 오류
-        ------------------------------------------------ */
-
-        if (adminError) {
-
-            console.log(
-                "Admin check:",
-                adminError.message
-            );
-
-            adminButton.style.display = "none";
-
-            return;
-        }
-
-
-
-        /* -----------------------------------------------
-           Step 3
-           role = admin이면 버튼 표시
-        ------------------------------------------------ */
-
-        if (
-            adminRecord &&
-            adminRecord.role === "admin"
-        ) {
-
-            adminButton.style.display =
-                "inline-block";
-
-
-            console.log(
-                "Admin access granted:",
-                user.email
-            );
-
-        }
-
-        else {
-
-            adminButton.style.display =
-                "none";
-
-
-            console.log(
-                "Admin access not granted:",
-                user.email
-            );
-
-        }
-
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Admin access check failed:",
-            error
-        );
-
-        adminButton.style.display = "none";
-    }
+    message.className =
+        "message " + type;
 
 }
 
 
 
 /* =========================================================
-   AUTH STATE CHANGE
+   LOGIN
 ========================================================= */
 
-supabaseClient.auth.onAuthStateChange(
+loginForm.addEventListener(
+    "submit",
+    async function(event) {
 
-    function(event, session) {
+        event.preventDefault();
 
 
-        /*
-         * 로그인 / 로그아웃 / 세션 변경 시
-         * Admin 권한을 다시 확인
-         */
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
 
-        if (session) {
 
-            checkAdminAccess();
+        const password =
+            document
+                .getElementById("password")
+                .value;
+
+
+        if (!email || !password) {
+
+            showMessage(
+                "Please enter your email address and password.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        loginButton.disabled = true;
+
+        loginButton.textContent =
+            "Signing In...";
+
+        message.className =
+            "message";
+
+
+        try {
+
+
+            /* ---------------------------------------------
+               SUPABASE AUTH LOGIN
+            --------------------------------------------- */
+
+            const {
+                data,
+                error
+            } =
+                await supabaseClient.auth.signInWithPassword({
+
+                    email: email,
+
+                    password: password
+
+                });
+
+
+            if (error) {
+
+                console.error(
+                    "Login error:",
+                    error
+                );
+
+                showMessage(
+                    getLoginErrorMessage(error),
+                    "error"
+                );
+
+                loginButton.disabled = false;
+
+                loginButton.textContent =
+                    "Sign In";
+
+                return;
+            }
+
+
+            const user =
+                data?.user;
+
+
+            if (!user) {
+
+                showMessage(
+                    "Login was not completed. Please try again.",
+                    "error"
+                );
+
+                loginButton.disabled = false;
+
+                loginButton.textContent =
+                    "Sign In";
+
+                return;
+            }
+
+
+
+            /* ---------------------------------------------
+               LOGIN SUCCESS
+            --------------------------------------------- */
+
+            showMessage(
+                "Login successful. Opening your vendor portal...",
+                "success"
+            );
+
+
+            console.log(
+                "Vendor login successful:",
+                user.email
+            );
+
+
+            /*
+             * IMPORTANT
+             *
+             * Do not send the user directly to a
+             * dashboard before Supabase has established
+             * the authenticated session.
+             */
+
+            setTimeout(
+                function() {
+
+                    window.location.href =
+                        "https://primaxfed.com/vendor-dashboard.html";
+
+                },
+                500
+            );
+
 
         }
 
-        else {
+        catch (error) {
 
-            adminButton.style.display =
-                "none";
+            console.error(
+                "Unexpected login error:",
+                error
+            );
+
+
+            showMessage(
+                "An unexpected error occurred. Please try again.",
+                "error"
+            );
+
+
+            loginButton.disabled = false;
+
+            loginButton.textContent =
+                "Sign In";
 
         }
 
     }
-
 );
 
 
 
 /* =========================================================
-   INITIAL CHECK
+   LOGIN ERROR MESSAGE
 ========================================================= */
 
-document.addEventListener(
+function getLoginErrorMessage(error) {
 
-    "DOMContentLoaded",
+    const message =
+        (error?.message || "").toLowerCase();
 
-    function() {
 
-        checkAdminAccess();
+    if (
+        message.includes("invalid login credentials")
+    ) {
+
+        return "Invalid email address or password.";
 
     }
 
+
+    if (
+        message.includes("email not confirmed")
+    ) {
+
+        return "Please confirm your email address before signing in.";
+
+    }
+
+
+    if (
+        message.includes("too many requests")
+    ) {
+
+        return "Too many login attempts. Please wait a few minutes and try again.";
+
+    }
+
+
+    return (
+        error?.message ||
+        "Unable to sign in. Please try again."
+    );
+
+}
+
+
+
+/* =========================================================
+   FORGOT PASSWORD
+========================================================= */
+
+forgotPassword.addEventListener(
+    "click",
+    async function(event) {
+
+        event.preventDefault();
+
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        if (!email) {
+
+            showMessage(
+                "Enter your email address first, then click Forgot Password.",
+                "error"
+            );
+
+            document
+                .getElementById("email")
+                .focus();
+
+            return;
+        }
+
+
+        try {
+
+
+            forgotPassword.textContent =
+                "Sending...";
+
+
+            const {
+                error
+            } =
+                await supabaseClient.auth.resetPasswordForEmail(
+                    email,
+                    {
+                        redirectTo:
+                            "https://primaxfed.com/vendor-reset-password.html"
+                    }
+                );
+
+
+            if (error) {
+
+                console.error(
+                    "Password reset error:",
+                    error
+                );
+
+                showMessage(
+                    error.message,
+                    "error"
+                );
+
+            }
+
+            else {
+
+                showMessage(
+                    "Password reset instructions have been sent to your email address.",
+                    "success"
+                );
+
+            }
+
+
+        }
+
+        catch (error) {
+
+            console.error(
+                "Password reset failed:",
+                error
+            );
+
+            showMessage(
+                "Unable to send password reset instructions.",
+                "error"
+            );
+
+        }
+
+
+        finally {
+
+            forgotPassword.textContent =
+                "Forgot Password?";
+
+        }
+
+    }
 );
+
+
+
+/* =========================================================
+   CHECK EXISTING SESSION
+========================================================= */
+
+async function checkExistingSession() {
+
+    try {
+
+        const {
+            data
+        } =
+            await supabaseClient.auth.getSession();
+
+
+        const session =
+            data?.session;
+
+
+        if (session?.user) {
+
+            /*
+             * User is already logged in.
+             *
+             * Send them to the vendor dashboard.
+             */
+
+            window.location.href =
+                "https://primaxfed.com/vendor-dashboard.html";
+
+        }
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Session check failed:",
+            error
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+========================================================= */
+
+checkExistingSession();
 
 
 </script>
 
 
 </body>
+
 </html>
