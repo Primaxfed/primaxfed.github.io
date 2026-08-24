@@ -6,14 +6,17 @@
 
     <title>Primax Global, Inc. | Federal Government Vendor</title>
 
-    <meta name="description"
-          content="Primax Global, Inc. is a U.S. government vendor supplying commercial and industrial products to federal, state, and local government agencies.">
+    <meta
+        name="description"
+        content="Primax Global, Inc. is a U.S. government vendor supplying commercial and industrial products to federal, state, and local government agencies."
+    >
 
-    <meta name="keywords"
-          content="Primax Global, government vendor, federal supplier, government procurement, industrial products, DoD supplier">
+    <meta
+        name="keywords"
+        content="Primax Global, government vendor, federal supplier, government procurement, industrial products, DoD supplier"
+    >
 
     <style>
-
         * {
             box-sizing: border-box;
             margin: 0;
@@ -58,7 +61,6 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 17px 25px;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -104,23 +106,26 @@
         }
 
         /* =========================================
-           ADMIN BUTTON
+           ADMIN VENDOR MANAGEMENT BUTTON
+           Hidden by default
         ========================================= */
 
-        #adminManagementLink {
+        .admin-nav-button {
             display: none;
 
-            background: #d4af37;
-            color: #102a43 !important;
+            background: #d97706;
+            color: #ffffff !important;
 
             padding: 9px 16px;
             border-radius: 5px;
 
             font-weight: 700 !important;
+
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
-        #adminManagementLink:hover {
-            background: #e5c65a;
+        .admin-nav-button:hover {
+            background: #b45309;
             opacity: 1 !important;
         }
 
@@ -138,6 +143,7 @@
             color: #ffffff;
 
             padding: 95px 25px 100px;
+
             text-align: center;
         }
 
@@ -223,9 +229,11 @@
 
         .section-title {
             text-align: center;
+
             color: #102a43;
 
             font-size: 32px;
+
             margin-bottom: 15px;
         }
 
@@ -233,9 +241,11 @@
             text-align: center;
 
             max-width: 750px;
+
             margin: 0 auto 45px;
 
             color: #52606d;
+
             font-size: 16px;
         }
 
@@ -249,7 +259,9 @@
 
         .government-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 25px;
         }
 
@@ -259,6 +271,7 @@
             padding: 30px;
 
             border-radius: 7px;
+
             border: 1px solid #e4e7eb;
 
             box-shadow: 0 4px 15px rgba(0,0,0,.05);
@@ -268,11 +281,13 @@
             color: #102a43;
 
             margin-bottom: 12px;
+
             font-size: 20px;
         }
 
         .government-card p {
             color: #52606d;
+
             font-size: 15px;
         }
 
@@ -286,7 +301,9 @@
 
         .about-content {
             max-width: 850px;
+
             margin: auto;
+
             text-align: center;
         }
 
@@ -294,6 +311,7 @@
             margin-bottom: 18px;
 
             color: #52606d;
+
             font-size: 16px;
         }
 
@@ -311,11 +329,13 @@
             margin: 0 auto 30px;
 
             text-align: center;
+
             color: #52606d;
         }
 
         .products-button {
             text-align: center;
+
             margin-top: 30px;
         }
 
@@ -325,6 +345,7 @@
 
         #vendors {
             background: #102a43;
+
             color: #ffffff;
         }
 
@@ -344,11 +365,13 @@
             gap: 25px;
 
             max-width: 850px;
+
             margin: auto;
         }
 
         .vendor-card {
             background: #ffffff;
+
             color: #1f2933;
 
             padding: 35px;
@@ -376,6 +399,7 @@
 
         .vendor-card .button {
             background: #102a43;
+
             color: #ffffff;
         }
 
@@ -407,16 +431,19 @@
 
         .contact-box h3 {
             color: #102a43;
+
             margin-bottom: 18px;
         }
 
         .contact-box p {
             color: #52606d;
+
             margin-bottom: 8px;
         }
 
         .contact-box a {
             color: #102a43;
+
             font-weight: 600;
         }
 
@@ -442,6 +469,7 @@
 
         .footer-links a {
             margin: 0 9px;
+
             color: #d9e2ec;
         }
 
@@ -457,12 +485,15 @@
 
             .nav-container {
                 flex-direction: column;
+
                 gap: 15px;
             }
 
             .nav-links {
                 flex-wrap: wrap;
+
                 justify-content: center;
+
                 gap: 13px;
             }
 
@@ -513,15 +544,14 @@
                 font-size: 27px;
             }
         }
-
     </style>
 </head>
 
 <body>
 
-<!-- =========================================
+<!-- =====================================================
      HEADER
-========================================= -->
+===================================================== -->
 
 <header>
 
@@ -553,17 +583,30 @@
                 Contact
             </a>
 
-            <!-- VENDOR PORTAL -->
-            <a href="#vendors" class="vendor-nav-button">
+            <!--
+                일반 방문자와 일반 Vendor에게도 보이는
+                기존 Vendor Portal
+            -->
+            <a
+                href="#vendors"
+                class="vendor-nav-button"
+            >
                 Vendor Portal
             </a>
 
-            <!-- ADMIN MANAGEMENT
-                 HIDDEN BY DEFAULT
-                 ONLY SHOWN TO AUTHORIZED ADMIN -->
+            <!--
+                ADMIN ONLY
+
+                처음에는 display:none.
+
+                Supabase Auth 로그인 확인 후
+                admin_users.role = admin 이면
+                JavaScript가 display:flex로 변경합니다.
+            -->
             <a
                 href="admin-vendors.html"
-                id="adminManagementLink"
+                id="adminVendorManagement"
+                class="admin-nav-button"
             >
                 Vendor Management
             </a>
@@ -575,13 +618,15 @@
 </header>
 
 
-<!-- =========================================
+<!-- =====================================================
      MAIN
-========================================= -->
+===================================================== -->
 
 <main>
 
-    <!-- HERO -->
+    <!-- =================================================
+         HERO
+    ================================================== -->
 
     <section class="hero">
 
@@ -598,9 +643,9 @@
             </h1>
 
             <p>
-                Supplying quality commercial, industrial, and specialty
-                products to government agencies and institutional customers
-                across the United States.
+                Supplying quality commercial, industrial,
+                and specialty products to government agencies
+                and institutional customers across the United States.
             </p>
 
             <div class="hero-buttons">
@@ -626,9 +671,9 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          GOVERNMENT
-    ========================================== -->
+    ================================================== -->
 
     <section id="government">
 
@@ -639,10 +684,11 @@
             </h2>
 
             <p class="section-subtitle">
-                Primax Global, Inc. supports government procurement
-                requirements through reliable sourcing, product fulfillment,
-                and vendor coordination.
+                Primax Global, Inc. supports government
+                procurement requirements through reliable sourcing,
+                product fulfillment, and vendor coordination.
             </p>
+
 
             <div class="government-grid">
 
@@ -653,8 +699,8 @@
                     </h3>
 
                     <p>
-                        Supporting federal procurement requirements with
-                        commercial, industrial, and specialty products.
+                        Supporting federal procurement requirements
+                        with commercial, industrial, and specialty products.
                     </p>
 
                 </div>
@@ -667,8 +713,8 @@
                     </h3>
 
                     <p>
-                        Providing sourcing and supply support for defense
-                        and government customers.
+                        Providing sourcing and supply support
+                        for defense and government customers.
                     </p>
 
                 </div>
@@ -681,8 +727,8 @@
                     </h3>
 
                     <p>
-                        Reliable vendor coordination, product sourcing,
-                        and fulfillment support.
+                        Reliable vendor coordination,
+                        product sourcing, and fulfillment support.
                     </p>
 
                 </div>
@@ -694,9 +740,9 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          ABOUT
-    ========================================== -->
+    ================================================== -->
 
     <section id="about">
 
@@ -709,15 +755,15 @@
             <div class="about-content">
 
                 <p>
-                    Primax Global, Inc. is a U.S.-based government vendor
-                    focused on supplying products to government and
-                    institutional customers.
+                    Primax Global, Inc. is a U.S.-based
+                    government vendor focused on supplying
+                    products to government and institutional customers.
                 </p>
 
                 <p>
                     Our goal is to provide dependable sourcing,
-                    competitive pricing, and professional customer service
-                    throughout the procurement process.
+                    competitive pricing, and professional customer
+                    service throughout the procurement process.
                 </p>
 
             </div>
@@ -727,9 +773,9 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          PRODUCTS
-    ========================================== -->
+    ================================================== -->
 
     <section id="products">
 
@@ -740,8 +786,8 @@
             </h2>
 
             <p class="product-intro">
-                Browse products and product categories available through
-                Primax Global, Inc.
+                Browse products and product categories available
+                through Primax Global, Inc.
             </p>
 
             <div class="products-button">
@@ -761,9 +807,9 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          VENDOR PORTAL
-    ========================================== -->
+    ================================================== -->
 
     <section id="vendors">
 
@@ -774,13 +820,13 @@
             </h2>
 
             <p class="section-subtitle">
-                Suppliers and manufacturers can register with Primax
-                Global, Inc. to establish a vendor account and manage
-                their vendor relationship.
+                Suppliers and manufacturers can register
+                with Primax Global, Inc. to establish a vendor
+                account and manage their vendor relationship.
             </p>
 
-            <div class="vendor-grid">
 
+            <div class="vendor-grid">
 
                 <!-- EXISTING VENDOR -->
 
@@ -835,9 +881,9 @@
     </section>
 
 
-    <!-- =========================================
+    <!-- =================================================
          CONTACT
-    ========================================== -->
+    ================================================== -->
 
     <section id="contact">
 
@@ -846,6 +892,7 @@
             <h2 class="section-title">
                 Contact
             </h2>
+
 
             <div class="contact-box">
 
@@ -884,9 +931,9 @@
 </main>
 
 
-<!-- =========================================
+<!-- =====================================================
      FOOTER
-========================================= -->
+===================================================== -->
 
 <footer>
 
@@ -918,6 +965,7 @@
 
     </div>
 
+
     Primax Global, Inc.<br>
 
     3660 Wilshire Blvd, Suite 512,
@@ -931,206 +979,204 @@
 </footer>
 
 
-<!-- =========================================
+<!-- =====================================================
      SUPABASE
-========================================= -->
+===================================================== -->
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 <script>
 
-    /* =====================================================
-       SUPABASE CONFIGURATION
-    ===================================================== */
+/* =========================================================
+   SUPABASE CONFIGURATION
+========================================================= */
 
-    const SUPABASE_URL =
-        "https://nhjapidacizvhebtpzah.supabase.co";
+const SUPABASE_URL =
+    "https://nhjapidacizvhebtpzah.supabase.co";
 
-    const SUPABASE_ANON_KEY =
-        "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
-
-
-    const supabaseClient =
-        window.supabase.createClient(
-            SUPABASE_URL,
-            SUPABASE_ANON_KEY
-        );
+const SUPABASE_ANON_KEY =
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
 
 
-    /* =====================================================
-       ADMIN MANAGEMENT LINK
-    ===================================================== */
-
-    const adminManagementLink =
-        document.getElementById(
-            "adminManagementLink"
-        );
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
 
 
-    /* =====================================================
-       CHECK ADMIN LOGIN
-       
-       1. Check Supabase authenticated user
-       2. Check email
-       3. Check admin_users table
-       4. Check role = admin
-       5. Show Vendor Management
-    ===================================================== */
+/* =========================================================
+   ADMIN BUTTON
+========================================================= */
 
-    async function checkAdminAccess() {
-
-        try {
-
-            /* ---------------------------------------------
-               GET CURRENT SESSION
-            --------------------------------------------- */
-
-            const {
-                data: {
-                    session
-                }
-            } =
-                await supabaseClient.auth.getSession();
+const adminButton =
+    document.getElementById(
+        "adminVendorManagement"
+    );
 
 
-            /* ---------------------------------------------
-               NO LOGIN
-            --------------------------------------------- */
+/* =========================================================
+   CHECK ADMIN USER
+========================================================= */
 
-            if (
-                !session ||
-                !session.user
-            ) {
+async function checkAdminAccess() {
 
-                adminManagementLink.style.display =
-                    "none";
+    try {
 
-                return;
+        /*
+         * Step 1
+         * 현재 Supabase 로그인 사용자 확인
+         */
 
-            }
-
-
-            const user =
-                session.user;
+        const {
+            data: userData,
+            error: userError
+        } = await supabaseClient.auth.getUser();
 
 
-            /* ---------------------------------------------
-               EMAIL CHECK
-            --------------------------------------------- */
+        if (userError) {
 
-            if (
-                !user.email ||
-                user.email.toLowerCase() !==
-                "david@primaxfed.com"
-            ) {
-
-                adminManagementLink.style.display =
-                    "none";
-
-                return;
-
-            }
-
-
-            /* ---------------------------------------------
-               CHECK admin_users TABLE
-            --------------------------------------------- */
-
-            const {
-                data,
-                error
-            } =
-                await supabaseClient
-                    .from("admin_users")
-                    .select("role")
-                    .eq("user_id", user.id)
-                    .eq("role", "admin")
-                    .maybeSingle();
-
-
-            /* ---------------------------------------------
-               DATABASE ERROR
-            --------------------------------------------- */
-
-            if (error) {
-
-                console.error(
-                    "Admin verification error:",
-                    error
-                );
-
-                adminManagementLink.style.display =
-                    "none";
-
-                return;
-
-            }
-
-
-            /* ---------------------------------------------
-               ADMIN CONFIRMED
-            --------------------------------------------- */
-
-            if (
-                data &&
-                data.role === "admin"
-            ) {
-
-                adminManagementLink.style.display =
-                    "inline-block";
-
-            } else {
-
-                adminManagementLink.style.display =
-                    "none";
-
-            }
-
-        } catch (error) {
-
-            console.error(
-                "Admin access check failed:",
-                error
+            console.log(
+                "Unable to get current user:",
+                userError.message
             );
 
-            adminManagementLink.style.display =
-                "none";
+            adminButton.style.display = "none";
 
+            return;
+        }
+
+
+        const user =
+            userData?.user;
+
+
+        /*
+         * 로그인하지 않은 경우
+         */
+
+        if (!user) {
+
+            adminButton.style.display = "none";
+
+            return;
+        }
+
+
+        /*
+         * Step 2
+         * admin_users 테이블에서
+         * 현재 사용자의 admin 권한 확인
+         */
+
+        const {
+            data: adminRecord,
+            error: adminError
+        } = await supabaseClient
+            .from("admin_users")
+            .select("id, email, role")
+            .eq("user_id", user.id)
+            .eq("role", "admin")
+            .maybeSingle();
+
+
+        /*
+         * Admin record가 없으면
+         * 버튼을 표시하지 않음
+         */
+
+        if (adminError) {
+
+            console.log(
+                "Admin check:",
+                adminError.message
+            );
+
+            adminButton.style.display = "none";
+
+            return;
+        }
+
+
+        /*
+         * Step 3
+         * admin_users.role = admin이면
+         * Vendor Management 버튼 표시
+         */
+
+        if (
+            adminRecord &&
+            adminRecord.role === "admin"
+        ) {
+
+            adminButton.style.display = "inline-block";
+
+            console.log(
+                "Admin access granted:",
+                user.email
+            );
+
+        } else {
+
+            adminButton.style.display = "none";
+
+            console.log(
+                "Admin access not granted:",
+                user.email
+            );
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Admin access check failed:",
+            error
+        );
+
+        adminButton.style.display = "none";
+    }
+}
+
+
+/* =========================================================
+   AUTH STATE CHANGE
+========================================================= */
+
+supabaseClient.auth.onAuthStateChange(
+    function(event, session) {
+
+        /*
+         * 로그인 / 로그아웃 / 세션 변경 시
+         * Admin 권한을 다시 확인합니다.
+         */
+
+        if (session) {
+
+            checkAdminAccess();
+
+        } else {
+
+            adminButton.style.display = "none";
         }
 
     }
+);
 
 
-    /* =====================================================
-       RUN ADMIN CHECK
-    ===================================================== */
+/* =========================================================
+   INITIAL CHECK
+========================================================= */
 
-    checkAdminAccess();
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
+        checkAdminAccess();
 
-    /* =====================================================
-       WATCH LOGIN / LOGOUT
-       
-       If user logs in or logs out while on the homepage,
-       update the Vendor Management button immediately.
-    ===================================================== */
-
-    supabaseClient.auth.onAuthStateChange(
-        async function(event, session) {
-
-            if (
-                event === "SIGNED_IN" ||
-                event === "SIGNED_OUT" ||
-                event === "TOKEN_REFRESHED"
-            ) {
-
-                await checkAdminAccess();
-
-            }
-
-        }
-    );
+    }
+);
 
 </script>
 
