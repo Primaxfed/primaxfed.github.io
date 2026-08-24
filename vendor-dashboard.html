@@ -1,36 +1,875 @@
-그런데 위 코드에서 한 부분은 수정해서 쓰는 게 좋습니다
+<!DOCTYPE html>
+<html lang="en">
 
-loadDocuments() 안에 있는 이 부분:
+<head>
 
-data.forEach(
-    function(document) {
+    <meta charset="UTF-8">
 
-        const row =
-            document.createElement
-            ? null
-            : null;
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Vendor Dashboard | Primax Global, Inc.
+    </title>
+
+    <meta
+        name="description"
+        content="Vendor Dashboard for Primax Global, Inc."
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+
+            font-family:
+                Arial,
+                "Noto Sans",
+                sans-serif;
+
+            background: #f5f7fa;
+
+            color: #1f2933;
+        }
+
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+
+            background: #102a43;
+
+            color: #ffffff;
+
+            box-shadow:
+                0 2px 10px
+                rgba(0,0,0,0.12);
+        }
+
+
+        .nav {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 18px 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+        }
+
+
+        .logo {
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+        }
+
+
+        .nav-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+        }
+
+
+        .user-email {
+
+            font-size: 14px;
+
+            color: #d9e2ec;
+
+        }
+
+
+        .logout-button {
+
+            border: none;
+
+            background: #ffffff;
+
+            color: #102a43;
+
+            padding: 9px 16px;
+
+            border-radius: 5px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+        }
+
+
+        .logout-button:hover {
+
+            background: #e5ebf0;
+
+        }
+
+
+        /* =========================================
+           PAGE
+        ========================================= */
+
+        .page {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding: 55px 25px;
+
+        }
+
+
+        .welcome {
+
+            background: #ffffff;
+
+            padding: 35px;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 4px 20px
+                rgba(0,0,0,0.06);
+
+            margin-bottom: 30px;
+
+        }
+
+
+        .welcome h1 {
+
+            margin: 0 0 10px;
+
+            color: #102a43;
+
+            font-size: 32px;
+
+        }
+
+
+        .welcome p {
+
+            margin: 0;
+
+            color: #52606d;
+
+            font-size: 16px;
+
+        }
+
+
+        /* =========================================
+           DASHBOARD CARDS
+        ========================================= */
+
+        .dashboard-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+
+        }
+
+
+        .card {
+
+            background: #ffffff;
+
+            border: 1px solid #e4e7eb;
+
+            border-radius: 8px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 4px 15px
+                rgba(0,0,0,0.05);
+
+        }
+
+
+        .card h2 {
+
+            margin-top: 0;
+
+            margin-bottom: 12px;
+
+            color: #102a43;
+
+            font-size: 21px;
+
+        }
+
+
+        .card p {
+
+            color: #52606d;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+
+        }
+
+
+        .card-button {
+
+            display: inline-block;
+
+            margin-top: 18px;
+
+            background: #102a43;
+
+            color: #ffffff;
+
+            padding: 11px 18px;
+
+            border-radius: 5px;
+
+            text-decoration: none;
+
+            font-weight: bold;
+
+            font-size: 14px;
+
+        }
+
+
+        .card-button:hover {
+
+            background: #243b53;
+
+        }
+
+
+        /* =========================================
+           LOADING SCREEN
+        ========================================= */
+
+        #loadingScreen {
+
+            position: fixed;
+
+            inset: 0;
+
+            background: #f5f7fa;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            z-index: 9999;
+
+        }
+
+
+        .loading-box {
+
+            text-align: center;
+
+            color: #52606d;
+
+        }
+
+
+        .loading-box h2 {
+
+            color: #102a43;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        /* =========================================
+           DASHBOARD CONTENT
+        ========================================= */
+
+        #dashboardContent {
+
+            display: none;
+
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+
+            margin-top: 60px;
+
+            background: #0b1f33;
+
+            color: #bcccdc;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .nav {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+                text-align: center;
+
+            }
+
+
+            .nav-right {
+
+                flex-direction: column;
+
+                gap: 10px;
+
+            }
+
+
+            .dashboard-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .page {
+
+                padding: 35px 20px;
+
+            }
+
+
+            .welcome {
+
+                padding: 25px;
+
+            }
+
+
+            .welcome h1 {
+
+                font-size: 27px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOADING SCREEN
+===================================================== -->
+
+<div id="loadingScreen">
+
+    <div class="loading-box">
+
+        <h2>
+            Primax Global, Inc.
+        </h2>
+
+        <p>
+            Verifying your account...
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     DASHBOARD
+===================================================== -->
+
+<div id="dashboardContent">
+
+
+    <!-- =================================================
+         HEADER
+    ================================================== -->
+
+    <header>
+
+        <div class="nav">
+
+            <div class="logo">
+
+                Primax Global, Inc.
+
+            </div>
+
+
+            <div class="nav-right">
+
+                <span
+                    id="userEmail"
+                    class="user-email"
+                >
+                    Loading...
+                </span>
+
+
+                <button
+                    id="logoutButton"
+                    class="logout-button"
+                    type="button"
+                >
+                    Sign Out
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =================================================
+         MAIN
+    ================================================== -->
+
+    <main class="page">
+
+
+        <!-- WELCOME -->
+
+        <section class="welcome">
+
+            <h1>
+                Vendor Dashboard
+            </h1>
+
+            <p>
+                Welcome to the Primax Global, Inc.
+                Vendor Portal.
+            </p>
+
+        </section>
+
+
+        <!-- DASHBOARD CARDS -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- ACCOUNT -->
+
+            <div class="card">
+
+                <h2>
+                    My Account
+                </h2>
+
+                <p>
+                    View and manage your vendor
+                    account information.
+                </p>
+
+                <a
+                    href="#"
+                    class="card-button"
+                    onclick="return false;"
+                >
+                    Account Information
+                </a>
+
+            </div>
+
+
+            <!-- COMPANY -->
+
+            <div class="card">
+
+                <h2>
+                    Company Profile
+                </h2>
+
+                <p>
+                    Maintain your company information,
+                    contact details, and vendor profile.
+                </p>
+
+                <a
+                    href="#"
+                    class="card-button"
+                    onclick="return false;"
+                >
+                    Company Profile
+                </a>
+
+            </div>
+
+
+            <!-- DOCUMENTS -->
+
+            <div class="card">
+
+                <h2>
+                    Documents
+                </h2>
+
+                <p>
+                    Access documents and information
+                    associated with your vendor account.
+                </p>
+
+                <a
+                    href="#"
+                    class="card-button"
+                    onclick="return false;"
+                >
+                    Documents
+                </a>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =================================================
+         FOOTER
+    ================================================== -->
+
+    <footer>
+
+        Primax Global, Inc.<br>
+
+        3660 Wilshire Blvd, Suite 512<br>
+
+        Los Angeles, CA 90010<br>
+
+        © 2026 Primax Global, Inc.
+        All Rights Reserved.
+
+    </footer>
+
+
+</div>
+
+
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+/* =========================================================
+   SUPABASE CONFIGURATION
+========================================================= */
+
+const SUPABASE_URL =
+    "https://nhjapidacizvhebtpzah.supabase.co";
+
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+
+        SUPABASE_URL,
+
+        SUPABASE_PUBLISHABLE_KEY
+
+    );
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const loadingScreen =
+    document.getElementById(
+        "loadingScreen"
+    );
+
+
+const dashboardContent =
+    document.getElementById(
+        "dashboardContent"
+    );
+
+
+const userEmail =
+    document.getElementById(
+        "userEmail"
+    );
+
+
+const logoutButton =
+    document.getElementById(
+        "logoutButton"
+    );
+
+
+/* =========================================================
+   AUTHENTICATION CHECK
+========================================================= */
+
+async function checkAuthentication() {
+
+    try {
+
+        /*
+         * 현재 로그인 세션 확인
+         */
+
+        const {
+
+            data,
+
+            error
+
+        } =
+            await supabaseClient.auth.getSession();
+
+
+        /*
+         * Session 확인 오류
+         */
+
+        if (error) {
+
+            console.error(
+                "Authentication check error:",
+                error
+            );
+
+            redirectToLogin();
+
+            return;
+
+        }
+
+
+        /*
+         * 로그인하지 않은 경우
+         */
+
+        if (!data.session) {
+
+            redirectToLogin();
+
+            return;
+
+        }
+
+
+        /*
+         * 로그인된 사용자
+         */
+
+        const user =
+            data.session.user;
+
+
+        /*
+         * 이메일 표시
+         */
+
+        userEmail.textContent =
+            user.email || "";
+
+
+        /*
+         * Dashboard 표시
+         */
+
+        loadingScreen.style.display =
+            "none";
+
+        dashboardContent.style.display =
+            "block";
+
+
+    } catch (error) {
+
+        console.error(
+            "Authentication check failed:",
+            error
+        );
+
+        redirectToLogin();
+
+    }
+
+}
+
+
+/* =========================================================
+   REDIRECT TO LOGIN
+========================================================= */
+
+function redirectToLogin() {
+
+    /*
+     * replace()를 사용하면
+     * 브라우저 뒤로가기 했을 때
+     * 보호된 Dashboard가 다시 나타나는 것을
+     * 방지하는 데 도움이 됩니다.
+     */
+
+    window.location.replace(
+        "vendor-login.html"
+    );
+
+}
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+logoutButton.addEventListener(
+    "click",
+    async function() {
+
+        logoutButton.disabled =
+            true;
+
+        logoutButton.textContent =
+            "Signing Out...";
+
+
+        try {
+
+            const {
+                error
+            } =
+                await supabaseClient.auth.signOut();
+
+
+            if (error) {
+
+                throw error;
+
+            }
+
+
+            /*
+             * 로그아웃 성공
+             * Login 페이지로 이동
+             */
+
+            window.location.replace(
+                "vendor-login.html"
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Logout error:",
+                error
+            );
+
+
+            alert(
+                "Unable to sign out. Please try again."
+            );
+
+
+            logoutButton.disabled =
+                false;
+
+            logoutButton.textContent =
+                "Sign Out";
+
+        }
 
     }
 );
 
-은 불필요합니다. 삭제해야 합니다.
 
-즉 loadDocuments()에서 아래 부분부터:
+/* =========================================================
+   AUTH STATE CHANGE
+========================================================= */
 
-        data.forEach(
-            function(document) {
+supabaseClient.auth.onAuthStateChange(
+    function(event, session) {
 
-                const row =
-                    document.createElement
-                    ? null
-                    : null;
+        /*
+         * 로그아웃되거나
+         * 세션이 사라진 경우
+         */
 
-            }
-        );
+        if (!session) {
+
+            redirectToLogin();
+
+        }
+
+    }
+);
 
 
-        /* =============================================
-           BUILD TABLE
-        ============================================== */
+/* =========================================================
+   INITIAL AUTH CHECK
+========================================================= */
 
-를 통째로 삭제하고 바로:
+checkAuthentication();
+
+</script>
+
+
+</body>
+
+</html>
