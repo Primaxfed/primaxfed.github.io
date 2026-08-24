@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -11,6 +13,7 @@
     <title>
         Vendor Dashboard | Primax Global, Inc.
     </title>
+
 
     <!-- ========================================================
          SUPABASE
@@ -25,8 +28,10 @@
             box-sizing: border-box;
         }
 
+
         body {
             margin: 0;
+
             font-family:
                 -apple-system,
                 BlinkMacSystemFont,
@@ -35,6 +40,7 @@
                 sans-serif;
 
             background: #f5f7fa;
+
             color: #1f2937;
         }
 
@@ -45,57 +51,86 @@
 
         header {
             background: #ffffff;
-            border-bottom: 1px solid #e5e7eb;
+
+            border-bottom:
+                1px solid #e5e7eb;
         }
+
 
         .header-inner {
             max-width: 1200px;
+
             margin: auto;
+
             padding: 18px 24px;
 
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
         }
+
 
         .brand {
             display: flex;
+
             align-items: center;
+
             gap: 12px;
         }
 
+
         .brand a {
             text-decoration: none;
+
             color: #111827;
+
             font-size: 20px;
+
             font-weight: 700;
         }
 
+
         .brand small {
             display: block;
+
             color: #6b7280;
+
             font-size: 12px;
+
             margin-top: 2px;
         }
 
+
         .header-right {
             display: flex;
+
             align-items: center;
+
             gap: 15px;
+
             font-size: 14px;
         }
+
 
         #adminEmail {
             color: #374151;
         }
 
+
         .signout-btn {
             border: 0;
+
             background: transparent;
+
             color: #2563eb;
+
             cursor: pointer;
+
             font-weight: 600;
         }
+
 
         .signout-btn:hover {
             text-decoration: underline;
@@ -108,22 +143,30 @@
 
         main {
             max-width: 1200px;
+
             margin: auto;
+
             padding: 35px 24px 60px;
         }
+
 
         .welcome {
             margin-bottom: 30px;
         }
 
+
         .welcome h1 {
             margin: 0 0 8px;
+
             font-size: 30px;
+
             color: #111827;
         }
 
+
         .welcome p {
             margin: 0;
+
             color: #6b7280;
         }
 
@@ -134,24 +177,44 @@
 
         .card {
             background: #ffffff;
-            border: 1px solid #e5e7eb;
+
+            border:
+                1px solid #e5e7eb;
+
             border-radius: 12px;
+
             padding: 25px;
+
             margin-bottom: 24px;
 
             box-shadow:
                 0 2px 8px rgba(0,0,0,0.04);
         }
 
+
         .card h2 {
             margin: 0 0 8px;
+
             font-size: 20px;
+
             color: #111827;
         }
 
+
+        .card h3 {
+            margin-top: 25px;
+
+            margin-bottom: 8px;
+
+            color: #111827;
+        }
+
+
         .card-description {
             margin: 0 0 20px;
+
             color: #6b7280;
+
             font-size: 14px;
         }
 
@@ -162,93 +225,147 @@
 
         .vendor-selector-row {
             display: flex;
+
             gap: 12px;
+
             align-items: flex-end;
+
             flex-wrap: wrap;
         }
 
+
         .field {
             flex: 1;
+
             min-width: 280px;
         }
 
+
         .field label {
             display: block;
+
             font-weight: 600;
+
             font-size: 14px;
+
             margin-bottom: 7px;
         }
 
+
         select,
         input[type="file"] {
+
             width: 100%;
-            border: 1px solid #d1d5db;
+
+            border:
+                1px solid #d1d5db;
+
             border-radius: 7px;
+
             padding: 11px 12px;
+
             background: #ffffff;
+
             font-size: 14px;
         }
 
+
         select:focus,
         input:focus {
+
             outline: none;
+
             border-color: #2563eb;
+
             box-shadow:
                 0 0 0 3px rgba(37,99,235,.12);
         }
 
 
         /* =====================================================
-           BUTTON
+           BUTTONS
         ===================================================== */
 
         button {
             font-family: inherit;
         }
 
+
         .primary-btn {
+
             background: #2563eb;
+
             color: #ffffff;
+
             border: none;
+
             border-radius: 7px;
+
             padding: 11px 18px;
+
             font-size: 14px;
+
             font-weight: 600;
+
             cursor: pointer;
         }
+
 
         .primary-btn:hover {
             background: #1d4ed8;
         }
 
+
         .primary-btn:disabled {
+
             opacity: .6;
+
             cursor: not-allowed;
         }
 
+
         .secondary-btn {
+
             background: #ffffff;
+
             color: #374151;
-            border: 1px solid #d1d5db;
+
+            border:
+                1px solid #d1d5db;
+
             border-radius: 6px;
+
             padding: 7px 12px;
+
             cursor: pointer;
+
             font-size: 13px;
         }
+
 
         .secondary-btn:hover {
             background: #f3f4f6;
         }
 
+
         .danger-btn {
+
             background: #ffffff;
+
             color: #dc2626;
-            border: 1px solid #fecaca;
+
+            border:
+                1px solid #fecaca;
+
             border-radius: 6px;
+
             padding: 7px 12px;
+
             cursor: pointer;
+
             font-size: 13px;
         }
+
 
         .danger-btn:hover {
             background: #fef2f2;
@@ -260,30 +377,72 @@
         ===================================================== */
 
         .selected-vendor {
+
             display: none;
 
             margin-top: 20px;
+
             padding: 18px;
 
             background: #f8fafc;
-            border: 1px solid #e2e8f0;
+
+            border:
+                1px solid #e2e8f0;
+
             border-radius: 8px;
         }
+
 
         .selected-vendor.show {
             display: block;
         }
 
+
         .selected-vendor-name {
+
             font-size: 18px;
+
             font-weight: 700;
+
             color: #111827;
         }
 
+
         .selected-vendor-info {
+
             margin-top: 5px;
+
             font-size: 13px;
+
             color: #6b7280;
+        }
+
+
+        /* =====================================================
+           VENDOR ACCOUNT LABEL
+        ===================================================== */
+
+        .vendor-account-label {
+
+            margin-top: 18px;
+
+            padding: 13px 15px;
+
+            background: #eff6ff;
+
+            border:
+                1px solid #bfdbfe;
+
+            border-radius: 7px;
+
+            color: #1e40af;
+
+            font-size: 14px;
+        }
+
+
+        .vendor-account-label strong {
+            font-weight: 700;
         }
 
 
@@ -292,19 +451,18 @@
         ===================================================== */
 
         .upload-grid {
+
             display: grid;
+
             grid-template-columns:
                 1fr 1fr;
 
             gap: 16px;
         }
 
+
         .upload-full {
             grid-column: 1 / -1;
-        }
-
-        .upload-area {
-            margin-top: 10px;
         }
 
 
@@ -316,34 +474,56 @@
             overflow-x: auto;
         }
 
+
         table {
+
             width: 100%;
+
             border-collapse: collapse;
+
             font-size: 14px;
         }
 
+
         th {
+
             text-align: left;
+
             background: #f9fafb;
+
             color: #374151;
+
             font-weight: 600;
+
             padding: 13px 12px;
-            border-bottom: 1px solid #e5e7eb;
+
+            border-bottom:
+                1px solid #e5e7eb;
         }
 
+
         td {
+
             padding: 13px 12px;
-            border-bottom: 1px solid #e5e7eb;
+
+            border-bottom:
+                1px solid #e5e7eb;
+
             vertical-align: middle;
         }
+
 
         tr:hover td {
             background: #fafafa;
         }
 
+
         .actions {
+
             display: flex;
+
             gap: 6px;
+
             flex-wrap: wrap;
         }
 
@@ -353,30 +533,47 @@
         ===================================================== */
 
         .status {
+
             display: inline-block;
+
             padding: 4px 9px;
+
             border-radius: 999px;
+
             font-size: 12px;
+
             font-weight: 600;
         }
 
+
         .status-pending {
+
             background: #fef3c7;
+
             color: #92400e;
         }
 
+
         .status-approved {
+
             background: #dcfce7;
+
             color: #166534;
         }
 
+
         .status-rejected {
+
             background: #fee2e2;
+
             color: #991b1b;
         }
 
+
         .status-default {
+
             background: #e5e7eb;
+
             color: #374151;
         }
 
@@ -386,14 +583,21 @@
         ===================================================== */
 
         .empty-state {
+
             text-align: center;
+
             padding: 45px 20px;
+
             color: #6b7280;
         }
 
+
         .empty-state strong {
+
             display: block;
+
             color: #374151;
+
             margin-bottom: 6px;
         }
 
@@ -403,7 +607,9 @@
         ===================================================== */
 
         .loading {
+
             color: #6b7280;
+
             font-size: 14px;
         }
 
@@ -413,26 +619,42 @@
         ===================================================== */
 
         .alert {
+
             display: none;
+
             padding: 13px 15px;
+
             border-radius: 7px;
+
             margin-bottom: 20px;
+
             font-size: 14px;
         }
+
 
         .alert.show {
             display: block;
         }
 
+
         .alert-error {
+
             background: #fef2f2;
-            border: 1px solid #fecaca;
+
+            border:
+                1px solid #fecaca;
+
             color: #991b1b;
         }
 
+
         .alert-success {
+
             background: #f0fdf4;
-            border: 1px solid #bbf7d0;
+
+            border:
+                1px solid #bbf7d0;
+
             color: #166534;
         }
 
@@ -442,11 +664,18 @@
         ===================================================== */
 
         footer {
-            border-top: 1px solid #e5e7eb;
+
+            border-top:
+                1px solid #e5e7eb;
+
             background: #ffffff;
+
             padding: 25px;
+
             text-align: center;
+
             color: #6b7280;
+
             font-size: 13px;
         }
 
@@ -461,31 +690,42 @@
                 padding: 15px;
             }
 
+
             .header-right {
+
                 flex-direction: column;
+
                 align-items: flex-end;
+
                 gap: 3px;
             }
 
+
             main {
-                padding: 25px 15px 45px;
+                padding:
+                    25px 15px 45px;
             }
+
 
             .welcome h1 {
                 font-size: 25px;
             }
 
+
             .upload-grid {
                 grid-template-columns: 1fr;
             }
+
 
             .upload-full {
                 grid-column: auto;
             }
 
+
             .card {
                 padding: 18px;
             }
+
         }
 
     </style>
@@ -527,7 +767,9 @@
                 Loading...
             </span>
 
+
             <button
+                type="button"
                 class="signout-btn"
                 id="signOutBtn"
             >
@@ -588,20 +830,25 @@
             Vendor Management
         </h2>
 
+
         <p class="card-description">
-            As an administrator, you can select a vendor by
-            company name and review the documents associated
-            with that account.
+
+            As an administrator, you can select a vendor
+            by company name and review the documents
+            associated with that account.
+
         </p>
 
 
         <div class="vendor-selector-row">
+
 
             <div class="field">
 
                 <label for="vendorSelect">
                     Select a Vendor
                 </label>
+
 
                 <select id="vendorSelect">
 
@@ -625,7 +872,10 @@
         </div>
 
 
-        <!-- Selected vendor -->
+
+        <!-- ====================================================
+             SELECTED COMPANY
+        ==================================================== -->
 
         <div
             id="selectedVendor"
@@ -637,10 +887,26 @@
                 class="selected-vendor-name"
             ></div>
 
+
             <div
                 id="selectedVendorInfo"
                 class="selected-vendor-info"
             ></div>
+
+
+            <!-- IMPORTANT:
+                 Company name only.
+                 Vendor UUID is NEVER displayed.
+            -->
+
+            <div class="vendor-account-label">
+
+                Vendor Account:
+                <strong id="vendorAccountName">
+                    —
+                </strong>
+
+            </div>
 
         </div>
 
@@ -658,15 +924,20 @@
             My Account
         </h2>
 
+
         <p class="card-description">
+
             View and manage your vendor account information.
+
         </p>
 
 
         <button
             type="button"
             class="secondary-btn"
-            onclick="window.location.href='vendor-account.html'"
+            onclick="
+                window.location.href='vendor-account.html'
+            "
         >
             Account Information
         </button>
@@ -685,16 +956,21 @@
             Company Profile
         </h2>
 
+
         <p class="card-description">
+
             Maintain company information, contact details,
             and vendor profile.
+
         </p>
 
 
         <button
             type="button"
             class="secondary-btn"
-            onclick="window.location.href='vendor-profile.html'"
+            onclick="
+                window.location.href='vendor-profile.html'
+            "
         >
             Company Profile
         </button>
@@ -713,9 +989,12 @@
             Documents
         </h2>
 
+
         <p class="card-description">
+
             Upload, view, download, and manage documents
             associated with the selected vendor account.
+
         </p>
 
 
@@ -744,6 +1023,7 @@
             Vendor Documents
         </h2>
 
+
         <p
             id="documentsSubtitle"
             class="card-description"
@@ -753,12 +1033,32 @@
 
 
         <!-- ====================================================
+             CURRENT COMPANY
+        ==================================================== -->
+
+        <div
+            id="documentsVendorAccount"
+            class="vendor-account-label"
+            style="display:none;"
+        >
+
+            Vendor Account:
+            <strong id="documentsVendorName">
+                —
+            </strong>
+
+        </div>
+
+
+
+        <!-- ====================================================
              UPLOAD
         ==================================================== -->
 
         <h3>
             Upload Document
         </h3>
+
 
         <p class="card-description">
 
@@ -773,7 +1073,7 @@
         <div class="upload-grid">
 
 
-            <!-- Document type -->
+            <!-- DOCUMENT TYPE -->
 
             <div class="field">
 
@@ -781,35 +1081,43 @@
                     Document Type
                 </label>
 
+
                 <select id="documentType">
 
                     <option value="">
                         Select Document Type
                     </option>
 
+
                     <option value="W-9">
                         W-9
                     </option>
+
 
                     <option value="Insurance">
                         Insurance
                     </option>
 
+
                     <option value="Business License">
                         Business License
                     </option>
+
 
                     <option value="Certificate">
                         Certificate
                     </option>
 
+
                     <option value="Product Information">
                         Product Information
                     </option>
 
+
                     <option value="Pricing">
                         Pricing
                     </option>
+
 
                     <option value="Other">
                         Other
@@ -820,7 +1128,8 @@
             </div>
 
 
-            <!-- File -->
+
+            <!-- FILE -->
 
             <div class="field">
 
@@ -828,12 +1137,14 @@
                     Select File
                 </label>
 
+
                 <input
                     type="file"
                     id="documentFile"
                 >
 
             </div>
+
 
 
             <div class="upload-full">
@@ -871,17 +1182,21 @@
                             Document
                         </th>
 
+
                         <th>
                             Type
                         </th>
+
 
                         <th>
                             Status
                         </th>
 
+
                         <th>
                             Uploaded
                         </th>
+
 
                         <th>
                             Actions
@@ -904,6 +1219,7 @@
                             <strong>
                                 No vendor selected
                             </strong>
+
 
                             Select a company above to view
                             vendor documents.
@@ -931,9 +1247,13 @@
 
 <footer>
 
-    Primax Global, Inc.<br>
+    Primax Global, Inc.
 
-    3660 Wilshire Blvd, Suite 512<br>
+    <br>
+
+    3660 Wilshire Blvd, Suite 512
+
+    <br>
 
     Los Angeles, CA 90010
 
@@ -959,6 +1279,7 @@
 const SUPABASE_URL =
     "https://nhjapidacizvhebtpzah.supabase.co";
 
+
 const SUPABASE_ANON_KEY =
     "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
 
@@ -970,29 +1291,18 @@ const supabaseClient =
     );
 
 
+
 /* ==============================================================
    CONFIGURATION
 ============================================================== */
-
-/*
-    IMPORTANT:
-
-    Change this ONLY if your actual Storage bucket has a
-    different name.
-*/
 
 const DOCUMENT_BUCKET =
     "vendor-documents";
 
 
-/*
-    This is the documents table.
-
-    If your existing table has a different name, change it here.
-*/
-
 const DOCUMENTS_TABLE =
     "vendor_documents";
+
 
 
 /* ==============================================================
@@ -1006,48 +1316,80 @@ let vendors = [];
 let selectedVendor = null;
 
 
+
 /* ==============================================================
-   DOM
+   DOM ELEMENTS
 ============================================================== */
 
 const adminEmail =
     document.getElementById("adminEmail");
 
+
 const vendorSelect =
     document.getElementById("vendorSelect");
+
 
 const viewVendorBtn =
     document.getElementById("viewVendorBtn");
 
+
 const selectedVendorBox =
     document.getElementById("selectedVendor");
+
 
 const selectedVendorName =
     document.getElementById("selectedVendorName");
 
+
 const selectedVendorInfo =
     document.getElementById("selectedVendorInfo");
+
+
+const vendorAccountName =
+    document.getElementById("vendorAccountName");
+
 
 const documentsSubtitle =
     document.getElementById("documentsSubtitle");
 
+
+const documentsVendorAccount =
+    document.getElementById(
+        "documentsVendorAccount"
+    );
+
+
+const documentsVendorName =
+    document.getElementById(
+        "documentsVendorName"
+    );
+
+
 const documentType =
     document.getElementById("documentType");
+
 
 const documentFile =
     document.getElementById("documentFile");
 
+
 const uploadBtn =
     document.getElementById("uploadBtn");
 
+
 const documentsTableBody =
-    document.getElementById("documentsTableBody");
+    document.getElementById(
+        "documentsTableBody"
+    );
+
 
 const alertBox =
     document.getElementById("alert");
 
+
 const signOutBtn =
     document.getElementById("signOutBtn");
+
 
 
 /* ==============================================================
@@ -1062,6 +1404,7 @@ document.addEventListener(
 
     }
 );
+
 
 
 /* ==============================================================
@@ -1088,6 +1431,7 @@ async function checkAdmin() {
                 error
             );
 
+
             window.location.href =
                 "vendor-login.html";
 
@@ -1104,15 +1448,13 @@ async function checkAdmin() {
         }
 
 
-        currentUser = user;
+        currentUser =
+            user;
+
 
         adminEmail.textContent =
             user.email || "";
 
-
-        /*
-            Load vendors after authentication.
-        */
 
         await loadVendors();
 
@@ -1125,6 +1467,7 @@ async function checkAdmin() {
             error
         );
 
+
         showAlert(
             "Unable to verify your administrator account.",
             "error"
@@ -1133,6 +1476,7 @@ async function checkAdmin() {
     }
 
 }
+
 
 
 /* ==============================================================
@@ -1179,22 +1523,26 @@ async function loadVendors() {
             error
         );
 
+
         vendorSelect.innerHTML = `
             <option value="">
                 Unable to load vendors
             </option>
         `;
 
+
         showAlert(
             "Unable to load vendor companies.",
             "error"
         );
 
+
         return;
     }
 
 
-    vendors = data || [];
+    vendors =
+        data || [];
 
 
     vendorSelect.innerHTML = `
@@ -1216,25 +1564,43 @@ async function loadVendors() {
     }
 
 
+
     /*
-        IMPORTANT:
+        IMPORTANT
 
-        The user sees company_name.
+        The user sees ONLY:
 
-        The actual UUID remains hidden
-        in the option value.
+            Primax Global, Inc.
+
+        The UUID is stored internally in
+        option.value but is never displayed.
     */
 
     vendors.forEach(
         function (vendor) {
 
             const option =
-                document.createElement("option");
+                document.createElement(
+                    "option"
+                );
 
+
+            /*
+                INTERNAL ONLY
+
+                This UUID is required for
+                Supabase queries.
+            */
 
             option.value =
                 vendor.id;
 
+
+            /*
+                USER VISIBLE
+
+                Company name only.
+            */
 
             option.textContent =
                 vendor.company_name ||
@@ -1248,7 +1614,30 @@ async function loadVendors() {
         }
     );
 
+
+    /*
+        If there is exactly one vendor,
+        automatically select it.
+
+        This is useful for Primax Global,
+        Inc. if you currently have only
+        one vendor account.
+    */
+
+    if (vendors.length === 1) {
+
+        vendorSelect.value =
+            vendors[0].id;
+
+
+        selectVendor(
+            vendors[0].id
+        );
+
+    }
+
 }
+
 
 
 /* ==============================================================
@@ -1257,7 +1646,7 @@ async function loadVendors() {
 
 vendorSelect.addEventListener(
     "change",
-    function () {
+    async function () {
 
         const vendorId =
             this.value;
@@ -1265,49 +1654,110 @@ vendorSelect.addEventListener(
 
         if (!vendorId) {
 
-            selectedVendor = null;
-
-            selectedVendorBox
-                .classList
-                .remove("show");
-
-            uploadBtn.disabled = true;
-
-            documentsSubtitle.textContent =
-                "Select a vendor above to view documents.";
-
-            showEmptyDocuments(
-                "No vendor selected",
-                "Select a company above to view vendor documents."
-            );
+            clearSelectedVendor();
 
             return;
         }
 
 
-        selectedVendor =
-            vendors.find(
-                function (vendor) {
-
-                    return vendor.id === vendorId;
-
-                }
-            );
+        selectVendor(
+            vendorId
+        );
 
 
-        if (!selectedVendor) {
+        /*
+            Automatically load documents
+            when company is selected.
+        */
 
-            return;
-        }
-
-
-        displaySelectedVendor();
-
-
-        uploadBtn.disabled = false;
+        await loadVendorDocuments();
 
     }
 );
+
+
+
+/* ==============================================================
+   SELECT VENDOR
+============================================================== */
+
+function selectVendor(
+    vendorId
+) {
+
+    selectedVendor =
+        vendors.find(
+            function (vendor) {
+
+                return (
+                    vendor.id ===
+                    vendorId
+                );
+
+            }
+        );
+
+
+    if (!selectedVendor) {
+
+        clearSelectedVendor();
+
+        return;
+    }
+
+
+    displaySelectedVendor();
+
+
+    uploadBtn.disabled =
+        false;
+
+}
+
+
+
+/* ==============================================================
+   CLEAR SELECTED VENDOR
+============================================================== */
+
+function clearSelectedVendor() {
+
+    selectedVendor =
+        null;
+
+
+    selectedVendorBox
+        .classList
+        .remove("show");
+
+
+    vendorAccountName.textContent =
+        "—";
+
+
+    documentsVendorName.textContent =
+        "—";
+
+
+    documentsVendorAccount.style.display =
+        "none";
+
+
+    uploadBtn.disabled =
+        true;
+
+
+    documentsSubtitle.textContent =
+        "Select a vendor above to view documents.";
+
+
+    showEmptyDocuments(
+        "No vendor selected",
+        "Select a company above to view vendor documents."
+    );
+
+}
+
 
 
 /* ==============================================================
@@ -1316,17 +1766,46 @@ vendorSelect.addEventListener(
 
 function displaySelectedVendor() {
 
+    const companyName =
+        selectedVendor.company_name ||
+        "Unnamed Company";
+
+
     selectedVendorBox
         .classList
         .add("show");
 
 
+    /*
+        COMPANY NAME ONLY
+    */
+
     selectedVendorName.textContent =
-        selectedVendor.company_name ||
-        "Unnamed Company";
+        companyName;
 
 
-    let info = [];
+    /*
+        Vendor Account label
+        also shows company name only.
+    */
+
+    vendorAccountName.textContent =
+        companyName;
+
+
+    documentsVendorName.textContent =
+        companyName;
+
+
+    documentsVendorAccount.style.display =
+        "block";
+
+
+    /*
+        Contact information
+    */
+
+    const info = [];
 
 
     if (selectedVendor.contact_name) {
@@ -1370,12 +1849,19 @@ function displaySelectedVendor() {
         info.join(" • ");
 
 
+    /*
+        IMPORTANT
+
+        NO vendor ID here.
+    */
+
     documentsSubtitle.textContent =
         "Documents associated with " +
-        selectedVendor.company_name +
+        companyName +
         ".";
 
 }
+
 
 
 /* ==============================================================
@@ -1412,6 +1898,7 @@ viewVendorBtn.addEventListener(
 );
 
 
+
 /* ==============================================================
    LOAD DOCUMENTS
 ============================================================== */
@@ -1424,6 +1911,29 @@ async function loadVendorDocuments() {
     }
 
 
+    const companyName =
+        selectedVendor.company_name ||
+        "Unnamed Company";
+
+
+    /*
+        Show company name only.
+    */
+
+    documentsSubtitle.textContent =
+        "Documents associated with " +
+        companyName +
+        ".";
+
+
+    documentsVendorName.textContent =
+        companyName;
+
+
+    documentsVendorAccount.style.display =
+        "block";
+
+
     documentsTableBody.innerHTML = `
         <tr>
             <td
@@ -1431,7 +1941,8 @@ async function loadVendorDocuments() {
                 class="empty-state"
             >
                 <span class="loading">
-                    Loading documents...
+                    Loading documents for
+                    ${escapeHtml(companyName)}...
                 </span>
             </td>
         </tr>
@@ -1439,9 +1950,11 @@ async function loadVendorDocuments() {
 
 
     /*
-        vendor_id is the internal UUID.
+        IMPORTANT
 
-        The administrator never needs to see it.
+        The UUID is used internally here.
+
+        It is NEVER displayed to the administrator.
     */
 
     const {
@@ -1470,10 +1983,20 @@ async function loadVendorDocuments() {
             error
         );
 
+
         showEmptyDocuments(
             "Unable to load documents",
-            error.message
+            "There was a problem loading documents for " +
+            companyName +
+            "."
         );
+
+
+        showAlert(
+            "Unable to load vendor documents.",
+            "error"
+        );
+
 
         return;
     }
@@ -1483,92 +2006,151 @@ async function loadVendorDocuments() {
 
         showEmptyDocuments(
             "No documents found",
-            "There are currently no documents associated with this vendor account."
+            "There are currently no documents associated with " +
+            companyName +
+            "."
         );
+
 
         return;
     }
 
 
-    documentsTableBody.innerHTML = "";
+    documentsTableBody.innerHTML =
+        "";
 
 
     data.forEach(
-        function (document) {
+        function (documentRecord) {
 
             const row =
-                document.createElement("tr");
+                document.createElement(
+                    "tr"
+                );
 
 
             const uploadedDate =
                 formatDate(
-                    document.uploaded_at
+                    documentRecord.uploaded_at
                 );
 
 
             const status =
-                document.status ||
+                documentRecord.status ||
                 "Pending";
 
+
+            const fileName =
+                documentRecord.file_name ||
+                documentRecord.name ||
+                "Document";
+
+
+            const type =
+                documentRecord.document_type ||
+                documentRecord.type ||
+                "Other";
+
+
+            /*
+                IMPORTANT
+
+                Do not put the raw UUID into
+                visible HTML.
+
+                Only the document ID is passed
+                internally to the function.
+            */
 
             row.innerHTML = `
 
                 <td>
+
                     <strong>
                         ${escapeHtml(
-                            document.file_name ||
-                            document.name ||
-                            "Document"
+                            fileName
                         )}
                     </strong>
+
                 </td>
 
+
                 <td>
+
                     ${escapeHtml(
-                        document.document_type ||
-                        document.type ||
-                        "Other"
+                        type
                     )}
+
                 </td>
 
-                <td>
-                    ${statusBadge(status)}
-                </td>
 
                 <td>
-                    ${uploadedDate}
+
+                    ${statusBadge(
+                        status
+                    )}
+
                 </td>
+
+
+                <td>
+
+                    ${escapeHtml(
+                        uploadedDate
+                    )}
+
+                </td>
+
 
                 <td>
 
                     <div class="actions">
 
+
                         <button
+                            type="button"
                             class="secondary-btn"
-                            onclick="viewDocument(
-                                '${document.id}'
-                            )"
+                            onclick="
+                                viewDocument(
+                                    '${escapeJs(
+                                        documentRecord.id
+                                    )}'
+                                )
+                            "
                         >
                             View
                         </button>
 
+
                         <button
+                            type="button"
                             class="secondary-btn"
-                            onclick="downloadDocument(
-                                '${document.id}'
-                            )"
+                            onclick="
+                                downloadDocument(
+                                    '${escapeJs(
+                                        documentRecord.id
+                                    )}'
+                                )
+                            "
                         >
                             Download
                         </button>
 
+
                         <button
+                            type="button"
                             class="danger-btn"
-                            onclick="deleteDocument(
-                                '${document.id}'
-                            )"
+                            onclick="
+                                deleteDocument(
+                                    '${escapeJs(
+                                        documentRecord.id
+                                    )}'
+                                )
+                            "
                         >
                             Delete
                         </button>
+
 
                     </div>
 
@@ -1585,6 +2167,7 @@ async function loadVendorDocuments() {
     );
 
 }
+
 
 
 /* ==============================================================
@@ -1620,11 +2203,14 @@ function showEmptyDocuments(
 }
 
 
+
 /* ==============================================================
    STATUS BADGE
 ============================================================== */
 
-function statusBadge(status) {
+function statusBadge(
+    status
+) {
 
     const normalized =
         String(status)
@@ -1635,7 +2221,10 @@ function statusBadge(status) {
         "status-default";
 
 
-    if (normalized === "pending") {
+    if (
+        normalized ===
+        "pending"
+    ) {
 
         className =
             "status-pending";
@@ -1643,7 +2232,8 @@ function statusBadge(status) {
     }
 
     else if (
-        normalized === "approved"
+        normalized ===
+        "approved"
     ) {
 
         className =
@@ -1652,7 +2242,8 @@ function statusBadge(status) {
     }
 
     else if (
-        normalized === "rejected"
+        normalized ===
+        "rejected"
     ) {
 
         className =
@@ -1662,12 +2253,19 @@ function statusBadge(status) {
 
 
     return `
-        <span class="status ${className}">
+
+        <span
+            class="status ${className}"
+        >
+
             ${escapeHtml(status)}
+
         </span>
+
     `;
 
 }
+
 
 
 /* ==============================================================
@@ -1719,15 +2317,14 @@ uploadBtn.addEventListener(
         }
 
 
-        /*
-            Maximum 50 MB.
-        */
-
         const MAX_SIZE =
             50 * 1024 * 1024;
 
 
-        if (file.size > MAX_SIZE) {
+        if (
+            file.size >
+            MAX_SIZE
+        ) {
 
             showAlert(
                 "Maximum file size is 50 MB.",
@@ -1738,19 +2335,15 @@ uploadBtn.addEventListener(
         }
 
 
-        uploadBtn.disabled = true;
+        uploadBtn.disabled =
+            true;
+
 
         uploadBtn.textContent =
             "Uploading...";
 
 
         try {
-
-            /*
-                Safe storage path.
-
-                Each vendor gets its own folder.
-            */
 
             const safeFileName =
                 sanitizeFileName(
@@ -1762,6 +2355,13 @@ uploadBtn.addEventListener(
                 Date.now();
 
 
+            /*
+                UUID is used internally
+                for Storage organization.
+
+                It is NOT shown on screen.
+            */
+
             const storagePath =
                 selectedVendor.id +
                 "/" +
@@ -1770,9 +2370,10 @@ uploadBtn.addEventListener(
                 safeFileName;
 
 
-            /* ================================================
-               1. Upload to Supabase Storage
-            ================================================ */
+
+            /* ==================================================
+               1. STORAGE UPLOAD
+            ================================================== */
 
             const {
                 error:
@@ -1780,7 +2381,9 @@ uploadBtn.addEventListener(
             } =
             await supabaseClient
                 .storage
-                .from(DOCUMENT_BUCKET)
+                .from(
+                    DOCUMENT_BUCKET
+                )
                 .upload(
                     storagePath,
                     file,
@@ -1797,16 +2400,19 @@ uploadBtn.addEventListener(
             }
 
 
-            /* ================================================
-               2. Insert document record
-            ================================================ */
+
+            /* ==================================================
+               2. DATABASE RECORD
+            ================================================== */
 
             const {
                 error:
                 databaseError
             } =
             await supabaseClient
-                .from(DOCUMENTS_TABLE)
+                .from(
+                    DOCUMENTS_TABLE
+                )
                 .insert({
 
                     vendor_id:
@@ -1837,13 +2443,15 @@ uploadBtn.addEventListener(
             if (databaseError) {
 
                 /*
-                    If database insert fails,
-                    remove uploaded file.
+                    Roll back Storage upload
+                    if DB insert fails.
                 */
 
                 await supabaseClient
                     .storage
-                    .from(DOCUMENT_BUCKET)
+                    .from(
+                        DOCUMENT_BUCKET
+                    )
                     .remove([
                         storagePath
                     ]);
@@ -1854,14 +2462,25 @@ uploadBtn.addEventListener(
             }
 
 
+
+            /* ==================================================
+               SUCCESS
+            ================================================== */
+
             showAlert(
-                "Document uploaded successfully.",
+                "Document uploaded successfully for " +
+                (
+                    selectedVendor.company_name ||
+                    "this vendor"
+                ) +
+                ".",
                 "success"
             );
 
 
             documentFile.value =
                 "";
+
 
             documentType.value =
                 "";
@@ -1878,9 +2497,13 @@ uploadBtn.addEventListener(
                 error
             );
 
+
             showAlert(
                 "Upload failed: " +
-                error.message,
+                (
+                    error.message ||
+                    "Unknown error."
+                ),
                 "error"
             );
 
@@ -1891,6 +2514,7 @@ uploadBtn.addEventListener(
             uploadBtn.disabled =
                 !selectedVendor;
 
+
             uploadBtn.textContent =
                 "Upload Document";
 
@@ -1900,20 +2524,32 @@ uploadBtn.addEventListener(
 );
 
 
+
 /* ==============================================================
-   GET DOCUMENT RECORD
+   GET DOCUMENT
 ============================================================== */
 
 async function getDocument(
     documentId
 ) {
 
+    if (!selectedVendor) {
+
+        throw new Error(
+            "No vendor selected."
+        );
+
+    }
+
+
     const {
         data,
         error
     } =
     await supabaseClient
-        .from(DOCUMENTS_TABLE)
+        .from(
+            DOCUMENTS_TABLE
+        )
         .select("*")
         .eq(
             "id",
@@ -1930,14 +2566,15 @@ async function getDocument(
 
 
     /*
-        Security check:
+        SECURITY CHECK
 
-        Make sure the document belongs
+        The document must belong
         to the currently selected vendor.
+
+        UUID is compared internally only.
     */
 
     if (
-        !selectedVendor ||
         data.vendor_id !==
         selectedVendor.id
     ) {
@@ -1954,6 +2591,7 @@ async function getDocument(
 }
 
 
+
 /* ==============================================================
    VIEW DOCUMENT
 ============================================================== */
@@ -1964,7 +2602,7 @@ async function viewDocument(
 
     try {
 
-        const document =
+        const documentRecord =
             await getDocument(
                 documentId
             );
@@ -1976,9 +2614,11 @@ async function viewDocument(
         } =
         await supabaseClient
             .storage
-            .from(DOCUMENT_BUCKET)
+            .from(
+                DOCUMENT_BUCKET
+            )
             .createSignedUrl(
-                document.storage_path,
+                documentRecord.storage_path,
                 60 * 10
             );
 
@@ -2004,6 +2644,7 @@ async function viewDocument(
             error
         );
 
+
         showAlert(
             "Unable to open this document.",
             "error"
@@ -2012,6 +2653,7 @@ async function viewDocument(
     }
 
 }
+
 
 
 /* ==============================================================
@@ -2024,7 +2666,7 @@ async function downloadDocument(
 
     try {
 
-        const document =
+        const documentRecord =
             await getDocument(
                 documentId
             );
@@ -2036,13 +2678,15 @@ async function downloadDocument(
         } =
         await supabaseClient
             .storage
-            .from(DOCUMENT_BUCKET)
+            .from(
+                DOCUMENT_BUCKET
+            )
             .createSignedUrl(
-                document.storage_path,
+                documentRecord.storage_path,
                 60 * 10,
                 {
                     download:
-                        document.file_name
+                        documentRecord.file_name
                 }
             );
 
@@ -2054,9 +2698,16 @@ async function downloadDocument(
         }
 
 
-        const link =
-            document.createElement;
+        /*
+            Open signed download URL.
 
+            The previous code contained:
+
+                const link =
+                    document.createElement;
+
+            which was incorrect and unnecessary.
+        */
 
         window.location.href =
             data.signedUrl;
@@ -2070,6 +2721,7 @@ async function downloadDocument(
             error
         );
 
+
         showAlert(
             "Unable to download this document.",
             "error"
@@ -2078,6 +2730,7 @@ async function downloadDocument(
     }
 
 }
+
 
 
 /* ==============================================================
@@ -2091,13 +2744,26 @@ async function deleteDocument(
     if (!selectedVendor) {
 
         return;
+
     }
+
+
+    const companyName =
+        selectedVendor.company_name ||
+        "this vendor";
 
 
     const confirmed =
         confirm(
+
             "Are you sure you want to delete this document?\n\n" +
+
+            "Vendor Account: " +
+            companyName +
+            "\n\n" +
+
             "This action cannot be undone."
+
         );
 
 
@@ -2110,15 +2776,16 @@ async function deleteDocument(
 
     try {
 
-        const document =
+        const documentRecord =
             await getDocument(
                 documentId
             );
 
 
-        /*
-            1. Delete from Storage
-        */
+
+        /* ==================================================
+           1. DELETE STORAGE FILE
+        ================================================== */
 
         const {
             error:
@@ -2126,9 +2793,11 @@ async function deleteDocument(
         } =
         await supabaseClient
             .storage
-            .from(DOCUMENT_BUCKET)
+            .from(
+                DOCUMENT_BUCKET
+            )
             .remove([
-                document.storage_path
+                documentRecord.storage_path
             ]);
 
 
@@ -2139,16 +2808,19 @@ async function deleteDocument(
         }
 
 
-        /*
-            2. Delete database record
-        */
+
+        /* ==================================================
+           2. DELETE DATABASE RECORD
+        ================================================== */
 
         const {
             error:
             databaseError
         } =
         await supabaseClient
-            .from(DOCUMENTS_TABLE)
+            .from(
+                DOCUMENTS_TABLE
+            )
             .delete()
             .eq(
                 "id",
@@ -2184,6 +2856,7 @@ async function deleteDocument(
             error
         );
 
+
         showAlert(
             "Unable to delete this document.",
             "error"
@@ -2192,6 +2865,7 @@ async function deleteDocument(
     }
 
 }
+
 
 
 /* ==============================================================
@@ -2214,6 +2888,7 @@ signOutBtn.addEventListener(
 );
 
 
+
 /* ==============================================================
    SCROLL TO DOCUMENTS
 ============================================================== */
@@ -2229,6 +2904,7 @@ function scrollToDocuments() {
         });
 
 }
+
 
 
 /* ==============================================================
@@ -2267,6 +2943,7 @@ function showAlert(
 }
 
 
+
 /* ==============================================================
    DATE FORMAT
 ============================================================== */
@@ -2286,7 +2963,11 @@ function formatDate(
         new Date(value);
 
 
-    if (isNaN(date.getTime())) {
+    if (
+        isNaN(
+            date.getTime()
+        )
+    ) {
 
         return "";
 
@@ -2303,6 +2984,7 @@ function formatDate(
     );
 
 }
+
 
 
 /* ==============================================================
@@ -2322,6 +3004,7 @@ function sanitizeFileName(
 }
 
 
+
 /* ==============================================================
    ESCAPE HTML
 ============================================================== */
@@ -2330,33 +3013,71 @@ function escapeHtml(
     value
 ) {
 
-    return String(value ?? "")
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /&/g,
+        "&amp;"
+    )
+    .replace(
+        /</g,
+        "&lt;"
+    )
+    .replace(
+        />/g,
+        "&gt;"
+    )
+    .replace(
+        /"/g,
+        "&quot;"
+    )
+    .replace(
+        /'/g,
+        "&#039;"
+    );
 
 }
 
+
+
+/* ==============================================================
+   ESCAPE JAVASCRIPT STRING
+============================================================== */
+
+function escapeJs(
+    value
+) {
+
+    return String(
+        value ?? ""
+    )
+    .replace(
+        /\\/g,
+        "\\\\"
+    )
+    .replace(
+        /'/g,
+        "\\'"
+    )
+    .replace(
+        /"/g,
+        '\\"'
+    )
+    .replace(
+        /\r/g,
+        "\\r"
+    )
+    .replace(
+        /\n/g,
+        "\\n"
+    );
+
+}
 
 </script>
 
 
 </body>
+
 </html>
