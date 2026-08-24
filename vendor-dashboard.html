@@ -760,10 +760,6 @@
 <body>
 
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
-
 <header>
 
     <div class="header-container">
@@ -799,10 +795,6 @@
 </header>
 
 
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main>
 
     <div id="loading">
@@ -822,10 +814,6 @@
     >
 
 
-        <!-- =============================================
-             PAGE HEADER
-        ============================================= -->
-
         <div class="page-header">
 
             <h1>
@@ -838,10 +826,6 @@
 
         </div>
 
-
-        <!-- =============================================
-             ADMIN PANEL
-        ============================================= -->
 
         <section id="adminPanel">
 
@@ -880,14 +864,7 @@
         </section>
 
 
-        <!-- =============================================
-             DASHBOARD CARDS
-        ============================================= -->
-
         <div class="dashboard-grid">
-
-
-            <!-- ACCOUNT -->
 
             <div class="dashboard-card">
 
@@ -909,8 +886,6 @@
 
             </div>
 
-
-            <!-- COMPANY -->
 
             <div class="dashboard-card">
 
@@ -934,8 +909,6 @@
             </div>
 
 
-            <!-- DOCUMENTS -->
-
             <div class="dashboard-card">
 
                 <h2>
@@ -957,13 +930,8 @@
 
             </div>
 
-
         </div>
 
-
-        <!-- =============================================
-             DOCUMENTS
-        ============================================= -->
 
         <section
             id="documentsSection"
@@ -987,16 +955,10 @@
             </div>
 
 
-            <!-- SELECTED VENDOR -->
-
             <div
                 id="selectedVendorInfo"
             ></div>
 
-
-            <!-- =========================================
-                 UPLOAD
-            ========================================== -->
 
             <div
                 id="uploadArea"
@@ -1071,10 +1033,6 @@
             </div>
 
 
-            <!-- =========================================
-                 DOCUMENT TABLE
-            ========================================== -->
-
             <div class="table-wrapper">
 
                 <table>
@@ -1109,8 +1067,7 @@
 
                     <tbody
                         id="documentsTableBody"
-                    >
-                    </tbody>
+                    ></tbody>
 
                 </table>
 
@@ -1139,10 +1096,6 @@
 </main>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
 <footer>
 
     Primax Global, Inc.<br>
@@ -1159,17 +1112,13 @@
 </footer>
 
 
-<!-- =====================================================
-     SUPABASE
-===================================================== -->
-
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
 <script>
 
 /* =========================================================
-   SUPABASE CONFIGURATION
+   SUPABASE
 ========================================================= */
 
 const SUPABASE_URL =
@@ -1177,7 +1126,6 @@ const SUPABASE_URL =
 
 const SUPABASE_ANON_KEY =
     "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
-
 
 const supabaseClient =
     window.supabase.createClient(
@@ -1255,9 +1203,11 @@ let isAdmin = false;
 
 let selectedVendorId = null;
 
+let selectedVendorUserId = null;
+
 
 /* =========================================================
-   SHOW ERROR
+   ERROR
 ========================================================= */
 
 function showError(message) {
@@ -1269,10 +1219,6 @@ function showError(message) {
         "block";
 }
 
-
-/* =========================================================
-   HIDE ERROR
-========================================================= */
 
 function hideError() {
 
@@ -1291,15 +1237,6 @@ function hideError() {
 async function checkAdmin() {
 
     try {
-
-        /*
-         * IMPORTANT:
-         *
-         * Do NOT query admin_users directly.
-         *
-         * The PostgreSQL function is_admin()
-         * checks the authenticated user securely.
-         */
 
         const {
             data,
@@ -1336,7 +1273,7 @@ async function checkAdmin() {
 
 
 /* =========================================================
-   LOAD VENDORS FOR ADMIN
+   LOAD VENDORS
 ========================================================= */
 
 async function loadVendors() {
@@ -1344,10 +1281,17 @@ async function loadVendors() {
     try {
 
         /*
-         * We do not query auth.users.
+         * Get vendor IDs from documents.
          *
-         * Vendor IDs are discovered from
-         * vendor_documents.
+         * IMPORTANT:
+         *
+         * vendor_documents currently contains:
+         *
+         * vendor_id
+         * user_id
+         *
+         * We collect BOTH because older records
+         * may have different vendor_id / user_id.
          */
 
         const {
@@ -1355,7 +1299,9 @@ async function loadVendors() {
             error
         } = await supabaseClient
             .from("vendor_documents")
-            .select("vendor_id");
+            .select(
+                "vendor_id,user_id"
+            );
 
 
         if (error) {
@@ -1374,19 +1320,35 @@ async function loadVendors() {
         }
 
 
-        const uniqueVendorIds =
-            [
-                ...new Set(
-                    (data || [])
-                        .map(
-                            item =>
-                                item.vendor_id
-                        )
-                        .filter(
-                            Boolean
-                        )
-                )
-            ];
+        /*
+         * Build unique vendor IDs.
+         */
+
+        const ids =
+            new Set();
+
+
+        (data || []).forEach(
+            item => {
+
+                if (item.vendor_id) {
+
+                    ids.add(
+                        item.vendor_id
+                    );
+
+                }
+
+                if (item.user_id) {
+
+                    ids.add(
+                        item.user_id
+                    );
+
+                }
+
+            }
+        );
 
 
         vendorSelect.innerHTML =
@@ -1397,7 +1359,14 @@ async function loadVendors() {
             `;
 
 
-        uniqueVendorIds.forEach(
+        /*
+         * Add each unique ID.
+         *
+         * We cannot directly query auth.users
+         * from browser JavaScript.
+         */
+
+        [...ids].forEach(
             vendorId => {
 
                 const option =
@@ -1417,6 +1386,28 @@ async function loadVendors() {
 
             }
         );
+
+
+        /*
+         * If no vendors exist.
+         */
+
+        if (ids.size === 0) {
+
+            const option =
+                document.createElement(
+                    "option"
+                );
+
+            option.value = "";
+
+            option.textContent =
+                "No vendors found";
+
+            vendorSelect.appendChild(
+                option
+            );
+        }
 
     }
 
@@ -1462,37 +1453,122 @@ async function loadDocuments(
 
     try {
 
-        const {
-            data,
-            error
-        } = await supabaseClient
-            .from("vendor_documents")
-            .select("*")
-            .eq(
-                "vendor_id",
-                vendorId
-            )
-            .order(
-                "uploaded_at",
-                {
-                    ascending: false
-                }
-            );
+        /*
+         * ADMIN:
+         *
+         * First try vendor_id.
+         *
+         * Then also retrieve records where
+         * user_id matches the selected ID.
+         *
+         * This is important because your current
+         * database contains records where:
+         *
+         * vendor_id != user_id
+         */
+
+        let data = null;
 
 
-        if (error) {
+        if (isAdmin) {
 
-            console.error(
-                "Document loading error:",
-                error
-            );
+            const result =
+                await supabaseClient
+                    .from(
+                        "vendor_documents"
+                    )
+                    .select("*")
+                    .or(
+                        "vendor_id.eq." +
+                        vendorId +
+                        ",user_id.eq." +
+                        vendorId
+                    )
+                    .order(
+                        "uploaded_at",
+                        {
+                            ascending:
+                                false
+                        }
+                    );
 
-            showError(
-                "Unable to load documents: " +
-                error.message
-            );
 
-            return;
+            data =
+                result.data;
+
+            const error =
+                result.error;
+
+
+            if (error) {
+
+                console.error(
+                    "Admin document loading error:",
+                    error
+                );
+
+                showError(
+                    "Unable to load documents: " +
+                    error.message
+                );
+
+                return;
+            }
+
+        }
+
+        else {
+
+            /*
+             * NORMAL VENDOR:
+             *
+             * User can only see documents
+             * belonging to their own auth user.
+             *
+             * user_id is the authoritative field.
+             */
+
+            const result =
+                await supabaseClient
+                    .from(
+                        "vendor_documents"
+                    )
+                    .select("*")
+                    .eq(
+                        "user_id",
+                        currentUser.id
+                    )
+                    .order(
+                        "uploaded_at",
+                        {
+                            ascending:
+                                false
+                        }
+                    );
+
+
+            data =
+                result.data;
+
+            const error =
+                result.error;
+
+
+            if (error) {
+
+                console.error(
+                    "Vendor document loading error:",
+                    error
+                );
+
+                showError(
+                    "Unable to load documents: " +
+                    error.message
+                );
+
+                return;
+            }
+
         }
 
 
@@ -1622,9 +1698,9 @@ function addDocumentRow(
         "action-buttons";
 
 
-    /* =========================================
-       VIEW
-    ========================================= */
+    /*
+     * VIEW
+     */
 
     const viewButton =
         document.createElement(
@@ -1650,9 +1726,9 @@ function addDocumentRow(
         };
 
 
-    /* =========================================
-       DOWNLOAD
-    ========================================= */
+    /*
+     * DOWNLOAD
+     */
 
     const downloadButton =
         document.createElement(
@@ -1678,9 +1754,9 @@ function addDocumentRow(
         };
 
 
-    /* =========================================
-       DELETE
-    ========================================= */
+    /*
+     * DELETE
+     */
 
     const deleteButton =
         document.createElement(
@@ -1760,7 +1836,8 @@ function getStatusClass(
 
     const value =
         String(
-            status || "Pending"
+            status ||
+            "Pending"
         ).toLowerCase();
 
 
@@ -1785,7 +1862,7 @@ function getStatusClass(
 
 
 /* =========================================================
-   DATE FORMAT
+   DATE
 ========================================================= */
 
 function formatDate(
@@ -1803,9 +1880,14 @@ function formatDate(
     ).toLocaleDateString(
         "en-US",
         {
-            year: "numeric",
-            month: "short",
-            day: "numeric"
+            year:
+                "numeric",
+
+            month:
+                "short",
+
+            day:
+                "numeric"
         }
     );
 }
@@ -1999,7 +2081,7 @@ async function deleteDocument(
     try {
 
         /*
-         * First delete physical file
+         * Delete physical file
          */
 
         const {
@@ -2032,7 +2114,7 @@ async function deleteDocument(
 
 
         /*
-         * Then delete database record
+         * Delete database record
          */
 
         const {
@@ -2100,7 +2182,6 @@ async function uploadDocument() {
     const file =
         documentFile.files[0];
 
-
     const type =
         documentType.value;
 
@@ -2140,10 +2221,7 @@ async function uploadDocument() {
 
     /*
      * Normal vendor:
-     * Can upload only to own account.
-     *
-     * Admin:
-     * Can upload for selected vendor.
+     * upload only to own account.
      */
 
     if (
@@ -2169,7 +2247,7 @@ async function uploadDocument() {
     try {
 
         /*
-         * Create safe filename
+         * Safe filename
          */
 
         const cleanFileName =
@@ -2187,7 +2265,7 @@ async function uploadDocument() {
 
 
         /*
-         * Vendor folder
+         * Storage folder
          */
 
         const filePath =
@@ -2236,10 +2314,31 @@ async function uploadDocument() {
 
 
         /*
-         * Save database record
+         * IMPORTANT
          *
-         * IMPORTANT:
-         * user_id is also stored.
+         * user_id must be the actual
+         * authenticated vendor user.
+         *
+         * For normal vendor:
+         * currentUser.id
+         *
+         * For administrator uploading
+         * for another vendor:
+         * selectedVendorUserId if available,
+         * otherwise selectedVendorId.
+         */
+
+        const documentUserId =
+            isAdmin
+                ? (
+                    selectedVendorUserId ||
+                    selectedVendorId
+                )
+                : currentUser.id;
+
+
+        /*
+         * Database record
          */
 
         const {
@@ -2255,7 +2354,7 @@ async function uploadDocument() {
                         selectedVendorId,
 
                     user_id:
-                        selectedVendorId,
+                        documentUserId,
 
                     document_name:
                         file.name,
@@ -2274,7 +2373,8 @@ async function uploadDocument() {
                         file.size,
 
                     mime_type:
-                        file.type,
+                        file.type ||
+                        "application/octet-stream",
 
                     status:
                         "Pending"
@@ -2291,8 +2391,8 @@ async function uploadDocument() {
 
 
             /*
-             * Database insert failed.
-             * Remove physical file.
+             * Remove uploaded file
+             * if database insert failed.
              */
 
             await supabaseClient
@@ -2316,20 +2416,12 @@ async function uploadDocument() {
         );
 
 
-        /*
-         * Reset form
-         */
-
         documentFile.value =
             "";
 
         documentType.value =
             "";
 
-
-        /*
-         * Refresh
-         */
 
         await loadDocuments(
             selectedVendorId
@@ -2366,7 +2458,7 @@ async function uploadDocument() {
 
 
 /* =========================================================
-   SCROLL TO DOCUMENTS
+   SCROLL
 ========================================================= */
 
 function scrollToDocuments() {
@@ -2421,11 +2513,6 @@ loadVendorButton.addEventListener(
         }
 
 
-        /*
-         * Only administrator can use
-         * this vendor selection function.
-         */
-
         if (!isAdmin) {
 
             alert(
@@ -2437,6 +2524,16 @@ loadVendorButton.addEventListener(
 
 
         selectedVendorId =
+            vendorId;
+
+        /*
+         * At this point we do not know whether
+         * the selected ID is vendor_id or user_id.
+         *
+         * loadDocuments() handles both.
+         */
+
+        selectedVendorUserId =
             vendorId;
 
 
@@ -2532,7 +2629,7 @@ async function initializeDashboard() {
     try {
 
         /*
-         * Get current authenticated user
+         * Get current authenticated user.
          */
 
         const {
@@ -2562,10 +2659,6 @@ async function initializeDashboard() {
             data?.user;
 
 
-        /*
-         * No authenticated user
-         */
-
         if (!user) {
 
             window.location.href =
@@ -2585,10 +2678,7 @@ async function initializeDashboard() {
 
 
         /*
-         * Check administrator status
-         *
-         * IMPORTANT:
-         * No user.id parameter.
+         * Administrator check
          */
 
         isAdmin =
@@ -2609,11 +2699,13 @@ async function initializeDashboard() {
 
 
             /*
-             * Initially show administrator's
-             * own vendor ID.
+             * Administrator's own account
              */
 
             selectedVendorId =
+                user.id;
+
+            selectedVendorUserId =
                 user.id;
 
 
@@ -2626,14 +2718,14 @@ async function initializeDashboard() {
 
 
             /*
-             * Load vendor list
+             * Load vendor list.
              */
 
             await loadVendors();
 
 
             /*
-             * Load administrator's own documents
+             * Load admin's own documents.
              */
 
             await loadDocuments(
@@ -2652,19 +2744,13 @@ async function initializeDashboard() {
             selectedVendorId =
                 user.id;
 
+            selectedVendorUserId =
+                user.id;
 
-            /*
-             * Hide admin controls
-             */
 
             adminPanel.style.display =
                 "none";
 
-
-            /*
-             * Normal vendor sees only
-             * their own documents.
-             */
 
             await loadDocuments(
                 selectedVendorId
@@ -2674,7 +2760,7 @@ async function initializeDashboard() {
 
 
         /*
-         * Show dashboard
+         * Show dashboard.
          */
 
         loading.style.display =
@@ -2699,7 +2785,7 @@ async function initializeDashboard() {
 
 
 /* =========================================================
-   AUTH STATE CHANGE
+   AUTH STATE
 ========================================================= */
 
 supabaseClient.auth.onAuthStateChange(
