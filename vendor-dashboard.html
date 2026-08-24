@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -14,752 +12,480 @@
         Vendor Dashboard | Primax Global, Inc.
     </title>
 
-    <meta
-        name="description"
-        content="Primax Global, Inc. Vendor Portal"
-    >
+    <!-- ========================================================
+         SUPABASE
+    ========================================================= -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 
     <style>
 
         * {
             box-sizing: border-box;
-            margin: 0;
-            padding: 0;
         }
 
         body {
+            margin: 0;
             font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
                 Arial,
-                "Noto Sans",
                 sans-serif;
 
             background: #f5f7fa;
-
-            color: #1f2933;
-
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        button,
-        input,
-        select {
-            font-family: inherit;
+            color: #1f2937;
         }
 
 
-        /* =========================================
+        /* =====================================================
            HEADER
-        ========================================= */
+        ===================================================== */
 
         header {
-            background: #102a43;
-
-            color: #ffffff;
-
-            box-shadow:
-                0 2px 10px rgba(0,0,0,.12);
+            background: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
         }
 
-        .header-container {
+        .header-inner {
             max-width: 1200px;
-
             margin: auto;
-
-            padding: 17px 25px;
+            padding: 18px 24px;
 
             display: flex;
-
-            align-items: center;
-
             justify-content: space-between;
-
-            gap: 20px;
+            align-items: center;
         }
 
-        .logo {
-            color: #ffffff;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
 
-            font-size: 21px;
-
+        .brand a {
+            text-decoration: none;
+            color: #111827;
+            font-size: 20px;
             font-weight: 700;
+        }
+
+        .brand small {
+            display: block;
+            color: #6b7280;
+            font-size: 12px;
+            margin-top: 2px;
         }
 
         .header-right {
             display: flex;
-
             align-items: center;
-
-            gap: 18px;
-        }
-
-        #userEmail {
+            gap: 15px;
             font-size: 14px;
-
-            color: #d9e2ec;
         }
 
-        #adminBadge {
-            display: none;
-
-            background: #d97706;
-
-            color: #ffffff;
-
-            padding: 5px 10px;
-
-            border-radius: 4px;
-
-            font-size: 12px;
-
-            font-weight: 700;
+        #adminEmail {
+            color: #374151;
         }
 
-        #signOutButton {
-            border: 1px solid #ffffff;
-
+        .signout-btn {
+            border: 0;
             background: transparent;
-
-            color: #ffffff;
-
-            padding: 8px 15px;
-
-            border-radius: 5px;
-
+            color: #2563eb;
             cursor: pointer;
-
-            font-weight: 700;
+            font-weight: 600;
         }
 
-        #signOutButton:hover {
-            background: rgba(255,255,255,.1);
+        .signout-btn:hover {
+            text-decoration: underline;
         }
 
 
-        /* =========================================
+        /* =====================================================
            MAIN
-        ========================================= */
+        ===================================================== */
 
         main {
             max-width: 1200px;
-
             margin: auto;
-
-            padding: 55px 25px 80px;
+            padding: 35px 24px 60px;
         }
 
-        .page-header {
-            margin-bottom: 35px;
-        }
-
-        .page-header h1 {
-            color: #102a43;
-
-            font-size: 36px;
-
-            margin-bottom: 8px;
-        }
-
-        .page-header p {
-            color: #52606d;
-
-            font-size: 16px;
-        }
-
-
-        /* =========================================
-           LOADING
-        ========================================= */
-
-        #loading {
-            text-align: center;
-
-            padding: 60px;
-
-            color: #52606d;
-        }
-
-
-        /* =========================================
-           ERROR
-        ========================================= */
-
-        .error-message {
-            display: none;
-
-            background: #fff5f5;
-
-            border: 1px solid #f5c2c7;
-
-            color: #842029;
-
-            padding: 15px 18px;
-
-            border-radius: 6px;
-
-            margin-bottom: 25px;
-        }
-
-
-        /* =========================================
-           ADMIN PANEL
-        ========================================= */
-
-        #adminPanel {
-            display: none;
-
+        .welcome {
             margin-bottom: 30px;
         }
 
-        .admin-panel {
+        .welcome h1 {
+            margin: 0 0 8px;
+            font-size: 30px;
+            color: #111827;
+        }
+
+        .welcome p {
+            margin: 0;
+            color: #6b7280;
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .card {
             background: #ffffff;
-
-            border: 1px solid #e4e7eb;
-
-            border-radius: 8px;
-
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
             padding: 25px;
+            margin-bottom: 24px;
 
             box-shadow:
-                0 3px 12px rgba(0,0,0,.05);
+                0 2px 8px rgba(0,0,0,0.04);
         }
 
-        .admin-panel h2 {
-            color: #102a43;
-
-            font-size: 21px;
-
-            margin-bottom: 8px;
+        .card h2 {
+            margin: 0 0 8px;
+            font-size: 20px;
+            color: #111827;
         }
 
-        .admin-panel p {
-            color: #52606d;
-
+        .card-description {
+            margin: 0 0 20px;
+            color: #6b7280;
             font-size: 14px;
-
-            margin-bottom: 20px;
         }
 
-        .vendor-selector {
+
+        /* =====================================================
+           VENDOR SELECTOR
+        ===================================================== */
+
+        .vendor-selector-row {
             display: flex;
-
             gap: 12px;
-
+            align-items: flex-end;
             flex-wrap: wrap;
         }
 
-        #vendorSelect {
+        .field {
             flex: 1;
+            min-width: 280px;
+        }
 
-            min-width: 260px;
+        .field label {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 7px;
+        }
 
-            padding: 12px;
-
-            border: 1px solid #bcccdc;
-
-            border-radius: 5px;
-
+        select,
+        input[type="file"] {
+            width: 100%;
+            border: 1px solid #d1d5db;
+            border-radius: 7px;
+            padding: 11px 12px;
             background: #ffffff;
-
-            color: #1f2933;
-
             font-size: 14px;
         }
 
-        #loadVendorButton {
-            background: #102a43;
+        select:focus,
+        input:focus {
+            outline: none;
+            border-color: #2563eb;
+            box-shadow:
+                0 0 0 3px rgba(37,99,235,.12);
+        }
 
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        button {
+            font-family: inherit;
+        }
+
+        .primary-btn {
+            background: #2563eb;
             color: #ffffff;
-
             border: none;
-
-            padding: 12px 20px;
-
-            border-radius: 5px;
-
+            border-radius: 7px;
+            padding: 11px 18px;
+            font-size: 14px;
+            font-weight: 600;
             cursor: pointer;
-
-            font-weight: 700;
         }
 
-        #loadVendorButton:hover {
-            background: #243b53;
+        .primary-btn:hover {
+            background: #1d4ed8;
         }
 
-        #loadVendorButton:disabled {
+        .primary-btn:disabled {
             opacity: .6;
-
             cursor: not-allowed;
         }
 
-
-        /* =========================================
-           DASHBOARD GRID
-        ========================================= */
-
-        .dashboard-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
-            gap: 22px;
-
-            margin-bottom: 35px;
-        }
-
-        .dashboard-card {
+        .secondary-btn {
             background: #ffffff;
-
-            border: 1px solid #e4e7eb;
-
-            border-radius: 8px;
-
-            padding: 28px;
-
-            box-shadow:
-                0 3px 12px rgba(0,0,0,.04);
-        }
-
-        .dashboard-card h2 {
-            color: #102a43;
-
-            font-size: 20px;
-
-            margin-bottom: 10px;
-        }
-
-        .dashboard-card p {
-            color: #52606d;
-
-            font-size: 14px;
-
-            margin-bottom: 20px;
-        }
-
-        .card-button {
-            display: inline-block;
-
-            background: #102a43;
-
-            color: #ffffff;
-
-            padding: 10px 16px;
-
-            border-radius: 5px;
-
-            border: none;
-
+            color: #374151;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            padding: 7px 12px;
             cursor: pointer;
-
-            font-size: 14px;
-
-            font-weight: 700;
+            font-size: 13px;
         }
 
-        .card-button:hover {
-            background: #243b53;
+        .secondary-btn:hover {
+            background: #f3f4f6;
         }
 
-
-        /* =========================================
-           DOCUMENT SECTION
-        ========================================= */
-
-        .documents-section {
+        .danger-btn {
             background: #ffffff;
+            color: #dc2626;
+            border: 1px solid #fecaca;
+            border-radius: 6px;
+            padding: 7px 12px;
+            cursor: pointer;
+            font-size: 13px;
+        }
 
-            border: 1px solid #e4e7eb;
+        .danger-btn:hover {
+            background: #fef2f2;
+        }
 
+
+        /* =====================================================
+           SELECTED VENDOR
+        ===================================================== */
+
+        .selected-vendor {
+            display: none;
+
+            margin-top: 20px;
+            padding: 18px;
+
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-radius: 8px;
-
-            padding: 30px;
-
-            box-shadow:
-                0 3px 12px rgba(0,0,0,.04);
         }
 
-        .documents-header {
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 20px;
-
-            margin-bottom: 25px;
-
-            flex-wrap: wrap;
+        .selected-vendor.show {
+            display: block;
         }
 
-        .documents-header h2 {
-            color: #102a43;
-
-            font-size: 24px;
+        .selected-vendor-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #111827;
         }
 
-        .documents-header p {
-            color: #52606d;
-
-            font-size: 14px;
+        .selected-vendor-info {
+            margin-top: 5px;
+            font-size: 13px;
+            color: #6b7280;
         }
 
 
-        /* =========================================
-           UPLOAD AREA
-        ========================================= */
+        /* =====================================================
+           UPLOAD
+        ===================================================== */
+
+        .upload-grid {
+            display: grid;
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 16px;
+        }
+
+        .upload-full {
+            grid-column: 1 / -1;
+        }
 
         .upload-area {
-            background: #f5f7fa;
-
-            border: 2px dashed #bcccdc;
-
-            border-radius: 7px;
-
-            padding: 25px;
-
-            margin-bottom: 30px;
-        }
-
-        .upload-area h3 {
-            color: #102a43;
-
-            font-size: 18px;
-
-            margin-bottom: 8px;
-        }
-
-        .upload-area p {
-            color: #52606d;
-
-            font-size: 13px;
-
-            margin-bottom: 18px;
-        }
-
-        .upload-controls {
-            display: flex;
-
-            gap: 12px;
-
-            flex-wrap: wrap;
-
-            align-items: center;
-        }
-
-        #documentFile {
-            background: #ffffff;
-
-            border: 1px solid #bcccdc;
-
-            padding: 9px;
-
-            border-radius: 5px;
-
-            max-width: 100%;
-        }
-
-        #documentType {
-            padding: 11px;
-
-            border: 1px solid #bcccdc;
-
-            border-radius: 5px;
-
-            background: #ffffff;
-        }
-
-        #uploadButton {
-            background: #102a43;
-
-            color: #ffffff;
-
-            border: none;
-
-            padding: 11px 20px;
-
-            border-radius: 5px;
-
-            cursor: pointer;
-
-            font-weight: 700;
-        }
-
-        #uploadButton:hover {
-            background: #243b53;
-        }
-
-        #uploadButton:disabled {
-            opacity: .6;
-
-            cursor: not-allowed;
+            margin-top: 10px;
         }
 
 
-        /* =========================================
-           DOCUMENT TABLE
-        ========================================= */
+        /* =====================================================
+           TABLE
+        ===================================================== */
 
-        .table-wrapper {
+        .table-container {
             overflow-x: auto;
         }
 
         table {
             width: 100%;
-
             border-collapse: collapse;
-
-            min-width: 700px;
+            font-size: 14px;
         }
 
         th {
-            background: #102a43;
-
-            color: #ffffff;
-
             text-align: left;
-
+            background: #f9fafb;
+            color: #374151;
+            font-weight: 600;
             padding: 13px 12px;
-
-            font-size: 13px;
+            border-bottom: 1px solid #e5e7eb;
         }
 
         td {
-            padding: 14px 12px;
-
-            border-bottom: 1px solid #e4e7eb;
-
-            font-size: 14px;
-
-            color: #52606d;
-
+            padding: 13px 12px;
+            border-bottom: 1px solid #e5e7eb;
             vertical-align: middle;
         }
 
-        td.document-name {
-            color: #102a43;
-
-            font-weight: 700;
-        }
-
         tr:hover td {
-            background: #f8fafc;
+            background: #fafafa;
         }
 
-
-        /* =========================================
-           STATUS
-        ========================================= */
-
-        .status {
-            display: inline-block;
-
-            padding: 4px 9px;
-
-            border-radius: 12px;
-
-            font-size: 12px;
-
-            font-weight: 700;
-        }
-
-        .status-pending {
-            background: #fff3cd;
-
-            color: #664d03;
-        }
-
-        .status-approved {
-            background: #d1e7dd;
-
-            color: #0f5132;
-        }
-
-        .status-rejected {
-            background: #f8d7da;
-
-            color: #842029;
-        }
-
-
-        /* =========================================
-           ACTION BUTTONS
-        ========================================= */
-
-        .action-buttons {
+        .actions {
             display: flex;
-
-            gap: 7px;
-
+            gap: 6px;
             flex-wrap: wrap;
         }
 
-        .action-button {
-            border: none;
 
-            border-radius: 4px;
+        /* =====================================================
+           STATUS
+        ===================================================== */
 
-            padding: 7px 10px;
-
+        .status {
+            display: inline-block;
+            padding: 4px 9px;
+            border-radius: 999px;
             font-size: 12px;
-
-            font-weight: 700;
-
-            cursor: pointer;
+            font-weight: 600;
         }
 
-        .view-button {
-            background: #102a43;
-
-            color: #ffffff;
+        .status-pending {
+            background: #fef3c7;
+            color: #92400e;
         }
 
-        .download-button {
-            background: #486581;
-
-            color: #ffffff;
+        .status-approved {
+            background: #dcfce7;
+            color: #166534;
         }
 
-        .delete-button {
-            background: #c92a2a;
-
-            color: #ffffff;
+        .status-rejected {
+            background: #fee2e2;
+            color: #991b1b;
         }
 
-        .action-button:hover {
-            opacity: .85;
+        .status-default {
+            background: #e5e7eb;
+            color: #374151;
         }
 
 
-        /* =========================================
+        /* =====================================================
            EMPTY
-        ========================================= */
+        ===================================================== */
 
-        .empty-documents {
-            display: none;
-
+        .empty-state {
             text-align: center;
-
             padding: 45px 20px;
-
-            color: #7b8794;
+            color: #6b7280;
         }
 
-        .empty-documents strong {
+        .empty-state strong {
             display: block;
-
-            color: #52606d;
-
-            font-size: 17px;
-
+            color: #374151;
             margin-bottom: 6px;
         }
 
 
-        /* =========================================
-           SELECTED VENDOR
-        ========================================= */
+        /* =====================================================
+           LOADING
+        ===================================================== */
 
-        #selectedVendorInfo {
-            display: none;
-
-            background: #e6f0ff;
-
-            border: 1px solid #b6d4fe;
-
-            color: #084298;
-
-            padding: 14px 16px;
-
-            border-radius: 5px;
-
-            margin-bottom: 20px;
-
+        .loading {
+            color: #6b7280;
             font-size: 14px;
         }
 
-        #selectedVendorInfo strong {
-            font-size: 15px;
+
+        /* =====================================================
+           ALERT
+        ===================================================== */
+
+        .alert {
+            display: none;
+            padding: 13px 15px;
+            border-radius: 7px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .alert.show {
+            display: block;
+        }
+
+        .alert-error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+        }
+
+        .alert-success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
         }
 
 
-        /* =========================================
+        /* =====================================================
            FOOTER
-        ========================================= */
+        ===================================================== */
 
         footer {
-            background: #0b1f33;
-
-            color: #bcccdc;
-
+            border-top: 1px solid #e5e7eb;
+            background: #ffffff;
+            padding: 25px;
             text-align: center;
-
-            padding: 30px 20px;
-
-            font-size: 14px;
+            color: #6b7280;
+            font-size: 13px;
         }
 
 
-        /* =========================================
+        /* =====================================================
            MOBILE
-        ========================================= */
+        ===================================================== */
 
-        @media (max-width: 850px) {
+        @media (max-width: 700px) {
 
-            .dashboard-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .header-container {
-                flex-direction: column;
-
-                align-items: center;
+            .header-inner {
+                padding: 15px;
             }
 
             .header-right {
-                flex-wrap: wrap;
-
-                justify-content: center;
+                flex-direction: column;
+                align-items: flex-end;
+                gap: 3px;
             }
-
-            .page-header {
-                text-align: center;
-            }
-
-        }
-
-
-        @media (max-width: 550px) {
 
             main {
-                padding:
-                    40px 15px 60px;
+                padding: 25px 15px 45px;
             }
 
-            .documents-section {
-                padding: 20px;
+            .welcome h1 {
+                font-size: 25px;
             }
 
-            .upload-controls {
-                flex-direction: column;
-
-                align-items: stretch;
+            .upload-grid {
+                grid-template-columns: 1fr;
             }
 
-            #documentFile,
-            #documentType,
-            #uploadButton {
-                width: 100%;
+            .upload-full {
+                grid-column: auto;
             }
 
-            .page-header h1 {
-                font-size: 29px;
+            .card {
+                padding: 18px;
             }
-
         }
 
     </style>
@@ -770,30 +496,40 @@
 <body>
 
 
+<!-- ============================================================
+     HEADER
+============================================================ -->
+
 <header>
 
-    <div class="header-container">
+    <div class="header-inner">
 
-        <a
-            href="index.html"
-            class="logo"
-        >
-            Primax Global, Inc.
-        </a>
+        <div class="brand">
+
+            <div>
+
+                <a href="index.html">
+                    Primax Global, Inc.
+                </a>
+
+                <small>
+                    Vendor Management Portal
+                </small>
+
+            </div>
+
+        </div>
+
 
         <div class="header-right">
 
-            <span id="userEmail">
+            <span id="adminEmail">
                 Loading...
             </span>
 
-            <span id="adminBadge">
-                ADMIN
-            </span>
-
             <button
-                id="signOutButton"
-                type="button"
+                class="signout-btn"
+                id="signOutBtn"
             >
                 Sign Out
             </button>
@@ -805,326 +541,393 @@
 </header>
 
 
+
+<!-- ============================================================
+     MAIN
+============================================================ -->
+
 <main>
 
-    <div id="loading">
-        Checking your account...
+
+    <!-- ========================================================
+         WELCOME
+    ======================================================== -->
+
+    <div class="welcome">
+
+        <h1>
+            Vendor Dashboard
+        </h1>
+
+        <p>
+            Welcome to the Primax Global, Inc. Vendor Portal.
+        </p>
+
     </div>
 
 
+
+    <!-- ========================================================
+         ALERT
+    ======================================================== -->
+
     <div
-        id="errorMessage"
-        class="error-message"
+        id="alert"
+        class="alert"
     ></div>
 
 
-    <div
-        id="dashboardContent"
-        style="display:none;"
-    >
+
+    <!-- ========================================================
+         VENDOR MANAGEMENT
+    ======================================================== -->
+
+    <section class="card">
+
+        <h2>
+            Vendor Management
+        </h2>
+
+        <p class="card-description">
+            As an administrator, you can select a vendor by
+            company name and review the documents associated
+            with that account.
+        </p>
 
 
-        <div class="page-header">
+        <div class="vendor-selector-row">
 
-            <h1>
-                Vendor Dashboard
-            </h1>
+            <div class="field">
 
-            <p>
-                Welcome to the Primax Global, Inc. Vendor Portal.
-            </p>
+                <label for="vendorSelect">
+                    Select a Vendor
+                </label>
+
+                <select id="vendorSelect">
+
+                    <option value="">
+                        -- Select Company --
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="primary-btn"
+                id="viewVendorBtn"
+            >
+                View Vendor Documents
+            </button>
 
         </div>
 
 
-        <!-- =========================================
-             ADMIN VENDOR MANAGEMENT
-        ========================================= -->
+        <!-- Selected vendor -->
 
-        <section id="adminPanel">
-
-            <div class="admin-panel">
-
-                <h2>
-                    Vendor Management
-                </h2>
-
-                <p>
-                    As an administrator, you can select a vendor
-                    and review the documents associated with that account.
-                </p>
-
-                <div class="vendor-selector">
-
-                    <select id="vendorSelect">
-
-                        <option value="">
-                            Loading vendors...
-                        </option>
-
-                    </select>
-
-                    <button
-                        id="loadVendorButton"
-                        type="button"
-                    >
-                        View Vendor Documents
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================================
-             DASHBOARD CARDS
-        ========================================= -->
-
-        <div class="dashboard-grid">
-
-            <div class="dashboard-card">
-
-                <h2>
-                    My Account
-                </h2>
-
-                <p>
-                    View and manage your vendor account information.
-                </p>
-
-                <button
-                    class="card-button"
-                    type="button"
-                    onclick="scrollToDocuments()"
-                >
-                    Account Information
-                </button>
-
-            </div>
-
-
-            <div class="dashboard-card">
-
-                <h2>
-                    Company Profile
-                </h2>
-
-                <p>
-                    Maintain your company information,
-                    contact details, and vendor profile.
-                </p>
-
-                <button
-                    class="card-button"
-                    type="button"
-                    onclick="showComingSoon('Company Profile')"
-                >
-                    Company Profile
-                </button>
-
-            </div>
-
-
-            <div class="dashboard-card">
-
-                <h2>
-                    Documents
-                </h2>
-
-                <p>
-                    Upload, view, download, and manage
-                    documents associated with your account.
-                </p>
-
-                <button
-                    class="card-button"
-                    type="button"
-                    onclick="scrollToDocuments()"
-                >
-                    View Documents
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <!-- =========================================
-             DOCUMENTS
-        ========================================= -->
-
-        <section
-            id="documentsSection"
-            class="documents-section"
+        <div
+            id="selectedVendor"
+            class="selected-vendor"
         >
 
-            <div class="documents-header">
-
-                <div>
-
-                    <h2>
-                        Vendor Documents
-                    </h2>
-
-                    <p>
-                        Documents associated with this vendor account.
-                    </p>
-
-                </div>
-
-            </div>
-
+            <div
+                id="selectedVendorName"
+                class="selected-vendor-name"
+            ></div>
 
             <div
                 id="selectedVendorInfo"
+                class="selected-vendor-info"
             ></div>
 
+        </div>
 
-            <!-- =====================================
-                 UPLOAD
-            ====================================== -->
+    </section>
 
-            <div
-                id="uploadArea"
-                class="upload-area"
-            >
 
-                <h3>
+
+    <!-- ========================================================
+         MY ACCOUNT
+    ======================================================== -->
+
+    <section class="card">
+
+        <h2>
+            My Account
+        </h2>
+
+        <p class="card-description">
+            View and manage your vendor account information.
+        </p>
+
+
+        <button
+            type="button"
+            class="secondary-btn"
+            onclick="window.location.href='vendor-account.html'"
+        >
+            Account Information
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================================================
+         COMPANY PROFILE
+    ======================================================== -->
+
+    <section class="card">
+
+        <h2>
+            Company Profile
+        </h2>
+
+        <p class="card-description">
+            Maintain company information, contact details,
+            and vendor profile.
+        </p>
+
+
+        <button
+            type="button"
+            class="secondary-btn"
+            onclick="window.location.href='vendor-profile.html'"
+        >
+            Company Profile
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================================================
+         DOCUMENTS
+    ======================================================== -->
+
+    <section class="card">
+
+        <h2>
+            Documents
+        </h2>
+
+        <p class="card-description">
+            Upload, view, download, and manage documents
+            associated with the selected vendor account.
+        </p>
+
+
+        <button
+            type="button"
+            class="secondary-btn"
+            onclick="scrollToDocuments()"
+        >
+            View Documents
+        </button>
+
+    </section>
+
+
+
+    <!-- ========================================================
+         VENDOR DOCUMENTS
+    ======================================================== -->
+
+    <section
+        class="card"
+        id="vendorDocumentsSection"
+    >
+
+        <h2>
+            Vendor Documents
+        </h2>
+
+        <p
+            id="documentsSubtitle"
+            class="card-description"
+        >
+            Select a vendor above to view documents.
+        </p>
+
+
+        <!-- ====================================================
+             UPLOAD
+        ==================================================== -->
+
+        <h3>
+            Upload Document
+        </h3>
+
+        <p class="card-description">
+
+            Upload PDF, Word, Excel, or other business
+            documents related to this vendor account.
+
+            Maximum file size: 50 MB.
+
+        </p>
+
+
+        <div class="upload-grid">
+
+
+            <!-- Document type -->
+
+            <div class="field">
+
+                <label for="documentType">
+                    Document Type
+                </label>
+
+                <select id="documentType">
+
+                    <option value="">
+                        Select Document Type
+                    </option>
+
+                    <option value="W-9">
+                        W-9
+                    </option>
+
+                    <option value="Insurance">
+                        Insurance
+                    </option>
+
+                    <option value="Business License">
+                        Business License
+                    </option>
+
+                    <option value="Certificate">
+                        Certificate
+                    </option>
+
+                    <option value="Product Information">
+                        Product Information
+                    </option>
+
+                    <option value="Pricing">
+                        Pricing
+                    </option>
+
+                    <option value="Other">
+                        Other
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- File -->
+
+            <div class="field">
+
+                <label for="documentFile">
+                    Select File
+                </label>
+
+                <input
+                    type="file"
+                    id="documentFile"
+                >
+
+            </div>
+
+
+            <div class="upload-full">
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    id="uploadBtn"
+                    disabled
+                >
                     Upload Document
-                </h3>
-
-                <p>
-                    Upload PDF, Word, Excel, or other
-                    business documents related to your vendor account.
-                    Maximum file size: 50 MB.
-                </p>
-
-
-                <div class="upload-controls">
-
-                    <input
-                        type="file"
-                        id="documentFile"
-                    >
-
-
-                    <select id="documentType">
-
-                        <option value="">
-                            Document Type
-                        </option>
-
-                        <option value="W-9">
-                            W-9
-                        </option>
-
-                        <option value="Insurance">
-                            Insurance
-                        </option>
-
-                        <option value="Business License">
-                            Business License
-                        </option>
-
-                        <option value="Certificate">
-                            Certificate
-                        </option>
-
-                        <option value="Product Information">
-                            Product Information
-                        </option>
-
-                        <option value="Pricing">
-                            Pricing
-                        </option>
-
-                        <option value="Other">
-                            Other
-                        </option>
-
-                    </select>
-
-
-                    <button
-                        id="uploadButton"
-                        type="button"
-                    >
-                        Upload Document
-                    </button>
-
-                </div>
+                </button>
 
             </div>
 
-
-            <!-- =====================================
-                 TABLE
-            ====================================== -->
-
-            <div class="table-wrapper">
-
-                <table>
-
-                    <thead>
-
-                        <tr>
-
-                            <th>
-                                Document
-                            </th>
-
-                            <th>
-                                Type
-                            </th>
-
-                            <th>
-                                Status
-                            </th>
-
-                            <th>
-                                Uploaded
-                            </th>
-
-                            <th>
-                                Actions
-                            </th>
-
-                        </tr>
-
-                    </thead>
-
-                    <tbody
-                        id="documentsTableBody"
-                    ></tbody>
-
-                </table>
-
-            </div>
+        </div>
 
 
-            <div
-                id="emptyDocuments"
-                class="empty-documents"
-            >
-
-                <strong>
-                    No documents found
-                </strong>
-
-                There are currently no documents
-                associated with this vendor account.
-
-            </div>
+        <br>
 
 
-        </section>
+        <!-- ====================================================
+             DOCUMENT TABLE
+        ==================================================== -->
 
-    </div>
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Document
+                        </th>
+
+                        <th>
+                            Type
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Uploaded
+                        </th>
+
+                        <th>
+                            Actions
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody id="documentsTableBody">
+
+                    <tr>
+
+                        <td
+                            colspan="5"
+                            class="empty-state"
+                        >
+
+                            <strong>
+                                No vendor selected
+                            </strong>
+
+                            Select a company above to view
+                            vendor documents.
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
 
 </main>
 
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
 
 <footer>
 
@@ -1136,24 +939,22 @@
 
     <br><br>
 
-    © 2026 Primax Global, Inc.
-    All Rights Reserved.
+    © 2026 Primax Global, Inc. All Rights Reserved.
 
 </footer>
 
 
-<!-- =========================================
-     SUPABASE
-========================================= -->
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
+<!-- ============================================================
+     JAVASCRIPT
+============================================================ -->
 
 <script>
 
-/* =========================================================
+
+/* ==============================================================
    SUPABASE CONFIGURATION
-========================================================= */
+============================================================== */
 
 const SUPABASE_URL =
     "https://nhjapidacizvhebtpzah.supabase.co";
@@ -1169,2032 +970,1367 @@ const supabaseClient =
     );
 
 
-/* =========================================================
-   ELEMENTS
-========================================================= */
+/* ==============================================================
+   CONFIGURATION
+============================================================== */
 
-const loading =
-    document.getElementById("loading");
+/*
+    IMPORTANT:
 
-const dashboardContent =
-    document.getElementById(
-        "dashboardContent"
-    );
+    Change this ONLY if your actual Storage bucket has a
+    different name.
+*/
 
-const errorMessage =
-    document.getElementById(
-        "errorMessage"
-    );
-
-const userEmail =
-    document.getElementById(
-        "userEmail"
-    );
-
-const adminBadge =
-    document.getElementById(
-        "adminBadge"
-    );
-
-const adminPanel =
-    document.getElementById(
-        "adminPanel"
-    );
-
-const vendorSelect =
-    document.getElementById(
-        "vendorSelect"
-    );
-
-const loadVendorButton =
-    document.getElementById(
-        "loadVendorButton"
-    );
-
-const selectedVendorInfo =
-    document.getElementById(
-        "selectedVendorInfo"
-    );
-
-const uploadButton =
-    document.getElementById(
-        "uploadButton"
-    );
-
-const documentFile =
-    document.getElementById(
-        "documentFile"
-    );
-
-const documentType =
-    document.getElementById(
-        "documentType"
-    );
-
-const documentsTableBody =
-    document.getElementById(
-        "documentsTableBody"
-    );
-
-const emptyDocuments =
-    document.getElementById(
-        "emptyDocuments"
-    );
-
-const signOutButton =
-    document.getElementById(
-        "signOutButton"
-    );
+const DOCUMENT_BUCKET =
+    "vendor-documents";
 
 
-/* =========================================================
+/*
+    This is the documents table.
+
+    If your existing table has a different name, change it here.
+*/
+
+const DOCUMENTS_TABLE =
+    "vendor_documents";
+
+
+/* ==============================================================
    GLOBAL VARIABLES
-========================================================= */
+============================================================== */
 
 let currentUser = null;
 
-let isAdmin = false;
+let vendors = [];
 
-let selectedVendorId = null;
-
-let selectedVendorUserId = null;
-
-let selectedVendorCompanyName = null;
+let selectedVendor = null;
 
 
-/* =========================================================
-   ERROR HANDLING
-========================================================= */
+/* ==============================================================
+   DOM
+============================================================== */
 
-function showError(message) {
+const adminEmail =
+    document.getElementById("adminEmail");
 
-    errorMessage.textContent =
-        message;
+const vendorSelect =
+    document.getElementById("vendorSelect");
 
-    errorMessage.style.display =
-        "block";
-}
+const viewVendorBtn =
+    document.getElementById("viewVendorBtn");
+
+const selectedVendorBox =
+    document.getElementById("selectedVendor");
+
+const selectedVendorName =
+    document.getElementById("selectedVendorName");
+
+const selectedVendorInfo =
+    document.getElementById("selectedVendorInfo");
+
+const documentsSubtitle =
+    document.getElementById("documentsSubtitle");
+
+const documentType =
+    document.getElementById("documentType");
+
+const documentFile =
+    document.getElementById("documentFile");
+
+const uploadBtn =
+    document.getElementById("uploadBtn");
+
+const documentsTableBody =
+    document.getElementById("documentsTableBody");
+
+const alertBox =
+    document.getElementById("alert");
+
+const signOutBtn =
+    document.getElementById("signOutBtn");
 
 
-function hideError() {
+/* ==============================================================
+   INITIALIZE
+============================================================== */
 
-    errorMessage.textContent =
-        "";
+document.addEventListener(
+    "DOMContentLoaded",
+    async function () {
 
-    errorMessage.style.display =
-        "none";
-}
+        await checkAdmin();
+
+    }
+);
 
 
-/* =========================================================
-   CHECK ADMIN
-========================================================= */
+/* ==============================================================
+   ADMIN AUTHENTICATION
+============================================================== */
 
 async function checkAdmin() {
 
     try {
 
         const {
-            data,
+            data: {
+                user
+            },
             error
         } =
-            await supabaseClient
-                .rpc("is_admin");
+        await supabaseClient.auth.getUser();
 
 
         if (error) {
 
             console.error(
-                "Admin check error:",
+                "Get user error:",
                 error
             );
 
-            return false;
+            window.location.href =
+                "vendor-login.html";
+
+            return;
         }
 
 
-        return data === true;
+        if (!user) {
+
+            window.location.href =
+                "vendor-login.html";
+
+            return;
+        }
+
+
+        currentUser = user;
+
+        adminEmail.textContent =
+            user.email || "";
+
+
+        /*
+            Load vendors after authentication.
+        */
+
+        await loadVendors();
 
     }
 
     catch (error) {
 
         console.error(
-            "Admin check failed:",
+            "Authentication error:",
             error
         );
 
-        return false;
+        showAlert(
+            "Unable to verify your administrator account.",
+            "error"
+        );
+
     }
+
 }
 
 
-/* =========================================================
+/* ==============================================================
    LOAD VENDORS
-========================================================= */
+============================================================== */
 
 async function loadVendors() {
 
-    hideError();
-
-
     vendorSelect.innerHTML = `
         <option value="">
-            Loading vendors...
+            Loading companies...
         </option>
     `;
 
 
-    try {
-
-        /*
-         * IMPORTANT
-         *
-         * Company names are loaded from:
-         *
-         * vendor_profiles
-         *
-         * Expected columns:
-         *
-         * user_id
-         * company_name
-         * email
-         *
-         * The existing vendor_documents table
-         * remains unchanged.
-         */
-
-
-        const {
-            data: profiles,
-            error: profileError
-        } =
-            await supabaseClient
-                .from("vendor_profiles")
-                .select(
-                    "user_id,company_name,email"
-                );
-
-
-        if (profileError) {
-
-            console.error(
-                "Vendor profile error:",
-                profileError
-            );
-
-
-            /*
-             * If vendor_profiles is not available,
-             * fall back to vendor_documents.
-             */
-
-            await loadVendorsFromDocuments();
-
-            return;
-        }
-
-
-        /*
-         * Get existing vendor document
-         * relationships.
-         */
-
-        const {
-            data: documents,
-            error: documentError
-        } =
-            await supabaseClient
-                .from("vendor_documents")
-                .select(
-                    "vendor_id,user_id"
-                );
-
-
-        if (documentError) {
-
-            console.error(
-                "Vendor document lookup error:",
-                documentError
-            );
-
-            showError(
-                "Unable to load vendor list: " +
-                documentError.message
-            );
-
-            return;
-        }
-
-
-        /*
-         * Build a map of vendor IDs.
-         */
-
-        const vendorMap =
-            new Map();
-
-
-        /*
-         * First create entries from documents.
-         */
-
-        (documents || []).forEach(
-            record => {
-
-                if (
-                    record.vendor_id
-                ) {
-
-                    vendorMap.set(
-                        record.vendor_id,
-                        {
-                            vendorId:
-                                record.vendor_id,
-
-                            userId:
-                                record.user_id ||
-                                record.vendor_id,
-
-                            companyName:
-                                null,
-
-                            email:
-                                null
-                        }
-                    );
-
-                }
-
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+        .from("vendors")
+        .select(`
+            id,
+            user_id,
+            company_name,
+            contact_name,
+            email,
+            phone,
+            website,
+            status
+        `)
+        .order(
+            "company_name",
+            {
+                ascending: true
             }
         );
 
 
-        /*
-         * Attach company profiles.
-         */
+    if (error) {
 
-        (profiles || []).forEach(
-            profile => {
-
-                if (
-                    !profile.user_id
-                ) {
-
-                    return;
-                }
-
-
-                /*
-                 * If the user_id is already
-                 * associated with a vendor,
-                 * update that vendor.
-                 */
-
-                let foundVendor = null;
-
-
-                for (
-                    const vendor
-                    of vendorMap.values()
-                ) {
-
-                    if (
-                        vendor.userId ===
-                        profile.user_id
-                    ) {
-
-                        foundVendor =
-                            vendor;
-
-                        break;
-                    }
-
-                }
-
-
-                if (foundVendor) {
-
-                    foundVendor.companyName =
-                        profile.company_name ||
-                        null;
-
-                    foundVendor.email =
-                        profile.email ||
-                        null;
-
-                }
-
-            }
+        console.error(
+            "Load vendors error:",
+            error
         );
-
-
-        /*
-         * If a profile has no document yet,
-         * we can still show it as a vendor.
-         */
-
-        (profiles || []).forEach(
-            profile => {
-
-                if (
-                    !profile.user_id
-                ) {
-
-                    return;
-                }
-
-
-                let alreadyExists =
-                    false;
-
-
-                for (
-                    const vendor
-                    of vendorMap.values()
-                ) {
-
-                    if (
-                        vendor.userId ===
-                        profile.user_id
-                    ) {
-
-                        alreadyExists =
-                            true;
-
-                        break;
-                    }
-
-                }
-
-
-                if (
-                    !alreadyExists
-                ) {
-
-                    vendorMap.set(
-                        profile.user_id,
-                        {
-                            vendorId:
-                                profile.user_id,
-
-                            userId:
-                                profile.user_id,
-
-                            companyName:
-                                profile.company_name ||
-                                null,
-
-                            email:
-                                profile.email ||
-                                null
-                        }
-                    );
-
-                }
-
-            }
-        );
-
-
-        /*
-         * Sort vendors alphabetically
-         * by company name.
-         */
-
-        const vendors =
-            [...vendorMap.values()]
-                .sort(
-                    (a, b) => {
-
-                        const nameA =
-                            (
-                                a.companyName ||
-                                a.email ||
-                                a.vendorId
-                            ).toLowerCase();
-
-                        const nameB =
-                            (
-                                b.companyName ||
-                                b.email ||
-                                b.vendorId
-                            ).toLowerCase();
-
-                        return nameA.localeCompare(
-                            nameB
-                        );
-
-                    }
-                );
-
 
         vendorSelect.innerHTML = `
             <option value="">
-                Select a Vendor
+                Unable to load vendors
             </option>
         `;
 
-
-        /*
-         * Create options.
-         */
-
-        vendors.forEach(
-            vendor => {
-
-                const option =
-                    document.createElement(
-                        "option"
-                    );
-
-
-                /*
-                 * IMPORTANT
-                 *
-                 * The value remains UUID.
-                 *
-                 * The user sees company name.
-                 */
-
-                option.value =
-                    vendor.vendorId;
-
-
-                /*
-                 * Save user_id internally.
-                 */
-
-                option.dataset.userId =
-                    vendor.userId || "";
-
-
-                option.dataset.companyName =
-                    vendor.companyName || "";
-
-
-                option.dataset.email =
-                    vendor.email || "";
-
-
-                /*
-                 * Display company name.
-                 */
-
-                if (
-                    vendor.companyName
-                ) {
-
-                    option.textContent =
-                        vendor.companyName;
-
-                }
-
-                else if (
-                    vendor.email
-                ) {
-
-                    option.textContent =
-                        vendor.email;
-
-                }
-
-                else {
-
-                    /*
-                     * Last fallback.
-                     *
-                     * Normally this should not
-                     * be necessary.
-                     */
-
-                    option.textContent =
-                        "Vendor Account";
-
-                }
-
-
-                vendorSelect.appendChild(
-                    option
-                );
-
-            }
+        showAlert(
+            "Unable to load vendor companies.",
+            "error"
         );
-
-
-        if (
-            vendors.length === 0
-        ) {
-
-            vendorSelect.innerHTML = `
-                <option value="">
-                    No vendors found
-                </option>
-            `;
-
-        }
-
-
-        console.log(
-            "Vendor list:",
-            vendors
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Loading vendors failed:",
-            error
-        );
-
-
-        /*
-         * Last-resort fallback.
-         */
-
-        await loadVendorsFromDocuments();
-
-    }
-}
-
-
-/* =========================================================
-   FALLBACK VENDOR LOADER
-========================================================= */
-
-async function loadVendorsFromDocuments() {
-
-    try {
-
-        const {
-            data,
-            error
-        } =
-            await supabaseClient
-                .from(
-                    "vendor_documents"
-                )
-                .select(
-                    "vendor_id,user_id"
-                );
-
-
-        if (error) {
-
-            console.error(
-                "Fallback vendor loading error:",
-                error
-            );
-
-            showError(
-                "Unable to load vendor list: " +
-                error.message
-            );
-
-            vendorSelect.innerHTML = `
-                <option value="">
-                    Unable to load vendors
-                </option>
-            `;
-
-            return;
-        }
-
-
-        const vendors =
-            new Map();
-
-
-        (data || []).forEach(
-            record => {
-
-                if (
-                    !record.vendor_id
-                ) {
-
-                    return;
-                }
-
-
-                if (
-                    !vendors.has(
-                        record.vendor_id
-                    )
-                ) {
-
-                    vendors.set(
-                        record.vendor_id,
-                        {
-                            vendorId:
-                                record.vendor_id,
-
-                            userId:
-                                record.user_id ||
-                                record.vendor_id
-                        }
-                    );
-
-                }
-
-            }
-        );
-
-
-        vendorSelect.innerHTML = `
-            <option value="">
-                Select a Vendor
-            </option>
-        `;
-
-
-        vendors.forEach(
-            vendor => {
-
-                const option =
-                    document.createElement(
-                        "option"
-                    );
-
-
-                option.value =
-                    vendor.vendorId;
-
-
-                option.dataset.userId =
-                    vendor.userId;
-
-
-                /*
-                 * Since profile information
-                 * could not be loaded,
-                 * do NOT expose the UUID.
-                 *
-                 * Use a neutral label.
-                 */
-
-                option.textContent =
-                    "Vendor Account";
-
-
-                vendorSelect.appendChild(
-                    option
-                );
-
-            }
-        );
-
-
-        if (
-            vendors.size === 0
-        ) {
-
-            vendorSelect.innerHTML = `
-                <option value="">
-                    No vendors found
-                </option>
-            `;
-
-        }
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Fallback vendor loading failed:",
-            error
-        );
-
-        showError(
-            "Unable to load vendor list."
-        );
-
-    }
-}
-
-
-/* =========================================================
-   LOAD DOCUMENTS
-========================================================= */
-
-async function loadDocuments(
-    vendorId
-) {
-
-    hideError();
-
-
-    documentsTableBody.innerHTML =
-        "";
-
-
-    emptyDocuments.style.display =
-        "none";
-
-
-    if (!vendorId) {
-
-        emptyDocuments.style.display =
-            "block";
 
         return;
     }
 
 
-    try {
-
-        let data = null;
+    vendors = data || [];
 
 
-        /*
-         * ADMIN
-         */
-
-        if (isAdmin) {
-
-            const result =
-                await supabaseClient
-                    .from(
-                        "vendor_documents"
-                    )
-                    .select("*")
-                    .or(
-                        "vendor_id.eq." +
-                        vendorId +
-                        ",user_id.eq." +
-                        vendorId
-                    )
-                    .order(
-                        "uploaded_at",
-                        {
-                            ascending:
-                                false
-                        }
-                    );
+    vendorSelect.innerHTML = `
+        <option value="">
+            -- Select Company --
+        </option>
+    `;
 
 
-            if (
-                result.error
-            ) {
+    if (vendors.length === 0) {
 
-                console.error(
-                    "Admin document loading error:",
-                    result.error
-                );
+        vendorSelect.innerHTML = `
+            <option value="">
+                No vendors found
+            </option>
+        `;
 
-                showError(
-                    "Unable to load documents: " +
-                    result.error.message
-                );
-
-                return;
-            }
+        return;
+    }
 
 
-            data =
-                result.data;
+    /*
+        IMPORTANT:
 
+        The user sees company_name.
+
+        The actual UUID remains hidden
+        in the option value.
+    */
+
+    vendors.forEach(
+        function (vendor) {
+
+            const option =
+                document.createElement("option");
+
+
+            option.value =
+                vendor.id;
+
+
+            option.textContent =
+                vendor.company_name ||
+                "Unnamed Company";
+
+
+            vendorSelect.appendChild(
+                option
+            );
+
+        }
+    );
+
+}
+
+
+/* ==============================================================
+   VENDOR SELECT CHANGE
+============================================================== */
+
+vendorSelect.addEventListener(
+    "change",
+    function () {
+
+        const vendorId =
+            this.value;
+
+
+        if (!vendorId) {
+
+            selectedVendor = null;
+
+            selectedVendorBox
+                .classList
+                .remove("show");
+
+            uploadBtn.disabled = true;
+
+            documentsSubtitle.textContent =
+                "Select a vendor above to view documents.";
+
+            showEmptyDocuments(
+                "No vendor selected",
+                "Select a company above to view vendor documents."
+            );
+
+            return;
         }
 
 
-        /*
-         * NORMAL VENDOR
-         */
+        selectedVendor =
+            vendors.find(
+                function (vendor) {
 
-        else {
+                    return vendor.id === vendorId;
 
-            const result =
-                await supabaseClient
-                    .from(
-                        "vendor_documents"
-                    )
-                    .select("*")
-                    .eq(
-                        "user_id",
-                        currentUser.id
-                    )
-                    .order(
-                        "uploaded_at",
-                        {
-                            ascending:
-                                false
-                        }
-                    );
+                }
+            );
 
 
-            if (
-                result.error
-            ) {
+        if (!selectedVendor) {
 
-                console.error(
-                    "Vendor document loading error:",
-                    result.error
-                );
-
-                showError(
-                    "Unable to load documents: " +
-                    result.error.message
-                );
-
-                return;
-            }
-
-
-            data =
-                result.data;
-
+            return;
         }
 
 
-        /*
-         * No documents
-         */
+        displaySelectedVendor();
 
-        if (
-            !data ||
-            data.length === 0
-        ) {
 
-            emptyDocuments.style.display =
-                "block";
+        uploadBtn.disabled = false;
+
+    }
+);
+
+
+/* ==============================================================
+   DISPLAY SELECTED VENDOR
+============================================================== */
+
+function displaySelectedVendor() {
+
+    selectedVendorBox
+        .classList
+        .add("show");
+
+
+    selectedVendorName.textContent =
+        selectedVendor.company_name ||
+        "Unnamed Company";
+
+
+    let info = [];
+
+
+    if (selectedVendor.contact_name) {
+
+        info.push(
+            selectedVendor.contact_name
+        );
+
+    }
+
+
+    if (selectedVendor.email) {
+
+        info.push(
+            selectedVendor.email
+        );
+
+    }
+
+
+    if (selectedVendor.phone) {
+
+        info.push(
+            selectedVendor.phone
+        );
+
+    }
+
+
+    if (selectedVendor.status) {
+
+        info.push(
+            "Status: " +
+            selectedVendor.status
+        );
+
+    }
+
+
+    selectedVendorInfo.textContent =
+        info.join(" • ");
+
+
+    documentsSubtitle.textContent =
+        "Documents associated with " +
+        selectedVendor.company_name +
+        ".";
+
+}
+
+
+/* ==============================================================
+   VIEW VENDOR DOCUMENTS
+============================================================== */
+
+viewVendorBtn.addEventListener(
+    "click",
+    async function () {
+
+        if (!selectedVendor) {
+
+            showAlert(
+                "Please select a vendor company first.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        await loadVendorDocuments();
+
+
+        document
+            .getElementById(
+                "vendorDocumentsSection"
+            )
+            .scrollIntoView({
+                behavior: "smooth"
+            });
+
+    }
+);
+
+
+/* ==============================================================
+   LOAD DOCUMENTS
+============================================================== */
+
+async function loadVendorDocuments() {
+
+    if (!selectedVendor) {
+
+        return;
+    }
+
+
+    documentsTableBody.innerHTML = `
+        <tr>
+            <td
+                colspan="5"
+                class="empty-state"
+            >
+                <span class="loading">
+                    Loading documents...
+                </span>
+            </td>
+        </tr>
+    `;
+
+
+    /*
+        vendor_id is the internal UUID.
+
+        The administrator never needs to see it.
+    */
+
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+        .from(DOCUMENTS_TABLE)
+        .select("*")
+        .eq(
+            "vendor_id",
+            selectedVendor.id
+        )
+        .order(
+            "uploaded_at",
+            {
+                ascending: false
+            }
+        );
+
+
+    if (error) {
+
+        console.error(
+            "Load documents error:",
+            error
+        );
+
+        showEmptyDocuments(
+            "Unable to load documents",
+            error.message
+        );
+
+        return;
+    }
+
+
+    if (!data || data.length === 0) {
+
+        showEmptyDocuments(
+            "No documents found",
+            "There are currently no documents associated with this vendor account."
+        );
+
+        return;
+    }
+
+
+    documentsTableBody.innerHTML = "";
+
+
+    data.forEach(
+        function (document) {
+
+            const row =
+                document.createElement("tr");
+
+
+            const uploadedDate =
+                formatDate(
+                    document.uploaded_at
+                );
+
+
+            const status =
+                document.status ||
+                "Pending";
+
+
+            row.innerHTML = `
+
+                <td>
+                    <strong>
+                        ${escapeHtml(
+                            document.file_name ||
+                            document.name ||
+                            "Document"
+                        )}
+                    </strong>
+                </td>
+
+                <td>
+                    ${escapeHtml(
+                        document.document_type ||
+                        document.type ||
+                        "Other"
+                    )}
+                </td>
+
+                <td>
+                    ${statusBadge(status)}
+                </td>
+
+                <td>
+                    ${uploadedDate}
+                </td>
+
+                <td>
+
+                    <div class="actions">
+
+                        <button
+                            class="secondary-btn"
+                            onclick="viewDocument(
+                                '${document.id}'
+                            )"
+                        >
+                            View
+                        </button>
+
+                        <button
+                            class="secondary-btn"
+                            onclick="downloadDocument(
+                                '${document.id}'
+                            )"
+                        >
+                            Download
+                        </button>
+
+                        <button
+                            class="danger-btn"
+                            onclick="deleteDocument(
+                                '${document.id}'
+                            )"
+                        >
+                            Delete
+                        </button>
+
+                    </div>
+
+                </td>
+
+            `;
+
+
+            documentsTableBody.appendChild(
+                row
+            );
+
+        }
+    );
+
+}
+
+
+/* ==============================================================
+   EMPTY DOCUMENTS
+============================================================== */
+
+function showEmptyDocuments(
+    title,
+    message
+) {
+
+    documentsTableBody.innerHTML = `
+
+        <tr>
+
+            <td
+                colspan="5"
+                class="empty-state"
+            >
+
+                <strong>
+                    ${escapeHtml(title)}
+                </strong>
+
+                ${escapeHtml(message)}
+
+            </td>
+
+        </tr>
+
+    `;
+
+}
+
+
+/* ==============================================================
+   STATUS BADGE
+============================================================== */
+
+function statusBadge(status) {
+
+    const normalized =
+        String(status)
+            .toLowerCase();
+
+
+    let className =
+        "status-default";
+
+
+    if (normalized === "pending") {
+
+        className =
+            "status-pending";
+
+    }
+
+    else if (
+        normalized === "approved"
+    ) {
+
+        className =
+            "status-approved";
+
+    }
+
+    else if (
+        normalized === "rejected"
+    ) {
+
+        className =
+            "status-rejected";
+
+    }
+
+
+    return `
+        <span class="status ${className}">
+            ${escapeHtml(status)}
+        </span>
+    `;
+
+}
+
+
+/* ==============================================================
+   UPLOAD DOCUMENT
+============================================================== */
+
+uploadBtn.addEventListener(
+    "click",
+    async function () {
+
+        if (!selectedVendor) {
+
+            showAlert(
+                "Please select a vendor first.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        const file =
+            documentFile.files[0];
+
+
+        const type =
+            documentType.value;
+
+
+        if (!file) {
+
+            showAlert(
+                "Please select a file.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        if (!type) {
+
+            showAlert(
+                "Please select a document type.",
+                "error"
+            );
 
             return;
         }
 
 
         /*
-         * Render documents
-         */
+            Maximum 50 MB.
+        */
 
-        data.forEach(
-            documentRecord => {
+        const MAX_SIZE =
+            50 * 1024 * 1024;
 
-                addDocumentRow(
-                    documentRecord
+
+        if (file.size > MAX_SIZE) {
+
+            showAlert(
+                "Maximum file size is 50 MB.",
+                "error"
+            );
+
+            return;
+        }
+
+
+        uploadBtn.disabled = true;
+
+        uploadBtn.textContent =
+            "Uploading...";
+
+
+        try {
+
+            /*
+                Safe storage path.
+
+                Each vendor gets its own folder.
+            */
+
+            const safeFileName =
+                sanitizeFileName(
+                    file.name
                 );
 
+
+            const timestamp =
+                Date.now();
+
+
+            const storagePath =
+                selectedVendor.id +
+                "/" +
+                timestamp +
+                "_" +
+                safeFileName;
+
+
+            /* ================================================
+               1. Upload to Supabase Storage
+            ================================================ */
+
+            const {
+                error:
+                storageError
+            } =
+            await supabaseClient
+                .storage
+                .from(DOCUMENT_BUCKET)
+                .upload(
+                    storagePath,
+                    file,
+                    {
+                        upsert: false
+                    }
+                );
+
+
+            if (storageError) {
+
+                throw storageError;
+
             }
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Loading documents failed:",
-            error
-        );
-
-        showError(
-            "Unable to load documents."
-        );
-
-    }
-}
 
 
-/* =========================================================
-   ADD DOCUMENT ROW
-========================================================= */
+            /* ================================================
+               2. Insert document record
+            ================================================ */
 
-function addDocumentRow(
-    documentRecord
-) {
+            const {
+                error:
+                databaseError
+            } =
+            await supabaseClient
+                .from(DOCUMENTS_TABLE)
+                .insert({
 
-    const row =
-        document.createElement(
-            "tr"
-        );
+                    vendor_id:
+                        selectedVendor.id,
 
+                    file_name:
+                        file.name,
 
-    /*
-     * DOCUMENT NAME
-     */
+                    document_type:
+                        type,
 
-    const nameCell =
-        document.createElement(
-            "td"
-        );
+                    storage_path:
+                        storagePath,
 
-    nameCell.className =
-        "document-name";
+                    status:
+                        "Pending",
 
+                    uploaded_at:
+                        new Date()
+                            .toISOString(),
 
-    nameCell.textContent =
-        documentRecord.file_name ||
-        "Unnamed Document";
+                    uploaded_by:
+                        currentUser.id
 
-
-    /*
-     * TYPE
-     */
-
-    const typeCell =
-        document.createElement(
-            "td"
-        );
+                });
 
 
-    typeCell.textContent =
-        documentRecord.document_type ||
-        "Other";
+            if (databaseError) {
+
+                /*
+                    If database insert fails,
+                    remove uploaded file.
+                */
+
+                await supabaseClient
+                    .storage
+                    .from(DOCUMENT_BUCKET)
+                    .remove([
+                        storagePath
+                    ]);
 
 
-    /*
-     * STATUS
-     */
+                throw databaseError;
 
-    const statusCell =
-        document.createElement(
-            "td"
-        );
+            }
 
 
-    const status =
-        document.createElement(
-            "span"
-        );
-
-
-    status.className =
-        "status " +
-        getStatusClass(
-            documentRecord.status
-        );
-
-
-    status.textContent =
-        formatStatus(
-            documentRecord.status
-        );
-
-
-    statusCell.appendChild(
-        status
-    );
-
-
-    /*
-     * DATE
-     */
-
-    const dateCell =
-        document.createElement(
-            "td"
-        );
-
-
-    dateCell.textContent =
-        formatDate(
-            documentRecord.uploaded_at
-        );
-
-
-    /*
-     * ACTIONS
-     */
-
-    const actionsCell =
-        document.createElement(
-            "td"
-        );
-
-
-    const actionContainer =
-        document.createElement(
-            "div"
-        );
-
-
-    actionContainer.className =
-        "action-buttons";
-
-
-    /*
-     * VIEW
-     */
-
-    const viewButton =
-        document.createElement(
-            "button"
-        );
-
-
-    viewButton.className =
-        "action-button view-button";
-
-    viewButton.textContent =
-        "View";
-
-    viewButton.type =
-        "button";
-
-
-    viewButton.onclick =
-        () => {
-
-            viewDocument(
-                documentRecord
+            showAlert(
+                "Document uploaded successfully.",
+                "success"
             );
 
-        };
 
+            documentFile.value =
+                "";
 
-    /*
-     * DOWNLOAD
-     */
+            documentType.value =
+                "";
 
-    const downloadButton =
-        document.createElement(
-            "button"
-        );
 
+            await loadVendorDocuments();
 
-    downloadButton.className =
-        "action-button download-button";
-
-    downloadButton.textContent =
-        "Download";
-
-    downloadButton.type =
-        "button";
-
-
-    downloadButton.onclick =
-        () => {
-
-            downloadDocument(
-                documentRecord
-            );
-
-        };
-
-
-    /*
-     * DELETE
-     */
-
-    const deleteButton =
-        document.createElement(
-            "button"
-        );
-
-
-    deleteButton.className =
-        "action-button delete-button";
-
-    deleteButton.textContent =
-        "Delete";
-
-    deleteButton.type =
-        "button";
-
-
-    deleteButton.onclick =
-        () => {
-
-            deleteDocument(
-                documentRecord
-            );
-
-        };
-
-
-    actionContainer.appendChild(
-        viewButton
-    );
-
-    actionContainer.appendChild(
-        downloadButton
-    );
-
-    actionContainer.appendChild(
-        deleteButton
-    );
-
-
-    actionsCell.appendChild(
-        actionContainer
-    );
-
-
-    row.appendChild(
-        nameCell
-    );
-
-    row.appendChild(
-        typeCell
-    );
-
-    row.appendChild(
-        statusCell
-    );
-
-    row.appendChild(
-        dateCell
-    );
-
-    row.appendChild(
-        actionsCell
-    );
-
-
-    documentsTableBody.appendChild(
-        row
-    );
-}
-
-
-/* =========================================================
-   STATUS CLASS
-========================================================= */
-
-function getStatusClass(
-    status
-) {
-
-    const value =
-        String(
-            status || ""
-        ).toLowerCase();
-
-
-    if (
-        value === "approved"
-    ) {
-
-        return "status-approved";
-    }
-
-
-    if (
-        value === "rejected"
-    ) {
-
-        return "status-rejected";
-    }
-
-
-    return "status-pending";
-}
-
-
-/* =========================================================
-   STATUS DISPLAY
-========================================================= */
-
-function formatStatus(
-    status
-) {
-
-    const value =
-        String(
-            status || ""
-        ).toLowerCase();
-
-
-    if (
-        value === "submitted" ||
-        value === "uploaded" ||
-        value === "pending"
-    ) {
-
-        return "Pending";
-    }
-
-
-    if (
-        value === "approved"
-    ) {
-
-        return "Approved";
-    }
-
-
-    if (
-        value === "rejected"
-    ) {
-
-        return "Rejected";
-    }
-
-
-    return status ||
-        "Pending";
-}
-
-
-/* =========================================================
-   FORMAT DATE
-========================================================= */
-
-function formatDate(
-    date
-) {
-
-    if (!date) {
-
-        return "";
-    }
-
-
-    return new Date(
-        date
-    ).toLocaleDateString(
-        "en-US",
-        {
-            year:
-                "numeric",
-
-            month:
-                "short",
-
-            day:
-                "numeric"
         }
-    );
+
+        catch (error) {
+
+            console.error(
+                "Upload error:",
+                error
+            );
+
+            showAlert(
+                "Upload failed: " +
+                error.message,
+                "error"
+            );
+
+        }
+
+        finally {
+
+            uploadBtn.disabled =
+                !selectedVendor;
+
+            uploadBtn.textContent =
+                "Upload Document";
+
+        }
+
+    }
+);
+
+
+/* ==============================================================
+   GET DOCUMENT RECORD
+============================================================== */
+
+async function getDocument(
+    documentId
+) {
+
+    const {
+        data,
+        error
+    } =
+    await supabaseClient
+        .from(DOCUMENTS_TABLE)
+        .select("*")
+        .eq(
+            "id",
+            documentId
+        )
+        .single();
+
+
+    if (error) {
+
+        throw error;
+
+    }
+
+
+    /*
+        Security check:
+
+        Make sure the document belongs
+        to the currently selected vendor.
+    */
+
+    if (
+        !selectedVendor ||
+        data.vendor_id !==
+        selectedVendor.id
+    ) {
+
+        throw new Error(
+            "Unauthorized document access."
+        );
+
+    }
+
+
+    return data;
+
 }
 
 
-/* =========================================================
+/* ==============================================================
    VIEW DOCUMENT
-========================================================= */
+============================================================== */
 
 async function viewDocument(
-    documentRecord
+    documentId
 ) {
 
     try {
+
+        const document =
+            await getDocument(
+                documentId
+            );
+
 
         const {
             data,
             error
         } =
-            await supabaseClient
-                .storage
-                .from(
-                    "vendor-documents"
-                )
-                .createSignedUrl(
-                    documentRecord.file_path,
-                    3600
-                );
+        await supabaseClient
+            .storage
+            .from(DOCUMENT_BUCKET)
+            .createSignedUrl(
+                document.storage_path,
+                60 * 10
+            );
 
 
         if (error) {
 
-            console.error(
-                "View document error:",
-                error
-            );
-
-            alert(
-                "Unable to open this document."
-            );
-
-            return;
-        }
-
-
-        if (
-            data &&
-            data.signedUrl
-        ) {
-
-            window.open(
-                data.signedUrl,
-                "_blank"
-            );
+            throw error;
 
         }
+
+
+        window.open(
+            data.signedUrl,
+            "_blank"
+        );
 
     }
 
     catch (error) {
 
         console.error(
-            "View document failed:",
+            "View document error:",
             error
         );
 
-        alert(
-            "Unable to open this document."
+        showAlert(
+            "Unable to open this document.",
+            "error"
         );
 
     }
+
 }
 
 
-/* =========================================================
+/* ==============================================================
    DOWNLOAD DOCUMENT
-========================================================= */
+============================================================== */
 
 async function downloadDocument(
-    documentRecord
+    documentId
 ) {
 
     try {
+
+        const document =
+            await getDocument(
+                documentId
+            );
+
 
         const {
             data,
             error
         } =
-            await supabaseClient
-                .storage
-                .from(
-                    "vendor-documents"
-                )
-                .download(
-                    documentRecord.file_path
-                );
+        await supabaseClient
+            .storage
+            .from(DOCUMENT_BUCKET)
+            .createSignedUrl(
+                document.storage_path,
+                60 * 10,
+                {
+                    download:
+                        document.file_name
+                }
+            );
 
 
         if (error) {
 
-            console.error(
-                "Download error:",
-                error
-            );
+            throw error;
 
-            alert(
-                "Unable to download this document."
-            );
-
-            return;
         }
-
-
-        const url =
-            URL.createObjectURL(
-                data
-            );
 
 
         const link =
-            document.createElement(
-                "a"
-            );
+            document.createElement;
 
 
-        link.href =
-            url;
-
-
-        link.download =
-            documentRecord.file_name ||
-            "document";
-
-
-        document.body.appendChild(
-            link
-        );
-
-
-        link.click();
-
-
-        link.remove();
-
-
-        setTimeout(
-            () => {
-
-                URL.revokeObjectURL(
-                    url
-                );
-
-            },
-            1000
-        );
+        window.location.href =
+            data.signedUrl;
 
     }
 
     catch (error) {
 
         console.error(
-            "Download failed:",
+            "Download error:",
             error
         );
 
-        alert(
-            "Unable to download this document."
+        showAlert(
+            "Unable to download this document.",
+            "error"
         );
 
     }
+
 }
 
 
-/* =========================================================
+/* ==============================================================
    DELETE DOCUMENT
-========================================================= */
+============================================================== */
 
 async function deleteDocument(
-    documentRecord
+    documentId
 ) {
 
-    const fileName =
-        documentRecord.file_name ||
-        "this document";
+    if (!selectedVendor) {
+
+        return;
+    }
 
 
     const confirmed =
         confirm(
             "Are you sure you want to delete this document?\n\n" +
-            fileName
+            "This action cannot be undone."
         );
 
 
     if (!confirmed) {
 
         return;
+
     }
 
 
     try {
 
+        const document =
+            await getDocument(
+                documentId
+            );
+
+
         /*
-         * Delete physical file.
-         */
+            1. Delete from Storage
+        */
 
         const {
-            error: storageError
+            error:
+            storageError
         } =
-            await supabaseClient
-                .storage
-                .from(
-                    "vendor-documents"
-                )
-                .remove(
-                    [
-                        documentRecord.file_path
-                    ]
-                );
+        await supabaseClient
+            .storage
+            .from(DOCUMENT_BUCKET)
+            .remove([
+                document.storage_path
+            ]);
 
 
         if (storageError) {
 
-            console.error(
-                "Storage delete error:",
-                storageError
-            );
+            throw storageError;
 
-            alert(
-                "Unable to delete the file."
-            );
-
-            return;
         }
 
 
         /*
-         * Delete database record.
-         */
+            2. Delete database record
+        */
 
         const {
-            error: databaseError
+            error:
+            databaseError
         } =
-            await supabaseClient
-                .from(
-                    "vendor_documents"
-                )
-                .delete()
-                .eq(
-                    "id",
-                    documentRecord.id
-                );
+        await supabaseClient
+            .from(DOCUMENTS_TABLE)
+            .delete()
+            .eq(
+                "id",
+                documentId
+            )
+            .eq(
+                "vendor_id",
+                selectedVendor.id
+            );
 
 
         if (databaseError) {
-
-            console.error(
-                "Database delete error:",
-                databaseError
-            );
-
-            alert(
-                "The file was removed, but the database record could not be removed."
-            );
-
-            return;
-        }
-
-
-        alert(
-            "Document deleted successfully."
-        );
-
-
-        await loadDocuments(
-            selectedVendorId
-        );
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Delete failed:",
-            error
-        );
-
-        alert(
-            "Unable to delete this document."
-        );
-
-    }
-}
-
-
-/* =========================================================
-   UPLOAD DOCUMENT
-========================================================= */
-
-async function uploadDocument() {
-
-    hideError();
-
-
-    const file =
-        documentFile.files[0];
-
-
-    const type =
-        documentType.value;
-
-
-    if (!file) {
-
-        alert(
-            "Please select a document first."
-        );
-
-        return;
-    }
-
-
-    if (
-        file.size >
-        50 * 1024 * 1024
-    ) {
-
-        alert(
-            "The maximum file size is 50 MB."
-        );
-
-        return;
-    }
-
-
-    if (!type) {
-
-        alert(
-            "Please select a document type."
-        );
-
-        return;
-    }
-
-
-    if (!selectedVendorId) {
-
-        alert(
-            "No vendor account is selected."
-        );
-
-        return;
-    }
-
-
-    /*
-     * Normal vendor can only upload
-     * to own account.
-     */
-
-    if (
-        !isAdmin &&
-        selectedVendorId !== currentUser.id
-    ) {
-
-        alert(
-            "You are not authorized to upload documents for this vendor."
-        );
-
-        return;
-    }
-
-
-    uploadButton.disabled =
-        true;
-
-
-    uploadButton.textContent =
-        "Uploading...";
-
-
-    try {
-
-        /*
-         * Clean filename.
-         */
-
-        const cleanFileName =
-            file.name
-                .replace(
-                    /[^a-zA-Z0-9._-]/g,
-                    "_"
-                );
-
-
-        const uniqueFileName =
-            Date.now() +
-            "_" +
-            cleanFileName;
-
-
-        /*
-         * Storage path.
-         */
-
-        const filePath =
-            selectedVendorId +
-            "/" +
-            uniqueFileName;
-
-
-        /*
-         * Upload file.
-         */
-
-        const {
-            error: uploadError
-        } =
-            await supabaseClient
-                .storage
-                .from(
-                    "vendor-documents"
-                )
-                .upload(
-                    filePath,
-                    file,
-                    {
-                        cacheControl:
-                            "3600",
-
-                        upsert:
-                            false,
-
-                        contentType:
-                            file.type ||
-                            "application/octet-stream"
-                    }
-                );
-
-
-        if (uploadError) {
-
-            console.error(
-                "Upload error:",
-                uploadError
-            );
-
-            throw uploadError;
-        }
-
-
-        /*
-         * IMPORTANT
-         *
-         * user_id must be the actual
-         * vendor's auth user ID.
-         */
-
-        const documentUserId =
-            isAdmin
-                ? (
-                    selectedVendorUserId ||
-                    selectedVendorId
-                )
-                : currentUser.id;
-
-
-        /*
-         * Insert database record.
-         *
-         * DO NOT use document_name.
-         */
-
-        const {
-            error: databaseError
-        } =
-            await supabaseClient
-                .from(
-                    "vendor_documents"
-                )
-                .insert(
-                    {
-
-                        vendor_id:
-                            selectedVendorId,
-
-                        user_id:
-                            documentUserId,
-
-                        document_type:
-                            type,
-
-                        file_name:
-                            file.name,
-
-                        file_path:
-                            filePath,
-
-                        file_size:
-                            file.size,
-
-                        mime_type:
-                            file.type ||
-                            "application/octet-stream",
-
-                        status:
-                            "submitted"
-
-                    }
-                );
-
-
-        if (databaseError) {
-
-            console.error(
-                "Database insert error:",
-                databaseError
-            );
-
-
-            /*
-             * Roll back uploaded file.
-             */
-
-            await supabaseClient
-                .storage
-                .from(
-                    "vendor-documents"
-                )
-                .remove(
-                    [
-                        filePath
-                    ]
-                );
-
 
             throw databaseError;
+
         }
 
 
-        alert(
-            "Document uploaded successfully."
+        showAlert(
+            "Document deleted successfully.",
+            "success"
         );
 
 
-        documentFile.value =
-            "";
-
-        documentType.value =
-            "";
-
-
-        await loadDocuments(
-            selectedVendorId
-        );
+        await loadVendorDocuments();
 
     }
 
     catch (error) {
 
         console.error(
-            "Upload failed:",
+            "Delete document error:",
             error
         );
 
-        showError(
-            "Unable to upload document: " +
-            (
-                error.message ||
-                "Unknown error"
-            )
+        showAlert(
+            "Unable to delete this document.",
+            "error"
         );
 
     }
 
-    finally {
-
-        uploadButton.disabled =
-            false;
-
-        uploadButton.textContent =
-            "Upload Document";
-
-    }
 }
 
 
-/* =========================================================
-   SELECT VENDOR
-========================================================= */
+/* ==============================================================
+   SIGN OUT
+============================================================== */
 
-loadVendorButton.addEventListener(
+signOutBtn.addEventListener(
     "click",
-    async function() {
+    async function () {
 
-        hideError();
-
-
-        const vendorId =
-            vendorSelect.value;
+        await supabaseClient
+            .auth
+            .signOut();
 
 
-        if (!vendorId) {
-
-            alert(
-                "Please select a vendor."
-            );
-
-            return;
-        }
-
-
-        if (!isAdmin) {
-
-            alert(
-                "You are not authorized to select another vendor."
-            );
-
-            return;
-        }
-
-
-        /*
-         * Store selected vendor UUID
-         * internally.
-         */
-
-        selectedVendorId =
-            vendorId;
-
-
-        /*
-         * Get selected option.
-         */
-
-        const selectedOption =
-            vendorSelect.options[
-                vendorSelect.selectedIndex
-            ];
-
-
-        selectedVendorUserId =
-            selectedOption.dataset.userId ||
-            vendorId;
-
-
-        selectedVendorCompanyName =
-            selectedOption.dataset.companyName ||
-            selectedOption.textContent ||
-            "Vendor";
-
-
-        /*
-         * Display company name,
-         * NOT UUID.
-         */
-
-        selectedVendorInfo.style.display =
-            "block";
-
-
-        selectedVendorInfo.innerHTML =
-            `
-            <strong>
-                ${escapeHtml(
-                    selectedVendorCompanyName
-                )}
-            </strong>
-            <br>
-            Viewing documents for this vendor account.
-            `;
-
-
-        /*
-         * Load documents.
-         */
-
-        await loadDocuments(
-            selectedVendorId
-        );
-
-
-        scrollToDocuments();
+        window.location.href =
+            "vendor-login.html";
 
     }
 );
 
 
-/* =========================================================
-   UPLOAD BUTTON
-========================================================= */
-
-uploadButton.addEventListener(
-    "click",
-    uploadDocument
-);
-
-
-/* =========================================================
-   SCROLL
-========================================================= */
+/* ==============================================================
+   SCROLL TO DOCUMENTS
+============================================================== */
 
 function scrollToDocuments() {
 
     document
         .getElementById(
-            "documentsSection"
+            "vendorDocumentsSection"
         )
-        .scrollIntoView(
-            {
-                behavior:
-                    "smooth"
-            }
-        );
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
 }
 
 
-/* =========================================================
-   COMING SOON
-========================================================= */
+/* ==============================================================
+   ALERT
+============================================================== */
 
-function showComingSoon(
-    section
+function showAlert(
+    message,
+    type
 ) {
 
-    alert(
-        section +
-        " management will be available in the next portal update."
+    alertBox.textContent =
+        message;
+
+
+    alertBox.className =
+        "alert show " +
+        (
+            type === "success"
+                ? "alert-success"
+                : "alert-error"
+        );
+
+
+    setTimeout(
+        function () {
+
+            alertBox.classList.remove(
+                "show"
+            );
+
+        },
+        5000
     );
+
 }
 
 
-/* =========================================================
+/* ==============================================================
+   DATE FORMAT
+============================================================== */
+
+function formatDate(
+    value
+) {
+
+    if (!value) {
+
+        return "";
+
+    }
+
+
+    const date =
+        new Date(value);
+
+
+    if (isNaN(date.getTime())) {
+
+        return "";
+
+    }
+
+
+    return date.toLocaleDateString(
+        "en-US",
+        {
+            year: "numeric",
+            month: "short",
+            day: "numeric"
+        }
+    );
+
+}
+
+
+/* ==============================================================
+   SANITIZE FILE NAME
+============================================================== */
+
+function sanitizeFileName(
+    fileName
+) {
+
+    return fileName
+        .replace(
+            /[^a-zA-Z0-9._-]/g,
+            "_"
+        );
+
+}
+
+
+/* ==============================================================
    ESCAPE HTML
-========================================================= */
+============================================================== */
 
 function escapeHtml(
     value
 ) {
 
-    return String(
-        value || ""
-    )
+    return String(value ?? "")
         .replace(
             /&/g,
             "&amp;"
@@ -3215,292 +2351,12 @@ function escapeHtml(
             /'/g,
             "&#039;"
         );
+
 }
 
-
-/* =========================================================
-   SIGN OUT
-========================================================= */
-
-signOutButton.addEventListener(
-    "click",
-    async function() {
-
-        signOutButton.disabled =
-            true;
-
-
-        signOutButton.textContent =
-            "Signing Out...";
-
-
-        const {
-            error
-        } =
-            await supabaseClient
-                .auth
-                .signOut();
-
-
-        if (error) {
-
-            console.error(
-                "Sign out error:",
-                error
-            );
-
-
-            signOutButton.disabled =
-                false;
-
-
-            signOutButton.textContent =
-                "Sign Out";
-
-
-            alert(
-                "Unable to sign out."
-            );
-
-
-            return;
-        }
-
-
-        window.location.href =
-            "vendor-login.html";
-
-    }
-);
-
-
-/* =========================================================
-   INITIALIZE DASHBOARD
-========================================================= */
-
-async function initializeDashboard() {
-
-    try {
-
-        /*
-         * Get authenticated user.
-         */
-
-        const {
-            data,
-            error
-        } =
-            await supabaseClient
-                .auth
-                .getUser();
-
-
-        if (error) {
-
-            console.error(
-                "Get user error:",
-                error
-            );
-
-
-            window.location.href =
-                "vendor-login.html";
-
-
-            return;
-        }
-
-
-        const user =
-            data?.user;
-
-
-        if (!user) {
-
-            window.location.href =
-                "vendor-login.html";
-
-
-            return;
-        }
-
-
-        currentUser =
-            user;
-
-
-        userEmail.textContent =
-            user.email ||
-            "Vendor";
-
-
-        /*
-         * Check administrator.
-         */
-
-        isAdmin =
-            await checkAdmin();
-
-
-        /* =========================================
-           ADMIN
-        ========================================= */
-
-        if (isAdmin) {
-
-            adminBadge.style.display =
-                "inline-block";
-
-
-            adminPanel.style.display =
-                "block";
-
-
-            /*
-             * Load vendor list.
-             */
-
-            await loadVendors();
-
-
-            /*
-             * Administrator's own account.
-             */
-
-            selectedVendorId =
-                user.id;
-
-
-            selectedVendorUserId =
-                user.id;
-
-
-            selectedVendorCompanyName =
-                "Administrator";
-
-
-            selectedVendorInfo.style.display =
-                "block";
-
-
-            selectedVendorInfo.innerHTML =
-                `
-                <strong>
-                    Administrator Account
-                </strong>
-                <br>
-                ${escapeHtml(
-                    user.email
-                )}
-                `;
-
-
-            /*
-             * Load administrator's own
-             * documents.
-             */
-
-            await loadDocuments(
-                selectedVendorId
-            );
-
-        }
-
-
-        /* =========================================
-           NORMAL VENDOR
-        ========================================= */
-
-        else {
-
-            adminPanel.style.display =
-                "none";
-
-
-            selectedVendorId =
-                user.id;
-
-
-            selectedVendorUserId =
-                user.id;
-
-
-            selectedVendorCompanyName =
-                "My Vendor Account";
-
-
-            selectedVendorInfo.style.display =
-                "none";
-
-
-            await loadDocuments(
-                user.id
-            );
-
-        }
-
-
-        /*
-         * Show dashboard.
-         */
-
-        loading.style.display =
-            "none";
-
-
-        dashboardContent.style.display =
-            "block";
-
-    }
-
-    catch (error) {
-
-        console.error(
-            "Dashboard initialization error:",
-            error
-        );
-
-
-        window.location.href =
-            "vendor-login.html";
-
-    }
-}
-
-
-/* =========================================================
-   AUTH STATE
-========================================================= */
-
-supabaseClient.auth.onAuthStateChange(
-    function(
-        event,
-        session
-    ) {
-
-        if (
-            event ===
-            "SIGNED_OUT"
-        ) {
-
-            window.location.href =
-                "vendor-login.html";
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   START
-========================================================= */
-
-initializeDashboard();
 
 </script>
 
 
 </body>
-
 </html>
