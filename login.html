@@ -1,0 +1,658 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Miju Construction - Admin Login</title>
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                linear-gradient(
+                    rgba(15, 23, 42, 0.88),
+                    rgba(15, 23, 42, 0.88)
+                ),
+                url("images/construction-hero.jpg") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 430px;
+        }
+
+        .login-card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 40px 36px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.30);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 30px;
+            color: #111827;
+            letter-spacing: -0.5px;
+        }
+
+        .logo p {
+            margin: 8px 0 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .admin-badge {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 12px;
+            border-radius: 20px;
+            background: #eef2ff;
+            color: #3730a3;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        input {
+            width: 100%;
+            height: 50px;
+            padding: 0 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 9px;
+            font-size: 16px;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        input:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+        }
+
+        .password-wrap {
+            position: relative;
+        }
+
+        .password-wrap input {
+            padding-right: 80px;
+        }
+
+        .show-password {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: transparent;
+            color: #2563eb;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .login-button {
+            width: 100%;
+            height: 52px;
+            border: none;
+            border-radius: 9px;
+            background: #111827;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 5px;
+        }
+
+        .login-button:hover {
+            background: #1f2937;
+        }
+
+        .login-button:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+        }
+
+        .message {
+            display: none;
+            margin-bottom: 18px;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .message.error {
+            display: block;
+            background: #fef2f2;
+            color: #b91c1c;
+            border: 1px solid #fecaca;
+        }
+
+        .message.success {
+            display: block;
+            background: #f0fdf4;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+        }
+
+        .back-links {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .back-links a {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-links a:hover {
+            text-decoration: underline;
+        }
+
+        .security-note {
+            text-align: center;
+            margin-top: 18px;
+            color: #9ca3af;
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 480px) {
+            .login-card {
+                padding: 32px 24px;
+            }
+
+            .logo h1 {
+                font-size: 26px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="logo">
+            <h1>Miju Construction</h1>
+            <p>Construction Project Administration</p>
+            <span class="admin-badge">ADMIN LOGIN</span>
+        </div>
+
+        <div id="message" class="message"></div>
+
+        <form id="loginForm">
+
+            <div class="form-group">
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    autocomplete="username"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+
+                <div class="password-wrap">
+
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        class="show-password"
+                        id="showPassword"
+                    >
+                        Show
+                    </button>
+
+                </div>
+            </div>
+
+            <button
+                type="submit"
+                class="login-button"
+                id="loginButton"
+            >
+                Login
+            </button>
+
+        </form>
+
+        <div class="back-links">
+            <a href="miju-construction.html">
+                ← Back to Miju Construction
+            </a>
+        </div>
+
+        <div class="security-note">
+            Authorized administrators only.<br>
+            Your account must have administrator permission.
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================================================
+       SUPABASE CONFIGURATION
+       Same project used by miju-construction.html
+       and admin-construction.html
+       ========================================================= */
+
+    const SUPABASE_URL =
+        "https://nhjapidacizvhebtpzah.supabase.co";
+
+    const SUPABASE_ANON_KEY =
+        "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
+
+    const supabaseClient =
+        window.supabase.createClient(
+            SUPABASE_URL,
+            SUPABASE_ANON_KEY
+        );
+
+
+    /* =========================================================
+       ELEMENTS
+       ========================================================= */
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    const emailInput =
+        document.getElementById("email");
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const loginButton =
+        document.getElementById("loginButton");
+
+    const messageBox =
+        document.getElementById("message");
+
+    const showPasswordButton =
+        document.getElementById("showPassword");
+
+
+    /* =========================================================
+       MESSAGE
+       ========================================================= */
+
+    function showMessage(message, type) {
+
+        messageBox.textContent = message;
+
+        messageBox.className =
+            "message " + type;
+    }
+
+
+    function clearMessage() {
+
+        messageBox.textContent = "";
+
+        messageBox.className =
+            "message";
+    }
+
+
+    /* =========================================================
+       SHOW / HIDE PASSWORD
+       ========================================================= */
+
+    showPasswordButton.addEventListener(
+        "click",
+        function () {
+
+            if (passwordInput.type === "password") {
+
+                passwordInput.type = "text";
+
+                showPasswordButton.textContent =
+                    "Hide";
+
+            } else {
+
+                passwordInput.type = "password";
+
+                showPasswordButton.textContent =
+                    "Show";
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       CHECK WHETHER USER IS ALREADY LOGGED IN
+       ========================================================= */
+
+    async function checkExistingSession() {
+
+        try {
+
+            const {
+                data: {
+                    session
+                }
+            } = await supabaseClient.auth.getSession();
+
+
+            if (!session) {
+                return;
+            }
+
+
+            /*
+             * Check admin_users table.
+             */
+
+            const {
+                data: adminUser,
+                error
+            } = await supabaseClient
+                .from("admin_users")
+                .select("user_id, role")
+                .eq("user_id", session.user.id)
+                .eq("role", "admin")
+                .maybeSingle();
+
+
+            if (error) {
+
+                console.error(
+                    "Admin check error:",
+                    error
+                );
+
+                return;
+            }
+
+
+            if (adminUser) {
+
+                window.location.href =
+                    "admin-construction.html";
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Session check error:",
+                error
+            );
+        }
+    }
+
+
+    /* =========================================================
+       LOGIN
+       ========================================================= */
+
+    loginForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+            clearMessage();
+
+            const email =
+                emailInput.value.trim();
+
+            const password =
+                passwordInput.value;
+
+
+            if (!email || !password) {
+
+                showMessage(
+                    "Please enter your email and password.",
+                    "error"
+                );
+
+                return;
+            }
+
+
+            loginButton.disabled = true;
+
+            loginButton.textContent =
+                "Signing in...";
+
+
+            try {
+
+                /*
+                 * Supabase Authentication
+                 */
+
+                const {
+                    data,
+                    error
+                } = await supabaseClient.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+
+                if (error) {
+
+                    console.error(
+                        "Login error:",
+                        error
+                    );
+
+                    showMessage(
+                        error.message ||
+                        "Login failed. Please check your email and password.",
+                        "error"
+                    );
+
+                    loginButton.disabled = false;
+
+                    loginButton.textContent =
+                        "Login";
+
+                    return;
+                }
+
+
+                if (!data || !data.user) {
+
+                    showMessage(
+                        "Login failed. No user account was returned.",
+                        "error"
+                    );
+
+                    loginButton.disabled = false;
+
+                    loginButton.textContent =
+                        "Login";
+
+                    return;
+                }
+
+
+                /*
+                 * IMPORTANT:
+                 * Authentication alone is not enough.
+                 *
+                 * The user must also exist in admin_users
+                 * with role = admin.
+                 */
+
+                const {
+                    data: adminUser,
+                    error: adminError
+                } = await supabaseClient
+                    .from("admin_users")
+                    .select("user_id, role")
+                    .eq("user_id", data.user.id)
+                    .eq("role", "admin")
+                    .maybeSingle();
+
+
+                if (adminError) {
+
+                    console.error(
+                        "Admin permission check error:",
+                        adminError
+                    );
+
+                    await supabaseClient.auth.signOut();
+
+                    showMessage(
+                        "Unable to verify administrator permission.",
+                        "error"
+                    );
+
+                    loginButton.disabled = false;
+
+                    loginButton.textContent =
+                        "Login";
+
+                    return;
+                }
+
+
+                if (!adminUser) {
+
+                    await supabaseClient.auth.signOut();
+
+                    showMessage(
+                        "This account is not authorized as a Miju Construction administrator.",
+                        "error"
+                    );
+
+                    loginButton.disabled = false;
+
+                    loginButton.textContent =
+                        "Login";
+
+                    return;
+                }
+
+
+                /*
+                 * Successful administrator login
+                 */
+
+                showMessage(
+                    "Login successful. Opening Construction Administration...",
+                    "success"
+                );
+
+
+                setTimeout(
+                    function () {
+
+                        window.location.href =
+                            "admin-construction.html";
+
+                    },
+                    500
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Unexpected login error:",
+                    error
+                );
+
+                showMessage(
+                    "An unexpected error occurred. Please try again.",
+                    "error"
+                );
+
+                loginButton.disabled = false;
+
+                loginButton.textContent =
+                    "Login";
+            }
+
+        }
+    );
+
+
+    /* =========================================================
+       ENTER KEY SUPPORT
+       ========================================================= */
+
+    passwordInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Enter") {
+
+                loginForm.requestSubmit();
+            }
+        }
+    );
+
+
+    /* =========================================================
+       START
+       ========================================================= */
+
+    checkExistingSession();
+
+</script>
+
+</body>
+</html>
+```
