@@ -8,15 +8,16 @@
 
     <meta
         name="description"
-        content="Primax Global, Inc. is a U.S. government vendor supplying commercial and industrial products to federal, state, and local government agencies."
+        content="Primax Global, Inc. is a U.S. government vendor supplying commercial, industrial, construction, and specialty products to federal, state, and local government agencies."
     >
 
     <meta
         name="keywords"
-        content="Primax Global, government vendor, federal supplier, government procurement, industrial products, DoD supplier"
+        content="Primax Global, government vendor, federal supplier, government procurement, industrial products, construction, Miju Construction, DoD supplier"
     >
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -44,6 +45,7 @@
             display: block;
         }
 
+
         /* =========================================
            HEADER
         ========================================= */
@@ -61,6 +63,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 17px 25px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -88,6 +91,7 @@
             opacity: .8;
         }
 
+
         /* =========================================
            VENDOR PORTAL BUTTON
         ========================================= */
@@ -95,8 +99,11 @@
         .vendor-nav-button {
             background: #ffffff;
             color: #102a43 !important;
+
             padding: 9px 16px;
+
             border-radius: 5px;
+
             font-weight: 700 !important;
         }
 
@@ -105,9 +112,9 @@
             opacity: 1 !important;
         }
 
+
         /* =========================================
            ADMIN VENDOR MANAGEMENT BUTTON
-           Hidden by default
         ========================================= */
 
         .admin-nav-button {
@@ -117,6 +124,7 @@
             color: #ffffff !important;
 
             padding: 9px 16px;
+
             border-radius: 5px;
 
             font-weight: 700 !important;
@@ -128,6 +136,7 @@
             background: #b45309;
             opacity: 1 !important;
         }
+
 
         /* =========================================
            HERO
@@ -160,9 +169,12 @@
 
         .hero h1 span {
             display: block;
+
             font-size: 22px;
             font-weight: 400;
+
             margin-top: 18px;
+
             opacity: .9;
         }
 
@@ -178,8 +190,11 @@
 
         .hero-buttons {
             display: flex;
+
             justify-content: center;
+
             gap: 14px;
+
             flex-wrap: wrap;
         }
 
@@ -213,6 +228,7 @@
         .button-outline:hover {
             background: rgba(255,255,255,.1);
         }
+
 
         /* =========================================
            GENERAL SECTION
@@ -248,6 +264,7 @@
 
             font-size: 16px;
         }
+
 
         /* =========================================
            GOVERNMENT
@@ -291,6 +308,7 @@
             font-size: 15px;
         }
 
+
         /* =========================================
            ABOUT
         ========================================= */
@@ -315,6 +333,7 @@
             font-size: 16px;
         }
 
+
         /* =========================================
            PRODUCTS
         ========================================= */
@@ -326,18 +345,237 @@
         .product-intro {
             max-width: 800px;
 
-            margin: 0 auto 30px;
+            margin: 0 auto 35px;
 
             text-align: center;
 
             color: #52606d;
         }
 
+
+        /* =========================================
+           PRODUCT CATEGORY
+        ========================================= */
+
+        .category-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+
+            margin-top: 35px;
+        }
+
+        .category-card {
+            background: #ffffff;
+
+            padding: 32px 28px;
+
+            border-radius: 7px;
+
+            border: 1px solid #e4e7eb;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,.05);
+
+            transition: transform .2s, box-shadow .2s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-3px);
+
+            box-shadow: 0 7px 20px rgba(0,0,0,.08);
+        }
+
+        .category-card h3 {
+            color: #102a43;
+
+            font-size: 21px;
+
+            margin-bottom: 12px;
+        }
+
+        .category-card p {
+            color: #52606d;
+
+            font-size: 15px;
+
+            margin-bottom: 20px;
+        }
+
+        .category-link {
+            display: inline-block;
+
+            color: #102a43;
+
+            font-weight: 700;
+
+            font-size: 14px;
+        }
+
+        .category-link:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           CONSTRUCTION CATEGORY
+        ========================================= */
+
+        .construction-card {
+            border-top: 4px solid #d97706;
+        }
+
+        .construction-card h3 {
+            color: #102a43;
+        }
+
+        .construction-badge {
+            display: inline-block;
+
+            background: #fff3e0;
+
+            color: #b45309;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            padding: 5px 9px;
+
+            border-radius: 4px;
+
+            margin-bottom: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: .4px;
+        }
+
+
+        /* =========================================
+           MIJU CONSTRUCTION PREVIEW
+        ========================================= */
+
+        #construction {
+            background: #ffffff;
+        }
+
+        .construction-intro {
+            max-width: 800px;
+
+            margin: 0 auto 40px;
+
+            text-align: center;
+
+            color: #52606d;
+
+            font-size: 16px;
+        }
+
+        .construction-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+
+            max-width: 900px;
+
+            margin: auto;
+        }
+
+        .construction-service-card {
+            padding: 35px;
+
+            border-radius: 7px;
+
+            border: 1px solid #e4e7eb;
+
+            background: #f5f7fa;
+        }
+
+        .construction-service-card h3 {
+            color: #102a43;
+
+            font-size: 24px;
+
+            margin-bottom: 12px;
+        }
+
+        .construction-service-card p {
+            color: #52606d;
+
+            font-size: 15px;
+
+            margin-bottom: 18px;
+        }
+
+        .construction-service-card ul {
+            list-style: none;
+        }
+
+        .construction-service-card li {
+            color: #52606d;
+
+            margin-bottom: 8px;
+
+            padding-left: 18px;
+
+            position: relative;
+
+            font-size: 14px;
+        }
+
+        .construction-service-card li::before {
+            content: "•";
+
+            position: absolute;
+
+            left: 0;
+
+            color: #d97706;
+
+            font-weight: bold;
+        }
+
+        .construction-button {
+            text-align: center;
+
+            margin-top: 35px;
+        }
+
+        .construction-button .button {
+            background: #102a43;
+
+            color: #ffffff;
+        }
+
+        .construction-button .button:hover {
+            background: #243b53;
+        }
+
+
+        /* =========================================
+           PRODUCT CATALOG BUTTON
+        ========================================= */
+
         .products-button {
             text-align: center;
 
-            margin-top: 30px;
+            margin-top: 35px;
         }
+
+        .products-button .button {
+            background: #102a43;
+
+            color: #ffffff;
+        }
+
+        .products-button .button:hover {
+            background: #243b53;
+        }
+
 
         /* =========================================
            VENDOR PORTAL
@@ -407,6 +645,7 @@
             background: #243b53;
         }
 
+
         /* =========================================
            CONTACT
         ========================================= */
@@ -447,6 +686,7 @@
             font-weight: 600;
         }
 
+
         /* =========================================
            FOOTER
         ========================================= */
@@ -477,9 +717,19 @@
             text-decoration: underline;
         }
 
+
         /* =========================================
            MOBILE
         ========================================= */
+
+        @media (max-width: 900px) {
+
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
 
         @media (max-width: 800px) {
 
@@ -509,6 +759,14 @@
                 grid-template-columns: 1fr;
             }
 
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .construction-grid {
+                grid-template-columns: 1fr;
+            }
+
             .vendor-grid {
                 grid-template-columns: 1fr;
             }
@@ -516,7 +774,9 @@
             section {
                 padding: 60px 20px;
             }
+
         }
+
 
         @media (max-width: 500px) {
 
@@ -543,11 +803,16 @@
             .section-title {
                 font-size: 27px;
             }
+
         }
+
     </style>
+
 </head>
 
+
 <body>
+
 
 <!-- =====================================================
      HEADER
@@ -560,6 +825,7 @@
         <div class="logo">
             Primax Global, Inc.
         </div>
+
 
         <nav class="nav-links">
 
@@ -587,10 +853,9 @@
                 Contact
             </a>
 
-            <!--
-                일반 방문자와 일반 Vendor에게도 보이는
-                기존 Vendor Portal
-            -->
+
+            <!-- Vendor Portal -->
+
             <a
                 href="#vendors"
                 class="vendor-nav-button"
@@ -598,15 +863,9 @@
                 Vendor Portal
             </a>
 
-            <!--
-                ADMIN ONLY
 
-                처음에는 display:none.
+            <!-- Admin Only -->
 
-                Supabase Auth 로그인 확인 후
-                admin_users.role = admin 이면
-                JavaScript가 display:flex로 변경합니다.
-            -->
             <a
                 href="admin-vendors.html"
                 id="adminVendorManagement"
@@ -622,11 +881,13 @@
 </header>
 
 
+
 <!-- =====================================================
      MAIN
 ===================================================== -->
 
 <main>
+
 
     <!-- =================================================
          HERO
@@ -646,11 +907,14 @@
 
             </h1>
 
+
             <p>
                 Supplying quality commercial, industrial,
-                and specialty products to government agencies
-                and institutional customers across the United States.
+                construction, and specialty products to
+                government agencies and institutional
+                customers across the United States.
             </p>
+
 
             <div class="hero-buttons">
 
@@ -661,11 +925,12 @@
                     View Products
                 </a>
 
+
                 <a
-                    href="#vendors"
+                    href="miju-construction.html"
                     class="button button-outline"
                 >
-                    Vendor Portal
+                    Miju Construction
                 </a>
 
             </div>
@@ -673,6 +938,7 @@
         </div>
 
     </section>
+
 
 
     <!-- =================================================
@@ -687,14 +953,19 @@
                 Government Supply
             </h2>
 
+
             <p class="section-subtitle">
+
                 Primax Global, Inc. supports government
-                procurement requirements through reliable sourcing,
-                product fulfillment, and vendor coordination.
+                procurement requirements through reliable
+                sourcing, product fulfillment, construction
+                services, and vendor coordination.
+
             </p>
 
 
             <div class="government-grid">
+
 
                 <div class="government-card">
 
@@ -704,10 +975,12 @@
 
                     <p>
                         Supporting federal procurement requirements
-                        with commercial, industrial, and specialty products.
+                        with commercial, industrial, construction,
+                        and specialty products and services.
                     </p>
 
                 </div>
+
 
 
                 <div class="government-card">
@@ -724,6 +997,7 @@
                 </div>
 
 
+
                 <div class="government-card">
 
                     <h3>
@@ -732,7 +1006,8 @@
 
                     <p>
                         Reliable vendor coordination,
-                        product sourcing, and fulfillment support.
+                        product sourcing, construction support,
+                        and fulfillment services.
                     </p>
 
                 </div>
@@ -742,6 +1017,7 @@
         </div>
 
     </section>
+
 
 
     <!-- =================================================
@@ -756,18 +1032,30 @@
                 About Primax Global
             </h2>
 
+
             <div class="about-content">
 
                 <p>
                     Primax Global, Inc. is a U.S.-based
                     government vendor focused on supplying
-                    products to government and institutional customers.
+                    products and services to government and
+                    institutional customers.
                 </p>
+
+
+                <p>
+                    Our business activities include government
+                    product supply, commercial and industrial
+                    sourcing, and construction services through
+                    Miju Construction.
+                </p>
+
 
                 <p>
                     Our goal is to provide dependable sourcing,
-                    competitive pricing, and professional customer
-                    service throughout the procurement process.
+                    competitive pricing, professional project
+                    support, and reliable customer service
+                    throughout the procurement process.
                 </p>
 
             </div>
@@ -777,8 +1065,9 @@
     </section>
 
 
+
     <!-- =================================================
-         PRODUCTS
+         PRODUCTS / PRODUCT CATEGORY
     ================================================== -->
 
     <section id="products">
@@ -786,20 +1075,120 @@
         <div class="container">
 
             <h2 class="section-title">
-                Products
+                Product Categories
             </h2>
 
+
             <p class="product-intro">
-                Browse products and product categories available
-                through Primax Global, Inc.
+
+                Primax Global, Inc. provides access to a broad
+                range of commercial, industrial, government,
+                and construction-related products and services.
+
             </p>
+
+
+
+            <!-- =========================================
+                 CATEGORY GRID
+            ========================================== -->
+
+            <div class="category-grid">
+
+
+                <!-- COMMERCIAL & INDUSTRIAL -->
+
+                <div class="category-card">
+
+                    <h3>
+                        Commercial & Industrial
+                    </h3>
+
+                    <p>
+                        Commercial and industrial products
+                        sourced for government agencies,
+                        businesses, and institutional customers.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="category-link"
+                    >
+                        View Products →
+                    </a>
+
+                </div>
+
+
+
+                <!-- SPECIALTY / GOVERNMENT -->
+
+                <div class="category-card">
+
+                    <h3>
+                        Government & Specialty
+                    </h3>
+
+                    <p>
+                        Specialty products and procurement
+                        solutions for federal, state, local,
+                        and institutional customers.
+                    </p>
+
+                    <a
+                        href="products.html"
+                        class="category-link"
+                    >
+                        View Products →
+                    </a>
+
+                </div>
+
+
+
+                <!-- CONSTRUCTION -->
+
+                <div
+                    class="category-card construction-card"
+                >
+
+                    <span class="construction-badge">
+                        Service Category
+                    </span>
+
+
+                    <h3>
+                        Construction
+                    </h3>
+
+
+                    <p>
+                        Construction and remodeling services
+                        provided through Miju Construction,
+                        including interior and exterior work.
+                    </p>
+
+
+                    <a
+                        href="miju-construction.html"
+                        class="category-link"
+                    >
+                        View Construction Services →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRODUCT CATALOG -->
 
             <div class="products-button">
 
                 <a
                     href="products.html"
                     class="button"
-                    style="background:#102a43;color:#ffffff;"
                 >
                     View Product Catalog
                 </a>
@@ -809,6 +1198,147 @@
         </div>
 
     </section>
+
+
+
+    <!-- =================================================
+         MIJU CONSTRUCTION
+    ================================================== -->
+
+    <section id="construction">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Miju Construction
+            </h2>
+
+
+            <p class="construction-intro">
+
+                Miju Construction provides professional
+                interior and exterior construction services
+                for commercial, residential, and institutional
+                projects.
+
+            </p>
+
+
+
+            <div class="construction-grid">
+
+
+                <!-- INTERIOR -->
+
+                <div class="construction-service-card">
+
+                    <h3>
+                        Interior
+                    </h3>
+
+
+                    <p>
+                        Interior construction, remodeling,
+                        renovation, and finishing services.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Drywall
+                        </li>
+
+                        <li>
+                            Interior Painting
+                        </li>
+
+                        <li>
+                            Flooring
+                        </li>
+
+                        <li>
+                            Framing
+                        </li>
+
+                        <li>
+                            Remodeling
+                        </li>
+
+                        <li>
+                            Interior Renovation
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <!-- EXTERIOR -->
+
+                <div class="construction-service-card">
+
+                    <h3>
+                        Exterior
+                    </h3>
+
+
+                    <p>
+                        Exterior construction, repair,
+                        improvement, and finishing services.
+                    </p>
+
+
+                    <ul>
+
+                        <li>
+                            Concrete
+                        </li>
+
+                        <li>
+                            Stucco
+                        </li>
+
+                        <li>
+                            Exterior Painting
+                        </li>
+
+                        <li>
+                            Roofing
+                        </li>
+
+                        <li>
+                            Exterior Repairs
+                        </li>
+
+                        <li>
+                            Site Improvements
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="construction-button">
+
+                <a
+                    href="miju-construction.html"
+                    class="button"
+                >
+                    View Miju Construction Services
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
 
 
     <!-- =================================================
@@ -823,14 +1353,18 @@
                 Vendor Portal
             </h2>
 
+
             <p class="section-subtitle">
+
                 Suppliers and manufacturers can register
                 with Primax Global, Inc. to establish a vendor
                 account and manage their vendor relationship.
+
             </p>
 
 
             <div class="vendor-grid">
+
 
                 <!-- EXISTING VENDOR -->
 
@@ -840,10 +1374,12 @@
                         Existing Vendor
                     </h3>
 
+
                     <p>
                         Already registered with Primax Global?
                         Sign in to access your vendor dashboard.
                     </p>
+
 
                     <a
                         href="vendor-login.html"
@@ -855,6 +1391,7 @@
                 </div>
 
 
+
                 <!-- NEW VENDOR -->
 
                 <div class="vendor-card">
@@ -863,11 +1400,13 @@
                         New Vendor
                     </h3>
 
+
                     <p>
-                        Interested in becoming a Primax Global vendor?
-                        Create your vendor account to begin the
-                        registration process.
+                        Interested in becoming a Primax Global
+                        vendor? Create your vendor account to
+                        begin the registration process.
                     </p>
+
 
                     <a
                         href="vendor-register.html"
@@ -883,6 +1422,7 @@
         </div>
 
     </section>
+
 
 
     <!-- =================================================
@@ -904,13 +1444,16 @@
                     Primax Global, Inc.
                 </h3>
 
+
                 <p>
                     3660 Wilshire Blvd, Suite 512
                 </p>
 
+
                 <p>
                     Los Angeles, CA 90010
                 </p>
+
 
                 <p>
                     Phone:
@@ -918,6 +1461,7 @@
                         213-247-0011
                     </a>
                 </p>
+
 
                 <p>
                     Email:
@@ -933,6 +1477,7 @@
     </section>
 
 </main>
+
 
 
 <!-- =====================================================
@@ -953,6 +1498,10 @@
 
         <a href="#government">
             Government
+        </a>
+
+        <a href="miju-construction.html">
+            Miju Construction
         </a>
 
         <a href="#about">
@@ -981,6 +1530,7 @@
     All Rights Reserved.
 
 </footer>
+
 
 
 <!-- =====================================================
@@ -1114,7 +1664,8 @@ async function checkAdminAccess() {
             adminRecord.role === "admin"
         ) {
 
-            adminButton.style.display = "inline-block";
+            adminButton.style.display =
+                "inline-block";
 
             console.log(
                 "Admin access granted:",
@@ -1129,6 +1680,7 @@ async function checkAdminAccess() {
                 "Admin access not granted:",
                 user.email
             );
+
         }
 
 
@@ -1140,7 +1692,9 @@ async function checkAdminAccess() {
         );
 
         adminButton.style.display = "none";
+
     }
+
 }
 
 
@@ -1163,6 +1717,7 @@ supabaseClient.auth.onAuthStateChange(
         } else {
 
             adminButton.style.display = "none";
+
         }
 
     }
