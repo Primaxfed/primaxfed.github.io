@@ -4,588 +4,743 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Miju Construction | Project Admin</title>
+<title>Miju Construction | 25+ Years of Construction Experience</title>
 
+<meta name="description"
+content="Miju Construction provides professional interior and exterior construction services with more than 25 years of experience, including government-related projects.">
+
+<!-- SUPABASE -->
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0
+* {
+    box-sizing: border-box;
 }
 
-body{
-    font-family:Arial,"Noto Sans",sans-serif;
-    background:#f3f6f9;
-    color:#1f2933;
-    line-height:1.5
+html {
+    scroll-behavior: smooth;
 }
 
-button,
-input,
-textarea,
-select{
-    font-family:inherit
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172033;
+    background: #ffffff;
+    line-height: 1.6;
 }
 
-.topbar{
-    background:#102a43;
-    color:#fff;
-    padding:18px 25px;
+a {
+    color: inherit;
 }
 
-.topbar-inner{
-    max-width:1200px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:20px
+.container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
 }
 
-.brand{
-    font-size:21px;
-    font-weight:700
+/* =========================
+   HEADER
+========================= */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: #0c1d36;
+    color: #ffffff;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+}
+
+.nav-wrap {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: .3px;
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #d5a84b;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    opacity: .95;
+}
+
+nav a:hover {
+    color: #d5a84b;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 610px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            rgba(8, 25, 48, .78),
+            rgba(8, 25, 48, .78)
+        ),
+        url("images/construction-hero.jpg")
+        center center / cover no-repeat;
+}
+
+.hero-content {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    padding: 90px 0;
 }
 
-.brand span{
-    display:block;
-    font-size:12px;
-    font-weight:400;
-    opacity:.75;
-    margin-top:2px
+.hero h1 {
+    margin: 0 0 12px;
+    font-size: clamp(42px, 6vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
 }
 
-.top-actions{
-    display:flex;
-    gap:10px;
-    align-items:center
+.hero h2 {
+    margin: 0 0 22px;
+    font-size: clamp(23px, 3vw, 34px);
+    font-weight: 600;
+    color: #d5a84b;
 }
 
-.top-button{
-    border:1px solid rgba(255,255,255,.5);
-    background:transparent;
-    color:#fff;
-    padding:9px 14px;
-    border-radius:5px;
-    cursor:pointer;
-    font-size:13px;
-    font-weight:700
+.hero p {
+    max-width: 730px;
+    font-size: 19px;
+    line-height: 1.8;
+    margin: 0 0 30px;
 }
 
-.top-button:hover{
-    background:rgba(255,255,255,.1)
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
 }
 
-.logout-button{
-    background:#fff;
-    color:#102a43;
-    border-color:#fff
+.badge {
+    border: 1px solid rgba(255,255,255,.4);
+    background: rgba(255,255,255,.08);
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
 }
+
+/* =========================
+   SECTIONS
+========================= */
 
-.page{
-    max-width:1200px;
-    margin:35px auto;
-    padding:0 20px
+section {
+    padding: 85px 0;
 }
 
-.card{
-    background:#fff;
-    border:1px solid #dfe5eb;
-    border-radius:9px;
-    padding:25px;
-    margin-bottom:25px;
-    box-shadow:0 3px 12px rgba(0,0,0,.05)
+.section-title {
+    text-align: center;
+    margin-bottom: 45px;
 }
 
-.card h2{
-    color:#102a43;
-    font-size:23px;
-    margin-bottom:7px
+.section-title h2 {
+    margin: 0 0 12px;
+    font-size: 38px;
+    color: #10243f;
 }
 
-.card-description{
-    color:#6b7785;
-    font-size:14px;
-    margin-bottom:22px
+.section-title p {
+    max-width: 760px;
+    margin: 0 auto;
+    color: #657083;
 }
 
-/* AUTH */
+/* =========================
+   ABOUT
+========================= */
 
-#auth-loading{
-    position:fixed;
-    inset:0;
-    z-index:5000;
-    background:#102a43;
-    color:#fff;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:25px
+.about {
+    background: #f7f9fc;
 }
 
-.auth-box{
-    max-width:500px
+.about-text {
+    max-width: 850px;
+    margin: 0 auto 40px;
+    text-align: center;
 }
 
-.auth-box h1{
-    font-size:28px;
-    margin-bottom:10px
+.about-text p {
+    color: #5e6878;
+    font-size: 17px;
 }
 
-.auth-box p{
-    opacity:.8
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-/* FORM */
+.stat {
+    background: #ffffff;
+    border: 1px solid #e2e7ef;
+    padding: 30px 22px;
+    text-align: center;
+    border-radius: 8px;
+}
 
-.form-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px
+.stat-number {
+    font-size: 38px;
+    font-weight: 800;
+    color: #d5a84b;
+    margin-bottom: 5px;
 }
 
-.form-group{
-    margin-bottom:18px
+.stat h3 {
+    margin: 0 0 8px;
+    color: #142844;
 }
 
-.form-group.full{
-    grid-column:1 / -1
+.stat p {
+    margin: 0;
+    color: #6a7483;
+    font-size: 14px;
 }
+
+/* =========================
+   SERVICES
+========================= */
 
-label{
-    display:block;
-    color:#243b53;
-    font-weight:700;
-    font-size:14px;
-    margin-bottom:7px
+.services {
+    background: #ffffff;
 }
 
-input[type="text"],
-textarea,
-select{
-    width:100%;
-    border:1px solid #cbd5df;
-    border-radius:5px;
-    padding:12px 13px;
-    font-size:14px;
-    outline:none;
-    background:#fff
+.service-area {
+    margin-bottom: 70px;
 }
 
-textarea{
-    min-height:120px;
-    resize:vertical
+.service-area:last-child {
+    margin-bottom: 0;
 }
 
-input:focus,
-textarea:focus,
-select:focus{
-    border-color:#486581;
-    box-shadow:0 0 0 2px rgba(72,101,129,.12)
+.area-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
-/* CATEGORY */
+.area-title span {
+    display: inline-block;
+    padding: 7px 14px;
+    background: #10243f;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    border-radius: 4px;
+}
 
-.category-buttons{
-    display:flex;
-    gap:10px
+.area-title h3 {
+    margin: 0;
+    font-size: 27px;
+    color: #142844;
 }
 
-.category-button{
-    border:1px solid #bcccdc;
-    background:#fff;
-    color:#334e68;
-    padding:11px 22px;
-    border-radius:5px;
-    cursor:pointer;
-    font-size:14px;
-    font-weight:700
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
 }
 
-.category-button.active{
-    background:#102a43;
-    color:#fff;
-    border-color:#102a43
+.service-card {
+    border: 1px solid #e1e6ed;
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(20,40,68,.05);
+    transition: transform .2s ease, box-shadow .2s ease;
 }
 
-/* UPLOAD */
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 28px rgba(20,40,68,.10);
+}
 
-.upload-area{
-    border:2px dashed #bcccdc;
-    border-radius:8px;
-    padding:30px 20px;
-    text-align:center;
-    background:#f8fafc;
-    cursor:pointer;
-    transition:.2s
+.service-photo {
+    height: 190px;
+    background: #edf1f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8a94a3;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+    padding: 15px;
 }
 
-.upload-area:hover,
-.upload-area.dragover{
-    border-color:#486581;
-    background:#eef3f7
+.service-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.upload-area strong{
-    display:block;
-    color:#243b53;
-    margin-bottom:5px
+.service-content {
+    padding: 22px;
 }
 
-.upload-area span{
-    color:#7b8794;
-    font-size:13px
+.service-content h4 {
+    margin: 0 0 8px;
+    font-size: 20px;
+    color: #142844;
 }
 
-#photo-input{
-    display:none
+.service-content p {
+    margin: 0;
+    color: #687383;
+    font-size: 14px;
 }
 
-.selected-files{
-    margin-top:15px;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:10px
+/* =========================
+   PROJECTS
+========================= */
+
+.projects {
+    background: #f7f9fc;
 }
 
-.selected-file{
-    position:relative;
-    height:100px;
-    border-radius:6px;
-    overflow:hidden;
-    background:#e9eef3;
-    border:1px solid #d9e2ec
+.project-category {
+    margin-bottom: 55px;
 }
 
-.selected-file img{
-    width:100%;
-    height:100%;
-    object-fit:cover
+.project-category:last-child {
+    margin-bottom: 0;
 }
 
-.selected-file-name{
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:5px;
-    color:#fff;
-    background:rgba(0,0,0,.65);
-    font-size:10px;
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis
+.project-category-title {
+    margin: 0 0 25px;
+    color: #142844;
+    font-size: 28px;
+    border-left: 5px solid #d5a84b;
+    padding-left: 14px;
 }
 
-/* BUTTONS */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
 
-.form-actions{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-top:20px
+.project-card {
+    background: #ffffff;
+    border: 1px solid #e1e6ed;
+    border-radius: 9px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(20,40,68,.06);
 }
 
-.primary-button,
-.secondary-button,
-.danger-button{
-    border:0;
-    border-radius:5px;
-    padding:12px 19px;
-    cursor:pointer;
-    font-size:14px;
-    font-weight:700
+.project-main-image {
+    width: 100%;
+    height: 245px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+    background: #e8edf3;
 }
 
-.primary-button{
-    background:#102a43;
-    color:#fff
+.project-info {
+    padding: 20px;
 }
 
-.primary-button:hover{
-    background:#243b53
+.project-info h4 {
+    margin: 0 0 5px;
+    color: #142844;
+    font-size: 21px;
 }
 
-.secondary-button{
-    background:#e9eef3;
-    color:#243b53
+.project-location {
+    color: #d5a84b;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 10px;
 }
 
-.secondary-button:hover{
-    background:#d9e2ec
+.project-description {
+    color: #687383;
+    font-size: 14px;
+    margin: 0 0 15px;
 }
 
-.danger-button{
-    background:#fff1f2;
-    color:#b42318;
-    border:1px solid #fecaca
+.project-thumbs {
+    display: flex;
+    gap: 7px;
+    overflow-x: auto;
 }
 
-.danger-button:hover{
-    background:#fee2e2
+.project-thumbs img {
+    width: 62px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 2px solid transparent;
 }
 
-button:disabled{
-    opacity:.5;
-    cursor:not-allowed
+.project-thumbs img:hover {
+    border-color: #d5a84b;
 }
 
-/* PROGRESS */
+.photo-count {
+    margin-top: 10px;
+    color: #7a8492;
+    font-size: 12px;
+}
 
-.progress-wrap{
-    display:none;
-    margin-top:18px
+.no-projects {
+    text-align: center;
+    padding: 40px 20px;
+    background: #ffffff;
+    border: 1px dashed #ccd4df;
+    border-radius: 8px;
+    color: #727d8c;
 }
+
+/* =========================
+   PROCESS
+========================= */
 
-.progress-bar{
-    width:100%;
-    height:9px;
-    background:#e9eef3;
-    border-radius:20px;
-    overflow:hidden
+.process {
+    background: #ffffff;
 }
 
-.progress-fill{
-    width:0%;
-    height:100%;
-    background:#102a43;
-    transition:width .2s
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
 }
 
-.progress-text{
-    font-size:12px;
-    color:#52606d;
-    margin-top:6px
+.process-card {
+    text-align: center;
+    padding: 30px 20px;
+    border: 1px solid #e1e6ed;
+    border-radius: 8px;
 }
 
-/* MESSAGES */
+.process-number {
+    width: 55px;
+    height: 55px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #10243f;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 800;
+}
 
-.message{
-    display:none;
-    padding:13px 15px;
-    border-radius:5px;
-    font-size:14px;
-    margin-top:18px
+.process-card h3 {
+    margin: 0 0 8px;
+    color: #142844;
 }
 
-.message.success{
-    background:#ecfdf3;
-    border:1px solid #a7f3d0;
-    color:#047857
+.process-card p {
+    margin: 0;
+    color: #687383;
+    font-size: 14px;
 }
+
+/* =========================
+   CONTACT
+========================= */
 
-.message.error{
-    background:#fff5f5;
-    border:1px solid #f3c6c6;
-    color:#9b2c2c
+.contact {
+    background: #10243f;
+    color: #ffffff;
 }
 
-/* PROJECT LIST */
+.contact .section-title h2 {
+    color: #ffffff;
+}
 
-.project-list{
-    display:grid;
-    gap:18px
+.contact .section-title p {
+    color: #c5ceda;
 }
 
-.project-item{
-    border:1px solid #dfe5eb;
-    border-radius:8px;
-    overflow:hidden;
-    background:#fff
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-.project-header{
-    padding:18px 20px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:15px
+.contact-button {
+    display: inline-block;
+    padding: 14px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    background: #d5a84b;
+    color: #10243f;
 }
 
-.project-title-wrap{
-    min-width:0
+.contact-button.secondary {
+    background: #ffffff;
+    color: #10243f;
 }
 
-.project-category{
-    display:inline-block;
-    padding:4px 8px;
-    border-radius:4px;
-    background:#102a43;
-    color:#fff;
-    font-size:10px;
-    font-weight:700;
-    margin-bottom:7px
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #081527;
+    color: #ffffff;
+    padding: 30px 0;
 }
 
-.project-item h3{
-    color:#102a43;
-    font-size:19px;
-    margin-bottom:3px
+.footer-inner {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-.project-location{
-    color:#7b8794;
-    font-size:13px
+.footer-inner strong {
+    font-size: 17px;
 }
 
-.project-status{
-    flex-shrink:0;
-    padding:6px 10px;
-    border-radius:4px;
-    font-size:11px;
-    font-weight:700
+.footer-inner div {
+    color: #b7c0cd;
+    font-size: 13px;
 }
 
-.status-published{
-    background:#ecfdf3;
-    color:#047857
+.footer-right {
+    text-align: right;
 }
 
-.status-hidden{
-    background:#f3f4f6;
-    color:#6b7280
+.admin-login {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    color: #8e9aab;
+    text-decoration: none;
 }
 
-.project-photos{
-    padding:0 20px 18px;
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:8px
+.admin-login:hover {
+    color: #ffffff;
+    text-decoration: underline;
 }
+
+/* =========================
+   LIGHTBOX
+========================= */
 
-.project-photo{
-    height:100px;
-    border-radius:5px;
-    overflow:hidden;
-    background:#e9eef3
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 3000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,.92);
+    padding: 30px;
 }
 
-.project-photo img{
-    width:100%;
-    height:100%;
-    object-fit:cover
+.lightbox.active {
+    display: flex;
 }
 
-.no-photo{
-    height:100px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#7b8794;
-    font-size:12px;
-    background:#f3f6f9;
-    border:1px solid #dfe5eb;
-    border-radius:5px
+.lightbox-content {
+    position: relative;
+    width: min(1100px, 95vw);
+    height: min(850px, 90vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.project-description{
-    padding:0 20px 18px;
-    color:#52606d;
-    font-size:14px
+.lightbox-image {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
 }
 
-.project-actions{
-    border-top:1px solid #edf0f2;
-    padding:13px 20px;
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    border: 0;
+    background: rgba(255,255,255,.12);
+    color: #ffffff;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.small-button{
-    border:1px solid #cbd5df;
-    background:#fff;
-    color:#334e68;
-    padding:8px 12px;
-    border-radius:4px;
-    cursor:pointer;
-    font-size:12px;
-    font-weight:700
+.lightbox-close {
+    top: 5px;
+    right: 5px;
 }
 
-.small-button:hover{
-    background:#f3f6f9
+.lightbox-prev {
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.small-button.publish{
-    color:#047857;
-    border-color:#a7f3d0
+.lightbox-next {
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-.small-button.hide{
-    color:#9b2c2c;
-    border-color:#fecaca
+.lightbox-close:hover,
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(255,255,255,.25);
 }
 
-.empty-state{
-    text-align:center;
-    padding:40px 20px;
-    color:#7b8794;
-    border:1px dashed #cbd5df;
-    border-radius:8px;
-    background:#f8fafc
+.lightbox-counter {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ffffff;
+    font-size: 14px;
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
-@media(max-width:800px){
+@media (max-width: 900px) {
 
-    .form-grid{
-        grid-template-columns:1fr
+    nav {
+        gap: 12px;
     }
 
-    .form-group.full{
-        grid-column:auto
+    nav a {
+        font-size: 12px;
     }
 
-    .selected-files{
-        grid-template-columns:repeat(3,1fr)
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .project-photos{
-        grid-template-columns:repeat(3,1fr)
+    .service-grid,
+    .project-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
-    .topbar-inner{
-        flex-direction:column;
-        align-items:flex-start
-    }
-
-    .top-actions{
-        width:100%
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-@media(max-width:520px){
+@media (max-width: 650px) {
 
-    .page{
-        margin:20px auto;
-        padding:0 12px
+    .nav-wrap {
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px 0;
     }
 
-    .card{
-        padding:18px
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
-    .selected-files{
-        grid-template-columns:repeat(2,1fr)
+    .hero {
+        min-height: 560px;
     }
 
-    .project-photos{
-        grid-template-columns:repeat(2,1fr)
+    .hero-content {
+        padding: 70px 0;
     }
 
-    .project-header{
-        flex-direction:column;
-        align-items:flex-start
+    .hero h1 {
+        font-size: 42px;
     }
 
-    .form-actions{
-        flex-direction:column;
-        align-items:stretch
+    .hero h2 {
+        font-size: 24px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+
+    .section-title h2 {
+        font-size: 31px;
+    }
+
+    .stats,
+    .service-grid,
+    .project-grid,
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .area-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-right {
+        text-align: center;
+    }
+
+    .lightbox {
+        padding: 10px;
+    }
+
+    .lightbox-prev {
+        left: 0;
+    }
+
+    .lightbox-next {
+        right: 0;
     }
 }
 </style>
@@ -593,296 +748,733 @@ button:disabled{
 
 <body>
 
-<!-- AUTH LOADING -->
+<!-- =========================
+     HEADER
+========================= -->
 
-<div id="auth-loading">
+<header>
+    <div class="nav-wrap">
 
-    <div class="auth-box">
-
-        <h1>
+        <div class="logo">
             Miju Construction
-        </h1>
-
-        <p>
-            Checking administrator access...
-        </p>
-
-    </div>
-
-</div>
-
-
-<!-- TOP BAR -->
-
-<header class="topbar">
-
-    <div class="topbar-inner">
-
-        <div class="brand">
-
-            Miju Construction
-
-            <span>
-                Construction Project Administration
-            </span>
-
         </div>
 
-        <div class="top-actions">
-
-            <button
-                class="top-button"
-                onclick="openPublicSite()"
-            >
-                View Public Site
-            </button>
-
-            <button
-                class="top-button logout-button"
-                onclick="logout()"
-            >
-                Logout
-            </button>
-
-        </div>
+        <nav>
+            <a href="index.html">Primax Global Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#process">Our Process</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
     </div>
-
 </header>
 
 
-<div class="page">
-
 <!-- =========================
-     ADD PROJECT
+     HERO
 ========================= -->
 
-<section class="card">
+<section class="hero">
 
-    <h2>
-        Add Construction Project
-    </h2>
+    <div class="hero-content">
 
-    <p class="card-description">
-        Add a new Interior or Exterior construction project.
-        Published projects will automatically appear on the public Miju Construction website.
-    </p>
+        <h1>Miju Construction</h1>
 
+        <h2>25+ Years of Construction Experience</h2>
 
-    <div class="form-grid">
+        <p>
+            Professional construction, renovation, and property improvement
+            services for residential, commercial, and government-related projects.
+        </p>
 
-        <!-- CATEGORY -->
+        <div class="badges">
 
-        <div class="form-group">
-
-            <label>
-                Project Category
-            </label>
-
-            <div class="category-buttons">
-
-                <button
-                    type="button"
-                    id="interior-button"
-                    class="category-button active"
-                    onclick="setCategory('Interior')"
-                >
-                    Interior
-                </button>
-
-                <button
-                    type="button"
-                    id="exterior-button"
-                    class="category-button"
-                    onclick="setCategory('Exterior')"
-                >
-                    Exterior
-                </button>
-
+            <div class="badge">
+                25+ Years Experience
             </div>
 
-        </div>
-
-
-        <!-- TITLE -->
-
-        <div class="form-group">
-
-            <label for="project-title">
-                Project Title *
-            </label>
-
-            <input
-                type="text"
-                id="project-title"
-                placeholder="Example: Kitchen Remodeling"
-            >
-
-        </div>
-
-
-        <!-- LOCATION -->
-
-        <div class="form-group full">
-
-            <label for="project-location">
-                Location
-            </label>
-
-            <input
-                type="text"
-                id="project-location"
-                placeholder="Example: Los Angeles, CA"
-            >
-
-        </div>
-
-
-        <!-- DESCRIPTION -->
-
-        <div class="form-group full">
-
-            <label for="project-description">
-                Description
-            </label>
-
-            <textarea
-                id="project-description"
-                placeholder="Describe the project, work performed, materials, improvements, etc."
-            ></textarea>
-
-        </div>
-
-
-        <!-- PHOTOS -->
-
-        <div class="form-group full">
-
-            <label>
-                Project Photos
-            </label>
-
-            <div
-                id="upload-area"
-                class="upload-area"
-            >
-
-                <strong>
-                    Click here or drag & drop photos
-                </strong>
-
-                <span>
-                    JPG, PNG, or WEBP — multiple photos allowed
-                </span>
-
+            <div class="badge">
+                Government Project Experience
             </div>
 
-            <input
-                type="file"
-                id="photo-input"
-                accept="image/jpeg,image/png,image/webp"
-                multiple
-            >
+            <div class="badge">
+                Interior &amp; Exterior
+            </div>
 
-            <div
-                id="selected-files"
-                class="selected-files"
-            ></div>
+            <div class="badge">
+                Professional &amp; Reliable
+            </div>
 
         </div>
 
     </div>
 
+</section>
 
-    <!-- PROGRESS -->
 
-    <div
-        id="progress-wrap"
-        class="progress-wrap"
-    >
+<!-- =========================
+     ABOUT
+========================= -->
 
-        <div class="progress-bar">
+<section class="about" id="about">
 
-            <div
-                id="progress-fill"
-                class="progress-fill"
-            ></div>
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Built on Experience. Trusted for Quality.</h2>
 
         </div>
+
+        <div class="about-text">
+
+            <p>
+                Miju Construction has been serving customers for more than
+                25 years. Our experience includes construction-related work
+                and supplying construction services and products for
+                government projects. We are committed to dependable
+                workmanship, quality materials, and professional project
+                management.
+            </p>
+
+        </div>
+
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div class="stat-number">25+</div>
+
+                <h3>Years of Experience</h3>
+
+                <p>
+                    More than 25 years of experience in construction
+                    and renovation.
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">GOV</div>
+
+                <h3>Government Experience</h3>
+
+                <p>
+                    Experience supporting government-related
+                    construction projects.
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">2</div>
+
+                <h3>Major Service Areas</h3>
+
+                <p>
+                    Complete interior and exterior construction services.
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="stat-number">✓</div>
+
+                <h3>Reliable Service</h3>
+
+                <p>
+                    Professional service focused on quality,
+                    reliability, and customer satisfaction.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SERVICES
+========================= -->
+
+<section class="services" id="services">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Our Construction Services</h2>
+
+            <p>
+                From interior remodeling to exterior construction and repairs,
+                Miju Construction provides a wide range of construction services.
+            </p>
+
+        </div>
+
+
+        <!-- INTERIOR -->
+
+        <div class="service-area">
+
+            <div class="area-title">
+
+                <span>INTERIOR</span>
+
+                <h3>Interior Construction &amp; Remodeling</h3>
+
+            </div>
+
+
+            <div class="service-grid">
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Kitchen Remodeling Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Kitchen Remodeling</h4>
+
+                        <p>
+                            Kitchen renovation, cabinets, countertops,
+                            flooring, and related improvements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Bathroom Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Bathroom Remodeling</h4>
+
+                        <p>
+                            Bathroom renovation, fixtures, flooring,
+                            tile work, and complete improvements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Flooring Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Flooring</h4>
+
+                        <p>
+                            Professional flooring installation and
+                            replacement for residential and commercial spaces.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Painting Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Interior Painting</h4>
+
+                        <p>
+                            Interior painting and finishing services
+                            for homes, offices, and commercial properties.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Drywall Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Drywall &amp; Ceiling</h4>
+
+                        <p>
+                            Drywall installation, repair, ceiling work,
+                            and interior surface improvements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Interior Renovation Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>General Interior Renovation</h4>
+
+                        <p>
+                            Interior remodeling and improvements for
+                            residential and commercial properties.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- EXTERIOR -->
+
+        <div class="service-area">
+
+            <div class="area-title">
+
+                <span>EXTERIOR</span>
+
+                <h3>Exterior Construction &amp; Improvements</h3>
+
+            </div>
+
+
+            <div class="service-grid">
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Concrete Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Concrete</h4>
+
+                        <p>
+                            Driveways, walkways, patios, slabs, foundations,
+                            repairs, and other concrete work.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Roofing Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Roofing</h4>
+
+                        <p>
+                            Roof repair, replacement, shingle roofing,
+                            flat roofing, and commercial roofing services.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Stucco Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Stucco &amp; Siding</h4>
+
+                        <p>
+                            Exterior wall improvements, stucco repair,
+                            siding, and related exterior work.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Exterior Painting Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Exterior Painting</h4>
+
+                        <p>
+                            Professional exterior painting and surface
+                            preparation for properties of all sizes.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Fence Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Fences &amp; Gates</h4>
+
+                        <p>
+                            Fence, gate, property boundary, and exterior
+                            improvement services.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="service-card">
+
+                    <div class="service-photo">
+                        Add Waterproofing Photo
+                    </div>
+
+                    <div class="service-content">
+
+                        <h4>Waterproofing &amp; Repairs</h4>
+
+                        <p>
+                            Waterproofing, drainage-related improvements,
+                            exterior repairs, and property maintenance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section class="projects" id="projects">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Our Construction Projects</h2>
+
+            <p>
+                Explore selected interior and exterior construction projects
+                completed by Miju Construction.
+            </p>
+
+        </div>
+
+
+        <!-- INTERIOR PROJECTS -->
+
+        <div class="project-category">
+
+            <h3 class="project-category-title">
+                Interior Projects
+            </h3>
+
+            <div id="interiorProjects" class="project-grid"></div>
+
+        </div>
+
+
+        <!-- EXTERIOR PROJECTS -->
+
+        <div class="project-category">
+
+            <h3 class="project-category-title">
+                Exterior Projects
+            </h3>
+
+            <div id="exteriorProjects" class="project-grid"></div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section class="process" id="process">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Our Approach</h2>
+
+            <p>
+                We focus on clear communication, dependable workmanship,
+                and professional project completion.
+            </p>
+
+        </div>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-card">
+
+                <div class="process-number">1</div>
+
+                <h3>Consultation</h3>
+
+                <p>
+                    Discuss your project, property, goals,
+                    and construction needs.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">2</div>
+
+                <h3>Estimate</h3>
+
+                <p>
+                    Review the scope of work and develop
+                    a project estimate.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">3</div>
+
+                <h3>Construction</h3>
+
+                <p>
+                    Perform the work with professional coordination
+                    and attention to quality.
+                </p>
+
+            </div>
+
+
+            <div class="process-card">
+
+                <div class="process-number">4</div>
+
+                <h3>Completion</h3>
+
+                <p>
+                    Complete the project and review the finished
+                    work with the customer.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-title">
+
+            <h2>Let's Discuss Your Project</h2>
+
+            <p>
+                Whether you need interior remodeling, exterior improvements,
+                repairs, or a larger construction project, contact Miju
+                Construction to discuss your needs.
+            </p>
+
+        </div>
+
+
+        <div class="contact-buttons">
+
+            <a
+                href="tel:2132470011"
+                class="contact-button">
+                Call Us
+            </a>
+
+
+            <a
+                href="mailto:david@primaxfed.com"
+                class="contact-button">
+                Request a Quote
+            </a>
+
+
+            <a
+                href="index.html"
+                class="contact-button secondary">
+                Primax Global
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-inner">
+
+        <div>
+
+            <strong>Miju Construction</strong>
+
+            <div>
+                Los Angeles, California
+            </div>
+
+        </div>
+
+
+        <div class="footer-right">
+
+            <div>
+                © 2026 Miju Construction. All Rights Reserved.
+            </div>
+
+            <a
+                href="login.html"
+                class="admin-login">
+                Admin Login
+            </a>
+
+        </div>
+
+    </div>
+
+</footer>
+
+
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div
+    id="lightbox"
+    class="lightbox">
+
+    <div class="lightbox-content">
+
+        <button
+            type="button"
+            id="lightboxClose"
+            class="lightbox-close">
+            ×
+        </button>
+
+        <button
+            type="button"
+            id="lightboxPrev"
+            class="lightbox-prev">
+            ‹
+        </button>
+
+        <img
+            id="lightboxImage"
+            class="lightbox-image"
+            src=""
+            alt="Construction Project">
+
+        <button
+            type="button"
+            id="lightboxNext"
+            class="lightbox-next">
+            ›
+        </button>
 
         <div
-            id="progress-text"
-            class="progress-text"
-        >
-            Preparing...
+            id="lightboxCounter"
+            class="lightbox-counter">
         </div>
 
     </div>
-
-
-    <!-- ACTIONS -->
-
-    <div class="form-actions">
-
-        <button
-            type="button"
-            id="save-button"
-            class="primary-button"
-            onclick="saveProject()"
-        >
-            Add Project
-        </button>
-
-        <button
-            type="button"
-            class="secondary-button"
-            onclick="resetForm()"
-        >
-            Clear
-        </button>
-
-    </div>
-
-
-    <div
-        id="success-message"
-        class="message success"
-    ></div>
-
-    <div
-        id="error-message"
-        class="message error"
-    ></div>
-
-</section>
-
-
-<!-- =========================
-     EXISTING PROJECTS
-========================= -->
-
-<section class="card">
-
-    <h2>
-        Existing Projects
-    </h2>
-
-    <p class="card-description">
-        Manage your construction portfolio. Hide a project to remove it from the public website without deleting it.
-    </p>
-
-    <div
-        id="project-list"
-        class="project-list"
-    >
-
-        <div class="empty-state">
-            Loading projects...
-        </div>
-
-    </div>
-
-</section>
 
 </div>
 
@@ -905,445 +1497,64 @@ const supabaseClient =
         SUPABASE_ANON_KEY
     );
 
-const STORAGE_BUCKET =
-    "construction-projects";
+
+/* =========================================================
+   LIGHTBOX VARIABLES
+========================================================= */
+
+let currentImages = [];
+let currentImageIndex = 0;
 
 
 /* =========================================================
-   STATE
+   LOAD CONSTRUCTION PROJECTS
 ========================================================= */
 
-let selectedCategory =
-    "Interior";
+async function loadProjects() {
 
-let selectedFiles = [];
+    const interiorContainer =
+        document.getElementById("interiorProjects");
 
-
-/* =========================================================
-   ELEMENTS
-========================================================= */
-
-const uploadArea =
-    document.getElementById("upload-area");
-
-const photoInput =
-    document.getElementById("photo-input");
-
-const selectedFilesBox =
-    document.getElementById("selected-files");
-
-const projectList =
-    document.getElementById("project-list");
-
-const saveButton =
-    document.getElementById("save-button");
-
-const progressWrap =
-    document.getElementById("progress-wrap");
-
-const progressFill =
-    document.getElementById("progress-fill");
-
-const progressText =
-    document.getElementById("progress-text");
-
-const successMessage =
-    document.getElementById("success-message");
-
-const errorMessage =
-    document.getElementById("error-message");
+    const exteriorContainer =
+        document.getElementById("exteriorProjects");
 
 
-/* =========================================================
-   AUTH CHECK
-========================================================= */
-
-async function checkAdmin(){
-
-    try{
+    try {
 
         const {
             data,
             error
-        } =
-            await supabaseClient.auth.getSession();
+        } = await supabaseClient
 
-        if(error){
-            throw error;
-        }
+            .from("construction_projects")
 
+            .select(`
+                id,
+                category,
+                title,
+                location,
+                description,
+                image_urls,
+                published,
+                sort_order,
+                created_at
+            `)
 
-        const session =
-            data.session;
+            .eq("published", true)
 
+            .order("sort_order", {
+                ascending: true
+            })
 
-        if(!session){
+            .order("created_at", {
+                ascending: false
+            });
 
-            window.location.href =
-                "login.html";
 
-            return;
-        }
-
-
-        const {
-            data:adminUser,
-            error:adminError
-        } =
-            await supabaseClient
-                .from("admin_users")
-                .select("user_id, role")
-                .eq("user_id",session.user.id)
-                .eq("role","admin")
-                .maybeSingle();
-
-
-        if(adminError){
-            throw adminError;
-        }
-
-
-        if(!adminUser){
-
-            alert(
-                "You do not have administrator access."
-            );
-
-            await supabaseClient.auth.signOut();
-
-            window.location.href =
-                "login.html";
-
-            return;
-        }
-
-
-        document.getElementById(
-            "auth-loading"
-        ).style.display = "none";
-
-
-        await loadProjects();
-
-    }
-    catch(error){
-
-        console.error(
-            "Admin authentication error:",
-            error
-        );
-
-        alert(
-            "Unable to verify administrator access."
-        );
-
-        window.location.href =
-            "login.html";
-    }
-}
-
-
-/* =========================================================
-   CATEGORY
-========================================================= */
-
-function setCategory(category){
-
-    selectedCategory =
-        category;
-
-
-    document
-        .getElementById("interior-button")
-        .classList.toggle(
-            "active",
-            category === "Interior"
-        );
-
-
-    document
-        .getElementById("exterior-button")
-        .classList.toggle(
-            "active",
-            category === "Exterior"
-        );
-}
-
-
-/* =========================================================
-   FILE SELECT
-========================================================= */
-
-uploadArea.addEventListener(
-    "click",
-    function(){
-
-        photoInput.click();
-
-    }
-);
-
-
-photoInput.addEventListener(
-    "change",
-    function(){
-
-        addFiles(
-            Array.from(this.files)
-        );
-
-        this.value = "";
-
-    }
-);
-
-
-/* =========================================================
-   DRAG / DROP
-========================================================= */
-
-uploadArea.addEventListener(
-    "dragover",
-    function(event){
-
-        event.preventDefault();
-
-        uploadArea.classList.add(
-            "dragover"
-        );
-
-    }
-);
-
-
-uploadArea.addEventListener(
-    "dragleave",
-    function(){
-
-        uploadArea.classList.remove(
-            "dragover"
-        );
-
-    }
-);
-
-
-uploadArea.addEventListener(
-    "drop",
-    function(event){
-
-        event.preventDefault();
-
-        uploadArea.classList.remove(
-            "dragover"
-        );
-
-        addFiles(
-            Array.from(
-                event.dataTransfer.files
-            )
-        );
-
-    }
-);
-
-
-/* =========================================================
-   ADD FILES
-========================================================= */
-
-function addFiles(files){
-
-    const validFiles =
-        files.filter(
-            file =>
-                [
-                    "image/jpeg",
-                    "image/png",
-                    "image/webp"
-                ].includes(file.type)
-        );
-
-
-    selectedFiles =
-        selectedFiles.concat(
-            validFiles
-        );
-
-
-    renderSelectedFiles();
-}
-
-
-/* =========================================================
-   SELECTED FILE PREVIEW
-========================================================= */
-
-function renderSelectedFiles(){
-
-    selectedFilesBox.innerHTML =
-        "";
-
-
-    selectedFiles.forEach(
-        function(file,index){
-
-            const reader =
-                new FileReader();
-
-
-            reader.onload =
-                function(event){
-
-                    const div =
-                        document.createElement(
-                            "div"
-                        );
-
-                    div.className =
-                        "selected-file";
-
-
-                    div.innerHTML = `
-
-                        <img
-                            src="${event.target.result}"
-                            alt=""
-                        >
-
-                        <div class="selected-file-name">
-                            ${escapeHtml(file.name)}
-                        </div>
-
-                    `;
-
-
-                    selectedFilesBox.appendChild(
-                        div
-                    );
-
-                };
-
-
-            reader.readAsDataURL(file);
-
-        }
-    );
-}
-
-
-/* =========================================================
-   SAFE HTML
-========================================================= */
-
-function escapeHtml(value){
-
-    if(
-        value === null ||
-        value === undefined
-    ){
-        return "";
-    }
-
-    return String(value)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-}
-
-
-/* =========================================================
-   FILE NAME
-========================================================= */
-
-function safeFileName(name){
-
-    const extension =
-        name.includes(".")
-        ?
-        name.split(".").pop().toLowerCase()
-        :
-        "jpg";
-
-
-    const random =
-        Math.random()
-            .toString(36)
-            .substring(2,10);
-
-
-    return (
-        Date.now() +
-        "_" +
-        random +
-        "." +
-        extension
-    );
-}
-
-
-/* =========================================================
-   UPLOAD PHOTOS
-========================================================= */
-
-async function uploadPhotos(){
-
-    const imageUrls = [];
-
-
-    for(
-        let i = 0;
-        i < selectedFiles.length;
-        i++
-    ){
-
-        const file =
-            selectedFiles[i];
-
-
-        progressText.textContent =
-            `Uploading photo ${i + 1} of ${selectedFiles.length}...`;
-
-
-        const folder =
-            selectedCategory.toLowerCase();
-
-
-        const fileName =
-            safeFileName(
-                file.name
-            );
-
-
-        const filePath =
-            folder +
-            "/" +
-            fileName;
-
-
-        const {
-            error
-        } =
-            await supabaseClient
-                .storage
-                .from(STORAGE_BUCKET)
-                .upload(
-                    filePath,
-                    file,
-                    {
-                        cacheControl:"3600",
-                        upsert:false,
-                        contentType:file.type
-                    }
-                );
-
-
-        if(error){
+        if (error) {
 
             console.error(
-                "Storage upload error:",
+                "Supabase construction_projects error:",
                 error
             );
 
@@ -1351,903 +1562,643 @@ async function uploadPhotos(){
         }
 
 
-        const {
-            data
-        } =
-            supabaseClient
-                .storage
-                .from(STORAGE_BUCKET)
-                .getPublicUrl(
-                    filePath
-                );
+        const projects = Array.isArray(data)
+            ? data
+            : [];
 
 
-        if(
-            !data ||
-            !data.publicUrl
-        ){
-
-            throw new Error(
-                "Unable to create public image URL."
+        const interiorProjects =
+            projects.filter(project =>
+                String(project.category || "")
+                    .toLowerCase() === "interior"
             );
-        }
 
 
-        imageUrls.push(
-            data.publicUrl
+        const exteriorProjects =
+            projects.filter(project =>
+                String(project.category || "")
+                    .toLowerCase() === "exterior"
+            );
+
+
+        renderProjects(
+            interiorProjects,
+            interiorContainer
         );
 
 
-        const percent =
-            Math.round(
-                ((i + 1) /
-                selectedFiles.length) *
-                80
-            );
+        renderProjects(
+            exteriorProjects,
+            exteriorContainer
+        );
 
 
-        progressFill.style.width =
-            percent + "%";
+    } catch (error) {
+
+        console.error(
+            "Unable to load construction projects:",
+            error
+        );
+
+
+        interiorContainer.innerHTML = `
+            <div class="no-projects">
+                Unable to load construction projects at this time.
+            </div>
+        `;
+
+
+        exteriorContainer.innerHTML = `
+            <div class="no-projects">
+                Unable to load construction projects at this time.
+            </div>
+        `;
+
     }
 
-
-    return imageUrls;
 }
 
 
 /* =========================================================
-   SAVE PROJECT
+   RENDER PROJECTS
 ========================================================= */
 
-async function saveProject(){
+function renderProjects(
+    projects,
+    container
+) {
 
-    hideMessages();
+    if (!projects.length) {
 
-
-    const title =
-        document
-            .getElementById("project-title")
-            .value
-            .trim();
-
-
-    const location =
-        document
-            .getElementById("project-location")
-            .value
-            .trim();
-
-
-    const description =
-        document
-            .getElementById("project-description")
-            .value
-            .trim();
-
-
-    if(!title){
-
-        showError(
-            "Please enter a project title."
-        );
+        container.innerHTML = `
+            <div class="no-projects">
+                <strong>No projects yet.</strong><br>
+                New Miju Construction projects will be displayed here.
+            </div>
+        `;
 
         return;
     }
 
 
-    saveButton.disabled =
-        true;
+    container.innerHTML =
+        projects.map(project =>
+            createProjectCard(project)
+        ).join("");
 
-
-    progressWrap.style.display =
-        "block";
-
-    progressFill.style.width =
-        "5%";
-
-    progressText.textContent =
-        "Preparing project...";
-
-
-    try{
-
-        let imageUrls = [];
-
-
-        if(selectedFiles.length > 0){
-
-            imageUrls =
-                await uploadPhotos();
-
-        }
-
-
-        progressFill.style.width =
-            "90%";
-
-        progressText.textContent =
-            "Saving project...";
-
-
-        const {
-            error
-        } =
-            await supabaseClient
-                .from("construction_projects")
-                .insert({
-                    category:selectedCategory,
-                    title:title,
-                    location:
-                        location || null,
-                    description:
-                        description || null,
-                    image_urls:imageUrls,
-                    published:true,
-                    sort_order:0
-                });
-
-
-        if(error){
-
-            console.error(
-                "Database insert error:",
-                error
-            );
-
-            throw error;
-        }
-
-
-        progressFill.style.width =
-            "100%";
-
-        progressText.textContent =
-            "Project added successfully.";
-
-
-        showSuccess(
-            "Project added successfully. It is now published on the public Miju Construction website."
-        );
-
-
-        resetForm();
-
-
-        await loadProjects();
-
-    }
-    catch(error){
-
-        console.error(
-            "Save project error:",
-            error
-        );
-
-
-        showError(
-            error.message ||
-            "Unable to save project."
-        );
-
-    }
-    finally{
-
-        saveButton.disabled =
-            false;
-
-        setTimeout(
-            function(){
-
-                progressWrap.style.display =
-                    "none";
-
-                progressFill.style.width =
-                    "0%";
-
-            },
-            1500
-        );
-    }
 }
 
 
 /* =========================================================
-   LOAD PROJECTS
+   CREATE PROJECT CARD
 ========================================================= */
 
-async function loadProjects(){
+function createProjectCard(project) {
 
-    projectList.innerHTML = `
-        <div class="empty-state">
-            Loading projects...
-        </div>
-    `;
+    let images = [];
 
 
-    try{
+    if (Array.isArray(project.image_urls)) {
 
-        const {
-            data,
-            error
-        } =
-            await supabaseClient
-                .from("construction_projects")
-                .select(`
-                    id,
-                    category,
-                    title,
-                    location,
-                    description,
-                    image_urls,
-                    published,
-                    sort_order,
-                    created_at
-                `)
-                .order(
-                    "created_at",
-                    {
-                        ascending:false
-                    }
-                );
-
-
-        if(error){
-
-            console.error(
-                "Load projects error:",
-                error
-            );
-
-            throw error;
-        }
-
-
-        if(
-            !data ||
-            data.length === 0
-        ){
-
-            projectList.innerHTML = `
-                <div class="empty-state">
-                    No construction projects have been added yet.
-                </div>
-            `;
-
-            return;
-        }
-
-
-        projectList.innerHTML =
-            data
-                .map(
-                    createProjectHtml
-                )
-                .join("");
-
-    }
-    catch(error){
-
-        console.error(
-            "Unable to load projects:",
-            error
+        images = project.image_urls.filter(
+            url =>
+                typeof url === "string" &&
+                url.trim() !== ""
         );
 
-
-        projectList.innerHTML = `
-            <div class="message error"
-                 style="display:block;">
-                Unable to load projects.<br><br>
-                ${escapeHtml(error.message || "")}
-            </div>
-        `;
     }
-}
 
 
-/* =========================================================
-   PROJECT HTML
-========================================================= */
-
-function createProjectHtml(project){
-
-    const images =
-        Array.isArray(project.image_urls)
-        ?
-        project.image_urls
-        :
-        [];
-
-
-    const photoHtml =
+    const firstImage =
         images.length > 0
-        ?
-        images
-            .map(
-                image => `
-                    <div class="project-photo">
+            ? images[0]
+            : "";
 
-                        <img
-                            src="${escapeHtml(image)}"
-                            alt="${escapeHtml(project.title)}"
-                            loading="lazy"
-                        >
 
-                    </div>
-                `
-            )
-            .join("")
-        :
-        `
-            <div class="no-photo">
-                No photos
+    const safeTitle =
+        escapeHtml(project.title || "Construction Project");
+
+
+    const safeLocation =
+        escapeHtml(project.location || "");
+
+
+    const safeDescription =
+        escapeHtml(project.description || "");
+
+
+    const projectId =
+        escapeHtml(String(project.id));
+
+
+    let mainImageHtml = "";
+
+
+    if (firstImage) {
+
+        mainImageHtml = `
+            <img
+                src="${escapeAttribute(firstImage)}"
+                alt="${escapeAttribute(project.title || "Construction Project")}"
+                class="project-main-image"
+                loading="lazy"
+                onclick="openProjectLightbox('${projectId}', 0)"
+            >
+        `;
+
+    } else {
+
+        mainImageHtml = `
+            <div
+                class="project-main-image"
+                style="
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    color:#7a8492;
+                "
+            >
+                No Project Photo
             </div>
         `;
 
-
-    const statusClass =
-        project.published
-        ?
-        "status-published"
-        :
-        "status-hidden";
+    }
 
 
-    const statusText =
-        project.published
-        ?
-        "PUBLISHED"
-        :
-        "HIDDEN";
+    let thumbnailsHtml = "";
 
 
-    const toggleButton =
-        project.published
-        ?
-        `
-            <button
-                class="small-button hide"
-                onclick="togglePublished('${project.id}',false)"
-            >
-                Hide from Website
-            </button>
-        `
-        :
-        `
-            <button
-                class="small-button publish"
-                onclick="togglePublished('${project.id}',true)"
-            >
-                Publish
-            </button>
+    if (images.length > 1) {
+
+        thumbnailsHtml = `
+            <div class="project-thumbs">
+
+                ${images
+                    .slice(0, 4)
+                    .map((image, index) => `
+                        <img
+                            src="${escapeAttribute(image)}"
+                            alt="Project photo ${index + 1}"
+                            loading="lazy"
+                            onclick="openProjectLightbox('${projectId}', ${index})"
+                        >
+                    `)
+                    .join("")}
+
+            </div>
         `;
+
+    }
+
+
+    const photoCount =
+        images.length > 0
+            ? `
+                <div class="photo-count">
+                    ${images.length}
+                    ${images.length === 1 ? "photo" : "photos"}
+                </div>
+              `
+            : "";
 
 
     return `
-        <div class="project-item">
+        <article
+            class="project-card"
+            data-project-id="${projectId}"
+        >
 
-            <div class="project-header">
+            ${mainImageHtml}
 
-                <div class="project-title-wrap">
+            <div class="project-info">
 
-                    <div class="project-category">
-                        ${escapeHtml(project.category)}
-                    </div>
+                <h4>
+                    ${safeTitle}
+                </h4>
 
-                    <h3>
-                        ${escapeHtml(project.title)}
-                    </h3>
-
-                    ${
-                        project.location
-                        ?
-                        `
+                ${
+                    safeLocation
+                        ? `
                             <div class="project-location">
-                                ${escapeHtml(project.location)}
+                                ${safeLocation}
                             </div>
-                        `
-                        :
-                        ""
-                    }
+                          `
+                        : ""
+                }
 
-                </div>
+                ${
+                    safeDescription
+                        ? `
+                            <p class="project-description">
+                                ${safeDescription}
+                            </p>
+                          `
+                        : ""
+                }
 
-                <div class="project-status ${statusClass}">
-                    ${statusText}
-                </div>
+                ${thumbnailsHtml}
 
-            </div>
-
-
-            <div class="project-photos">
-
-                ${photoHtml}
-
-            </div>
-
-
-            ${
-                project.description
-                ?
-                `
-                    <div class="project-description">
-                        ${escapeHtml(project.description)}
-                    </div>
-                `
-                :
-                ""
-            }
-
-
-            <div class="project-actions">
-
-                ${toggleButton}
-
-                <button
-                    class="small-button"
-                    onclick="managePhotos('${project.id}')"
-                >
-                    Manage Photos
-                </button>
-
-                <button
-                    class="small-button"
-                    onclick="editProjectInfo('${project.id}')"
-                >
-                    Edit Information
-                </button>
-
-                <button
-                    class="small-button"
-                    onclick="deleteProject('${project.id}')"
-                >
-                    Delete Project
-                </button>
+                ${photoCount}
 
             </div>
 
-        </div>
+        </article>
     `;
+
 }
 
 
 /* =========================================================
-   PUBLISH / HIDE
+   STORE PROJECT IMAGES
 ========================================================= */
 
-async function togglePublished(
-    projectId,
-    published
-){
-
-    try{
-
-        const {
-            error
-        } =
-            await supabaseClient
-                .from("construction_projects")
-                .update({
-                    published:published
-                })
-                .eq("id",projectId);
-
-
-        if(error){
-            throw error;
-        }
-
-
-        await loadProjects();
-
-    }
-    catch(error){
-
-        alert(
-            "Unable to update project:\n\n" +
-            (
-                error.message ||
-                error
-            )
-        );
-
-    }
-}
+const projectImagesMap = new Map();
 
 
 /* =========================================================
-   EDIT INFORMATION
+   OPEN LIGHTBOX
 ========================================================= */
 
-async function editProjectInfo(
-    projectId
-){
+window.openProjectLightbox =
+function(projectId, imageIndex) {
 
-    try{
-
-        const {
-            data:project,
-            error
-        } =
-            await supabaseClient
-                .from("construction_projects")
-                .select(
-                    "id,category,title,location,description"
-                )
-                .eq("id",projectId)
-                .single();
-
-
-        if(error){
-            throw error;
-        }
-
-
-        const newTitle =
-            prompt(
-                "Project Title:",
-                project.title || ""
+    const project =
+        window.loadedConstructionProjects
+            ?.find(
+                item =>
+                    String(item.id) === String(projectId)
             );
 
 
-        if(newTitle === null){
-            return;
-        }
+    if (!project) {
 
-
-        const newLocation =
-            prompt(
-                "Location:",
-                project.location || ""
-            );
-
-
-        if(newLocation === null){
-            return;
-        }
-
-
-        const newDescription =
-            prompt(
-                "Description:",
-                project.description || ""
-            );
-
-
-        if(newDescription === null){
-            return;
-        }
-
-
-        const {
-            error:updateError
-        } =
-            await supabaseClient
-                .from("construction_projects")
-                .update({
-                    title:newTitle.trim(),
-                    location:
-                        newLocation.trim() || null,
-                    description:
-                        newDescription.trim() || null
-                })
-                .eq("id",projectId);
-
-
-        if(updateError){
-            throw updateError;
-        }
-
-
-        await loadProjects();
-
-        alert(
-            "Project information updated."
-        );
-
-    }
-    catch(error){
-
-        alert(
-            "Unable to update project:\n\n" +
-            (
-                error.message ||
-                error
-            )
-        );
-
-    }
-}
-
-
-/* =========================================================
-   MANAGE PHOTOS
-========================================================= */
-
-async function managePhotos(
-    projectId
-){
-
-    try{
-
-        const {
-            data:project,
-            error
-        } =
-            await supabaseClient
-                .from("construction_projects")
-                .select(
-                    "id,title,image_urls"
-                )
-                .eq("id",projectId)
-                .single();
-
-
-        if(error){
-            throw error;
-        }
-
-
-        const images =
-            Array.isArray(project.image_urls)
-            ?
-            project.image_urls
-            :
-            [];
-
-
-        if(images.length === 0){
-
-            alert(
-                "This project currently has no photos."
-            );
-
-            return;
-        }
-
-
-        const message =
-            images
-                .map(
-                    (url,index) =>
-                        `${index + 1}. ${url}`
-                )
-                .join("\n");
-
-
-        const action =
-            prompt(
-                "Project Photos\n\n" +
-                message +
-                "\n\n" +
-                "Enter a photo number to remove it.\n" +
-                "Enter 0 to cancel."
-            );
-
-
-        if(
-            action === null ||
-            action.trim() === ""
-        ){
-            return;
-        }
-
-
-        const number =
-            Number(action);
-
-
-        if(number === 0){
-            return;
-        }
-
-
-        if(
-            !Number.isInteger(number) ||
-            number < 1 ||
-            number > images.length
-        ){
-
-            alert(
-                "Invalid photo number."
-            );
-
-            return;
-        }
-
-
-        const newImages =
-            images.filter(
-                (_,index) =>
-                    index !== number - 1
-            );
-
-
-        const {
-            error:updateError
-        } =
-            await supabaseClient
-                .from("construction_projects")
-                .update({
-                    image_urls:newImages
-                })
-                .eq("id",projectId);
-
-
-        if(updateError){
-            throw updateError;
-        }
-
-
-        await loadProjects();
-
-
-        alert(
-            "Photo removed from the project."
-        );
-
-    }
-    catch(error){
-
-        alert(
-            "Unable to manage photos:\n\n" +
-            (
-                error.message ||
-                error
-            )
-        );
-
-    }
-}
-
-
-/* =========================================================
-   DELETE PROJECT
-========================================================= */
-
-async function deleteProject(
-    projectId
-){
-
-    const confirmed =
-        confirm(
-            "Are you sure you want to delete this project?\n\n" +
-            "This will permanently remove the project from the database."
-        );
-
-
-    if(!confirmed){
         return;
     }
 
 
-    try{
+    let images =
+        Array.isArray(project.image_urls)
+            ? project.image_urls
+            : [];
+
+
+    if (!images.length) {
+
+        return;
+    }
+
+
+    currentImages = images;
+
+    currentImageIndex = imageIndex;
+
+
+    showLightboxImage();
+
+};
+
+
+/* =========================================================
+   SHOW LIGHTBOX IMAGE
+========================================================= */
+
+function showLightboxImage() {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+    const image =
+        document.getElementById("lightboxImage");
+
+    const counter =
+        document.getElementById("lightboxCounter");
+
+
+    if (!currentImages.length) {
+
+        return;
+    }
+
+
+    image.src =
+        currentImages[currentImageIndex];
+
+
+    counter.textContent =
+        `${currentImageIndex + 1} / ${currentImages.length}`;
+
+
+    lightbox.classList.add("active");
+
+    document.body.style.overflow = "hidden";
+
+}
+
+
+/* =========================================================
+   CLOSE LIGHTBOX
+========================================================= */
+
+function closeLightbox() {
+
+    const lightbox =
+        document.getElementById("lightbox");
+
+
+    lightbox.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+/* =========================================================
+   PREVIOUS IMAGE
+========================================================= */
+
+function previousImage() {
+
+    if (!currentImages.length) {
+
+        return;
+    }
+
+
+    currentImageIndex--;
+
+    if (currentImageIndex < 0) {
+
+        currentImageIndex =
+            currentImages.length - 1;
+
+    }
+
+
+    showLightboxImage();
+
+}
+
+
+/* =========================================================
+   NEXT IMAGE
+========================================================= */
+
+function nextImage() {
+
+    if (!currentImages.length) {
+
+        return;
+    }
+
+
+    currentImageIndex++;
+
+    if (
+        currentImageIndex >=
+        currentImages.length
+    ) {
+
+        currentImageIndex = 0;
+
+    }
+
+
+    showLightboxImage();
+
+}
+
+
+/* =========================================================
+   LIGHTBOX EVENTS
+========================================================= */
+
+document
+    .getElementById("lightboxClose")
+    .addEventListener(
+        "click",
+        closeLightbox
+    );
+
+
+document
+    .getElementById("lightboxPrev")
+    .addEventListener(
+        "click",
+        previousImage
+    );
+
+
+document
+    .getElementById("lightboxNext")
+    .addEventListener(
+        "click",
+        nextImage
+    );
+
+
+document
+    .getElementById("lightbox")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                closeLightbox();
+
+            }
+
+        }
+    );
+
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        const lightbox =
+            document.getElementById("lightbox");
+
+
+        if (
+            !lightbox.classList.contains("active")
+        ) {
+
+            return;
+        }
+
+
+        if (event.key === "Escape") {
+
+            closeLightbox();
+
+        }
+
+
+        if (event.key === "ArrowLeft") {
+
+            previousImage();
+
+        }
+
+
+        if (event.key === "ArrowRight") {
+
+            nextImage();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   HTML ESCAPE HELPERS
+========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+function escapeAttribute(value) {
+
+    return escapeHtml(value);
+
+}
+
+
+/* =========================================================
+   LOAD PROJECTS AND KEEP DATA FOR LIGHTBOX
+========================================================= */
+
+async function initializeProjects() {
+
+    try {
 
         const {
+            data,
             error
-        } =
-            await supabaseClient
-                .from("construction_projects")
-                .delete()
-                .eq("id",projectId);
+        } = await supabaseClient
+
+            .from("construction_projects")
+
+            .select(`
+                id,
+                category,
+                title,
+                location,
+                description,
+                image_urls,
+                published,
+                sort_order,
+                created_at
+            `)
+
+            .eq("published", true)
+
+            .order("sort_order", {
+                ascending: true
+            })
+
+            .order("created_at", {
+                ascending: false
+            });
 
 
-        if(error){
+        if (error) {
+
+            console.error(
+                "Supabase construction_projects error:",
+                error
+            );
+
             throw error;
         }
 
 
-        await loadProjects();
+        window.loadedConstructionProjects =
+            Array.isArray(data)
+                ? data
+                : [];
 
-        alert(
-            "Project deleted."
+
+        const interiorContainer =
+            document.getElementById(
+                "interiorProjects"
+            );
+
+
+        const exteriorContainer =
+            document.getElementById(
+                "exteriorProjects"
+            );
+
+
+        const interiorProjects =
+            window.loadedConstructionProjects.filter(
+                project =>
+                    String(project.category || "")
+                        .toLowerCase() === "interior"
+            );
+
+
+        const exteriorProjects =
+            window.loadedConstructionProjects.filter(
+                project =>
+                    String(project.category || "")
+                        .toLowerCase() === "exterior"
+            );
+
+
+        renderProjects(
+            interiorProjects,
+            interiorContainer
         );
 
-    }
-    catch(error){
 
-        alert(
-            "Unable to delete project:\n\n" +
-            (
-                error.message ||
-                error
-            )
+        renderProjects(
+            exteriorProjects,
+            exteriorContainer
         );
 
+
+    } catch (error) {
+
+        console.error(
+            "Construction project loading failed.",
+            error
+        );
+
+
+        document.getElementById(
+            "interiorProjects"
+        ).innerHTML = `
+            <div class="no-projects">
+                Unable to load construction projects at this time.
+            </div>
+        `;
+
+
+        document.getElementById(
+            "exteriorProjects"
+        ).innerHTML = `
+            <div class="no-projects">
+                Unable to load construction projects at this time.
+            </div>
+        `;
+
     }
-}
 
-
-/* =========================================================
-   RESET FORM
-========================================================= */
-
-function resetForm(){
-
-    document
-        .getElementById("project-title")
-        .value = "";
-
-
-    document
-        .getElementById("project-location")
-        .value = "";
-
-
-    document
-        .getElementById("project-description")
-        .value = "";
-
-
-    selectedFiles = [];
-
-
-    selectedFilesBox.innerHTML =
-        "";
-
-
-    setCategory("Interior");
-
-    hideMessages();
-}
-
-
-/* =========================================================
-   MESSAGES
-========================================================= */
-
-function hideMessages(){
-
-    successMessage.style.display =
-        "none";
-
-    errorMessage.style.display =
-        "none";
-}
-
-
-function showSuccess(message){
-
-    successMessage.textContent =
-        message;
-
-    successMessage.style.display =
-        "block";
-}
-
-
-function showError(message){
-
-    errorMessage.textContent =
-        message;
-
-    errorMessage.style.display =
-        "block";
-}
-
-
-/* =========================================================
-   PUBLIC SITE
-========================================================= */
-
-function openPublicSite(){
-
-    window.open(
-        "miju-construction.html",
-        "_blank"
-    );
-}
-
-
-/* =========================================================
-   LOGOUT
-========================================================= */
-
-async function logout(){
-
-    await supabaseClient.auth.signOut();
-
-    window.location.href =
-        "login.html";
 }
 
 
@@ -2255,7 +2206,14 @@ async function logout(){
    START
 ========================================================= */
 
-checkAdmin();
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        initializeProjects();
+
+    }
+);
 
 </script>
 
