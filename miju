@@ -1,1 +1,560 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Miju Construction | 25+ Years of Construction Experience</title>
+
+<meta name="description" content="Miju Construction provides professional interior and exterior construction services with more than 25 years of experience, including government-related projects.">
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+    font-family:Arial,"Noto Sans",sans-serif;
+    line-height:1.6;
+    color:#1f2933;
+    background:#fff
+}
+a{text-decoration:none;color:inherit}
+img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* HEADER */
+header{
+    background:#102a43;
+    color:#fff;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,.12)
+}
+.nav-container{
+    max-width:1200px;
+    margin:auto;
+    padding:17px 25px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between
+}
+.logo{font-size:21px;font-weight:700;letter-spacing:.2px}
+.nav-links{display:flex;align-items:center;gap:24px}
+.nav-links a{font-size:14px;font-weight:600;color:#fff}
+.nav-links a:hover{opacity:.8}
+.home-button{
+    background:#fff;
+    color:#102a43!important;
+    padding:9px 16px;
+    border-radius:5px
+}
+
+/* HERO */
+.hero{
+    background:
+        linear-gradient(rgba(16,42,67,.88),rgba(36,59,83,.88)),
+        url("images/construction-hero.jpg") center/cover;
+    color:#fff;
+    padding:105px 25px 110px;
+    text-align:center
+}
+.hero-content{max-width:950px;margin:auto}
+.hero h1{font-size:50px;line-height:1.15;margin-bottom:18px}
+.hero h1 span{
+    display:block;
+    font-size:23px;
+    font-weight:400;
+    margin-top:18px;
+    opacity:.92
+}
+.hero p{
+    max-width:800px;
+    margin:0 auto 32px;
+    font-size:18px;
+    color:#e6edf3
+}
+.badges{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap;
+    margin-top:20px
+}
+.badge{
+    border:1px solid rgba(255,255,255,.55);
+    padding:10px 18px;
+    border-radius:5px;
+    font-size:14px;
+    font-weight:700
+}
+
+/* GENERAL */
+section{padding:75px 25px}
+.container{max-width:1150px;margin:auto}
+.section-title{
+    text-align:center;
+    color:#102a43;
+    font-size:34px;
+    margin-bottom:14px
+}
+.section-subtitle{
+    text-align:center;
+    max-width:780px;
+    margin:0 auto 45px;
+    color:#52606d;
+    font-size:16px
+}
+
+/* ABOUT / TRUST */
+#about{background:#f5f7fa}
+.trust-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px
+}
+.trust-card{
+    background:#fff;
+    padding:28px 22px;
+    text-align:center;
+    border:1px solid #e4e7eb;
+    border-radius:7px;
+    box-shadow:0 4px 15px rgba(0,0,0,.05)
+}
+.trust-number{
+    font-size:31px;
+    font-weight:700;
+    color:#102a43;
+    margin-bottom:7px
+}
+.trust-card h3{font-size:18px;color:#102a43;margin-bottom:8px}
+.trust-card p{font-size:14px;color:#52606d}
+
+/* SERVICES */
+#services{background:#fff}
+.category-title{
+    font-size:28px;
+    color:#102a43;
+    margin:55px 0 22px;
+    padding-bottom:10px;
+    border-bottom:3px solid #102a43
+}
+.category-title:first-of-type{margin-top:0}
+.service-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px
+}
+.service-card{
+    background:#fff;
+    border:1px solid #e4e7eb;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+    transition:transform .2s,box-shadow .2s
+}
+.service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 22px rgba(0,0,0,.11)
+}
+.service-image{height:205px;background:#d9e2ec}
+.service-body{padding:21px}
+.service-body h3{color:#102a43;font-size:20px;margin-bottom:8px}
+.service-body p{color:#52606d;font-size:14px}
+.placeholder{
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#7b8794;
+    background:#e9eef3;
+    font-size:14px;
+    text-align:center;
+    padding:20px
+}
+
+/* PROCESS */
+#process{background:#f5f7fa}
+.process-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px
+}
+.process-card{
+    background:#fff;
+    padding:28px 22px;
+    border:1px solid #e4e7eb;
+    border-radius:7px;
+    text-align:center
+}
+.process-number{
+    width:45px;
+    height:45px;
+    line-height:45px;
+    margin:0 auto 14px;
+    background:#102a43;
+    color:#fff;
+    border-radius:50%;
+    font-weight:700
+}
+.process-card h3{color:#102a43;margin-bottom:8px}
+.process-card p{color:#52606d;font-size:14px}
+
+/* CTA */
+#contact{
+    background:#102a43;
+    color:#fff;
+    text-align:center
+}
+#contact .section-title{color:#fff}
+#contact .section-subtitle{color:#d9e2ec}
+.cta-buttons{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    flex-wrap:wrap
+}
+.button{
+    display:inline-block;
+    padding:13px 24px;
+    border-radius:5px;
+    font-size:15px;
+    font-weight:700
+}
+.button-primary{background:#fff;color:#102a43}
+.button-outline{border:1px solid #fff;color:#fff}
+.button:hover{opacity:.88}
+
+/* FOOTER */
+footer{
+    background:#0b1f33;
+    color:#bcccdc;
+    text-align:center;
+    padding:30px 20px;
+    font-size:14px
+}
+.footer-links{margin-bottom:15px}
+.footer-links a{margin:0 9px;color:#d9e2ec}
+.footer-links a:hover{text-decoration:underline}
+
+/* MOBILE */
+@media(max-width:900px){
+    .trust-grid,.process-grid{grid-template-columns:repeat(2,1fr)}
+    .service-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:700px){
+    .nav-container{flex-direction:column;gap:15px}
+    .nav-links{flex-wrap:wrap;justify-content:center;gap:12px}
+    .hero{padding:75px 20px}
+    .hero h1{font-size:37px}
+    section{padding:60px 20px}
+}
+@media(max-width:520px){
+    .trust-grid,.process-grid,.service-grid{grid-template-columns:1fr}
+    .hero h1{font-size:31px}
+    .hero h1 span{font-size:18px}
+    .hero p{font-size:16px}
+    .section-title{font-size:28px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">Miju Construction</div>
+        <nav class="nav-links">
+            <a href="index.html" class="home-button">Primax Global Home</a>
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#process">Our Process</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>
+            Miju Construction
+            <span>25+ Years of Construction Experience</span>
+        </h1>
+
+        <p>
+            Professional construction, renovation, and property improvement
+            services for residential, commercial, and government-related projects.
+        </p>
+
+        <div class="badges">
+            <div class="badge">25+ Years Experience</div>
+            <div class="badge">Government Project Experience</div>
+            <div class="badge">Interior & Exterior</div>
+            <div class="badge">Professional & Reliable</div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT / TRUST -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title">Built on Experience. Trusted for Quality.</h2>
+
+        <p class="section-subtitle">
+            Miju Construction has been serving customers for more than 25 years.
+            Our experience includes construction-related work and supplying
+            construction services and products for government projects.
+            We are committed to dependable workmanship, quality materials,
+            and professional project management.
+        </p>
+
+        <div class="trust-grid">
+            <div class="trust-card">
+                <div class="trust-number">25+</div>
+                <h3>Years of Experience</h3>
+                <p>More than 25 years of experience in construction and renovation.</p>
+            </div>
+
+            <div class="trust-card">
+                <div class="trust-number">GOV</div>
+                <h3>Government Experience</h3>
+                <p>Experience supporting government-related construction projects.</p>
+            </div>
+
+            <div class="trust-card">
+                <div class="trust-number">2</div>
+                <h3>Major Service Areas</h3>
+                <p>Complete interior and exterior construction services.</p>
+            </div>
+
+            <div class="trust-card">
+                <div class="trust-number">✓</div>
+                <h3>Reliable Service</h3>
+                <p>Professional service focused on quality, reliability, and customer satisfaction.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+    <div class="container">
+
+        <h2 class="section-title">Our Construction Services</h2>
+        <p class="section-subtitle">
+            From interior remodeling to exterior construction and repairs,
+            Miju Construction provides a wide range of construction services.
+        </p>
+
+        <!-- INTERIOR -->
+        <h3 class="category-title">INTERIOR</h3>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Kitchen Remodeling Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Kitchen Remodeling</h3>
+                    <p>Kitchen renovation, cabinets, countertops, flooring, and related improvements.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Bathroom Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Bathroom Remodeling</h3>
+                    <p>Bathroom renovation, fixtures, flooring, tile work, and complete improvements.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Flooring Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Flooring</h3>
+                    <p>Professional flooring installation and replacement for residential and commercial spaces.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Painting Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Interior Painting</h3>
+                    <p>Interior painting and finishing services for homes, offices, and commercial properties.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Drywall Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Drywall & Ceiling</h3>
+                    <p>Drywall installation, repair, ceiling work, and interior surface improvements.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Interior Renovation Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>General Interior Renovation</h3>
+                    <p>Interior remodeling and improvements for residential and commercial properties.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- EXTERIOR -->
+        <h3 class="category-title">EXTERIOR</h3>
+
+        <div class="service-grid">
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Concrete Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Concrete</h3>
+                    <p>Driveways, walkways, patios, slabs, foundations, repairs, and other concrete work.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Roofing Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Roofing</h3>
+                    <p>Roof repair, replacement, shingle roofing, flat roofing, and commercial roofing services.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Stucco Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Stucco & Siding</h3>
+                    <p>Exterior wall improvements, stucco repair, siding, and related exterior work.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Exterior Painting Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Exterior Painting</h3>
+                    <p>Professional exterior painting and surface preparation for properties of all sizes.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Fence Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Fences & Gates</h3>
+                    <p>Fence, gate, property boundary, and exterior improvement services.</p>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <div class="service-image">
+                    <div class="placeholder">Add Waterproofing Photo</div>
+                </div>
+                <div class="service-body">
+                    <h3>Waterproofing & Repairs</h3>
+                    <p>Waterproofing, drainage-related improvements, exterior repairs, and property maintenance.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+    <div class="container">
+        <h2 class="section-title">Our Approach</h2>
+        <p class="section-subtitle">
+            We focus on clear communication, dependable workmanship, and professional project completion.
+        </p>
+
+        <div class="process-grid">
+            <div class="process-card">
+                <div class="process-number">1</div>
+                <h3>Consultation</h3>
+                <p>Discuss your project, property, goals, and construction needs.</p>
+            </div>
+
+            <div class="process-card">
+                <div class="process-number">2</div>
+                <h3>Estimate</h3>
+                <p>Review the scope of work and develop a project estimate.</p>
+            </div>
+
+            <div class="process-card">
+                <div class="process-number">3</div>
+                <h3>Construction</h3>
+                <p>Perform the work with professional coordination and attention to quality.</p>
+            </div>
+
+            <div class="process-card">
+                <div class="process-number">4</div>
+                <h3>Completion</h3>
+                <p>Complete the project and review the finished work with the customer.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title">Let's Discuss Your Project</h2>
+
+        <p class="section-subtitle">
+            Whether you need interior remodeling, exterior improvements,
+            repairs, or a larger construction project, contact Miju Construction
+            to discuss your needs.
+        </p>
+
+        <div class="cta-buttons">
+            <a href="tel:2132470011" class="button button-primary">Call Us</a>
+            <a href="mailto:david@primaxfed.com" class="button button-outline">Request a Quote</a>
+            <a href="index.html" class="button button-outline">Primax Global</a>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="footer-links">
+        <a href="index.html">Primax Global Home</a>
+        <a href="#about">About Us</a>
+        <a href="#services">Services</a>
+        <a href="#process">Our Process</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    Miju Construction<br>
+    Los Angeles, California<br><br>
+    © 2026 Miju Construction. All Rights Reserved.
+</footer>
+
+</body>
+</html>
