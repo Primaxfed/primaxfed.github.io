@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Primax Global, Inc. | Federal Government Vendor</title>
 
     <meta
         name="description"
-        content="Primax Global, Inc. is a U.S. government vendor supplying commercial, industrial, construction, and specialty products to federal, state, and local government agencies."
+        content="Primax Global, Inc. is a U.S. government vendor supplying commercial, industrial, construction, and specialty products and services to government and institutional customers."
     >
 
     <meta
@@ -73,12 +78,15 @@
             font-size: 21px;
             font-weight: 700;
             letter-spacing: .2px;
+            white-space: nowrap;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 22px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .nav-links a {
@@ -114,16 +122,15 @@
 
 
         /* =========================================
-           ADMIN VENDOR MANAGEMENT BUTTON
+           ADMIN BUTTONS
         ========================================= */
 
         .admin-nav-button {
             display: none;
 
-            background: #d97706;
             color: #ffffff !important;
 
-            padding: 9px 16px;
+            padding: 9px 15px;
 
             border-radius: 5px;
 
@@ -132,8 +139,21 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.15);
         }
 
-        .admin-nav-button:hover {
+        .vendor-management-button {
+            background: #d97706;
+        }
+
+        .vendor-management-button:hover {
             background: #b45309;
+            opacity: 1 !important;
+        }
+
+        .construction-management-button {
+            background: #2563eb;
+        }
+
+        .construction-management-button:hover {
+            background: #1d4ed8;
             opacity: 1 !important;
         }
 
@@ -352,11 +372,6 @@
             color: #52606d;
         }
 
-
-        /* =========================================
-           PRODUCT CATEGORY
-        ========================================= */
-
         .category-grid {
             display: grid;
 
@@ -424,10 +439,6 @@
 
         .construction-card {
             border-top: 4px solid #d97706;
-        }
-
-        .construction-card h3 {
-            color: #102a43;
         }
 
         .construction-badge {
@@ -722,6 +733,20 @@
            MOBILE
         ========================================= */
 
+        @media (max-width: 1000px) {
+
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                justify-content: center;
+            }
+
+        }
+
+
         @media (max-width: 900px) {
 
             .category-grid {
@@ -732,20 +757,6 @@
 
 
         @media (max-width: 800px) {
-
-            .nav-container {
-                flex-direction: column;
-
-                gap: 15px;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-
-                justify-content: center;
-
-                gap: 13px;
-            }
 
             .hero {
                 padding: 70px 20px;
@@ -784,6 +795,10 @@
                 font-size: 19px;
             }
 
+            .nav-links {
+                gap: 10px;
+            }
+
             .nav-links a {
                 font-size: 13px;
             }
@@ -802,6 +817,11 @@
 
             .section-title {
                 font-size: 27px;
+            }
+
+            .admin-nav-button,
+            .vendor-nav-button {
+                padding: 8px 11px;
             }
 
         }
@@ -864,14 +884,25 @@
             </a>
 
 
-            <!-- Admin Only -->
+            <!-- Admin: Vendor Management -->
 
             <a
                 href="admin-vendors.html"
                 id="adminVendorManagement"
-                class="admin-nav-button"
+                class="admin-nav-button vendor-management-button"
             >
                 Vendor Management
+            </a>
+
+
+            <!-- Admin: Construction Management -->
+
+            <a
+                href="admin-construction.html"
+                id="adminConstructionManagement"
+                class="admin-nav-button construction-management-button"
+            >
+                Construction Management
             </a>
 
         </nav>
@@ -1067,7 +1098,7 @@
 
 
     <!-- =================================================
-         PRODUCTS / PRODUCT CATEGORY
+         PRODUCTS
     ================================================== -->
 
     <section id="products">
@@ -1088,10 +1119,6 @@
             </p>
 
 
-
-            <!-- =========================================
-                 CATEGORY GRID
-            ========================================== -->
 
             <div class="category-grid">
 
@@ -1121,7 +1148,7 @@
 
 
 
-                <!-- SPECIALTY / GOVERNMENT -->
+                <!-- GOVERNMENT & SPECIALTY -->
 
                 <div class="category-card">
 
@@ -1181,8 +1208,6 @@
             </div>
 
 
-
-            <!-- PRODUCT CATALOG -->
 
             <div class="products-button">
 
@@ -1561,17 +1586,68 @@ const supabaseClient =
 
 
 /* =========================================================
-   ADMIN BUTTON
+   ADMIN BUTTONS
 ========================================================= */
 
-const adminButton =
+const adminVendorButton =
     document.getElementById(
         "adminVendorManagement"
     );
 
+const adminConstructionButton =
+    document.getElementById(
+        "adminConstructionManagement"
+    );
+
 
 /* =========================================================
-   CHECK ADMIN USER
+   HIDE ADMIN BUTTONS
+========================================================= */
+
+function hideAdminButtons() {
+
+    if (adminVendorButton) {
+
+        adminVendorButton.style.display =
+            "none";
+
+    }
+
+    if (adminConstructionButton) {
+
+        adminConstructionButton.style.display =
+            "none";
+
+    }
+
+}
+
+
+/* =========================================================
+   SHOW ADMIN BUTTONS
+========================================================= */
+
+function showAdminButtons() {
+
+    if (adminVendorButton) {
+
+        adminVendorButton.style.display =
+            "inline-block";
+
+    }
+
+    if (adminConstructionButton) {
+
+        adminConstructionButton.style.display =
+            "inline-block";
+
+    }
+
+}
+
+
+/* =========================================================
+   CHECK ADMIN ACCESS
 ========================================================= */
 
 async function checkAdminAccess() {
@@ -1579,14 +1655,14 @@ async function checkAdminAccess() {
     try {
 
         /*
-         * Step 1
-         * 현재 Supabase 로그인 사용자 확인
+         * 현재 로그인한 Supabase 사용자 확인
          */
 
         const {
             data: userData,
             error: userError
-        } = await supabaseClient.auth.getUser();
+        } =
+            await supabaseClient.auth.getUser();
 
 
         if (userError) {
@@ -1596,7 +1672,7 @@ async function checkAdminAccess() {
                 userError.message
             );
 
-            adminButton.style.display = "none";
+            hideAdminButtons();
 
             return;
         }
@@ -1612,14 +1688,13 @@ async function checkAdminAccess() {
 
         if (!user) {
 
-            adminButton.style.display = "none";
+            hideAdminButtons();
 
             return;
         }
 
 
         /*
-         * Step 2
          * admin_users 테이블에서
          * 현재 사용자의 admin 권한 확인
          */
@@ -1627,17 +1702,17 @@ async function checkAdminAccess() {
         const {
             data: adminRecord,
             error: adminError
-        } = await supabaseClient
-            .from("admin_users")
-            .select("id, email, role")
-            .eq("user_id", user.id)
-            .eq("role", "admin")
-            .maybeSingle();
+        } =
+            await supabaseClient
+                .from("admin_users")
+                .select("id, email, role")
+                .eq("user_id", user.id)
+                .eq("role", "admin")
+                .maybeSingle();
 
 
         /*
-         * Admin record가 없으면
-         * 버튼을 표시하지 않음
+         * Admin record 확인 오류
          */
 
         if (adminError) {
@@ -1647,16 +1722,16 @@ async function checkAdminAccess() {
                 adminError.message
             );
 
-            adminButton.style.display = "none";
+            hideAdminButtons();
 
             return;
         }
 
 
         /*
-         * Step 3
-         * admin_users.role = admin이면
-         * Vendor Management 버튼 표시
+         * Admin이면
+         * Vendor Management + Construction Management
+         * 두 버튼 모두 표시
          */
 
         if (
@@ -1664,8 +1739,7 @@ async function checkAdminAccess() {
             adminRecord.role === "admin"
         ) {
 
-            adminButton.style.display =
-                "inline-block";
+            showAdminButtons();
 
             console.log(
                 "Admin access granted:",
@@ -1674,7 +1748,7 @@ async function checkAdminAccess() {
 
         } else {
 
-            adminButton.style.display = "none";
+            hideAdminButtons();
 
             console.log(
                 "Admin access not granted:",
@@ -1691,7 +1765,7 @@ async function checkAdminAccess() {
             error
         );
 
-        adminButton.style.display = "none";
+        hideAdminButtons();
 
     }
 
@@ -1716,7 +1790,7 @@ supabaseClient.auth.onAuthStateChange(
 
         } else {
 
-            adminButton.style.display = "none";
+            hideAdminButtons();
 
         }
 
