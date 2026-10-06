@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Miju Construction | 25+ Years of Construction Experience</title>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-<meta name="description"
-content="Miju Construction provides professional interior and exterior construction services with more than 25 years of experience, including government-related projects.">
+<title>
+    Miju Construction | 25+ Years of Construction Experience
+</title>
 
-<!-- SUPABASE -->
+<meta
+    name="description"
+    content="Miju Construction provides professional interior and exterior construction services with more than 25 years of experience, including government-related projects."
+>
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
+
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -48,16 +59,18 @@ header {
     z-index: 1000;
     background: #0c1d36;
     color: #ffffff;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 12px rgba(0,0,0,.15);
 }
 
 .nav-wrap {
     width: min(1180px, 92%);
     margin: 0 auto;
     min-height: 72px;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 25px;
 }
 
@@ -97,14 +110,16 @@ nav a:hover {
 .hero {
     min-height: 610px;
     position: relative;
+
     display: flex;
     align-items: center;
+
     color: #ffffff;
 
     background:
         linear-gradient(
-            rgba(8, 25, 48, .78),
-            rgba(8, 25, 48, .78)
+            rgba(8,25,48,.78),
+            rgba(8,25,48,.78)
         ),
         url("images/construction-hero.jpg")
         center center / cover no-repeat;
@@ -198,7 +213,7 @@ section {
 
 .stats {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 20px;
 }
 
@@ -270,7 +285,7 @@ section {
 
 .service-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 22px;
 }
 
@@ -279,32 +294,42 @@ section {
     background: #ffffff;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 18px rgba(20,40,68,.05);
-    transition: transform .2s ease, box-shadow .2s ease;
+
+    box-shadow:
+        0 4px 18px rgba(20,40,68,.05);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
 .service-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 28px rgba(20,40,68,.10);
+
+    box-shadow:
+        0 10px 28px rgba(20,40,68,.10);
 }
 
 .service-photo {
     height: 190px;
     background: #edf1f5;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     color: #8a94a3;
     font-size: 15px;
     font-weight: 600;
+
     text-align: center;
-    padding: 15px;
 }
 
 .service-photo img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
 
 .service-content {
@@ -341,15 +366,17 @@ section {
 
 .project-category-title {
     margin: 0 0 25px;
+
     color: #142844;
     font-size: 28px;
+
     border-left: 5px solid #d5a84b;
     padding-left: 14px;
 }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3,1fr);
     gap: 24px;
 }
 
@@ -358,7 +385,9 @@ section {
     border: 1px solid #e1e6ed;
     border-radius: 9px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(20,40,68,.06);
+
+    box-shadow:
+        0 5px 20px rgba(20,40,68,.06);
 }
 
 .project-main-image {
@@ -406,6 +435,7 @@ section {
     border-radius: 4px;
     cursor: pointer;
     border: 2px solid transparent;
+    flex-shrink: 0;
 }
 
 .project-thumbs img:hover {
@@ -421,9 +451,12 @@ section {
 .no-projects {
     text-align: center;
     padding: 40px 20px;
+
     background: #ffffff;
+
     border: 1px dashed #ccd4df;
     border-radius: 8px;
+
     color: #727d8c;
 }
 
@@ -437,13 +470,14 @@ section {
 
 .process-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4,1fr);
     gap: 22px;
 }
 
 .process-card {
     text-align: center;
     padding: 30px 20px;
+
     border: 1px solid #e1e6ed;
     border-radius: 8px;
 }
@@ -451,13 +485,18 @@ section {
 .process-number {
     width: 55px;
     height: 55px;
+
     margin: 0 auto 15px;
+
     border-radius: 50%;
+
     background: #10243f;
     color: #ffffff;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 20px;
     font-weight: 800;
 }
@@ -500,9 +539,12 @@ section {
 .contact-button {
     display: inline-block;
     padding: 14px 25px;
+
     border-radius: 5px;
+
     text-decoration: none;
     font-weight: 700;
+
     background: #d5a84b;
     color: #10243f;
 }
@@ -523,11 +565,13 @@ footer {
 }
 
 .footer-inner {
-    width: min(1180px, 92%);
+    width: min(1180px,92%);
     margin: 0 auto;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     gap: 20px;
 }
 
@@ -547,8 +591,10 @@ footer {
 .admin-login {
     display: inline-block;
     margin-top: 8px;
+
     font-size: 12px;
     color: #8e9aab;
+
     text-decoration: none;
 }
 
@@ -564,11 +610,16 @@ footer {
 .lightbox {
     position: fixed;
     inset: 0;
+
     z-index: 3000;
+
     display: none;
+
     align-items: center;
     justify-content: center;
+
     background: rgba(0,0,0,.92);
+
     padding: 30px;
 }
 
@@ -578,8 +629,10 @@ footer {
 
 .lightbox-content {
     position: relative;
-    width: min(1100px, 95vw);
-    height: min(850px, 90vh);
+
+    width: min(1100px,95vw);
+    height: min(850px,90vh);
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -595,14 +648,21 @@ footer {
 .lightbox-prev,
 .lightbox-next {
     position: absolute;
+
     border: 0;
+
     background: rgba(255,255,255,.12);
     color: #ffffff;
+
     cursor: pointer;
+
     width: 45px;
     height: 45px;
+
     border-radius: 50%;
+
     font-size: 25px;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -633,9 +693,12 @@ footer {
 
 .lightbox-counter {
     position: absolute;
+
     bottom: 10px;
     left: 50%;
+
     transform: translateX(-50%);
+
     color: #ffffff;
     font-size: 14px;
 }
@@ -644,7 +707,7 @@ footer {
    MOBILE
 ========================= */
 
-@media (max-width: 900px) {
+@media (max-width:900px) {
 
     nav {
         gap: 12px;
@@ -655,20 +718,21 @@ footer {
     }
 
     .stats {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 
     .service-grid,
     .project-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
     }
 
     .process-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2,1fr);
     }
+
 }
 
-@media (max-width: 650px) {
+@media (max-width:650px) {
 
     .nav-wrap {
         flex-direction: column;
@@ -742,33 +806,59 @@ footer {
     .lightbox-next {
         right: 0;
     }
+
 }
+
 </style>
+
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
 ========================= -->
 
 <header>
-    <div class="nav-wrap">
 
-        <div class="logo">
-            Miju Construction
-        </div>
+<div class="nav-wrap">
 
-        <nav>
-            <a href="index.html">Primax Global Home</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
-            <a href="#process">Our Process</a>
-            <a href="#contact">Contact</a>
-        </nav>
-
+    <div class="logo">
+        Miju Construction
     </div>
+
+    <nav>
+
+        <a href="index.html">
+            Primax Global Home
+        </a>
+
+        <a href="#about">
+            About Us
+        </a>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#process">
+            Our Process
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+    </nav>
+
+</div>
+
 </header>
 
 
@@ -778,38 +868,43 @@ footer {
 
 <section class="hero">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <h1>Miju Construction</h1>
+    <h1>
+        Miju Construction
+    </h1>
 
-        <h2>25+ Years of Construction Experience</h2>
+    <h2>
+        25+ Years of Construction Experience
+    </h2>
 
-        <p>
-            Professional construction, renovation, and property improvement
-            services for residential, commercial, and government-related projects.
-        </p>
+    <p>
+        Professional construction, renovation, and property improvement
+        services for residential, commercial, and government-related projects.
+    </p>
 
-        <div class="badges">
 
-            <div class="badge">
-                25+ Years Experience
-            </div>
+    <div class="badges">
 
-            <div class="badge">
-                Government Project Experience
-            </div>
+        <div class="badge">
+            25+ Years Experience
+        </div>
 
-            <div class="badge">
-                Interior &amp; Exterior
-            </div>
+        <div class="badge">
+            Government Project Experience
+        </div>
 
-            <div class="badge">
-                Professional &amp; Reliable
-            </div>
+        <div class="badge">
+            Interior &amp; Exterior
+        </div>
 
+        <div class="badge">
+            Professional &amp; Reliable
         </div>
 
     </div>
+
+</div>
 
 </section>
 
@@ -818,89 +913,112 @@ footer {
      ABOUT
 ========================= -->
 
-<section class="about" id="about">
+<section
+    class="about"
+    id="about">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-title">
+    <div class="section-title">
 
-            <h2>Built on Experience. Trusted for Quality.</h2>
+        <h2>
+            Built on Experience. Trusted for Quality.
+        </h2>
 
-        </div>
+    </div>
 
-        <div class="about-text">
+
+    <div class="about-text">
+
+        <p>
+            Miju Construction has been serving customers for more than
+            25 years. Our experience includes construction-related work
+            and supplying construction services and products for
+            government projects. We are committed to dependable
+            workmanship, quality materials, and professional project
+            management.
+        </p>
+
+    </div>
+
+
+    <div class="stats">
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                25+
+            </div>
+
+            <h3>
+                Years of Experience
+            </h3>
 
             <p>
-                Miju Construction has been serving customers for more than
-                25 years. Our experience includes construction-related work
-                and supplying construction services and products for
-                government projects. We are committed to dependable
-                workmanship, quality materials, and professional project
-                management.
+                More than 25 years of experience in construction
+                and renovation.
             </p>
 
         </div>
 
 
-        <div class="stats">
+        <div class="stat">
 
-            <div class="stat">
-
-                <div class="stat-number">25+</div>
-
-                <h3>Years of Experience</h3>
-
-                <p>
-                    More than 25 years of experience in construction
-                    and renovation.
-                </p>
-
+            <div class="stat-number">
+                GOV
             </div>
 
+            <h3>
+                Government Experience
+            </h3>
 
-            <div class="stat">
-
-                <div class="stat-number">GOV</div>
-
-                <h3>Government Experience</h3>
-
-                <p>
-                    Experience supporting government-related
-                    construction projects.
-                </p>
-
-            </div>
-
-
-            <div class="stat">
-
-                <div class="stat-number">2</div>
-
-                <h3>Major Service Areas</h3>
-
-                <p>
-                    Complete interior and exterior construction services.
-                </p>
-
-            </div>
-
-
-            <div class="stat">
-
-                <div class="stat-number">✓</div>
-
-                <h3>Reliable Service</h3>
-
-                <p>
-                    Professional service focused on quality,
-                    reliability, and customer satisfaction.
-                </p>
-
-            </div>
+            <p>
+                Experience supporting government-related
+                construction projects.
+            </p>
 
         </div>
 
+
+        <div class="stat">
+
+            <div class="stat-number">
+                2
+            </div>
+
+            <h3>
+                Major Service Areas
+            </h3>
+
+            <p>
+                Complete interior and exterior construction services.
+            </p>
+
+        </div>
+
+
+        <div class="stat">
+
+            <div class="stat-number">
+                ✓
+            </div>
+
+            <h3>
+                Reliable Service
+            </h3>
+
+            <p>
+                Professional service focused on quality,
+                reliability, and customer satisfaction.
+            </p>
+
+        </div>
+
+
     </div>
+
+</div>
 
 </section>
 
@@ -909,302 +1027,92 @@ footer {
      SERVICES
 ========================= -->
 
-<section class="services" id="services">
+<section
+    class="services"
+    id="services">
 
-    <div class="container">
+<div class="container">
 
-        <div class="section-title">
 
-            <h2>Our Construction Services</h2>
+<div class="section-title">
 
-            <p>
-                From interior remodeling to exterior construction and repairs,
-                Miju Construction provides a wide range of construction services.
-            </p>
+    <h2>
+        Our Construction Services
+    </h2>
 
-        </div>
+    <p>
+        From interior remodeling to exterior construction and repairs,
+        Miju Construction provides a wide range of construction services.
+    </p>
 
+</div>
 
-        <!-- INTERIOR -->
 
-        <div class="service-area">
+<!-- =========================
+     INTERIOR SERVICES
+========================= -->
 
-            <div class="area-title">
+<div class="service-area">
 
-                <span>INTERIOR</span>
+    <div class="area-title">
 
-                <h3>Interior Construction &amp; Remodeling</h3>
+        <span>
+            INTERIOR
+        </span>
 
-            </div>
+        <h3>
+            Interior Construction &amp; Remodeling
+        </h3>
 
+    </div>
 
-            <div class="service-grid">
 
+    <div
+        id="interiorServices"
+        class="service-grid">
 
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Kitchen Remodeling Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Kitchen Remodeling</h4>
-
-                        <p>
-                            Kitchen renovation, cabinets, countertops,
-                            flooring, and related improvements.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Bathroom Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Bathroom Remodeling</h4>
-
-                        <p>
-                            Bathroom renovation, fixtures, flooring,
-                            tile work, and complete improvements.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Flooring Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Flooring</h4>
-
-                        <p>
-                            Professional flooring installation and
-                            replacement for residential and commercial spaces.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Painting Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Interior Painting</h4>
-
-                        <p>
-                            Interior painting and finishing services
-                            for homes, offices, and commercial properties.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Drywall Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Drywall &amp; Ceiling</h4>
-
-                        <p>
-                            Drywall installation, repair, ceiling work,
-                            and interior surface improvements.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Interior Renovation Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>General Interior Renovation</h4>
-
-                        <p>
-                            Interior remodeling and improvements for
-                            residential and commercial properties.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- EXTERIOR -->
-
-        <div class="service-area">
-
-            <div class="area-title">
-
-                <span>EXTERIOR</span>
-
-                <h3>Exterior Construction &amp; Improvements</h3>
-
-            </div>
-
-
-            <div class="service-grid">
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Concrete Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Concrete</h4>
-
-                        <p>
-                            Driveways, walkways, patios, slabs, foundations,
-                            repairs, and other concrete work.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Roofing Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Roofing</h4>
-
-                        <p>
-                            Roof repair, replacement, shingle roofing,
-                            flat roofing, and commercial roofing services.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Stucco Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Stucco &amp; Siding</h4>
-
-                        <p>
-                            Exterior wall improvements, stucco repair,
-                            siding, and related exterior work.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Exterior Painting Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Exterior Painting</h4>
-
-                        <p>
-                            Professional exterior painting and surface
-                            preparation for properties of all sizes.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Fence Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Fences &amp; Gates</h4>
-
-                        <p>
-                            Fence, gate, property boundary, and exterior
-                            improvement services.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="service-card">
-
-                    <div class="service-photo">
-                        Add Waterproofing Photo
-                    </div>
-
-                    <div class="service-content">
-
-                        <h4>Waterproofing &amp; Repairs</h4>
-
-                        <p>
-                            Waterproofing, drainage-related improvements,
-                            exterior repairs, and property maintenance.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
+        <div class="no-projects">
+            Loading interior services...
         </div>
 
     </div>
+
+</div>
+
+
+<!-- =========================
+     EXTERIOR SERVICES
+========================= -->
+
+<div class="service-area">
+
+    <div class="area-title">
+
+        <span>
+            EXTERIOR
+        </span>
+
+        <h3>
+            Exterior Construction &amp; Improvements
+        </h3>
+
+    </div>
+
+
+    <div
+        id="exteriorServices"
+        class="service-grid">
+
+        <div class="no-projects">
+            Loading exterior services...
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>
 
 </section>
 
@@ -1213,48 +1121,56 @@ footer {
      PROJECTS
 ========================= -->
 
-<section class="projects" id="projects">
+<section
+    class="projects"
+    id="projects">
 
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>Our Construction Projects</h2>
-
-            <p>
-                Explore selected interior and exterior construction projects
-                completed by Miju Construction.
-            </p>
-
-        </div>
+<div class="container">
 
 
-        <!-- INTERIOR PROJECTS -->
+<div class="section-title">
 
-        <div class="project-category">
+    <h2>
+        Our Construction Projects
+    </h2>
 
-            <h3 class="project-category-title">
-                Interior Projects
-            </h3>
+    <p>
+        Explore selected interior and exterior construction projects
+        completed by Miju Construction.
+    </p>
 
-            <div id="interiorProjects" class="project-grid"></div>
-
-        </div>
+</div>
 
 
-        <!-- EXTERIOR PROJECTS -->
+<div class="project-category">
 
-        <div class="project-category">
+    <h3 class="project-category-title">
+        Interior Projects
+    </h3>
 
-            <h3 class="project-category-title">
-                Exterior Projects
-            </h3>
-
-            <div id="exteriorProjects" class="project-grid"></div>
-
-        </div>
-
+    <div
+        id="interiorProjects"
+        class="project-grid">
     </div>
+
+</div>
+
+
+<div class="project-category">
+
+    <h3 class="project-category-title">
+        Exterior Projects
+    </h3>
+
+    <div
+        id="exteriorProjects"
+        class="project-grid">
+    </div>
+
+</div>
+
+
+</div>
 
 </section>
 
@@ -1263,83 +1179,105 @@ footer {
      PROCESS
 ========================= -->
 
-<section class="process" id="process">
+<section
+    class="process"
+    id="process">
 
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>Our Approach</h2>
-
-            <p>
-                We focus on clear communication, dependable workmanship,
-                and professional project completion.
-            </p>
-
-        </div>
+<div class="container">
 
 
-        <div class="process-grid">
+<div class="section-title">
+
+    <h2>
+        Our Approach
+    </h2>
+
+    <p>
+        We focus on clear communication, dependable workmanship,
+        and professional project completion.
+    </p>
+
+</div>
 
 
-            <div class="process-card">
-
-                <div class="process-number">1</div>
-
-                <h3>Consultation</h3>
-
-                <p>
-                    Discuss your project, property, goals,
-                    and construction needs.
-                </p>
-
-            </div>
+<div class="process-grid">
 
 
-            <div class="process-card">
+<div class="process-card">
 
-                <div class="process-number">2</div>
-
-                <h3>Estimate</h3>
-
-                <p>
-                    Review the scope of work and develop
-                    a project estimate.
-                </p>
-
-            </div>
-
-
-            <div class="process-card">
-
-                <div class="process-number">3</div>
-
-                <h3>Construction</h3>
-
-                <p>
-                    Perform the work with professional coordination
-                    and attention to quality.
-                </p>
-
-            </div>
-
-
-            <div class="process-card">
-
-                <div class="process-number">4</div>
-
-                <h3>Completion</h3>
-
-                <p>
-                    Complete the project and review the finished
-                    work with the customer.
-                </p>
-
-            </div>
-
-        </div>
-
+    <div class="process-number">
+        1
     </div>
+
+    <h3>
+        Consultation
+    </h3>
+
+    <p>
+        Discuss your project, property, goals,
+        and construction needs.
+    </p>
+
+</div>
+
+
+<div class="process-card">
+
+    <div class="process-number">
+        2
+    </div>
+
+    <h3>
+        Estimate
+    </h3>
+
+    <p>
+        Review the scope of work and develop
+        a project estimate.
+    </p>
+
+</div>
+
+
+<div class="process-card">
+
+    <div class="process-number">
+        3
+    </div>
+
+    <h3>
+        Construction
+    </h3>
+
+    <p>
+        Perform the work with professional coordination
+        and attention to quality.
+    </p>
+
+</div>
+
+
+<div class="process-card">
+
+    <div class="process-number">
+        4
+    </div>
+
+    <h3>
+        Completion
+    </h3>
+
+    <p>
+        Complete the project and review the finished
+        work with the customer.
+    </p>
+
+</div>
+
+
+</div>
+
+</div>
 
 </section>
 
@@ -1348,48 +1286,53 @@ footer {
      CONTACT
 ========================= -->
 
-<section class="contact" id="contact">
+<section
+    class="contact"
+    id="contact">
 
-    <div class="container">
-
-        <div class="section-title">
-
-            <h2>Let's Discuss Your Project</h2>
-
-            <p>
-                Whether you need interior remodeling, exterior improvements,
-                repairs, or a larger construction project, contact Miju
-                Construction to discuss your needs.
-            </p>
-
-        </div>
+<div class="container">
 
 
-        <div class="contact-buttons">
+<div class="section-title">
 
-            <a
-                href="tel:2132470011"
-                class="contact-button">
-                Call Us
-            </a>
+    <h2>
+        Let's Discuss Your Project
+    </h2>
+
+    <p>
+        Whether you need interior remodeling, exterior improvements,
+        repairs, or a larger construction project, contact Miju
+        Construction to discuss your needs.
+    </p>
+
+</div>
 
 
-            <a
-                href="mailto:david@primaxfed.com"
-                class="contact-button">
-                Request a Quote
-            </a>
+<div class="contact-buttons">
+
+    <a
+        href="tel:2132470011"
+        class="contact-button">
+        Call Us
+    </a>
 
 
-            <a
-                href="index.html"
-                class="contact-button secondary">
-                Primax Global
-            </a>
+    <a
+        href="mailto:david@primaxfed.com"
+        class="contact-button">
+        Request a Quote
+    </a>
 
-        </div>
 
-    </div>
+    <a
+        href="index.html"
+        class="contact-button secondary">
+        Primax Global
+    </a>
+
+</div>
+
+</div>
 
 </section>
 
@@ -1400,34 +1343,38 @@ footer {
 
 <footer>
 
-    <div class="footer-inner">
-
-        <div>
-
-            <strong>Miju Construction</strong>
-
-            <div>
-                Los Angeles, California
-            </div>
-
-        </div>
+<div class="footer-inner">
 
 
-        <div class="footer-right">
+<div>
 
-            <div>
-                © 2026 Miju Construction. All Rights Reserved.
-            </div>
+    <strong>
+        Miju Construction
+    </strong>
 
-            <a
-                href="login.html"
-                class="admin-login">
-                Admin Login
-            </a>
-
-        </div>
-
+    <div>
+        Los Angeles, California
     </div>
+
+</div>
+
+
+<div class="footer-right">
+
+    <div>
+        © 2026 Miju Construction. All Rights Reserved.
+    </div>
+
+    <a
+        href="login.html"
+        class="admin-login">
+        Admin Login
+    </a>
+
+</div>
+
+
+</div>
 
 </footer>
 
@@ -1440,41 +1387,48 @@ footer {
     id="lightbox"
     class="lightbox">
 
-    <div class="lightbox-content">
+<div class="lightbox-content">
 
-        <button
-            type="button"
-            id="lightboxClose"
-            class="lightbox-close">
-            ×
-        </button>
 
-        <button
-            type="button"
-            id="lightboxPrev"
-            class="lightbox-prev">
-            ‹
-        </button>
+<button
+    type="button"
+    id="lightboxClose"
+    class="lightbox-close">
+    ×
+</button>
 
-        <img
-            id="lightboxImage"
-            class="lightbox-image"
-            src=""
-            alt="Construction Project">
 
-        <button
-            type="button"
-            id="lightboxNext"
-            class="lightbox-next">
-            ›
-        </button>
+<button
+    type="button"
+    id="lightboxPrev"
+    class="lightbox-prev">
+    ‹
+</button>
 
-        <div
-            id="lightboxCounter"
-            class="lightbox-counter">
-        </div>
 
-    </div>
+<img
+    id="lightboxImage"
+    class="lightbox-image"
+    src=""
+    alt="Construction Project"
+>
+
+
+<button
+    type="button"
+    id="lightboxNext"
+    class="lightbox-next">
+    ›
+</button>
+
+
+<div
+    id="lightboxCounter"
+    class="lightbox-counter">
+</div>
+
+
+</div>
 
 </div>
 
@@ -1482,7 +1436,7 @@ footer {
 <script>
 
 /* =========================================================
-   SUPABASE CONFIGURATION
+   SUPABASE
 ========================================================= */
 
 const SUPABASE_URL =
@@ -1490,6 +1444,7 @@ const SUPABASE_URL =
 
 const SUPABASE_ANON_KEY =
     "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
 
 const supabaseClient =
     window.supabase.createClient(
@@ -1499,24 +1454,180 @@ const supabaseClient =
 
 
 /* =========================================================
-   LIGHTBOX VARIABLES
+   SERVICE DEFINITIONS
 ========================================================= */
 
+const SERVICE_DEFINITIONS = [
+
+    {
+        category: "Interior",
+        key: "kitchen-remodeling",
+        name: "Kitchen Remodeling",
+        description:
+            "Kitchen renovation, cabinets, countertops, flooring, and related improvements."
+    },
+
+    {
+        category: "Interior",
+        key: "bathroom-remodeling",
+        name: "Bathroom Remodeling",
+        description:
+            "Bathroom renovation, fixtures, flooring, tile work, and complete improvements."
+    },
+
+    {
+        category: "Interior",
+        key: "flooring",
+        name: "Flooring",
+        description:
+            "Professional flooring installation and replacement for residential and commercial spaces."
+    },
+
+    {
+        category: "Interior",
+        key: "interior-painting",
+        name: "Interior Painting",
+        description:
+            "Interior painting and finishing services for homes, offices, and commercial properties."
+    },
+
+    {
+        category: "Interior",
+        key: "drywall-ceiling",
+        name: "Drywall & Ceiling",
+        description:
+            "Drywall installation, repair, ceiling work, and interior surface improvements."
+    },
+
+    {
+        category: "Interior",
+        key: "general-interior-renovation",
+        name: "General Interior Renovation",
+        description:
+            "Interior remodeling and improvements for residential and commercial properties."
+    },
+
+    {
+        category: "Exterior",
+        key: "concrete",
+        name: "Concrete",
+        description:
+            "Driveways, walkways, patios, slabs, foundations, repairs, and other concrete work."
+    },
+
+    {
+        category: "Exterior",
+        key: "roofing",
+        name: "Roofing",
+        description:
+            "Roof repair, replacement, shingle roofing, flat roofing, and commercial roofing services."
+    },
+
+    {
+        category: "Exterior",
+        key: "stucco-siding",
+        name: "Stucco & Siding",
+        description:
+            "Exterior wall improvements, stucco repair, siding, and related exterior work."
+    },
+
+    {
+        category: "Exterior",
+        key: "exterior-painting",
+        name: "Exterior Painting",
+        description:
+            "Professional exterior painting and surface preparation for properties of all sizes."
+    },
+
+    {
+        category: "Exterior",
+        key: "fences-gates",
+        name: "Fences & Gates",
+        description:
+            "Fence, gate, property boundary, and exterior improvement services."
+    },
+
+    {
+        category: "Exterior",
+        key: "waterproofing-repairs",
+        name: "Waterproofing & Repairs",
+        description:
+            "Waterproofing, drainage-related improvements, exterior repairs, and property maintenance."
+    }
+
+];
+
+
+/* =========================================================
+   PROJECT DATA
+========================================================= */
+
+let loadedConstructionProjects = [];
+
 let currentImages = [];
+
 let currentImageIndex = 0;
 
 
 /* =========================================================
-   LOAD CONSTRUCTION PROJECTS
+   ESCAPE HELPERS
 ========================================================= */
 
-async function loadProjects() {
+function escapeHtml(value) {
+
+    return String(value)
+
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+
+        .replace(
+            /</g,
+            "&lt;"
+        )
+
+        .replace(
+            />/g,
+            "&gt;"
+        )
+
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+
+        .replace(
+            /'/g,
+            "&#039;"
+        );
+
+}
+
+
+function escapeAttribute(value) {
+
+    return escapeHtml(value);
+
+}
+
+
+/* =========================================================
+   LOAD SERVICE PHOTOS
+========================================================= */
+
+async function loadServicePhotos() {
 
     const interiorContainer =
-        document.getElementById("interiorProjects");
+        document.getElementById(
+            "interiorServices"
+        );
+
 
     const exteriorContainer =
-        document.getElementById("exteriorProjects");
+        document.getElementById(
+            "exteriorServices"
+        );
 
 
     try {
@@ -1524,60 +1635,307 @@ async function loadProjects() {
         const {
             data,
             error
-        } = await supabaseClient
+        } =
+            await supabaseClient
 
-            .from("construction_projects")
+                .from(
+                    "construction_service_photos"
+                )
 
-            .select(`
-                id,
-                category,
-                title,
-                location,
-                description,
-                image_urls,
-                published,
-                sort_order,
-                created_at
-            `)
-
-            .eq("published", true)
-
-            .order("sort_order", {
-                ascending: true
-            })
-
-            .order("created_at", {
-                ascending: false
-            });
+                .select(
+                    "service_key, category, service_name, image_url"
+                );
 
 
         if (error) {
 
-            console.error(
-                "Supabase construction_projects error:",
-                error
-            );
-
             throw error;
+
         }
 
 
-        const projects = Array.isArray(data)
-            ? data
-            : [];
+        const rows =
+            Array.isArray(data)
+                ? data
+                : [];
+
+
+        const services =
+            SERVICE_DEFINITIONS.map(
+                service => {
+
+                    const row =
+                        rows.find(
+                            item =>
+                                item.service_key ===
+                                service.key
+                        );
+
+
+                    return {
+
+                        ...service,
+
+                        image_url:
+                            row?.image_url ||
+                            ""
+
+                    };
+
+                }
+            );
+
+
+        const interior =
+            services.filter(
+                service =>
+                    service.category ===
+                    "Interior"
+            );
+
+
+        const exterior =
+            services.filter(
+                service =>
+                    service.category ===
+                    "Exterior"
+            );
+
+
+        interiorContainer.innerHTML =
+            interior
+                .map(
+                    createServiceCard
+                )
+                .join("");
+
+
+        exteriorContainer.innerHTML =
+            exterior
+                .map(
+                    createServiceCard
+                )
+                .join("");
+
+
+    } catch (error) {
+
+        console.error(
+            "Service photo loading failed:",
+            error
+        );
+
+
+        /*
+         * If the service table is unavailable,
+         * still display the services without photos.
+         */
+
+        interiorContainer.innerHTML =
+            SERVICE_DEFINITIONS
+
+                .filter(
+                    service =>
+                        service.category ===
+                        "Interior"
+                )
+
+                .map(
+                    service =>
+                        createServiceCard(
+                            {
+                                ...service,
+                                image_url: ""
+                            }
+                        )
+                )
+
+                .join("");
+
+
+        exteriorContainer.innerHTML =
+            SERVICE_DEFINITIONS
+
+                .filter(
+                    service =>
+                        service.category ===
+                        "Exterior"
+                )
+
+                .map(
+                    service =>
+                        createServiceCard(
+                            {
+                                ...service,
+                                image_url: ""
+                            }
+                        )
+                )
+
+                .join("");
+
+    }
+
+}
+
+
+/* =========================================================
+   CREATE SERVICE CARD
+========================================================= */
+
+function createServiceCard(
+    service
+) {
+
+    const imageHtml =
+        service.image_url
+
+            ? `
+                <div class="service-photo">
+
+                    <img
+                        src="${escapeAttribute(
+                            service.image_url
+                        )}"
+                        alt="${escapeAttribute(
+                            service.name
+                        )}"
+                        loading="lazy"
+                    >
+
+                </div>
+              `
+
+            : `
+                <div class="service-photo">
+
+                    No Service Photo
+
+                </div>
+              `;
+
+
+    return `
+
+        <article class="service-card">
+
+            ${imageHtml}
+
+            <div class="service-content">
+
+                <h4>
+                    ${escapeHtml(
+                        service.name
+                    )}
+                </h4>
+
+                <p>
+                    ${escapeHtml(
+                        service.description
+                    )}
+                </p>
+
+            </div>
+
+        </article>
+
+    `;
+
+}
+
+
+/* =========================================================
+   LOAD PROJECTS
+========================================================= */
+
+async function loadProjects() {
+
+    const interiorContainer =
+        document.getElementById(
+            "interiorProjects"
+        );
+
+
+    const exteriorContainer =
+        document.getElementById(
+            "exteriorProjects"
+        );
+
+
+    try {
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+
+                .from(
+                    "construction_projects"
+                )
+
+                .select(`
+                    id,
+                    category,
+                    title,
+                    location,
+                    description,
+                    image_urls,
+                    published,
+                    sort_order,
+                    created_at
+                `)
+
+                .eq(
+                    "published",
+                    true
+                )
+
+                .order(
+                    "sort_order",
+                    {
+                        ascending: true
+                    }
+                )
+
+                .order(
+                    "created_at",
+                    {
+                        ascending: false
+                    }
+                );
+
+
+        if (error) {
+
+            throw error;
+
+        }
+
+
+        loadedConstructionProjects =
+            Array.isArray(data)
+                ? data
+                : [];
 
 
         const interiorProjects =
-            projects.filter(project =>
-                String(project.category || "")
-                    .toLowerCase() === "interior"
+            loadedConstructionProjects.filter(
+                project =>
+                    String(
+                        project.category || ""
+                    ).toLowerCase() ===
+                    "interior"
             );
 
 
         const exteriorProjects =
-            projects.filter(project =>
-                String(project.category || "")
-                    .toLowerCase() === "exterior"
+            loadedConstructionProjects.filter(
+                project =>
+                    String(
+                        project.category || ""
+                    ).toLowerCase() ===
+                    "exterior"
             );
 
 
@@ -1596,7 +1954,7 @@ async function loadProjects() {
     } catch (error) {
 
         console.error(
-            "Unable to load construction projects:",
+            "Construction project loading failed:",
             error
         );
 
@@ -1632,19 +1990,23 @@ function renderProjects(
 
         container.innerHTML = `
             <div class="no-projects">
-                <strong>No projects yet.</strong><br>
+                <strong>No projects yet.</strong>
+                <br>
                 New Miju Construction projects will be displayed here.
             </div>
         `;
 
         return;
+
     }
 
 
     container.innerHTML =
-        projects.map(project =>
-            createProjectCard(project)
-        ).join("");
+        projects
+            .map(
+                createProjectCard
+            )
+            .join("");
 
 }
 
@@ -1653,62 +2015,65 @@ function renderProjects(
    CREATE PROJECT CARD
 ========================================================= */
 
-function createProjectCard(project) {
+function createProjectCard(
+    project
+) {
 
-    let images = [];
-
-
-    if (Array.isArray(project.image_urls)) {
-
-        images = project.image_urls.filter(
-            url =>
-                typeof url === "string" &&
-                url.trim() !== ""
-        );
-
-    }
+    const images =
+        Array.isArray(
+            project.image_urls
+        )
+            ? project.image_urls.filter(
+                url =>
+                    typeof url ===
+                    "string" &&
+                    url.trim() !== ""
+            )
+            : [];
 
 
     const firstImage =
-        images.length > 0
+        images.length
             ? images[0]
             : "";
 
 
-    const safeTitle =
-        escapeHtml(project.title || "Construction Project");
-
-
-    const safeLocation =
-        escapeHtml(project.location || "");
-
-
-    const safeDescription =
-        escapeHtml(project.description || "");
-
-
     const projectId =
-        escapeHtml(String(project.id));
+        String(
+            project.id
+        );
 
 
-    let mainImageHtml = "";
+    const safeProjectId =
+        escapeAttribute(
+            projectId
+        );
+
+
+    let mainImageHtml;
 
 
     if (firstImage) {
 
         mainImageHtml = `
+
             <img
                 src="${escapeAttribute(firstImage)}"
-                alt="${escapeAttribute(project.title || "Construction Project")}"
+                alt="${escapeAttribute(
+                    project.title ||
+                    "Construction Project"
+                )}"
                 class="project-main-image"
                 loading="lazy"
-                onclick="openProjectLightbox('${projectId}', 0)"
+                onclick="openProjectLightbox('${safeProjectId}',0)"
             >
+
         `;
 
     } else {
 
         mainImageHtml = `
+
             <div
                 class="project-main-image"
                 style="
@@ -1716,10 +2081,12 @@ function createProjectCard(project) {
                     align-items:center;
                     justify-content:center;
                     color:#7a8492;
+                    cursor:default;
                 "
             >
                 No Project Photo
             </div>
+
         `;
 
     }
@@ -1731,70 +2098,90 @@ function createProjectCard(project) {
     if (images.length > 1) {
 
         thumbnailsHtml = `
+
             <div class="project-thumbs">
 
                 ${images
-                    .slice(0, 4)
-                    .map((image, index) => `
-                        <img
-                            src="${escapeAttribute(image)}"
-                            alt="Project photo ${index + 1}"
-                            loading="lazy"
-                            onclick="openProjectLightbox('${projectId}', ${index})"
-                        >
-                    `)
+                    .map(
+                        (image,index) => `
+
+                            <img
+                                src="${escapeAttribute(image)}"
+                                alt="Project photo ${index + 1}"
+                                loading="lazy"
+                                onclick="openProjectLightbox('${safeProjectId}',${index})"
+                            >
+
+                        `
+                    )
                     .join("")}
 
             </div>
+
         `;
 
     }
 
 
     const photoCount =
-        images.length > 0
+        images.length
             ? `
+
                 <div class="photo-count">
+
                     ${images.length}
-                    ${images.length === 1 ? "photo" : "photos"}
+                    ${images.length === 1
+                        ? "photo"
+                        : "photos"}
+
                 </div>
+
               `
             : "";
 
 
     return `
-        <article
-            class="project-card"
-            data-project-id="${projectId}"
-        >
+
+        <article class="project-card">
 
             ${mainImageHtml}
+
 
             <div class="project-info">
 
                 <h4>
-                    ${safeTitle}
+                    ${escapeHtml(
+                        project.title ||
+                        "Construction Project"
+                    )}
                 </h4>
 
+
                 ${
-                    safeLocation
+                    project.location
                         ? `
                             <div class="project-location">
-                                ${safeLocation}
+                                ${escapeHtml(
+                                    project.location
+                                )}
                             </div>
                           `
                         : ""
                 }
 
+
                 ${
-                    safeDescription
+                    project.description
                         ? `
                             <p class="project-description">
-                                ${safeDescription}
+                                ${escapeHtml(
+                                    project.description
+                                )}
                             </p>
                           `
                         : ""
                 }
+
 
                 ${thumbnailsHtml}
 
@@ -1803,54 +2190,75 @@ function createProjectCard(project) {
             </div>
 
         </article>
+
     `;
 
 }
 
 
 /* =========================================================
-   STORE PROJECT IMAGES
-========================================================= */
-
-const projectImagesMap = new Map();
-
-
-/* =========================================================
-   OPEN LIGHTBOX
+   LIGHTBOX
 ========================================================= */
 
 window.openProjectLightbox =
-function(projectId, imageIndex) {
+function(
+    projectId,
+    imageIndex
+) {
 
     const project =
-        window.loadedConstructionProjects
-            ?.find(
-                item =>
-                    String(item.id) === String(projectId)
-            );
+        loadedConstructionProjects.find(
+            item =>
+                String(item.id) ===
+                String(projectId)
+        );
 
 
     if (!project) {
 
         return;
+
     }
 
 
-    let images =
-        Array.isArray(project.image_urls)
-            ? project.image_urls
+    const images =
+        Array.isArray(
+            project.image_urls
+        )
+            ? project.image_urls.filter(
+                url =>
+                    typeof url ===
+                    "string" &&
+                    url.trim() !== ""
+            )
             : [];
 
 
     if (!images.length) {
 
         return;
+
     }
 
 
-    currentImages = images;
+    currentImages =
+        images;
 
-    currentImageIndex = imageIndex;
+
+    currentImageIndex =
+        Number(imageIndex) || 0;
+
+
+    if (
+        currentImageIndex < 0 ||
+        currentImageIndex >=
+            currentImages.length
+    ) {
+
+        currentImageIndex =
+            0;
+
+    }
 
 
     showLightboxImage();
@@ -1859,38 +2267,53 @@ function(projectId, imageIndex) {
 
 
 /* =========================================================
-   SHOW LIGHTBOX IMAGE
+   SHOW LIGHTBOX
 ========================================================= */
 
 function showLightboxImage() {
 
     const lightbox =
-        document.getElementById("lightbox");
+        document.getElementById(
+            "lightbox"
+        );
+
 
     const image =
-        document.getElementById("lightboxImage");
+        document.getElementById(
+            "lightboxImage"
+        );
+
 
     const counter =
-        document.getElementById("lightboxCounter");
+        document.getElementById(
+            "lightboxCounter"
+        );
 
 
     if (!currentImages.length) {
 
         return;
+
     }
 
 
     image.src =
-        currentImages[currentImageIndex];
+        currentImages[
+            currentImageIndex
+        ];
 
 
     counter.textContent =
         `${currentImageIndex + 1} / ${currentImages.length}`;
 
 
-    lightbox.classList.add("active");
+    lightbox.classList.add(
+        "active"
+    );
 
-    document.body.style.overflow = "hidden";
+
+    document.body.style.overflow =
+        "hidden";
 
 }
 
@@ -1901,19 +2324,23 @@ function showLightboxImage() {
 
 function closeLightbox() {
 
-    const lightbox =
-        document.getElementById("lightbox");
+    document
+        .getElementById(
+            "lightbox"
+        )
+        .classList.remove(
+            "active"
+        );
 
 
-    lightbox.classList.remove("active");
-
-    document.body.style.overflow = "";
+    document.body.style.overflow =
+        "";
 
 }
 
 
 /* =========================================================
-   PREVIOUS IMAGE
+   PREVIOUS
 ========================================================= */
 
 function previousImage() {
@@ -1921,12 +2348,16 @@ function previousImage() {
     if (!currentImages.length) {
 
         return;
+
     }
 
 
     currentImageIndex--;
 
-    if (currentImageIndex < 0) {
+
+    if (
+        currentImageIndex < 0
+    ) {
 
         currentImageIndex =
             currentImages.length - 1;
@@ -1940,7 +2371,7 @@ function previousImage() {
 
 
 /* =========================================================
-   NEXT IMAGE
+   NEXT
 ========================================================= */
 
 function nextImage() {
@@ -1948,17 +2379,20 @@ function nextImage() {
     if (!currentImages.length) {
 
         return;
+
     }
 
 
     currentImageIndex++;
+
 
     if (
         currentImageIndex >=
         currentImages.length
     ) {
 
-        currentImageIndex = 0;
+        currentImageIndex =
+            0;
 
     }
 
@@ -1973,7 +2407,9 @@ function nextImage() {
 ========================================================= */
 
 document
-    .getElementById("lightboxClose")
+    .getElementById(
+        "lightboxClose"
+    )
     .addEventListener(
         "click",
         closeLightbox
@@ -1981,7 +2417,9 @@ document
 
 
 document
-    .getElementById("lightboxPrev")
+    .getElementById(
+        "lightboxPrev"
+    )
     .addEventListener(
         "click",
         previousImage
@@ -1989,7 +2427,9 @@ document
 
 
 document
-    .getElementById("lightboxNext")
+    .getElementById(
+        "lightboxNext"
+    )
     .addEventListener(
         "click",
         nextImage
@@ -1997,13 +2437,16 @@ document
 
 
 document
-    .getElementById("lightbox")
+    .getElementById(
+        "lightbox"
+    )
     .addEventListener(
         "click",
         function(event) {
 
             if (
-                event.target === this
+                event.target ===
+                this
             ) {
 
                 closeLightbox();
@@ -2019,32 +2462,46 @@ document.addEventListener(
     function(event) {
 
         const lightbox =
-            document.getElementById("lightbox");
+            document.getElementById(
+                "lightbox"
+            );
 
 
         if (
-            !lightbox.classList.contains("active")
+            !lightbox.classList.contains(
+                "active"
+            )
         ) {
 
             return;
+
         }
 
 
-        if (event.key === "Escape") {
+        if (
+            event.key ===
+            "Escape"
+        ) {
 
             closeLightbox();
 
         }
 
 
-        if (event.key === "ArrowLeft") {
+        if (
+            event.key ===
+            "ArrowLeft"
+        ) {
 
             previousImage();
 
         }
 
 
-        if (event.key === "ArrowRight") {
+        if (
+            event.key ===
+            "ArrowRight"
+        ) {
 
             nextImage();
 
@@ -2055,149 +2512,15 @@ document.addEventListener(
 
 
 /* =========================================================
-   HTML ESCAPE HELPERS
+   INITIALIZE
 ========================================================= */
 
-function escapeHtml(value) {
+async function initializePage() {
 
-    return String(value)
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-
-}
-
-
-function escapeAttribute(value) {
-
-    return escapeHtml(value);
-
-}
-
-
-/* =========================================================
-   LOAD PROJECTS AND KEEP DATA FOR LIGHTBOX
-========================================================= */
-
-async function initializeProjects() {
-
-    try {
-
-        const {
-            data,
-            error
-        } = await supabaseClient
-
-            .from("construction_projects")
-
-            .select(`
-                id,
-                category,
-                title,
-                location,
-                description,
-                image_urls,
-                published,
-                sort_order,
-                created_at
-            `)
-
-            .eq("published", true)
-
-            .order("sort_order", {
-                ascending: true
-            })
-
-            .order("created_at", {
-                ascending: false
-            });
-
-
-        if (error) {
-
-            console.error(
-                "Supabase construction_projects error:",
-                error
-            );
-
-            throw error;
-        }
-
-
-        window.loadedConstructionProjects =
-            Array.isArray(data)
-                ? data
-                : [];
-
-
-        const interiorContainer =
-            document.getElementById(
-                "interiorProjects"
-            );
-
-
-        const exteriorContainer =
-            document.getElementById(
-                "exteriorProjects"
-            );
-
-
-        const interiorProjects =
-            window.loadedConstructionProjects.filter(
-                project =>
-                    String(project.category || "")
-                        .toLowerCase() === "interior"
-            );
-
-
-        const exteriorProjects =
-            window.loadedConstructionProjects.filter(
-                project =>
-                    String(project.category || "")
-                        .toLowerCase() === "exterior"
-            );
-
-
-        renderProjects(
-            interiorProjects,
-            interiorContainer
-        );
-
-
-        renderProjects(
-            exteriorProjects,
-            exteriorContainer
-        );
-
-
-    } catch (error) {
-
-        console.error(
-            "Construction project loading failed.",
-            error
-        );
-
-
-        document.getElementById(
-            "interiorProjects"
-        ).innerHTML = `
-            <div class="no-projects">
-                Unable to load construction projects at this time.
-            </div>
-        `;
-
-
-        document.getElementById(
-            "exteriorProjects"
-        ).innerHTML = `
-            <div class="no-projects">
-                Unable to load construction projects at this time.
-            </div>
-        `;
-
-    }
+    await Promise.all([
+        loadServicePhotos(),
+        loadProjects()
+    ]);
 
 }
 
@@ -2208,11 +2531,7 @@ async function initializeProjects() {
 
 document.addEventListener(
     "DOMContentLoaded",
-    function() {
-
-        initializeProjects();
-
-    }
+    initializePage
 );
 
 </script>
