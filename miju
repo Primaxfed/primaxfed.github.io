@@ -1,560 +1,1821 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Miju Construction | 25+ Years of Construction Experience</title>
+    <meta charset="UTF-8">
 
-<meta name="description" content="Miju Construction provides professional interior and exterior construction services with more than 25 years of experience, including government-related projects.">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<style>
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-    font-family:Arial,"Noto Sans",sans-serif;
-    line-height:1.6;
-    color:#1f2933;
-    background:#fff
-}
-a{text-decoration:none;color:inherit}
-img{width:100%;height:100%;object-fit:cover;display:block}
+    <title>
+        Miju Construction | Interior & Exterior Construction
+    </title>
 
-/* HEADER */
-header{
-    background:#102a43;
-    color:#fff;
-    position:sticky;
-    top:0;
-    z-index:1000;
-    box-shadow:0 2px 10px rgba(0,0,0,.12)
-}
-.nav-container{
-    max-width:1200px;
-    margin:auto;
-    padding:17px 25px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between
-}
-.logo{font-size:21px;font-weight:700;letter-spacing:.2px}
-.nav-links{display:flex;align-items:center;gap:24px}
-.nav-links a{font-size:14px;font-weight:600;color:#fff}
-.nav-links a:hover{opacity:.8}
-.home-button{
-    background:#fff;
-    color:#102a43!important;
-    padding:9px 16px;
-    border-radius:5px
-}
+    <meta
+        name="description"
+        content="Miju Construction provides professional interior and exterior construction, remodeling, renovation, concrete, painting, flooring, drywall, and commercial construction services."
+    >
 
-/* HERO */
-.hero{
-    background:
-        linear-gradient(rgba(16,42,67,.88),rgba(36,59,83,.88)),
-        url("images/construction-hero.jpg") center/cover;
-    color:#fff;
-    padding:105px 25px 110px;
-    text-align:center
-}
-.hero-content{max-width:950px;margin:auto}
-.hero h1{font-size:50px;line-height:1.15;margin-bottom:18px}
-.hero h1 span{
-    display:block;
-    font-size:23px;
-    font-weight:400;
-    margin-top:18px;
-    opacity:.92
-}
-.hero p{
-    max-width:800px;
-    margin:0 auto 32px;
-    font-size:18px;
-    color:#e6edf3
-}
-.badges{
-    display:flex;
-    justify-content:center;
-    gap:14px;
-    flex-wrap:wrap;
-    margin-top:20px
-}
-.badge{
-    border:1px solid rgba(255,255,255,.55);
-    padding:10px 18px;
-    border-radius:5px;
-    font-size:14px;
-    font-weight:700
-}
+    <meta
+        name="keywords"
+        content="Miju Construction, construction, interior construction, exterior construction, remodeling, renovation, concrete, drywall, painting, flooring, Los Angeles construction"
+    >
 
-/* GENERAL */
-section{padding:75px 25px}
-.container{max-width:1150px;margin:auto}
-.section-title{
-    text-align:center;
-    color:#102a43;
-    font-size:34px;
-    margin-bottom:14px
-}
-.section-subtitle{
-    text-align:center;
-    max-width:780px;
-    margin:0 auto 45px;
-    color:#52606d;
-    font-size:16px
-}
+    <style>
 
-/* ABOUT / TRUST */
-#about{background:#f5f7fa}
-.trust-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px
-}
-.trust-card{
-    background:#fff;
-    padding:28px 22px;
-    text-align:center;
-    border:1px solid #e4e7eb;
-    border-radius:7px;
-    box-shadow:0 4px 15px rgba(0,0,0,.05)
-}
-.trust-number{
-    font-size:31px;
-    font-weight:700;
-    color:#102a43;
-    margin-bottom:7px
-}
-.trust-card h3{font-size:18px;color:#102a43;margin-bottom:8px}
-.trust-card p{font-size:14px;color:#52606d}
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-/* SERVICES */
-#services{background:#fff}
-.category-title{
-    font-size:28px;
-    color:#102a43;
-    margin:55px 0 22px;
-    padding-bottom:10px;
-    border-bottom:3px solid #102a43
-}
-.category-title:first-of-type{margin-top:0}
-.service-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:24px
-}
-.service-card{
-    background:#fff;
-    border:1px solid #e4e7eb;
-    border-radius:8px;
-    overflow:hidden;
-    box-shadow:0 4px 15px rgba(0,0,0,.06);
-    transition:transform .2s,box-shadow .2s
-}
-.service-card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 8px 22px rgba(0,0,0,.11)
-}
-.service-image{height:205px;background:#d9e2ec}
-.service-body{padding:21px}
-.service-body h3{color:#102a43;font-size:20px;margin-bottom:8px}
-.service-body p{color:#52606d;font-size:14px}
-.placeholder{
-    height:100%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#7b8794;
-    background:#e9eef3;
-    font-size:14px;
-    text-align:center;
-    padding:20px
-}
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* PROCESS */
-#process{background:#f5f7fa}
-.process-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px
-}
-.process-card{
-    background:#fff;
-    padding:28px 22px;
-    border:1px solid #e4e7eb;
-    border-radius:7px;
-    text-align:center
-}
-.process-number{
-    width:45px;
-    height:45px;
-    line-height:45px;
-    margin:0 auto 14px;
-    background:#102a43;
-    color:#fff;
-    border-radius:50%;
-    font-weight:700
-}
-.process-card h3{color:#102a43;margin-bottom:8px}
-.process-card p{color:#52606d;font-size:14px}
+        body {
+            font-family: Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: #1f2933;
+            background: #ffffff;
+        }
 
-/* CTA */
-#contact{
-    background:#102a43;
-    color:#fff;
-    text-align:center
-}
-#contact .section-title{color:#fff}
-#contact .section-subtitle{color:#d9e2ec}
-.cta-buttons{
-    display:flex;
-    justify-content:center;
-    gap:14px;
-    flex-wrap:wrap
-}
-.button{
-    display:inline-block;
-    padding:13px 24px;
-    border-radius:5px;
-    font-size:15px;
-    font-weight:700
-}
-.button-primary{background:#fff;color:#102a43}
-.button-outline{border:1px solid #fff;color:#fff}
-.button:hover{opacity:.88}
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-/* FOOTER */
-footer{
-    background:#0b1f33;
-    color:#bcccdc;
-    text-align:center;
-    padding:30px 20px;
-    font-size:14px
-}
-.footer-links{margin-bottom:15px}
-.footer-links a{margin:0 9px;color:#d9e2ec}
-.footer-links a:hover{text-decoration:underline}
+        img {
+            display: block;
+            width: 100%;
+        }
 
-/* MOBILE */
-@media(max-width:900px){
-    .trust-grid,.process-grid{grid-template-columns:repeat(2,1fr)}
-    .service-grid{grid-template-columns:repeat(2,1fr)}
-}
-@media(max-width:700px){
-    .nav-container{flex-direction:column;gap:15px}
-    .nav-links{flex-wrap:wrap;justify-content:center;gap:12px}
-    .hero{padding:75px 20px}
-    .hero h1{font-size:37px}
-    section{padding:60px 20px}
-}
-@media(max-width:520px){
-    .trust-grid,.process-grid,.service-grid{grid-template-columns:1fr}
-    .hero h1{font-size:31px}
-    .hero h1 span{font-size:18px}
-    .hero p{font-size:16px}
-    .section-title{font-size:28px}
-}
-</style>
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        header {
+            background: #102a43;
+            color: #ffffff;
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+
+            box-shadow: 0 2px 10px rgba(0,0,0,.12);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+
+            padding: 17px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover {
+            opacity: .8;
+        }
+
+        .vendor-button {
+            background: #ffffff;
+            color: #102a43 !important;
+
+            padding: 9px 16px;
+
+            border-radius: 5px;
+
+            font-weight: 700 !important;
+        }
+
+
+        /* =========================================
+           HERO
+        ========================================= */
+
+        .hero {
+            background:
+                linear-gradient(
+                    rgba(16,42,67,.90),
+                    rgba(16,42,67,.90)
+                );
+
+            color: #ffffff;
+
+            padding: 110px 25px;
+
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            display: block;
+
+            font-size: 23px;
+            font-weight: 400;
+
+            margin-top: 16px;
+
+            opacity: .92;
+        }
+
+        .hero p {
+            max-width: 760px;
+
+            margin: 0 auto 32px;
+
+            color: #e6edf3;
+
+            font-size: 18px;
+        }
+
+        .hero-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+
+            padding: 13px 25px;
+
+            border-radius: 5px;
+
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .button-primary {
+            background: #ffffff;
+            color: #102a43;
+        }
+
+        .button-primary:hover {
+            background: #e5ebf0;
+        }
+
+        .button-outline {
+            border: 1px solid #ffffff;
+            color: #ffffff;
+        }
+
+        .button-outline:hover {
+            background: rgba(255,255,255,.1);
+        }
+
+
+        /* =========================================
+           GENERAL
+        ========================================= */
+
+        section {
+            padding: 75px 25px;
+        }
+
+        .container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+
+            color: #102a43;
+
+            font-size: 34px;
+
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            max-width: 780px;
+
+            margin: 0 auto 45px;
+
+            text-align: center;
+
+            color: #52606d;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================================
+           INTRO
+        ========================================= */
+
+        .intro {
+            background: #ffffff;
+        }
+
+        .intro-content {
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+        }
+
+        .intro-content p {
+            color: #52606d;
+
+            font-size: 16px;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================================
+           SERVICES
+        ========================================= */
+
+        .services-section {
+            background: #f5f7fa;
+        }
+
+        .service-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 25px;
+        }
+
+        .service-card {
+            background: #ffffff;
+
+            border: 1px solid #e4e7eb;
+
+            border-radius: 7px;
+
+            padding: 35px;
+        }
+
+        .service-card h3 {
+            color: #102a43;
+
+            font-size: 25px;
+
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #52606d;
+
+            margin-bottom: 18px;
+        }
+
+        .service-card ul {
+            list-style: none;
+        }
+
+        .service-card li {
+            position: relative;
+
+            padding-left: 18px;
+
+            margin-bottom: 7px;
+
+            color: #52606d;
+
+            font-size: 14px;
+        }
+
+        .service-card li::before {
+            content: "•";
+
+            position: absolute;
+
+            left: 0;
+
+            color: #d97706;
+
+            font-weight: bold;
+        }
+
+
+        /* =========================================
+           PORTFOLIO
+        ========================================= */
+
+        .portfolio-section {
+            background: #ffffff;
+        }
+
+        .portfolio-category {
+            margin-bottom: 80px;
+        }
+
+        .category-heading {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 30px;
+
+            border-bottom: 2px solid #e4e7eb;
+
+            padding-bottom: 15px;
+        }
+
+        .category-heading h3 {
+            color: #102a43;
+
+            font-size: 29px;
+        }
+
+        .category-heading span {
+            color: #d97706;
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================================
+           PROJECT CARD
+        ========================================= */
+
+        .project {
+            background: #ffffff;
+
+            border: 1px solid #e4e7eb;
+
+            border-radius: 7px;
+
+            overflow: hidden;
+
+            margin-bottom: 40px;
+
+            box-shadow: 0 4px 15px rgba(0,0,0,.05);
+        }
+
+        .project-info {
+            padding: 25px 28px 22px;
+        }
+
+        .project-info h4 {
+            color: #102a43;
+
+            font-size: 22px;
+
+            margin-bottom: 6px;
+        }
+
+        .project-location {
+            color: #d97706;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            color: #52606d;
+
+            font-size: 15px;
+
+            white-space: pre-line;
+        }
+
+
+        /* =========================================
+           PHOTO GRID
+        ========================================= */
+
+        .photo-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 4px;
+
+            background: #e4e7eb;
+        }
+
+        .photo {
+            height: 250px;
+
+            overflow: hidden;
+
+            cursor: pointer;
+
+            background: #d9e2ec;
+
+            position: relative;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            transition: transform .3s;
+        }
+
+        .photo:hover img {
+            transform: scale(1.06);
+        }
+
+
+        /* =========================================
+           NO PROJECTS
+        ========================================= */
+
+        .no-projects {
+            display: none;
+
+            background: #f5f7fa;
+
+            border: 1px dashed #bcccdc;
+
+            border-radius: 7px;
+
+            padding: 35px;
+
+            text-align: center;
+
+            color: #627d98;
+
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================================
+           LOADING
+        ========================================= */
+
+        .loading {
+            text-align: center;
+
+            padding: 50px 20px;
+
+            color: #627d98;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================================
+           ERROR
+        ========================================= */
+
+        .error-message {
+            display: none;
+
+            background: #fff5f5;
+
+            border: 1px solid #fecaca;
+
+            color: #991b1b;
+
+            border-radius: 7px;
+
+            padding: 20px;
+
+            margin-bottom: 30px;
+
+            text-align: center;
+        }
+
+
+        /* =========================================
+           CTA
+        ========================================= */
+
+        .cta {
+            background: #102a43;
+
+            color: #ffffff;
+
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 31px;
+
+            margin-bottom: 14px;
+        }
+
+        .cta p {
+            max-width: 700px;
+
+            margin: 0 auto 28px;
+
+            color: #d9e2ec;
+        }
+
+
+        /* =========================================
+           LIGHTBOX
+        ========================================= */
+
+        .lightbox {
+            display: none;
+
+            position: fixed;
+
+            z-index: 5000;
+
+            left: 0;
+            top: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background: rgba(0,0,0,.94);
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 95%;
+            max-height: 90vh;
+
+            width: auto;
+
+            object-fit: contain;
+        }
+
+        .close-lightbox {
+            position: absolute;
+
+            top: 18px;
+            right: 30px;
+
+            color: #ffffff;
+
+            font-size: 44px;
+
+            cursor: pointer;
+
+            line-height: 1;
+
+            z-index: 10;
+        }
+
+        .close-lightbox:hover {
+            opacity: .7;
+        }
+
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        footer {
+            background: #0b1f33;
+
+            color: #bcccdc;
+
+            text-align: center;
+
+            padding: 30px 20px;
+
+            font-size: 14px;
+        }
+
+        .footer-links {
+            margin-bottom: 15px;
+        }
+
+        .footer-links a {
+            margin: 0 9px;
+
+            color: #d9e2ec;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .nav-container {
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 13px;
+            }
+
+            .hero {
+                padding: 75px 20px;
+            }
+
+            .hero h1 {
+                font-size: 37px;
+            }
+
+            .service-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .photo {
+                height: 220px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+
+
+        @media (max-width: 500px) {
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .nav-links a {
+                font-size: 13px;
+            }
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .hero h1 span {
+                font-size: 18px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section-title {
+                font-size: 27px;
+            }
+
+            .photo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 250px;
+            }
+
+            .category-heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
 <header>
+
     <div class="nav-container">
-        <div class="logo">Miju Construction</div>
+
+        <div class="logo">
+            Miju Construction
+        </div>
+
+
         <nav class="nav-links">
-            <a href="index.html" class="home-button">Primax Global Home</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#process">Our Process</a>
-            <a href="#contact">Contact</a>
+
+            <a href="index.html">
+                Primax Global
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#interior">
+                Interior
+            </a>
+
+            <a href="#exterior">
+                Exterior
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+            <a
+                href="index.html#vendors"
+                class="vendor-button"
+            >
+                Vendor Portal
+            </a>
+
         </nav>
+
     </div>
+
 </header>
 
-<main>
 
-<!-- HERO -->
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
 <section class="hero">
+
     <div class="hero-content">
+
         <h1>
+
             Miju Construction
-            <span>25+ Years of Construction Experience</span>
+
+            <span>
+                Interior & Exterior Construction Services
+            </span>
+
         </h1>
 
+
         <p>
-            Professional construction, renovation, and property improvement
-            services for residential, commercial, and government-related projects.
+
+            Professional construction, remodeling,
+            renovation, and improvement services for
+            residential, commercial, and institutional
+            projects.
+
         </p>
 
-        <div class="badges">
-            <div class="badge">25+ Years Experience</div>
-            <div class="badge">Government Project Experience</div>
-            <div class="badge">Interior & Exterior</div>
-            <div class="badge">Professional & Reliable</div>
+
+        <div class="hero-buttons">
+
+            <a
+                href="#interior"
+                class="button button-primary"
+            >
+                Interior Projects
+            </a>
+
+
+            <a
+                href="#exterior"
+                class="button button-outline"
+            >
+                Exterior Projects
+            </a>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- ABOUT / TRUST -->
-<section id="about">
+
+
+<!-- =====================================================
+     INTRO
+===================================================== -->
+
+<section class="intro">
+
     <div class="container">
-        <h2 class="section-title">Built on Experience. Trusted for Quality.</h2>
 
-        <p class="section-subtitle">
-            Miju Construction has been serving customers for more than 25 years.
-            Our experience includes construction-related work and supplying
-            construction services and products for government projects.
-            We are committed to dependable workmanship, quality materials,
-            and professional project management.
-        </p>
+        <h2 class="section-title">
+            About Miju Construction
+        </h2>
 
-        <div class="trust-grid">
-            <div class="trust-card">
-                <div class="trust-number">25+</div>
-                <h3>Years of Experience</h3>
-                <p>More than 25 years of experience in construction and renovation.</p>
-            </div>
 
-            <div class="trust-card">
-                <div class="trust-number">GOV</div>
-                <h3>Government Experience</h3>
-                <p>Experience supporting government-related construction projects.</p>
-            </div>
+        <div class="intro-content">
 
-            <div class="trust-card">
-                <div class="trust-number">2</div>
-                <h3>Major Service Areas</h3>
-                <p>Complete interior and exterior construction services.</p>
-            </div>
+            <p>
 
-            <div class="trust-card">
-                <div class="trust-number">✓</div>
-                <h3>Reliable Service</h3>
-                <p>Professional service focused on quality, reliability, and customer satisfaction.</p>
-            </div>
+                Miju Construction provides construction,
+                remodeling, renovation, and improvement
+                services with a focus on quality workmanship,
+                dependable project coordination, and
+                professional service.
+
+            </p>
+
+
+            <p>
+
+                Our capabilities include both interior and
+                exterior construction, renovation, repair,
+                and improvement projects.
+
+            </p>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- SERVICES -->
-<section id="services">
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section
+    id="services"
+    class="services-section"
+>
+
     <div class="container">
 
-        <h2 class="section-title">Our Construction Services</h2>
+        <h2 class="section-title">
+            Construction Services
+        </h2>
+
+
         <p class="section-subtitle">
-            From interior remodeling to exterior construction and repairs,
-            Miju Construction provides a wide range of construction services.
+
+            Our construction capabilities cover a broad
+            range of interior and exterior services.
+
         </p>
 
-        <!-- INTERIOR -->
-        <h3 class="category-title">INTERIOR</h3>
 
         <div class="service-grid">
 
+
+            <!-- INTERIOR -->
+
             <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Kitchen Remodeling Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Kitchen Remodeling</h3>
-                    <p>Kitchen renovation, cabinets, countertops, flooring, and related improvements.</p>
-                </div>
+
+                <h3>
+                    Interior
+                </h3>
+
+                <p>
+                    Interior construction, remodeling,
+                    renovation, and finishing services.
+                </p>
+
+                <ul>
+
+                    <li>Drywall Installation & Repair</li>
+
+                    <li>Interior Painting</li>
+
+                    <li>Flooring Installation</li>
+
+                    <li>Framing</li>
+
+                    <li>Kitchen Remodeling</li>
+
+                    <li>Bathroom Remodeling</li>
+
+                    <li>Interior Renovation</li>
+
+                </ul>
+
             </div>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Bathroom Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Bathroom Remodeling</h3>
-                    <p>Bathroom renovation, fixtures, flooring, tile work, and complete improvements.</p>
-                </div>
-            </div>
+
+
+            <!-- EXTERIOR -->
 
             <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Flooring Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Flooring</h3>
-                    <p>Professional flooring installation and replacement for residential and commercial spaces.</p>
-                </div>
-            </div>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Painting Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Interior Painting</h3>
-                    <p>Interior painting and finishing services for homes, offices, and commercial properties.</p>
-                </div>
-            </div>
+                <h3>
+                    Exterior
+                </h3>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Drywall Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Drywall & Ceiling</h3>
-                    <p>Drywall installation, repair, ceiling work, and interior surface improvements.</p>
-                </div>
-            </div>
+                <p>
+                    Exterior construction, repair,
+                    renovation, and improvement services.
+                </p>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Interior Renovation Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>General Interior Renovation</h3>
-                    <p>Interior remodeling and improvements for residential and commercial properties.</p>
-                </div>
-            </div>
+                <ul>
 
-        </div>
+                    <li>Concrete Work</li>
 
-        <!-- EXTERIOR -->
-        <h3 class="category-title">EXTERIOR</h3>
+                    <li>Stucco</li>
 
-        <div class="service-grid">
+                    <li>Exterior Painting</li>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Concrete Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Concrete</h3>
-                    <p>Driveways, walkways, patios, slabs, foundations, repairs, and other concrete work.</p>
-                </div>
-            </div>
+                    <li>Roofing</li>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Roofing Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Roofing</h3>
-                    <p>Roof repair, replacement, shingle roofing, flat roofing, and commercial roofing services.</p>
-                </div>
-            </div>
+                    <li>Exterior Repairs</li>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Stucco Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Stucco & Siding</h3>
-                    <p>Exterior wall improvements, stucco repair, siding, and related exterior work.</p>
-                </div>
-            </div>
+                    <li>Building Improvements</li>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Exterior Painting Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Exterior Painting</h3>
-                    <p>Professional exterior painting and surface preparation for properties of all sizes.</p>
-                </div>
-            </div>
+                    <li>Site Improvements</li>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Fence Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Fences & Gates</h3>
-                    <p>Fence, gate, property boundary, and exterior improvement services.</p>
-                </div>
-            </div>
+                </ul>
 
-            <div class="service-card">
-                <div class="service-image">
-                    <div class="placeholder">Add Waterproofing Photo</div>
-                </div>
-                <div class="service-body">
-                    <h3>Waterproofing & Repairs</h3>
-                    <p>Waterproofing, drainage-related improvements, exterior repairs, and property maintenance.</p>
-                </div>
             </div>
 
         </div>
 
     </div>
+
 </section>
 
-<!-- PROCESS -->
-<section id="process">
+
+
+<!-- =====================================================
+     PORTFOLIO
+===================================================== -->
+
+<section class="portfolio-section">
+
     <div class="container">
-        <h2 class="section-title">Our Approach</h2>
-        <p class="section-subtitle">
-            We focus on clear communication, dependable workmanship, and professional project completion.
+
+
+        <!-- ERROR -->
+
+        <div
+            id="errorMessage"
+            class="error-message"
+        >
+            Unable to load construction projects.
+            Please try again later.
+        </div>
+
+
+
+        <!-- =============================================
+             INTERIOR
+        ============================================== -->
+
+        <div
+            id="interior"
+            class="portfolio-category"
+        >
+
+            <div class="category-heading">
+
+                <h3>
+                    Interior Projects
+                </h3>
+
+                <span>
+                    INTERIOR CONSTRUCTION
+                </span>
+
+            </div>
+
+
+            <div
+                id="interiorLoading"
+                class="loading"
+            >
+                Loading interior projects...
+            </div>
+
+
+            <div
+                id="interiorProjects"
+            ></div>
+
+
+            <div
+                id="interiorEmpty"
+                class="no-projects"
+            >
+
+                Interior projects will be displayed here.
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =============================================
+             EXTERIOR
+        ============================================== -->
+
+        <div
+            id="exterior"
+            class="portfolio-category"
+        >
+
+            <div class="category-heading">
+
+                <h3>
+                    Exterior Projects
+                </h3>
+
+                <span>
+                    EXTERIOR CONSTRUCTION
+                </span>
+
+            </div>
+
+
+            <div
+                id="exteriorLoading"
+                class="loading"
+            >
+                Loading exterior projects...
+            </div>
+
+
+            <div
+                id="exteriorProjects"
+            ></div>
+
+
+            <div
+                id="exteriorEmpty"
+                class="no-projects"
+            >
+
+                Exterior projects will be displayed here.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section
+    id="contact"
+    class="cta"
+>
+
+    <div class="container">
+
+        <h2>
+            Have a Construction Project?
+        </h2>
+
+
+        <p>
+
+            Contact Miju Construction to discuss your
+            construction, remodeling, renovation, or
+            improvement project.
+
         </p>
 
-        <div class="process-grid">
-            <div class="process-card">
-                <div class="process-number">1</div>
-                <h3>Consultation</h3>
-                <p>Discuss your project, property, goals, and construction needs.</p>
-            </div>
 
-            <div class="process-card">
-                <div class="process-number">2</div>
-                <h3>Estimate</h3>
-                <p>Review the scope of work and develop a project estimate.</p>
-            </div>
+        <a
+            href="mailto:david@primaxfed.com"
+            class="button button-primary"
+        >
+            Contact Us
+        </a>
 
-            <div class="process-card">
-                <div class="process-number">3</div>
-                <h3>Construction</h3>
-                <p>Perform the work with professional coordination and attention to quality.</p>
-            </div>
-
-            <div class="process-card">
-                <div class="process-number">4</div>
-                <h3>Completion</h3>
-                <p>Complete the project and review the finished work with the customer.</p>
-            </div>
-        </div>
     </div>
+
 </section>
 
-<!-- CONTACT -->
-<section id="contact">
-    <div class="container">
-        <h2 class="section-title">Let's Discuss Your Project</h2>
 
-        <p class="section-subtitle">
-            Whether you need interior remodeling, exterior improvements,
-            repairs, or a larger construction project, contact Miju Construction
-            to discuss your needs.
-        </p>
 
-        <div class="cta-buttons">
-            <a href="tel:2132470011" class="button button-primary">Call Us</a>
-            <a href="mailto:david@primaxfed.com" class="button button-outline">Request a Quote</a>
-            <a href="index.html" class="button button-outline">Primax Global</a>
-        </div>
-    </div>
-</section>
+<!-- =====================================================
+     LIGHTBOX
+===================================================== -->
 
-</main>
+<div
+    id="lightbox"
+    class="lightbox"
+    onclick="closeLightbox()"
+>
+
+    <span
+        class="close-lightbox"
+        onclick="closeLightbox(event)"
+    >
+        &times;
+    </span>
+
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Construction project photo"
+        onclick="event.stopPropagation()"
+    >
+
+</div>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer>
+
     <div class="footer-links">
-        <a href="index.html">Primax Global Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#process">Our Process</a>
-        <a href="#contact">Contact</a>
+
+        <a href="index.html">
+            Primax Global
+        </a>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#interior">
+            Interior
+        </a>
+
+        <a href="#exterior">
+            Exterior
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
-    Miju Construction<br>
-    Los Angeles, California<br><br>
-    © 2026 Miju Construction. All Rights Reserved.
+
+    Miju Construction
+
+    <br>
+
+    3660 Wilshire Blvd, Suite 512,
+    Los Angeles, CA 90010
+
+    <br><br>
+
+    Phone:
+
+    <a href="tel:2132470011">
+        213-247-0011
+    </a>
+
+    <br><br>
+
+    © 2026 Miju Construction.
+    All Rights Reserved.
+
 </footer>
+
+
+
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+
+<script>
+
+/* =====================================================
+   SUPABASE CONFIGURATION
+===================================================== */
+
+const SUPABASE_URL =
+    "https://nhjapidacizvhebtpzah.supabase.co";
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+
+/* =====================================================
+   LOAD PROJECTS
+===================================================== */
+
+async function loadProjects() {
+
+    try {
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+
+            .from("construction_projects")
+
+            .select(
+                "id, category, title, location, description, image_urls, created_at"
+            )
+
+            .eq("published", true)
+
+            .order(
+                "created_at",
+                {
+                    ascending: false
+                }
+            );
+
+
+        if (error) {
+
+            console.error(
+                "Supabase error:",
+                error
+            );
+
+            showError();
+
+            return;
+
+        }
+
+
+        hideLoading();
+
+
+        const projects =
+            data || [];
+
+
+        renderProjects(
+            projects,
+            "Interior"
+        );
+
+
+        renderProjects(
+            projects,
+            "Exterior"
+        );
+
+
+    } catch (error) {
+
+        console.error(
+            "Unexpected error:",
+            error
+        );
+
+        showError();
+
+    }
+
+}
+
+
+
+/* =====================================================
+   RENDER PROJECTS
+===================================================== */
+
+function renderProjects(
+    allProjects,
+    category
+) {
+
+    const containerId =
+        category.toLowerCase() +
+        "Projects";
+
+
+    const loadingId =
+        category.toLowerCase() +
+        "Loading";
+
+
+    const emptyId =
+        category.toLowerCase() +
+        "Empty";
+
+
+    const container =
+        document.getElementById(
+            containerId
+        );
+
+
+    const emptyMessage =
+        document.getElementById(
+            emptyId
+        );
+
+
+    const loading =
+        document.getElementById(
+            loadingId
+        );
+
+
+    if (!container) {
+        return;
+    }
+
+
+    if (loading) {
+        loading.style.display = "none";
+    }
+
+
+    container.innerHTML = "";
+
+
+    const projects =
+        allProjects.filter(
+            project =>
+                String(project.category)
+                    .toLowerCase()
+                    === category.toLowerCase()
+        );
+
+
+    if (projects.length === 0) {
+
+        if (emptyMessage) {
+            emptyMessage.style.display =
+                "block";
+        }
+
+        return;
+
+    }
+
+
+    if (emptyMessage) {
+        emptyMessage.style.display =
+            "none";
+    }
+
+
+    projects.forEach(
+        project => {
+
+            const projectElement =
+                createProjectElement(
+                    project
+                );
+
+
+            container.appendChild(
+                projectElement
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   CREATE PROJECT ELEMENT
+===================================================== */
+
+function createProjectElement(
+    project
+) {
+
+    const projectDiv =
+        document.createElement("div");
+
+
+    projectDiv.className =
+        "project";
+
+
+    /* -----------------------------------------
+       PROJECT INFORMATION
+    ----------------------------------------- */
+
+    const infoDiv =
+        document.createElement("div");
+
+
+    infoDiv.className =
+        "project-info";
+
+
+    const title =
+        document.createElement("h4");
+
+
+    title.textContent =
+        project.title ||
+        "Construction Project";
+
+
+    infoDiv.appendChild(
+        title
+    );
+
+
+    if (project.location) {
+
+        const location =
+            document.createElement("div");
+
+
+        location.className =
+            "project-location";
+
+
+        location.textContent =
+            project.location;
+
+
+        infoDiv.appendChild(
+            location
+        );
+
+    }
+
+
+    if (project.description) {
+
+        const description =
+            document.createElement("p");
+
+
+        description.className =
+            "project-description";
+
+
+        description.textContent =
+            project.description;
+
+
+        infoDiv.appendChild(
+            description
+        );
+
+    }
+
+
+    projectDiv.appendChild(
+        infoDiv
+    );
+
+
+    /* -----------------------------------------
+       PHOTO GALLERY
+    ----------------------------------------- */
+
+    const photoGrid =
+        document.createElement("div");
+
+
+    photoGrid.className =
+        "photo-grid";
+
+
+    let imageUrls =
+        project.image_urls;
+
+
+    /*
+       Supabase may return image_urls
+       as an array, JSON string,
+       or occasionally null.
+    */
+
+    if (typeof imageUrls === "string") {
+
+        try {
+
+            imageUrls =
+                JSON.parse(imageUrls);
+
+        } catch {
+
+            imageUrls =
+                [imageUrls];
+
+        }
+
+    }
+
+
+    if (!Array.isArray(imageUrls)) {
+
+        imageUrls = [];
+
+    }
+
+
+    imageUrls.forEach(
+        imageUrl => {
+
+            if (!imageUrl) {
+                return;
+            }
+
+
+            const photo =
+                document.createElement("div");
+
+
+            photo.className =
+                "photo";
+
+
+            const image =
+                document.createElement("img");
+
+
+            image.src =
+                imageUrl;
+
+
+            image.alt =
+                project.title ||
+                "Miju Construction Project";
+
+
+            image.loading =
+                "lazy";
+
+
+            image.onerror =
+                function() {
+
+                    photo.style.display =
+                        "none";
+
+                };
+
+
+            photo.appendChild(
+                image
+            );
+
+
+            photo.addEventListener(
+                "click",
+                function() {
+
+                    openLightbox(
+                        imageUrl,
+                        image.alt
+                    );
+
+                }
+            );
+
+
+            photoGrid.appendChild(
+                photo
+            );
+
+        }
+    );
+
+
+    /*
+       If there are no photos,
+       don't show an empty gallery.
+    */
+
+    if (imageUrls.length > 0) {
+
+        projectDiv.appendChild(
+            photoGrid
+        );
+
+    }
+
+
+    return projectDiv;
+
+}
+
+
+
+/* =====================================================
+   LIGHTBOX
+===================================================== */
+
+function openLightbox(
+    imageUrl,
+    altText
+) {
+
+    const lightbox =
+        document.getElementById(
+            "lightbox"
+        );
+
+
+    const lightboxImage =
+        document.getElementById(
+            "lightboxImage"
+        );
+
+
+    lightboxImage.src =
+        imageUrl;
+
+
+    lightboxImage.alt =
+        altText || "Construction project photo";
+
+
+    lightbox.classList.add(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
+
+}
+
+
+
+/* =====================================================
+   CLOSE LIGHTBOX
+===================================================== */
+
+function closeLightbox(
+    event
+) {
+
+    if (event) {
+
+        event.stopPropagation();
+
+    }
+
+
+    const lightbox =
+        document.getElementById(
+            "lightbox"
+        );
+
+
+    lightbox.classList.remove(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "";
+
+}
+
+
+
+/* =====================================================
+   ESC KEY
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Escape"
+        ) {
+
+            closeLightbox();
+
+        }
+
+    }
+);
+
+
+
+/* =====================================================
+   HIDE LOADING
+===================================================== */
+
+function hideLoading() {
+
+    const loadingElements =
+        document.querySelectorAll(
+            ".loading"
+        );
+
+
+    loadingElements.forEach(
+        element => {
+
+            element.style.display =
+                "none";
+
+        }
+    );
+
+}
+
+
+
+/* =====================================================
+   SHOW ERROR
+===================================================== */
+
+function showError() {
+
+    hideLoading();
+
+
+    const error =
+        document.getElementById(
+            "errorMessage"
+        );
+
+
+    if (error) {
+
+        error.style.display =
+            "block";
+
+    }
+
+}
+
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadProjects();
+
+</script>
+
 
 </body>
 </html>
