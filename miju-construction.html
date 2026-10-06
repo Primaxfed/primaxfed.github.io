@@ -8,19 +8,39 @@
 
 <meta name="description" content="Miju Construction provides professional interior and exterior construction services with more than 25 years of experience, including government-related projects.">
 
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+
+html{
+    scroll-behavior:smooth
+}
+
 body{
     font-family:Arial,"Noto Sans",sans-serif;
     line-height:1.6;
     color:#1f2933;
     background:#fff
 }
-a{text-decoration:none;color:inherit}
-img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* HEADER */
+a{
+    text-decoration:none;
+    color:inherit
+}
+
+img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block
+}
+
+/* =========================
+   HEADER
+========================= */
+
 header{
     background:#102a43;
     color:#fff;
@@ -29,6 +49,7 @@ header{
     z-index:1000;
     box-shadow:0 2px 10px rgba(0,0,0,.12)
 }
+
 .nav-container{
     max-width:1200px;
     margin:auto;
@@ -37,10 +58,29 @@ header{
     align-items:center;
     justify-content:space-between
 }
-.logo{font-size:21px;font-weight:700;letter-spacing:.2px}
-.nav-links{display:flex;align-items:center;gap:24px}
-.nav-links a{font-size:14px;font-weight:600;color:#fff}
-.nav-links a:hover{opacity:.8}
+
+.logo{
+    font-size:21px;
+    font-weight:700;
+    letter-spacing:.2px
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:24px
+}
+
+.nav-links a{
+    font-size:14px;
+    font-weight:600;
+    color:#fff
+}
+
+.nav-links a:hover{
+    opacity:.8
+}
+
 .home-button{
     background:#fff;
     color:#102a43!important;
@@ -48,7 +88,10 @@ header{
     border-radius:5px
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
+
 .hero{
     background:
         linear-gradient(rgba(16,42,67,.88),rgba(36,59,83,.88)),
@@ -57,8 +100,18 @@ header{
     padding:105px 25px 110px;
     text-align:center
 }
-.hero-content{max-width:950px;margin:auto}
-.hero h1{font-size:50px;line-height:1.15;margin-bottom:18px}
+
+.hero-content{
+    max-width:950px;
+    margin:auto
+}
+
+.hero h1{
+    font-size:50px;
+    line-height:1.15;
+    margin-bottom:18px
+}
+
 .hero h1 span{
     display:block;
     font-size:23px;
@@ -66,12 +119,14 @@ header{
     margin-top:18px;
     opacity:.92
 }
+
 .hero p{
     max-width:800px;
     margin:0 auto 32px;
     font-size:18px;
     color:#e6edf3
 }
+
 .badges{
     display:flex;
     justify-content:center;
@@ -79,6 +134,7 @@ header{
     flex-wrap:wrap;
     margin-top:20px
 }
+
 .badge{
     border:1px solid rgba(255,255,255,.55);
     padding:10px 18px;
@@ -87,15 +143,26 @@ header{
     font-weight:700
 }
 
-/* GENERAL */
-section{padding:75px 25px}
-.container{max-width:1150px;margin:auto}
+/* =========================
+   GENERAL
+========================= */
+
+section{
+    padding:75px 25px
+}
+
+.container{
+    max-width:1150px;
+    margin:auto
+}
+
 .section-title{
     text-align:center;
     color:#102a43;
     font-size:34px;
     margin-bottom:14px
 }
+
 .section-subtitle{
     text-align:center;
     max-width:780px;
@@ -104,13 +171,20 @@ section{padding:75px 25px}
     font-size:16px
 }
 
-/* ABOUT / TRUST */
-#about{background:#f5f7fa}
+/* =========================
+   ABOUT / TRUST
+========================= */
+
+#about{
+    background:#f5f7fa
+}
+
 .trust-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:20px
 }
+
 .trust-card{
     background:#fff;
     padding:28px 22px;
@@ -119,17 +193,33 @@ section{padding:75px 25px}
     border-radius:7px;
     box-shadow:0 4px 15px rgba(0,0,0,.05)
 }
+
 .trust-number{
     font-size:31px;
     font-weight:700;
     color:#102a43;
     margin-bottom:7px
 }
-.trust-card h3{font-size:18px;color:#102a43;margin-bottom:8px}
-.trust-card p{font-size:14px;color:#52606d}
 
-/* SERVICES */
-#services{background:#fff}
+.trust-card h3{
+    font-size:18px;
+    color:#102a43;
+    margin-bottom:8px
+}
+
+.trust-card p{
+    font-size:14px;
+    color:#52606d
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+#services{
+    background:#fff
+}
+
 .category-title{
     font-size:28px;
     color:#102a43;
@@ -137,12 +227,17 @@ section{padding:75px 25px}
     padding-bottom:10px;
     border-bottom:3px solid #102a43
 }
-.category-title:first-of-type{margin-top:0}
+
+.category-title:first-of-type{
+    margin-top:0
+}
+
 .service-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:24px
 }
+
 .service-card{
     background:#fff;
     border:1px solid #e4e7eb;
@@ -151,14 +246,32 @@ section{padding:75px 25px}
     box-shadow:0 4px 15px rgba(0,0,0,.06);
     transition:transform .2s,box-shadow .2s
 }
+
 .service-card:hover{
     transform:translateY(-4px);
     box-shadow:0 8px 22px rgba(0,0,0,.11)
 }
-.service-image{height:205px;background:#d9e2ec}
-.service-body{padding:21px}
-.service-body h3{color:#102a43;font-size:20px;margin-bottom:8px}
-.service-body p{color:#52606d;font-size:14px}
+
+.service-image{
+    height:205px;
+    background:#d9e2ec
+}
+
+.service-body{
+    padding:21px
+}
+
+.service-body h3{
+    color:#102a43;
+    font-size:20px;
+    margin-bottom:8px
+}
+
+.service-body p{
+    color:#52606d;
+    font-size:14px
+}
+
 .placeholder{
     height:100%;
     display:flex;
@@ -171,13 +284,267 @@ section{padding:75px 25px}
     padding:20px
 }
 
-/* PROCESS */
-#process{background:#f5f7fa}
+/* =========================
+   PROJECTS
+========================= */
+
+#projects{
+    background:#f5f7fa
+}
+
+.projects-category{
+    margin-top:50px
+}
+
+.projects-category:first-of-type{
+    margin-top:0
+}
+
+.projects-title{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    color:#102a43;
+    font-size:28px;
+    margin-bottom:25px;
+    padding-bottom:10px;
+    border-bottom:3px solid #102a43
+}
+
+.projects-title span{
+    font-size:13px;
+    background:#102a43;
+    color:#fff;
+    padding:4px 10px;
+    border-radius:4px;
+    font-weight:700
+}
+
+.project-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px
+}
+
+.project-card{
+    background:#fff;
+    border:1px solid #e4e7eb;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+    transition:transform .2s,box-shadow .2s
+}
+
+.project-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 8px 22px rgba(0,0,0,.12)
+}
+
+.project-photo{
+    height:235px;
+    background:#d9e2ec;
+    position:relative;
+    overflow:hidden;
+    cursor:pointer
+}
+
+.project-photo img{
+    transition:transform .3s
+}
+
+.project-photo:hover img{
+    transform:scale(1.04)
+}
+
+.photo-count{
+    position:absolute;
+    right:10px;
+    bottom:10px;
+    background:rgba(0,0,0,.72);
+    color:#fff;
+    padding:5px 9px;
+    border-radius:4px;
+    font-size:12px;
+    font-weight:700
+}
+
+.project-info{
+    padding:21px
+}
+
+.project-info h4{
+    color:#102a43;
+    font-size:20px;
+    line-height:1.3;
+    margin-bottom:8px
+}
+
+.project-location{
+    color:#7b8794;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:10px
+}
+
+.project-description{
+    color:#52606d;
+    font-size:14px;
+    line-height:1.65
+}
+
+.project-gallery{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:5px;
+    padding:0 21px 21px
+}
+
+.gallery-thumb{
+    height:65px;
+    border-radius:4px;
+    overflow:hidden;
+    cursor:pointer
+}
+
+.gallery-thumb img{
+    transition:transform .2s
+}
+
+.gallery-thumb:hover img{
+    transform:scale(1.05)
+}
+
+.projects-message{
+    background:#fff;
+    border:1px solid #e4e7eb;
+    border-radius:8px;
+    padding:35px 25px;
+    text-align:center;
+    color:#7b8794;
+    font-size:15px
+}
+
+.projects-error{
+    background:#fff5f5;
+    border:1px solid #f3c6c6;
+    border-radius:8px;
+    padding:25px;
+    text-align:center;
+    color:#9b2c2c;
+    font-size:14px
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:3000;
+    background:rgba(0,0,0,.92);
+    align-items:center;
+    justify-content:center;
+    padding:30px
+}
+
+.lightbox.active{
+    display:flex
+}
+
+.lightbox-content{
+    max-width:1100px;
+    max-height:90vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center
+}
+
+.lightbox-image{
+    max-width:100%;
+    max-height:85vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:4px
+}
+
+.lightbox-close{
+    position:fixed;
+    top:18px;
+    right:25px;
+    width:45px;
+    height:45px;
+    border:0;
+    border-radius:50%;
+    background:rgba(255,255,255,.15);
+    color:#fff;
+    font-size:30px;
+    cursor:pointer;
+    z-index:3010
+}
+
+.lightbox-close:hover{
+    background:rgba(255,255,255,.28)
+}
+
+.lightbox-prev,
+.lightbox-next{
+    position:fixed;
+    top:50%;
+    transform:translateY(-50%);
+    width:48px;
+    height:60px;
+    border:0;
+    background:rgba(255,255,255,.15);
+    color:#fff;
+    font-size:32px;
+    cursor:pointer;
+    border-radius:5px;
+    z-index:3010
+}
+
+.lightbox-prev{
+    left:20px
+}
+
+.lightbox-next{
+    right:20px
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover{
+    background:rgba(255,255,255,.28)
+}
+
+.lightbox-counter{
+    position:fixed;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#fff;
+    background:rgba(0,0,0,.55);
+    padding:5px 12px;
+    border-radius:4px;
+    font-size:13px
+}
+
+/* =========================
+   PROCESS
+========================= */
+
+#process{
+    background:#f5f7fa
+}
+
 .process-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:20px
 }
+
 .process-card{
     background:#fff;
     padding:28px 22px;
@@ -185,6 +552,7 @@ section{padding:75px 25px}
     border-radius:7px;
     text-align:center
 }
+
 .process-number{
     width:45px;
     height:45px;
@@ -195,23 +563,42 @@ section{padding:75px 25px}
     border-radius:50%;
     font-weight:700
 }
-.process-card h3{color:#102a43;margin-bottom:8px}
-.process-card p{color:#52606d;font-size:14px}
 
-/* CTA */
+.process-card h3{
+    color:#102a43;
+    margin-bottom:8px
+}
+
+.process-card p{
+    color:#52606d;
+    font-size:14px
+}
+
+/* =========================
+   CTA
+========================= */
+
 #contact{
     background:#102a43;
     color:#fff;
     text-align:center
 }
-#contact .section-title{color:#fff}
-#contact .section-subtitle{color:#d9e2ec}
+
+#contact .section-title{
+    color:#fff
+}
+
+#contact .section-subtitle{
+    color:#d9e2ec
+}
+
 .cta-buttons{
     display:flex;
     justify-content:center;
     gap:14px;
     flex-wrap:wrap
 }
+
 .button{
     display:inline-block;
     padding:13px 24px;
@@ -219,11 +606,25 @@ section{padding:75px 25px}
     font-size:15px;
     font-weight:700
 }
-.button-primary{background:#fff;color:#102a43}
-.button-outline{border:1px solid #fff;color:#fff}
-.button:hover{opacity:.88}
 
-/* FOOTER */
+.button-primary{
+    background:#fff;
+    color:#102a43
+}
+
+.button-outline{
+    border:1px solid #fff;
+    color:#fff
+}
+
+.button:hover{
+    opacity:.88
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
     background:#0b1f33;
     color:#bcccdc;
@@ -231,28 +632,107 @@ footer{
     padding:30px 20px;
     font-size:14px
 }
-.footer-links{margin-bottom:15px}
-.footer-links a{margin:0 9px;color:#d9e2ec}
-.footer-links a:hover{text-decoration:underline}
 
-/* MOBILE */
+.footer-links{
+    margin-bottom:15px
+}
+
+.footer-links a{
+    margin:0 9px;
+    color:#d9e2ec
+}
+
+.footer-links a:hover{
+    text-decoration:underline
+}
+
+/* =========================
+   MOBILE
+========================= */
+
 @media(max-width:900px){
-    .trust-grid,.process-grid{grid-template-columns:repeat(2,1fr)}
-    .service-grid{grid-template-columns:repeat(2,1fr)}
+
+    .trust-grid,
+    .process-grid{
+        grid-template-columns:repeat(2,1fr)
+    }
+
+    .service-grid,
+    .project-grid{
+        grid-template-columns:repeat(2,1fr)
+    }
 }
+
 @media(max-width:700px){
-    .nav-container{flex-direction:column;gap:15px}
-    .nav-links{flex-wrap:wrap;justify-content:center;gap:12px}
-    .hero{padding:75px 20px}
-    .hero h1{font-size:37px}
-    section{padding:60px 20px}
+
+    .nav-container{
+        flex-direction:column;
+        gap:15px
+    }
+
+    .nav-links{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:12px
+    }
+
+    .hero{
+        padding:75px 20px
+    }
+
+    .hero h1{
+        font-size:37px
+    }
+
+    section{
+        padding:60px 20px
+    }
+
+    .projects-title{
+        font-size:24px
+    }
 }
+
 @media(max-width:520px){
-    .trust-grid,.process-grid,.service-grid{grid-template-columns:1fr}
-    .hero h1{font-size:31px}
-    .hero h1 span{font-size:18px}
-    .hero p{font-size:16px}
-    .section-title{font-size:28px}
+
+    .trust-grid,
+    .process-grid,
+    .service-grid,
+    .project-grid{
+        grid-template-columns:1fr
+    }
+
+    .hero h1{
+        font-size:31px
+    }
+
+    .hero h1 span{
+        font-size:18px
+    }
+
+    .hero p{
+        font-size:16px
+    }
+
+    .section-title{
+        font-size:28px
+    }
+
+    .project-photo{
+        height:220px
+    }
+
+    .lightbox{
+        padding:15px
+    }
+
+    .lightbox-prev{
+        left:8px
+    }
+
+    .lightbox-next{
+        right:8px
+    }
 }
 </style>
 </head>
@@ -261,22 +741,52 @@ footer{
 
 <header>
     <div class="nav-container">
-        <div class="logo">Miju Construction</div>
+
+        <div class="logo">
+            Miju Construction
+        </div>
+
         <nav class="nav-links">
-            <a href="index.html" class="home-button">Primax Global Home</a>
-            <a href="#about">About Us</a>
-            <a href="#services">Services</a>
-            <a href="#process">Our Process</a>
-            <a href="#contact">Contact</a>
+
+            <a href="index.html" class="home-button">
+                Primax Global Home
+            </a>
+
+            <a href="#about">
+                About Us
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#process">
+                Our Process
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
         </nav>
+
     </div>
 </header>
 
 <main>
 
-<!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
+
 <section class="hero">
+
     <div class="hero-content">
+
         <h1>
             Miju Construction
             <span>25+ Years of Construction Experience</span>
@@ -288,18 +798,40 @@ footer{
         </p>
 
         <div class="badges">
-            <div class="badge">25+ Years Experience</div>
-            <div class="badge">Government Project Experience</div>
-            <div class="badge">Interior & Exterior</div>
-            <div class="badge">Professional & Reliable</div>
+
+            <div class="badge">
+                25+ Years Experience
+            </div>
+
+            <div class="badge">
+                Government Project Experience
+            </div>
+
+            <div class="badge">
+                Interior & Exterior
+            </div>
+
+            <div class="badge">
+                Professional & Reliable
+            </div>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- ABOUT / TRUST -->
+<!-- =========================
+     ABOUT
+========================= -->
+
 <section id="about">
+
     <div class="container">
-        <h2 class="section-title">Built on Experience. Trusted for Quality.</h2>
+
+        <h2 class="section-title">
+            Built on Experience. Trusted for Quality.
+        </h2>
 
         <p class="section-subtitle">
             Miju Construction has been serving customers for more than 25 years.
@@ -310,220 +842,560 @@ footer{
         </p>
 
         <div class="trust-grid">
+
             <div class="trust-card">
-                <div class="trust-number">25+</div>
-                <h3>Years of Experience</h3>
-                <p>More than 25 years of experience in construction and renovation.</p>
+
+                <div class="trust-number">
+                    25+
+                </div>
+
+                <h3>
+                    Years of Experience
+                </h3>
+
+                <p>
+                    More than 25 years of experience in construction and renovation.
+                </p>
+
             </div>
 
             <div class="trust-card">
-                <div class="trust-number">GOV</div>
-                <h3>Government Experience</h3>
-                <p>Experience supporting government-related construction projects.</p>
+
+                <div class="trust-number">
+                    GOV
+                </div>
+
+                <h3>
+                    Government Experience
+                </h3>
+
+                <p>
+                    Experience supporting government-related construction projects.
+                </p>
+
             </div>
 
             <div class="trust-card">
-                <div class="trust-number">2</div>
-                <h3>Major Service Areas</h3>
-                <p>Complete interior and exterior construction services.</p>
+
+                <div class="trust-number">
+                    2
+                </div>
+
+                <h3>
+                    Major Service Areas
+                </h3>
+
+                <p>
+                    Complete interior and exterior construction services.
+                </p>
+
             </div>
 
             <div class="trust-card">
-                <div class="trust-number">✓</div>
-                <h3>Reliable Service</h3>
-                <p>Professional service focused on quality, reliability, and customer satisfaction.</p>
+
+                <div class="trust-number">
+                    ✓
+                </div>
+
+                <h3>
+                    Reliable Service
+                </h3>
+
+                <p>
+                    Professional service focused on quality, reliability,
+                    and customer satisfaction.
+                </p>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- SERVICES -->
+<!-- =========================
+     SERVICES
+========================= -->
+
 <section id="services">
+
     <div class="container">
 
-        <h2 class="section-title">Our Construction Services</h2>
+        <h2 class="section-title">
+            Our Construction Services
+        </h2>
+
         <p class="section-subtitle">
             From interior remodeling to exterior construction and repairs,
             Miju Construction provides a wide range of construction services.
         </p>
 
         <!-- INTERIOR -->
-        <h3 class="category-title">INTERIOR</h3>
+
+        <h3 class="category-title">
+            INTERIOR
+        </h3>
 
         <div class="service-grid">
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Kitchen Remodeling Photo</div>
+                    <div class="placeholder">
+                        Add Kitchen Remodeling Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Kitchen Remodeling</h3>
-                    <p>Kitchen renovation, cabinets, countertops, flooring, and related improvements.</p>
+
+                    <h3>
+                        Kitchen Remodeling
+                    </h3>
+
+                    <p>
+                        Kitchen renovation, cabinets, countertops, flooring,
+                        and related improvements.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Bathroom Photo</div>
+                    <div class="placeholder">
+                        Add Bathroom Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Bathroom Remodeling</h3>
-                    <p>Bathroom renovation, fixtures, flooring, tile work, and complete improvements.</p>
+
+                    <h3>
+                        Bathroom Remodeling
+                    </h3>
+
+                    <p>
+                        Bathroom renovation, fixtures, flooring, tile work,
+                        and complete improvements.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Flooring Photo</div>
+                    <div class="placeholder">
+                        Add Flooring Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Flooring</h3>
-                    <p>Professional flooring installation and replacement for residential and commercial spaces.</p>
+
+                    <h3>
+                        Flooring
+                    </h3>
+
+                    <p>
+                        Professional flooring installation and replacement
+                        for residential and commercial spaces.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Painting Photo</div>
+                    <div class="placeholder">
+                        Add Painting Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Interior Painting</h3>
-                    <p>Interior painting and finishing services for homes, offices, and commercial properties.</p>
+
+                    <h3>
+                        Interior Painting
+                    </h3>
+
+                    <p>
+                        Interior painting and finishing services for homes,
+                        offices, and commercial properties.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Drywall Photo</div>
+                    <div class="placeholder">
+                        Add Drywall Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Drywall & Ceiling</h3>
-                    <p>Drywall installation, repair, ceiling work, and interior surface improvements.</p>
+
+                    <h3>
+                        Drywall & Ceiling
+                    </h3>
+
+                    <p>
+                        Drywall installation, repair, ceiling work,
+                        and interior surface improvements.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Interior Renovation Photo</div>
+                    <div class="placeholder">
+                        Add Interior Renovation Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>General Interior Renovation</h3>
-                    <p>Interior remodeling and improvements for residential and commercial properties.</p>
+
+                    <h3>
+                        General Interior Renovation
+                    </h3>
+
+                    <p>
+                        Interior remodeling and improvements for residential
+                        and commercial properties.
+                    </p>
+
                 </div>
+
             </div>
 
         </div>
 
         <!-- EXTERIOR -->
-        <h3 class="category-title">EXTERIOR</h3>
+
+        <h3 class="category-title">
+            EXTERIOR
+        </h3>
 
         <div class="service-grid">
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Concrete Photo</div>
+                    <div class="placeholder">
+                        Add Concrete Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Concrete</h3>
-                    <p>Driveways, walkways, patios, slabs, foundations, repairs, and other concrete work.</p>
+
+                    <h3>
+                        Concrete
+                    </h3>
+
+                    <p>
+                        Driveways, walkways, patios, slabs, foundations,
+                        repairs, and other concrete work.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Roofing Photo</div>
+                    <div class="placeholder">
+                        Add Roofing Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Roofing</h3>
-                    <p>Roof repair, replacement, shingle roofing, flat roofing, and commercial roofing services.</p>
+
+                    <h3>
+                        Roofing
+                    </h3>
+
+                    <p>
+                        Roof repair, replacement, shingle roofing,
+                        flat roofing, and commercial roofing services.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Stucco Photo</div>
+                    <div class="placeholder">
+                        Add Stucco Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Stucco & Siding</h3>
-                    <p>Exterior wall improvements, stucco repair, siding, and related exterior work.</p>
+
+                    <h3>
+                        Stucco & Siding
+                    </h3>
+
+                    <p>
+                        Exterior wall improvements, stucco repair,
+                        siding, and related exterior work.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Exterior Painting Photo</div>
+                    <div class="placeholder">
+                        Add Exterior Painting Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Exterior Painting</h3>
-                    <p>Professional exterior painting and surface preparation for properties of all sizes.</p>
+
+                    <h3>
+                        Exterior Painting
+                    </h3>
+
+                    <p>
+                        Professional exterior painting and surface
+                        preparation for properties of all sizes.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Fence Photo</div>
+                    <div class="placeholder">
+                        Add Fence Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Fences & Gates</h3>
-                    <p>Fence, gate, property boundary, and exterior improvement services.</p>
+
+                    <h3>
+                        Fences & Gates
+                    </h3>
+
+                    <p>
+                        Fence, gate, property boundary, and exterior
+                        improvement services.
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="service-card">
+
                 <div class="service-image">
-                    <div class="placeholder">Add Waterproofing Photo</div>
+                    <div class="placeholder">
+                        Add Waterproofing Photo
+                    </div>
                 </div>
+
                 <div class="service-body">
-                    <h3>Waterproofing & Repairs</h3>
-                    <p>Waterproofing, drainage-related improvements, exterior repairs, and property maintenance.</p>
+
+                    <h3>
+                        Waterproofing & Repairs
+                    </h3>
+
+                    <p>
+                        Waterproofing, drainage-related improvements,
+                        exterior repairs, and property maintenance.
+                    </p>
+
                 </div>
+
             </div>
 
         </div>
 
     </div>
+
 </section>
 
-<!-- PROCESS -->
-<section id="process">
+<!-- =========================
+     PROJECTS
+========================= -->
+
+<section id="projects">
+
     <div class="container">
-        <h2 class="section-title">Our Approach</h2>
+
+        <h2 class="section-title">
+            Our Construction Projects
+        </h2>
+
         <p class="section-subtitle">
-            We focus on clear communication, dependable workmanship, and professional project completion.
+            Explore selected interior and exterior construction projects
+            completed by Miju Construction.
+        </p>
+
+        <div id="projects-loading" class="projects-message">
+            Loading projects...
+        </div>
+
+        <div id="interior-projects" class="projects-category" style="display:none;">
+
+            <h3 class="projects-title">
+                INTERIOR PROJECTS
+                <span id="interior-count">0</span>
+            </h3>
+
+            <div id="interior-grid" class="project-grid"></div>
+
+        </div>
+
+        <div id="exterior-projects" class="projects-category" style="display:none;">
+
+            <h3 class="projects-title">
+                EXTERIOR PROJECTS
+                <span id="exterior-count">0</span>
+            </h3>
+
+            <div id="exterior-grid" class="project-grid"></div>
+
+        </div>
+
+        <div id="projects-empty" class="projects-message" style="display:none;">
+
+            <strong>No projects yet.</strong><br>
+
+            New Miju Construction projects will be displayed here.
+
+        </div>
+
+        <div id="projects-error" class="projects-error" style="display:none;">
+
+            Unable to load construction projects at this time.
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section id="process">
+
+    <div class="container">
+
+        <h2 class="section-title">
+            Our Approach
+        </h2>
+
+        <p class="section-subtitle">
+            We focus on clear communication, dependable workmanship,
+            and professional project completion.
         </p>
 
         <div class="process-grid">
+
             <div class="process-card">
-                <div class="process-number">1</div>
-                <h3>Consultation</h3>
-                <p>Discuss your project, property, goals, and construction needs.</p>
+
+                <div class="process-number">
+                    1
+                </div>
+
+                <h3>
+                    Consultation
+                </h3>
+
+                <p>
+                    Discuss your project, property, goals,
+                    and construction needs.
+                </p>
+
             </div>
 
             <div class="process-card">
-                <div class="process-number">2</div>
-                <h3>Estimate</h3>
-                <p>Review the scope of work and develop a project estimate.</p>
+
+                <div class="process-number">
+                    2
+                </div>
+
+                <h3>
+                    Estimate
+                </h3>
+
+                <p>
+                    Review the scope of work and develop
+                    a project estimate.
+                </p>
+
             </div>
 
             <div class="process-card">
-                <div class="process-number">3</div>
-                <h3>Construction</h3>
-                <p>Perform the work with professional coordination and attention to quality.</p>
+
+                <div class="process-number">
+                    3
+                </div>
+
+                <h3>
+                    Construction
+                </h3>
+
+                <p>
+                    Perform the work with professional coordination
+                    and attention to quality.
+                </p>
+
             </div>
 
             <div class="process-card">
-                <div class="process-number">4</div>
-                <h3>Completion</h3>
-                <p>Complete the project and review the finished work with the customer.</p>
+
+                <div class="process-number">
+                    4
+                </div>
+
+                <h3>
+                    Completion
+                </h3>
+
+                <p>
+                    Complete the project and review the finished
+                    work with the customer.
+                </p>
+
             </div>
+
         </div>
+
     </div>
+
 </section>
 
-<!-- CONTACT -->
+<!-- =========================
+     CONTACT
+========================= -->
+
 <section id="contact">
+
     <div class="container">
-        <h2 class="section-title">Let's Discuss Your Project</h2>
+
+        <h2 class="section-title">
+            Let's Discuss Your Project
+        </h2>
 
         <p class="section-subtitle">
             Whether you need interior remodeling, exterior improvements,
@@ -532,28 +1404,666 @@ footer{
         </p>
 
         <div class="cta-buttons">
-            <a href="tel:2132470011" class="button button-primary">Call Us</a>
-            <a href="mailto:david@primaxfed.com" class="button button-outline">Request a Quote</a>
-            <a href="index.html" class="button button-outline">Primax Global</a>
+
+            <a href="tel:2132470011" class="button button-primary">
+                Call Us
+            </a>
+
+            <a href="mailto:david@primaxfed.com" class="button button-outline">
+                Request a Quote
+            </a>
+
+            <a href="index.html" class="button button-outline">
+                Primax Global
+            </a>
+
         </div>
+
     </div>
+
 </section>
 
 </main>
 
+<!-- =========================
+     LIGHTBOX
+========================= -->
+
+<div id="lightbox" class="lightbox">
+
+    <button id="lightbox-close" class="lightbox-close">
+        ×
+    </button>
+
+    <button id="lightbox-prev" class="lightbox-prev">
+        ‹
+    </button>
+
+    <div class="lightbox-content">
+
+        <img id="lightbox-image"
+             class="lightbox-image"
+             src=""
+             alt="Construction Project">
+
+    </div>
+
+    <button id="lightbox-next" class="lightbox-next">
+        ›
+    </button>
+
+    <div id="lightbox-counter" class="lightbox-counter">
+        1 / 1
+    </div>
+
+</div>
+
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
+
     <div class="footer-links">
-        <a href="index.html">Primax Global Home</a>
-        <a href="#about">About Us</a>
-        <a href="#services">Services</a>
-        <a href="#process">Our Process</a>
-        <a href="#contact">Contact</a>
+
+        <a href="index.html">
+            Primax Global Home
+        </a>
+
+        <a href="#about">
+            About Us
+        </a>
+
+        <a href="#services">
+            Services
+        </a>
+
+        <a href="#projects">
+            Projects
+        </a>
+
+        <a href="#process">
+            Our Process
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
     </div>
 
     Miju Construction<br>
     Los Angeles, California<br><br>
+
     © 2026 Miju Construction. All Rights Reserved.
+
 </footer>
+
+<script>
+
+/* =========================================================
+   SUPABASE CONFIGURATION
+========================================================= */
+
+const SUPABASE_URL =
+    "https://nhjapidacizvhebtpzah.supabase.co";
+
+const SUPABASE_ANON_KEY =
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
+const supabaseClient =
+    window.supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_ANON_KEY
+    );
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const loadingBox =
+    document.getElementById("projects-loading");
+
+const emptyBox =
+    document.getElementById("projects-empty");
+
+const errorBox =
+    document.getElementById("projects-error");
+
+const interiorSection =
+    document.getElementById("interior-projects");
+
+const exteriorSection =
+    document.getElementById("exterior-projects");
+
+const interiorGrid =
+    document.getElementById("interior-grid");
+
+const exteriorGrid =
+    document.getElementById("exterior-grid");
+
+const interiorCount =
+    document.getElementById("interior-count");
+
+const exteriorCount =
+    document.getElementById("exterior-count");
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value){
+
+    if(value === null || value === undefined){
+        return "";
+    }
+
+    return String(value)
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+}
+
+
+/* =========================================================
+   IMAGE URL
+========================================================= */
+
+function getImageUrls(imageUrls){
+
+    if(!Array.isArray(imageUrls)){
+        return [];
+    }
+
+    return imageUrls
+        .filter(url => typeof url === "string" && url.trim() !== "")
+        .map(url => url.trim());
+}
+
+
+/* =========================================================
+   PROJECT CARD
+========================================================= */
+
+function createProjectCard(project){
+
+    const images =
+        getImageUrls(project.image_urls);
+
+    if(images.length === 0){
+
+        return `
+            <article class="project-card">
+
+                <div class="project-photo">
+
+                    <div class="placeholder">
+                        Project Photo Coming Soon
+                    </div>
+
+                </div>
+
+                <div class="project-info">
+
+                    <h4>
+                        ${escapeHtml(project.title)}
+                    </h4>
+
+                    ${
+                        project.location
+                        ?
+                        `
+                        <div class="project-location">
+                            ${escapeHtml(project.location)}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+                    ${
+                        project.description
+                        ?
+                        `
+                        <div class="project-description">
+                            ${escapeHtml(project.description)}
+                        </div>
+                        `
+                        :
+                        ""
+                    }
+
+                </div>
+
+            </article>
+        `;
+    }
+
+
+    const firstImage =
+        images[0];
+
+
+    const safeImages =
+        JSON.stringify(images)
+            .replace(/'/g,"&#039;");
+
+
+    let galleryHtml = "";
+
+
+    if(images.length > 1){
+
+        galleryHtml = `
+            <div class="project-gallery">
+
+                ${images.slice(0,4).map((image,index) => `
+
+                    <div
+                        class="gallery-thumb"
+                        onclick='openGallery(${safeImages},${index})'
+                    >
+
+                        <img
+                            src="${escapeHtml(image)}"
+                            alt="${escapeHtml(project.title)}"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+                `).join("")}
+
+            </div>
+        `;
+    }
+
+
+    return `
+        <article class="project-card">
+
+            <div
+                class="project-photo"
+                onclick='openGallery(${safeImages},0)'
+            >
+
+                <img
+                    src="${escapeHtml(firstImage)}"
+                    alt="${escapeHtml(project.title)}"
+                    loading="lazy"
+                >
+
+                ${
+                    images.length > 1
+                    ?
+                    `
+                    <div class="photo-count">
+                        ${images.length} Photos
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+
+            <div class="project-info">
+
+                <h4>
+                    ${escapeHtml(project.title)}
+                </h4>
+
+                ${
+                    project.location
+                    ?
+                    `
+                    <div class="project-location">
+                        📍 ${escapeHtml(project.location)}
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+                ${
+                    project.description
+                    ?
+                    `
+                    <div class="project-description">
+                        ${escapeHtml(project.description)}
+                    </div>
+                    `
+                    :
+                    ""
+                }
+
+            </div>
+
+            ${galleryHtml}
+
+        </article>
+    `;
+}
+
+
+/* =========================================================
+   LOAD PROJECTS
+========================================================= */
+
+async function loadProjects(){
+
+    loadingBox.style.display = "block";
+    emptyBox.style.display = "none";
+    errorBox.style.display = "none";
+
+    interiorSection.style.display = "none";
+    exteriorSection.style.display = "none";
+
+    interiorGrid.innerHTML = "";
+    exteriorGrid.innerHTML = "";
+
+    try{
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from("construction_projects")
+            .select(`
+                id,
+                category,
+                title,
+                location,
+                description,
+                image_urls,
+                published,
+                sort_order,
+                created_at
+            `)
+            .eq("published",true)
+            .order("sort_order",{ascending:true})
+            .order("created_at",{ascending:false});
+
+
+        if(error){
+
+            console.error(
+                "Supabase construction_projects error:",
+                error
+            );
+
+            throw error;
+        }
+
+
+        loadingBox.style.display = "none";
+
+
+        const projects =
+            Array.isArray(data)
+            ?
+            data
+            :
+            [];
+
+
+        const interiorProjects =
+            projects.filter(
+                project =>
+                    String(project.category).toLowerCase()
+                    === "interior"
+            );
+
+
+        const exteriorProjects =
+            projects.filter(
+                project =>
+                    String(project.category).toLowerCase()
+                    === "exterior"
+            );
+
+
+        interiorCount.textContent =
+            interiorProjects.length;
+
+
+        exteriorCount.textContent =
+            exteriorProjects.length;
+
+
+        if(interiorProjects.length > 0){
+
+            interiorGrid.innerHTML =
+                interiorProjects
+                    .map(createProjectCard)
+                    .join("");
+
+            interiorSection.style.display =
+                "block";
+        }
+
+
+        if(exteriorProjects.length > 0){
+
+            exteriorGrid.innerHTML =
+                exteriorProjects
+                    .map(createProjectCard)
+                    .join("");
+
+            exteriorSection.style.display =
+                "block";
+        }
+
+
+        if(projects.length === 0){
+
+            emptyBox.style.display =
+                "block";
+        }
+
+    }
+    catch(error){
+
+        console.error(
+            "Unable to load construction projects:",
+            error
+        );
+
+        loadingBox.style.display =
+            "none";
+
+        errorBox.style.display =
+            "block";
+
+        /*
+         * For troubleshooting, show the actual
+         * Supabase error in the browser console.
+         */
+
+        console.error(
+            "Construction project loading failed.",
+            error.message || error
+        );
+    }
+}
+
+
+/* =========================================================
+   LIGHTBOX
+========================================================= */
+
+const lightbox =
+    document.getElementById("lightbox");
+
+const lightboxImage =
+    document.getElementById("lightbox-image");
+
+const lightboxCounter =
+    document.getElementById("lightbox-counter");
+
+let currentGallery = [];
+
+let currentGalleryIndex = 0;
+
+
+function openGallery(images,index){
+
+    if(!Array.isArray(images) || images.length === 0){
+        return;
+    }
+
+    currentGallery =
+        images;
+
+    currentGalleryIndex =
+        Number(index) || 0;
+
+    updateLightbox();
+
+    lightbox.classList.add("active");
+
+    document.body.style.overflow =
+        "hidden";
+}
+
+
+function updateLightbox(){
+
+    if(!currentGallery.length){
+        return;
+    }
+
+    if(currentGalleryIndex < 0){
+        currentGalleryIndex =
+            currentGallery.length - 1;
+    }
+
+    if(currentGalleryIndex >= currentGallery.length){
+        currentGalleryIndex = 0;
+    }
+
+    lightboxImage.src =
+        currentGallery[currentGalleryIndex];
+
+    lightboxCounter.textContent =
+        `${currentGalleryIndex + 1} / ${currentGallery.length}`;
+}
+
+
+function closeLightbox(){
+
+    lightbox.classList.remove("active");
+
+    document.body.style.overflow =
+        "";
+
+    lightboxImage.src =
+        "";
+}
+
+
+function previousImage(){
+
+    if(!currentGallery.length){
+        return;
+    }
+
+    currentGalleryIndex--;
+
+    updateLightbox();
+}
+
+
+function nextImage(){
+
+    if(!currentGallery.length){
+        return;
+    }
+
+    currentGalleryIndex++;
+
+    updateLightbox();
+}
+
+
+document
+    .getElementById("lightbox-close")
+    .addEventListener(
+        "click",
+        closeLightbox
+    );
+
+
+document
+    .getElementById("lightbox-prev")
+    .addEventListener(
+        "click",
+        previousImage
+    );
+
+
+document
+    .getElementById("lightbox-next")
+    .addEventListener(
+        "click",
+        nextImage
+    );
+
+
+lightbox.addEventListener(
+    "click",
+    function(event){
+
+        if(event.target === lightbox){
+            closeLightbox();
+        }
+
+    }
+);
+
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(!lightbox.classList.contains("active")){
+            return;
+        }
+
+        if(event.key === "Escape"){
+            closeLightbox();
+        }
+
+        if(event.key === "ArrowLeft"){
+            previousImage();
+        }
+
+        if(event.key === "ArrowRight"){
+            nextImage();
+        }
+
+    }
+);
+
+
+/* =========================================================
+   START
+========================================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadProjects();
+
+    }
+);
+
+</script>
 
 </body>
 </html>
