@@ -1,21 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>Miju Construction | Admin</title>
+<title>Miju Construction — Admin</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
 * {
     box-sizing: border-box;
 }
@@ -23,165 +16,278 @@
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    background: #f4f6f9;
-    color: #172033;
+    background: #f4f6f8;
+    color: #1f2937;
 }
-
-button,
-input,
-textarea,
-select {
-    font-family: inherit;
-}
-
-/* =========================
-   HEADER
-========================= */
 
 header {
-    background: #0c1d36;
-    color: #fff;
-}
-
-.header-inner {
-    width: min(1200px, 94%);
-    margin: auto;
-    min-height: 72px;
-
+    background: #111827;
+    color: white;
+    padding: 18px 30px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-
-    gap: 20px;
+    align-items: center;
 }
 
-.logo {
-    font-size: 21px;
-    font-weight: 800;
+header h1 {
+    margin: 0;
+    font-size: 22px;
 }
 
-.logo span {
-    color: #d5a84b;
-}
-
-.header-actions {
+.header-right {
     display: flex;
     gap: 10px;
-    flex-wrap: wrap;
+    align-items: center;
 }
 
-.header-link,
-.header-button {
-    border: 1px solid rgba(255,255,255,.35);
-    background: transparent;
-    color: #fff;
-    text-decoration: none;
+.header-right a,
+.header-right button {
+    color: white;
+    background: #374151;
+    border: none;
     padding: 9px 14px;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: 700;
+    border-radius: 6px;
+    text-decoration: none;
     cursor: pointer;
 }
 
-.header-link:hover,
-.header-button:hover {
-    background: rgba(255,255,255,.1);
-}
-
-/* =========================
-   MAIN
-========================= */
-
-main {
-    width: min(1200px, 94%);
-    margin: 35px auto 70px;
+.container {
+    max-width: 1250px;
+    margin: 30px auto;
+    padding: 0 20px;
 }
 
 .page-title {
     margin-bottom: 25px;
 }
 
-.page-title h1 {
-    margin: 0 0 6px;
-    color: #10243f;
+.page-title h2 {
+    margin: 0 0 8px;
+    font-size: 30px;
 }
 
 .page-title p {
     margin: 0;
-    color: #687383;
+    color: #6b7280;
 }
 
-/* =========================
-   CARD
-========================= */
-
-.card {
-    background: #fff;
-    border: 1px solid #dfe5ec;
-    border-radius: 9px;
-    padding: 25px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 18px rgba(20,40,68,.05);
-}
-
-.card h2 {
-    margin: 0 0 8px;
-    color: #142844;
-}
-
-.card-description {
-    margin: 0 0 22px;
-    color: #687383;
-    font-size: 14px;
-}
-
-/* =========================
-   STATUS
-========================= */
-
-.status-message {
+.message {
     display: none;
     padding: 13px 16px;
-    border-radius: 6px;
+    border-radius: 7px;
     margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.message.success {
+    display: block;
+    background: #dcfce7;
+    color: #166534;
+}
+
+.message.error {
+    display: block;
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.section {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+
+.section h3 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+.section-description {
+    color: #6b7280;
+    margin-bottom: 22px;
+}
+
+.category-title {
+    font-size: 20px;
+    margin: 28px 0 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.service-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 18px;
+    background: #fafafa;
+}
+
+.service-card h4 {
+    margin: 0 0 12px;
+    font-size: 18px;
+}
+
+.service-image {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    border-radius: 8px;
+    background: #e5e7eb;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.no-image {
+    height: 190px;
+    background: #e5e7eb;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #6b7280;
+    margin-bottom: 12px;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 9px 13px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: #2563eb;
+    color: white;
+}
+
+.btn-success {
+    background: #16a34a;
+    color: white;
+}
+
+.btn-warning {
+    background: #d97706;
+    color: white;
+}
+
+.btn-danger {
+    background: #dc2626;
+    color: white;
+}
+
+.btn-gray {
+    background: #6b7280;
+    color: white;
+}
+
+.btn-dark {
+    background: #111827;
+    color: white;
+}
+
+.upload-label {
+    display: inline-block;
+    background: #2563eb;
+    color: white;
+    padding: 9px 13px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.upload-label input {
+    display: none;
+}
+
+.photo-count {
+    margin: 10px 0;
     font-size: 14px;
-    font-weight: 700;
+    color: #6b7280;
 }
 
-.status-message.success {
-    display: block;
-    background: #e9f7ee;
-    border: 1px solid #b8dfc5;
-    color: #21683a;
+.projects-list {
+    display: grid;
+    gap: 20px;
 }
 
-.status-message.error {
-    display: block;
-    background: #fbeaea;
-    border: 1px solid #e7bcbc;
-    color: #9a2e2e;
+.project-card {
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 20px;
 }
 
-.status-message.info {
-    display: block;
-    background: #edf4fb;
-    border: 1px solid #c7dced;
-    color: #28557d;
+.project-card h4 {
+    margin: 0 0 8px;
+    font-size: 21px;
 }
 
-/* =========================
-   PROJECT FORM
-========================= */
+.project-meta {
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.project-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.status-published {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.status-hidden {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.project-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.project-images img {
+    width: 100px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+form {
+    display: grid;
+    gap: 15px;
+}
 
 .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 18px;
+    gap: 15px;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
+    gap: 6px;
 }
 
 .form-group.full {
@@ -189,823 +295,303 @@ main {
 }
 
 label {
-    margin-bottom: 7px;
-    font-size: 13px;
-    font-weight: 700;
-    color: #34435a;
+    font-weight: 600;
 }
 
 input,
 select,
 textarea {
     width: 100%;
-    border: 1px solid #ccd5e0;
-    border-radius: 5px;
-    padding: 11px 12px;
-    font-size: 14px;
-    background: #fff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 11px;
+    font-size: 15px;
 }
 
 textarea {
-    min-height: 115px;
+    min-height: 120px;
     resize: vertical;
 }
 
-input:focus,
-select:focus,
-textarea:focus {
-    outline: none;
-    border-color: #10243f;
-}
-
-/* =========================
-   FILE UPLOAD
-========================= */
-
-.upload-box {
-    border: 2px dashed #cbd5e1;
-    border-radius: 8px;
-    padding: 25px;
-    text-align: center;
-    background: #fafbfd;
-}
-
-.upload-box:hover {
-    border-color: #d5a84b;
-}
-
-.upload-box input[type="file"] {
-    border: 0;
-    padding: 0;
-    background: transparent;
-}
-
-.upload-note {
-    margin-top: 8px;
-    color: #7a8492;
-    font-size: 12px;
-}
-
-.selected-files {
-    margin-top: 15px;
-    display: grid;
+.checkbox-row {
+    display: flex;
+    align-items: center;
     gap: 8px;
 }
 
-.selected-file {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    background: #f3f6f9;
-    border: 1px solid #dce3eb;
-    border-radius: 5px;
-    padding: 9px 11px;
-    font-size: 13px;
+.checkbox-row input {
+    width: auto;
 }
 
-.remove-file {
-    border: 0;
-    background: #e8edf3;
-    color: #7a8492;
-    width: 30px;
-    height: 30px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 17px;
-}
-
-/* =========================
-   BUTTONS
-========================= */
-
-.button-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-}
-
-.button {
-    border: 0;
-    border-radius: 5px;
-    padding: 11px 18px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.button-primary {
-    background: #10243f;
-    color: #fff;
-}
-
-.button-primary:hover {
-    background: #18365d;
-}
-
-.button-gold {
-    background: #d5a84b;
-    color: #10243f;
-}
-
-.button-gold:hover {
-    background: #c29a42;
-}
-
-.button-gray {
-    background: #e7ebf0;
-    color: #34435a;
-}
-
-.button-gray:hover {
-    background: #dce1e7;
-}
-
-/* =========================
-   SERVICE PHOTOS
-========================= */
-
-.service-section {
-    margin-top: 25px;
-}
-
-.service-area {
-    margin-bottom: 35px;
-}
-
-.service-area:last-child {
-    margin-bottom: 0;
-}
-
-.service-area-title {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 15px;
-}
-
-.service-area-title span {
-    background: #10243f;
-    color: #fff;
-    padding: 6px 11px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
-}
-
-.service-area-title h3 {
-    margin: 0;
-    color: #142844;
-    font-size: 22px;
-}
-
-.service-admin-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-}
-
-.service-admin-card {
-    border: 1px solid #dfe5ec;
-    border-radius: 7px;
-    overflow: hidden;
-    background: #fff;
-}
-
-.service-admin-photo {
-    height: 175px;
-    background: #edf1f5;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #8a94a3;
-    font-size: 13px;
-    text-align: center;
-}
-
-.service-admin-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.service-admin-info {
-    padding: 15px;
-}
-
-.service-admin-info h4 {
-    margin: 0 0 10px;
-    color: #142844;
-    font-size: 16px;
-}
-
-.service-admin-status {
-    font-size: 11px;
-    font-weight: 700;
-    margin-bottom: 12px;
-}
-
-.service-has-photo {
-    color: #25834b;
-}
-
-.service-no-photo {
-    color: #a56b22;
-}
-
-.service-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-}
-
-.service-file-input {
+.modal {
     display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.7);
+    z-index: 1000;
+    padding: 30px;
+    overflow-y: auto;
 }
 
-.service-button {
-    border: 0;
-    border-radius: 4px;
-    padding: 8px 10px;
-    cursor: pointer;
-    font-size: 11px;
-    font-weight: 700;
+.modal.active {
+    display: block;
 }
 
-.service-upload {
-    background: #10243f;
-    color: #fff;
+.modal-box {
+    max-width: 1050px;
+    margin: 30px auto;
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
 }
 
-.service-delete {
-    background: #fbe7e7;
-    color: #9a2e2e;
-}
-
-.service-delete:disabled {
-    opacity: .45;
-    cursor: not-allowed;
-}
-
-/* =========================
-   PROJECT LIST
-========================= */
-
-.project-list {
-    display: grid;
-    gap: 15px;
-}
-
-.project-item {
-    border: 1px solid #dfe5ec;
-    border-radius: 7px;
-    padding: 16px;
-
-    display: grid;
-    grid-template-columns: 125px 1fr auto;
-    gap: 18px;
-    align-items: center;
-}
-
-.project-image {
-    width: 125px;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 5px;
-    background: #edf1f5;
-}
-
-.no-image {
+.modal-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    color: #8a94a3;
-    font-size: 11px;
+    margin-bottom: 20px;
 }
 
-.project-details h3 {
-    margin: 4px 0 5px;
-    color: #142844;
+.modal-header h3 {
+    margin: 0;
+}
+
+.close-btn {
+    background: #e5e7eb;
     font-size: 18px;
 }
 
-.project-category-badge {
-    display: inline-block;
-    background: #10243f;
-    color: #fff;
-    padding: 3px 8px;
-    border-radius: 3px;
-    font-size: 10px;
-    font-weight: 800;
-}
-
-.project-location {
-    color: #d5a84b;
-    font-size: 12px;
-    font-weight: 700;
-}
-
-.project-description {
-    margin: 5px 0;
-    color: #687383;
-    font-size: 13px;
-}
-
-.project-meta {
-    color: #7a8492;
-    font-size: 11px;
-}
-
-.project-status {
-    margin-top: 5px;
-    font-size: 11px;
-    font-weight: 700;
-}
-
-.published {
-    color: #25834b;
-}
-
-.hidden {
-    color: #a56b22;
-}
-
-.project-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-}
-
-.small-button {
-    min-width: 95px;
-    border: 0;
-    border-radius: 4px;
-    padding: 8px 10px;
-    cursor: pointer;
-    font-size: 11px;
-    font-weight: 700;
-}
-
-.edit-button {
-    background: #e7edf5;
-    color: #10243f;
-}
-
-.photos-button {
-    background: #e8f1f8;
-    color: #28557d;
-}
-
-.publish-button {
-    background: #e5f4eb;
-    color: #21683a;
-}
-
-.hide-button {
-    background: #fff1dd;
-    color: #8a5b19;
-}
-
-.delete-button {
-    background: #fbe7e7;
-    color: #9a2e2e;
-}
-
-/* =========================
-   PHOTO MANAGER
-========================= */
-
-.photo-manager {
-    display: none;
-    margin-top: 18px;
-    padding: 18px;
-    border-radius: 7px;
-    background: #f7f9fc;
-    border: 1px solid #dfe5ec;
-}
-
-.photo-manager.active {
-    display: block;
-}
-
-.photo-manager h4 {
-    margin: 0 0 15px;
-    color: #142844;
-}
-
-.photo-grid {
+.gallery-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.photo-manager-item {
-    background: #fff;
-    border: 1px solid #dfe5ec;
-    border-radius: 5px;
-    overflow: hidden;
+.gallery-item {
+    position: relative;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 7px;
+    background: #fafafa;
 }
 
-.photo-manager-item img {
+.gallery-item img {
     width: 100%;
-    height: 130px;
+    height: 170px;
     object-fit: cover;
+    border-radius: 6px;
     display: block;
 }
 
-.photo-manager-actions {
-    padding: 8px;
-}
-
-.photo-delete {
+.gallery-item button {
     width: 100%;
-    border: 0;
-    border-radius: 4px;
-    padding: 7px;
-    cursor: pointer;
-    background: #fbe7e7;
-    color: #9a2e2e;
-    font-size: 11px;
-    font-weight: 700;
+    margin-top: 7px;
 }
 
-.add-more-photos {
-    margin-top: 15px;
-}
-
-.empty {
+.file-box {
+    border: 2px dashed #cbd5e1;
+    padding: 20px;
+    border-radius: 8px;
     text-align: center;
-    padding: 35px;
-    border: 1px dashed #cbd4df;
-    border-radius: 6px;
-    color: #7a8492;
+    background: #f8fafc;
 }
 
-.loading {
-    text-align: center;
-    padding: 30px;
-    color: #687383;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 900px) {
-
-    .service-admin-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .photo-grid {
-        grid-template-columns: repeat(3, 1fr);
-    }
-
-}
-
-@media (max-width: 700px) {
-
-    .header-inner {
-        flex-direction: column;
-        justify-content: center;
-        padding: 15px 0;
+@media (max-width: 800px) {
+    .service-grid {
+        grid-template-columns: 1fr;
     }
 
     .form-grid {
         grid-template-columns: 1fr;
     }
 
-    .form-group.full {
-        grid-column: auto;
-    }
-
-    .service-admin-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .project-item {
-        grid-template-columns: 1fr;
-    }
-
-    .project-image {
-        width: 100%;
-        height: 190px;
-    }
-
-    .project-actions {
-        flex-direction: row;
-        flex-wrap: wrap;
-    }
-
-    .photo-grid {
+    .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
-</style>
+@media (max-width: 500px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
 
+    header {
+        padding: 15px;
+    }
+
+    .container {
+        padding: 0 12px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-
-<!-- =========================
-     HEADER
-========================= -->
-
 <header>
+    <h1>Miju Construction — Admin</h1>
 
-<div class="header-inner">
-
-    <div class="logo">
-        Miju <span>Construction</span> — Admin
+    <div class="header-right">
+        <a href="miju-construction.html" target="_blank">View Website</a>
+        <button onclick="logout()">Logout</button>
     </div>
-
-    <div class="header-actions">
-
-        <a
-            href="miju-construction.html"
-            target="_blank"
-            class="header-link">
-            View Public Website
-        </a>
-
-        <button
-            type="button"
-            id="logoutButton"
-            class="header-button">
-            Logout
-        </button>
-
-    </div>
-
-</div>
-
 </header>
 
+<div class="container">
 
-<main>
+    <div class="page-title">
+        <h2>Construction Administration</h2>
+        <p>Manage service photos, sample galleries and completed projects.</p>
+    </div>
 
-
-<div class="page-title">
-
-    <h1>
-        Construction Administration
-    </h1>
-
-    <p>
-        Manage construction service photos and completed projects.
-    </p>
-
-</div>
+    <div id="message" class="message"></div>
 
 
-<div
-    id="statusMessage"
-    class="status-message">
-</div>
+    <!-- =====================================================
+         SERVICE PHOTOS
+    ====================================================== -->
 
+    <div class="section">
 
-<!-- =====================================================
-     SERVICE PHOTOS
-===================================================== -->
+        <h3>Service Photos & Sample Galleries</h3>
 
-<div class="card">
-
-    <h2>
-        Service Photos
-    </h2>
-
-    <p class="card-description">
-        Upload one representative photo for each construction service.
-        These photos will automatically appear in the Services section
-        of the public Miju Construction website.
-    </p>
-
-
-    <div id="servicePhotoContainer">
-
-        <div class="loading">
-            Loading service photos...
+        <div class="section-description">
+            Each service has one representative photo and can have
+            multiple sample photos for customer consultation.
         </div>
+
+        <h4 class="category-title">Interior</h4>
+
+        <div id="interiorServices" class="service-grid"></div>
+
+        <h4 class="category-title">Exterior</h4>
+
+        <div id="exteriorServices" class="service-grid"></div>
 
     </div>
 
-</div>
 
+    <!-- =====================================================
+         COMPLETED PROJECTS
+    ====================================================== -->
 
-<!-- =====================================================
-     ADD / EDIT PROJECT
-===================================================== -->
+    <div class="section">
 
-<div class="card">
+        <h3>Completed Projects</h3>
 
-    <h2 id="projectFormTitle">
-        Add Construction Project
-    </h2>
+        <div class="section-description">
+            Add actual completed customer projects separately from
+            the service sample galleries.
+        </div>
 
-    <p class="card-description">
-        Add a completed interior or exterior construction project.
-    </p>
+        <form id="projectForm">
 
+            <input type="hidden" id="projectId">
 
-    <form id="projectForm">
+            <div class="form-grid">
 
+                <div class="form-group">
+                    <label>Category</label>
 
-        <div class="form-grid">
+                    <select id="projectCategory" required>
+                        <option value="Interior">Interior</option>
+                        <option value="Exterior">Exterior</option>
+                    </select>
+                </div>
 
+                <div class="form-group">
+                    <label>Location</label>
+                    <input
+                        type="text"
+                        id="projectLocation"
+                        placeholder="Buena Park"
+                    >
+                </div>
 
-            <div class="form-group">
+                <div class="form-group full">
+                    <label>Project Title</label>
+                    <input
+                        type="text"
+                        id="projectTitle"
+                        placeholder="Roofing Insulation"
+                        required
+                    >
+                </div>
 
-                <label for="projectCategory">
-                    Category
-                </label>
+                <div class="form-group">
+                    <label>Sort Order</label>
+                    <input
+                        type="number"
+                        id="projectSortOrder"
+                        value="0"
+                    >
+                </div>
 
-                <select
-                    id="projectCategory"
-                    required>
-
-                    <option value="">
-                        Select Category
-                    </option>
-
-                    <option value="Interior">
-                        Interior
-                    </option>
-
-                    <option value="Exterior">
-                        Exterior
-                    </option>
-
-                </select>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="projectTitle">
-                    Project Title
-                </label>
-
-                <input
-                    id="projectTitle"
-                    type="text"
-                    placeholder="Example: Kitchen Remodeling"
-                    required>
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="projectLocation">
-                    Location
-                </label>
-
-                <input
-                    id="projectLocation"
-                    type="text"
-                    placeholder="Example: Buena Park">
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="projectSortOrder">
-                    Sort Order
-                </label>
-
-                <input
-                    id="projectSortOrder"
-                    type="number"
-                    min="0"
-                    value="0">
-
-            </div>
-
-
-            <div class="form-group full">
-
-                <label for="projectDescription">
-                    Description
-                </label>
-
-                <textarea
-                    id="projectDescription"
-                    placeholder="Describe this construction project..."></textarea>
-
-            </div>
-
-
-            <div class="form-group full">
-
-                <label>
-                    Project Photos
-                </label>
-
-
-                <div class="upload-box">
+                <div class="form-group">
+                    <label>Project Photos</label>
 
                     <input
                         type="file"
                         id="projectFiles"
                         accept="image/*"
-                        multiple>
-
-                    <div class="upload-note">
-                        Select one or more project photos.
-                        JPG, PNG, WEBP and other common image formats are supported.
-                    </div>
-
+                        multiple
+                    >
                 </div>
 
+                <div class="form-group full">
+                    <label>Description</label>
 
-                <div
-                    id="selectedProjectFiles"
-                    class="selected-files">
+                    <textarea
+                        id="projectDescription"
+                        placeholder="Describe this completed project..."
+                    ></textarea>
                 </div>
 
+                <div class="checkbox-row">
+                    <input
+                        type="checkbox"
+                        id="projectPublished"
+                        checked
+                    >
+                    <label for="projectPublished">
+                        Published
+                    </label>
+                </div>
 
             </div>
 
+            <div class="button-row">
 
-            <div class="form-group">
+                <button
+                    type="submit"
+                    class="btn-primary"
+                    id="projectSubmitButton"
+                >
+                    Add Project
+                </button>
 
-                <label for="projectPublished">
-                    Website Status
-                </label>
-
-                <select id="projectPublished">
-
-                    <option value="true">
-                        Published — Show on Website
-                    </option>
-
-                    <option value="false">
-                        Hidden — Do Not Show
-                    </option>
-
-                </select>
+                <button
+                    type="button"
+                    class="btn-gray"
+                    onclick="resetProjectForm()"
+                >
+                    Clear
+                </button>
 
             </div>
 
+        </form>
 
-        </div>
-
-
-        <div class="button-row">
-
-            <button
-                type="submit"
-                id="saveProjectButton"
-                class="button button-primary">
-                Add Project
-            </button>
-
-            <button
-                type="button"
-                id="cancelEditButton"
-                class="button button-gray"
-                style="display:none;">
-                Cancel Edit
-            </button>
-
-        </div>
-
-    </form>
-
-</div>
+    </div>
 
 
-<!-- =====================================================
-     EXISTING PROJECTS
-===================================================== -->
+    <div class="section">
 
-<div class="card">
+        <h3>Existing Completed Projects</h3>
 
-    <h2>
-        Existing Construction Projects
-    </h2>
-
-    <p class="card-description">
-        Projects shown here are stored in Supabase.
-        Published projects appear on the public website.
-    </p>
-
-
-    <div
-        id="projectList"
-        class="project-list">
-
-        <div class="loading">
-            Loading projects...
+        <div id="projectsList" class="projects-list">
+            Loading...
         </div>
 
     </div>
@@ -1013,857 +599,970 @@ textarea:focus {
 </div>
 
 
-</main>
+<!-- =========================================================
+     SAMPLE GALLERY MODAL
+========================================================== -->
+
+<div id="galleryModal" class="modal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3 id="galleryTitle">
+                Sample Photos
+            </h3>
+
+            <button
+                class="close-btn"
+                onclick="closeGalleryModal()"
+            >
+                ✕
+            </button>
+
+        </div>
+
+        <div class="file-box">
+
+            <p>
+                Select multiple sample photos at once.
+            </p>
+
+            <label class="upload-label">
+                + Add Sample Photos
+
+                <input
+                    type="file"
+                    id="galleryFiles"
+                    accept="image/*"
+                    multiple
+                    onchange="uploadGalleryPhotos()"
+                >
+            </label>
+
+        </div>
+
+        <div id="galleryGrid" class="gallery-grid">
+        </div>
+
+    </div>
+
+</div>
 
 
 <script>
 
-/* =========================================================
-   SUPABASE CONFIG
-========================================================= */
-
 const SUPABASE_URL =
     "https://nhjapidacizvhebtpzah.supabase.co";
 
-const SUPABASE_ANON_KEY =
+const SUPABASE_KEY =
     "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
 
-const STORAGE_BUCKET =
-    "construction-projects";
-
-
 const supabaseClient =
-    window.supabase.createClient(
+    supabase.createClient(
         SUPABASE_URL,
-        SUPABASE_ANON_KEY
+        SUPABASE_KEY
     );
+
+
+let currentGalleryService = null;
 
 
 /* =========================================================
-   GLOBAL VARIABLES
+   MESSAGE
 ========================================================= */
 
-let currentUser = null;
+function showMessage(text, type = "success") {
 
-let currentProjects = [];
+    const el = document.getElementById("message");
 
-let editingProjectId = null;
+    el.className = "message " + type;
+    el.textContent = text;
 
-let selectedProjectFiles = [];
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
-let serviceRows = [];
-
-
-/* =========================================================
-   SERVICE DEFINITIONS
-========================================================= */
-
-const SERVICE_DEFINITIONS = [
-
-    {
-        category: "Interior",
-        key: "kitchen-remodeling",
-        name: "Kitchen Remodeling"
-    },
-
-    {
-        category: "Interior",
-        key: "bathroom-remodeling",
-        name: "Bathroom Remodeling"
-    },
-
-    {
-        category: "Interior",
-        key: "flooring",
-        name: "Flooring"
-    },
-
-    {
-        category: "Interior",
-        key: "interior-painting",
-        name: "Interior Painting"
-    },
-
-    {
-        category: "Interior",
-        key: "drywall-ceiling",
-        name: "Drywall & Ceiling"
-    },
-
-    {
-        category: "Interior",
-        key: "general-interior-renovation",
-        name: "General Interior Renovation"
-    },
-
-    {
-        category: "Exterior",
-        key: "concrete",
-        name: "Concrete"
-    },
-
-    {
-        category: "Exterior",
-        key: "roofing",
-        name: "Roofing"
-    },
-
-    {
-        category: "Exterior",
-        key: "stucco-siding",
-        name: "Stucco & Siding"
-    },
-
-    {
-        category: "Exterior",
-        key: "exterior-painting",
-        name: "Exterior Painting"
-    },
-
-    {
-        category: "Exterior",
-        key: "fences-gates",
-        name: "Fences & Gates"
-    },
-
-    {
-        category: "Exterior",
-        key: "waterproofing-repairs",
-        name: "Waterproofing & Repairs"
-    }
-
-];
-
-
-/* =========================================================
-   DOM ELEMENTS
-========================================================= */
-
-const statusMessage =
-    document.getElementById("statusMessage");
-
-const servicePhotoContainer =
-    document.getElementById(
-        "servicePhotoContainer"
-    );
-
-const projectForm =
-    document.getElementById("projectForm");
-
-const projectCategory =
-    document.getElementById("projectCategory");
-
-const projectTitle =
-    document.getElementById("projectTitle");
-
-const projectLocation =
-    document.getElementById("projectLocation");
-
-const projectDescription =
-    document.getElementById("projectDescription");
-
-const projectSortOrder =
-    document.getElementById("projectSortOrder");
-
-const projectPublished =
-    document.getElementById("projectPublished");
-
-const projectFiles =
-    document.getElementById("projectFiles");
-
-const selectedProjectFilesContainer =
-    document.getElementById(
-        "selectedProjectFiles"
-    );
-
-const projectList =
-    document.getElementById("projectList");
-
-const saveProjectButton =
-    document.getElementById(
-        "saveProjectButton"
-    );
-
-const cancelEditButton =
-    document.getElementById(
-        "cancelEditButton"
-    );
-
-const projectFormTitle =
-    document.getElementById(
-        "projectFormTitle"
-    );
-
-
-/* =========================================================
-   STATUS
-========================================================= */
-
-function showStatus(message, type = "info") {
-
-    statusMessage.textContent =
-        message;
-
-    statusMessage.className =
-        "status-message " + type;
-
-}
-
-
-function clearStatus() {
-
-    statusMessage.textContent =
-        "";
-
-    statusMessage.className =
-        "status-message";
-
+    setTimeout(() => {
+        el.className = "message";
+    }, 5000);
 }
 
 
 /* =========================================================
-   AUTHENTICATION
+   AUTH
 ========================================================= */
 
 async function checkAdmin() {
 
-    try {
+    const {
+        data: { session }
+    } = await supabaseClient.auth.getSession();
 
-        const {
-            data,
-            error
-        } =
-            await supabaseClient.auth.getSession();
+    if (!session) {
+        window.location.href = "login.html";
+        return false;
+    }
 
+    const { data, error } =
+        await supabaseClient
+            .from("admin_users")
+            .select("user_id, role")
+            .eq("user_id", session.user.id)
+            .eq("role", "admin")
+            .maybeSingle();
 
-        if (error) {
+    if (error || !data) {
 
-            console.error(error);
+        await supabaseClient.auth.signOut();
 
-            window.location.href =
-                "login.html";
+        alert("You are not authorized to access this page.");
 
-            return false;
-
-        }
-
-
-        if (!data.session) {
-
-            window.location.href =
-                "login.html";
-
-            return false;
-
-        }
-
-
-        currentUser =
-            data.session.user;
-
-
-        const {
-            data: adminData,
-            error: adminError
-        } =
-            await supabaseClient
-
-                .from("admin_users")
-
-                .select(
-                    "user_id, role"
-                )
-
-                .eq(
-                    "user_id",
-                    currentUser.id
-                )
-
-                .eq(
-                    "role",
-                    "admin"
-                )
-
-                .maybeSingle();
-
-
-        if (
-            adminError ||
-            !adminData
-        ) {
-
-            console.error(
-                "Admin check failed:",
-                adminError
-            );
-
-            alert(
-                "You are not authorized to access the construction admin page."
-            );
-
-            await supabaseClient.auth.signOut();
-
-            window.location.href =
-                "login.html";
-
-            return false;
-
-        }
-
-
-        return true;
-
-
-    } catch (error) {
-
-        console.error(
-            "Authentication error:",
-            error
-        );
-
-        window.location.href =
-            "login.html";
+        window.location.href = "login.html";
 
         return false;
-
     }
 
+    return true;
+}
+
+
+async function logout() {
+
+    await supabaseClient.auth.signOut();
+
+    window.location.href = "login.html";
 }
 
 
 /* =========================================================
-   LOGOUT
+   LOAD SERVICES
 ========================================================= */
 
-document
-    .getElementById("logoutButton")
-    .addEventListener(
-        "click",
-        async function() {
-
-            await supabaseClient.auth.signOut();
-
-            window.location.href =
-                "login.html";
-
-        }
-    );
-
-
-/* =========================================================
-   FILE SELECTION
-========================================================= */
-
-projectFiles.addEventListener(
-    "change",
-    function() {
-
-        const files =
-            Array.from(
-                this.files || []
-            );
-
-
-        selectedProjectFiles =
-            selectedProjectFiles.concat(
-                files
-            );
-
-
-        this.value = "";
-
-        renderSelectedFiles();
-
-    }
-);
-
-
-/* =========================================================
-   RENDER SELECTED FILES
-========================================================= */
-
-function renderSelectedFiles() {
-
-    selectedProjectFilesContainer.innerHTML =
-        "";
-
-
-    if (!selectedProjectFiles.length) {
-
-        return;
-
-    }
-
-
-    selectedProjectFiles.forEach(
-        (file, index) => {
-
-            const row =
-                document.createElement(
-                    "div"
-                );
-
-            row.className =
-                "selected-file";
-
-
-            row.innerHTML = `
-
-                <span>
-                    ${escapeHtml(file.name)}
-                </span>
-
-                <button
-                    type="button"
-                    class="remove-file"
-                    data-index="${index}">
-                    ×
-                </button>
-
-            `;
-
-
-            row
-                .querySelector(
-                    ".remove-file"
-                )
-                .addEventListener(
-                    "click",
-                    function() {
-
-                        selectedProjectFiles.splice(
-                            index,
-                            1
-                        );
-
-                        renderSelectedFiles();
-
-                    }
-                );
-
-
-            selectedProjectFilesContainer
-                .appendChild(row);
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   STORAGE FILE NAME
-========================================================= */
-
-function safeFileName(
-    fileName
-) {
-
-    const extension =
-        fileName.includes(".")
-            ? "." +
-              fileName
-                  .split(".")
-                  .pop()
-                  .toLowerCase()
-            : "";
-
-    const base =
-        fileName
-            .replace(
-                /\.[^/.]+$/,
-                ""
-            )
-            .replace(
-                /[^a-zA-Z0-9-_]/g,
-                "-"
-            )
-            .replace(
-                /-+/g,
-                "-"
-            )
-            .substring(
-                0,
-                60
-            );
-
-
-    return (
-        base +
-        "-" +
-        Date.now() +
-        "-" +
-        Math.random()
-            .toString(36)
-            .substring(2, 8) +
-        extension
-    );
-
-}
-
-
-/* =========================================================
-   UPLOAD PROJECT PHOTO
-========================================================= */
-
-async function uploadProjectPhoto(
-    file,
-    category,
-    title
-) {
-
-    const folder =
-        category.toLowerCase();
-
-
-    const fileName =
-        safeFileName(
-            file.name
-        );
-
-
-    const path =
-        `${folder}/${fileName}`;
-
+async function loadServices() {
 
     const {
+        data,
         error
-    } =
-        await supabaseClient.storage
-
-            .from(
-                STORAGE_BUCKET
-            )
-
-            .upload(
-                path,
-                file,
-                {
-                    cacheControl:
-                        "3600",
-
-                    upsert:
-                        false,
-
-                    contentType:
-                        file.type || undefined
-                }
-            );
-
+    } = await supabaseClient
+        .from("construction_service_photos")
+        .select("*")
+        .order("category")
+        .order("service_name");
 
     if (error) {
 
-        throw error;
+        showMessage(
+            "Unable to load services: " + error.message,
+            "error"
+        );
 
+        return;
     }
 
+    const interior =
+        data.filter(x => x.category === "Interior");
+
+    const exterior =
+        data.filter(x => x.category === "Exterior");
+
+    renderServices(
+        interior,
+        "interiorServices"
+    );
+
+    renderServices(
+        exterior,
+        "exteriorServices"
+    );
+}
+
+
+/* =========================================================
+   RENDER SERVICES
+========================================================= */
+
+function renderServices(services, containerId) {
+
+    const container =
+        document.getElementById(containerId);
+
+    container.innerHTML = "";
+
+    services.forEach(service => {
+
+        const card =
+            document.createElement("div");
+
+        card.className = "service-card";
+
+        let imageHTML = "";
+
+        if (service.image_url) {
+
+            imageHTML = `
+                <img
+                    class="service-image"
+                    src="${service.image_url}"
+                    alt="${escapeHTML(service.service_name)}"
+                >
+            `;
+
+        } else {
+
+            imageHTML = `
+                <div class="no-image">
+                    No Representative Photo
+                </div>
+            `;
+        }
+
+        card.innerHTML = `
+
+            <h4>
+                ${escapeHTML(service.service_name)}
+            </h4>
+
+            ${imageHTML}
+
+            <div class="button-row">
+
+                ${
+                    service.image_url
+                    ?
+                    `
+                    <button
+                        class="btn-warning"
+                        onclick="replaceRepresentativePhoto('${service.service_key}')"
+                    >
+                        Replace Photo
+                    </button>
+
+                    <button
+                        class="btn-danger"
+                        onclick="deleteRepresentativePhoto('${service.service_key}')"
+                    >
+                        Delete
+                    </button>
+                    `
+                    :
+                    `
+                    <label class="upload-label">
+                        Upload Photo
+                        <input
+                            type="file"
+                            accept="image/*"
+                            onchange="uploadRepresentativePhoto(
+                                '${service.service_key}',
+                                this.files[0]
+                            )"
+                        >
+                    </label>
+                    `
+                }
+
+                <button
+                    class="btn-primary"
+                    onclick="openGalleryModal(
+                        '${service.service_key}',
+                        '${escapeAttribute(service.service_name)}'
+                    )"
+                >
+                    Manage Sample Photos
+                </button>
+
+            </div>
+
+            <div
+                id="count-${service.service_key}"
+                class="photo-count"
+            >
+                Loading sample photo count...
+            </div>
+        `;
+
+        container.appendChild(card);
+
+        loadGalleryCount(service.service_key);
+    });
+}
+
+
+/* =========================================================
+   REPRESENTATIVE PHOTO
+========================================================= */
+
+async function uploadRepresentativePhoto(
+    serviceKey,
+    file
+) {
+
+    if (!file) return;
+
+    try {
+
+        const extension =
+            file.name.split(".").pop().toLowerCase();
+
+        const fileName =
+            Date.now() +
+            "-" +
+            Math.random()
+                .toString(36)
+                .substring(2) +
+            "." +
+            extension;
+
+        const path =
+            "services/" +
+            getServiceCategoryPath(serviceKey) +
+            "/" +
+            serviceKey +
+            "/" +
+            fileName;
+
+        const {
+            error: uploadError
+        } = await supabaseClient.storage
+            .from("construction-projects")
+            .upload(path, file, {
+                upsert: false,
+                contentType: file.type
+            });
+
+        if (uploadError)
+            throw uploadError;
+
+        const {
+            data: publicData
+        } = supabaseClient.storage
+            .from("construction-projects")
+            .getPublicUrl(path);
+
+        const {
+            error: updateError
+        } = await supabaseClient
+            .from("construction_service_photos")
+            .update({
+                image_url: publicData.publicUrl,
+                updated_at: new Date().toISOString()
+            })
+            .eq("service_key", serviceKey);
+
+        if (updateError)
+            throw updateError;
+
+        showMessage(
+            "Representative photo uploaded successfully."
+        );
+
+        await loadServices();
+
+    } catch (error) {
+
+        showMessage(
+            "Unable to upload photo: " +
+            error.message,
+            "error"
+        );
+    }
+}
+
+
+async function replaceRepresentativePhoto(serviceKey) {
+
+    const input =
+        document.createElement("input");
+
+    input.type = "file";
+    input.accept = "image/*";
+
+    input.onchange = async () => {
+
+        if (input.files[0]) {
+
+            await uploadRepresentativePhoto(
+                serviceKey,
+                input.files[0]
+            );
+        }
+    };
+
+    input.click();
+}
+
+
+async function deleteRepresentativePhoto(serviceKey) {
+
+    if (!confirm(
+        "Delete the representative photo for this service?"
+    )) return;
 
     const {
-        data
-    } =
-        supabaseClient.storage
-
-            .from(
-                STORAGE_BUCKET
-            )
-
-            .getPublicUrl(
-                path
-            );
-
-
-    return data.publicUrl;
-
-}
-
-
-/* =========================================================
-   SAVE PROJECT
-========================================================= */
-
-projectForm.addEventListener(
-    "submit",
-    async function(event) {
-
-        event.preventDefault();
-
-        clearStatus();
-
-
-        const category =
-            projectCategory.value.trim();
-
-
-        const title =
-            projectTitle.value.trim();
-
-
-        const location =
-            projectLocation.value.trim();
-
-
-        const description =
-            projectDescription.value.trim();
-
-
-        const sortOrder =
-            parseInt(
-                projectSortOrder.value,
-                10
-            ) || 0;
-
-
-        const published =
-            projectPublished.value ===
-            "true";
-
-
-        if (!category || !title) {
-
-            showStatus(
-                "Please select a category and enter a project title.",
-                "error"
-            );
-
-            return;
-
-        }
-
-
-        saveProjectButton.disabled =
-            true;
-
-
-        try {
-
-            let imageUrls = [];
-
-
-            /*
-             * When editing an existing project,
-             * keep its current photos.
-             */
-
-            if (editingProjectId) {
-
-                const existing =
-                    currentProjects.find(
-                        project =>
-                            String(project.id) ===
-                            String(editingProjectId)
-                    );
-
-
-                if (existing) {
-
-                    imageUrls =
-                        Array.isArray(
-                            existing.image_urls
-                        )
-                            ? [...existing.image_urls]
-                            : [];
-
-                }
-
-            }
-
-
-            /*
-             * Upload newly selected photos.
-             */
-
-            if (
-                selectedProjectFiles.length
-            ) {
-
-                showStatus(
-                    "Uploading project photos...",
-                    "info"
-                );
-
-
-                for (
-                    const file
-                    of selectedProjectFiles
-                ) {
-
-                    const url =
-                        await uploadProjectPhoto(
-                            file,
-                            category,
-                            title
-                        );
-
-
-                    imageUrls.push(
-                        url
-                    );
-
-                }
-
-            }
-
-
-            const projectData = {
-
-                category:
-                    category,
-
-                title:
-                    title,
-
-                location:
-                    location || null,
-
-                description:
-                    description || null,
-
-                image_urls:
-                    imageUrls,
-
-                published:
-                    published,
-
-                sort_order:
-                    sortOrder
-
-            };
-
-
-            let result;
-
-
-            if (editingProjectId) {
-
-                result =
-                    await supabaseClient
-
-                        .from(
-                            "construction_projects"
-                        )
-
-                        .update(
-                            projectData
-                        )
-
-                        .eq(
-                            "id",
-                            editingProjectId
-                        );
-
-            } else {
-
-                result =
-                    await supabaseClient
-
-                        .from(
-                            "construction_projects"
-                        )
-
-                        .insert(
-                            projectData
-                        );
-
-            }
-
-
-            if (result.error) {
-
-                throw result.error;
-
-            }
-
-
-            showStatus(
-                editingProjectId
-                    ? "Project updated successfully."
-                    : "Project added successfully.",
-                "success"
-            );
-
-
-            resetProjectForm();
-
-            await loadProjects();
-
-
-        } catch (error) {
-
-            console.error(
-                "Project save error:",
-                error
-            );
-
-
-            showStatus(
-                "Unable to save project: " +
-                (
-                    error.message ||
-                    "Unknown error"
-                ),
-                "error"
-            );
-
-        } finally {
-
-            saveProjectButton.disabled =
-                false;
-
-        }
-
+        error
+    } = await supabaseClient
+        .from("construction_service_photos")
+        .update({
+            image_url: null,
+            updated_at: new Date().toISOString()
+        })
+        .eq("service_key", serviceKey);
+
+    if (error) {
+
+        showMessage(
+            "Unable to delete photo: " +
+            error.message,
+            "error"
+        );
+
+        return;
     }
-);
 
+    showMessage(
+        "Representative photo deleted."
+    );
 
-/* =========================================================
-   RESET PROJECT FORM
-========================================================= */
-
-function resetProjectForm() {
-
-    editingProjectId =
-        null;
-
-    selectedProjectFiles =
-        [];
-
-    projectForm.reset();
-
-    projectSortOrder.value =
-        "0";
-
-    projectPublished.value =
-        "true";
-
-    selectedProjectFilesContainer
-        .innerHTML = "";
-
-    projectFormTitle.textContent =
-        "Add Construction Project";
-
-    saveProjectButton.textContent =
-        "Add Project";
-
-    cancelEditButton.style.display =
-        "none";
-
+    await loadServices();
 }
 
 
 /* =========================================================
-   CANCEL EDIT
+   SERVICE CATEGORY
 ========================================================= */
 
-cancelEditButton.addEventListener(
-    "click",
-    function() {
+function getServiceCategoryPath(serviceKey) {
+
+    const interior = [
+        "kitchen-remodeling",
+        "bathroom-remodeling",
+        "flooring",
+        "interior-painting",
+        "drywall-ceiling",
+        "general-interior-renovation"
+    ];
+
+    return interior.includes(serviceKey)
+        ? "interior"
+        : "exterior";
+}
+
+
+/* =========================================================
+   SAMPLE GALLERY
+========================================================= */
+
+async function openGalleryModal(
+    serviceKey,
+    serviceName
+) {
+
+    currentGalleryService = {
+        key: serviceKey,
+        name: serviceName
+    };
+
+    document.getElementById(
+        "galleryTitle"
+    ).textContent =
+        serviceName + " — Sample Photos";
+
+    document.getElementById(
+        "galleryModal"
+    ).classList.add("active");
+
+    await loadGalleryPhotos();
+}
+
+
+function closeGalleryModal() {
+
+    document.getElementById(
+        "galleryModal"
+    ).classList.remove("active");
+
+    currentGalleryService = null;
+
+    document.getElementById(
+        "galleryFiles"
+    ).value = "";
+}
+
+
+async function loadGalleryPhotos() {
+
+    if (!currentGalleryService)
+        return;
+
+    const {
+        data,
+        error
+    } = await supabaseClient
+        .from("construction_service_sample_photos")
+        .select("*")
+        .eq(
+            "service_key",
+            currentGalleryService.key
+        )
+        .order("sort_order")
+        .order("created_at");
+
+    const grid =
+        document.getElementById("galleryGrid");
+
+    if (error) {
+
+        grid.innerHTML =
+            "<p>Unable to load photos.</p>";
+
+        return;
+    }
+
+    grid.innerHTML = "";
+
+    if (!data || data.length === 0) {
+
+        grid.innerHTML =
+            "<p>No sample photos uploaded yet.</p>";
+
+        return;
+    }
+
+    data.forEach(photo => {
+
+        const item =
+            document.createElement("div");
+
+        item.className =
+            "gallery-item";
+
+        item.innerHTML = `
+
+            <img
+                src="${photo.image_url}"
+                alt="Sample photo"
+            >
+
+            <button
+                class="btn-danger"
+                onclick="deleteGalleryPhoto(
+                    '${photo.id}'
+                )"
+            >
+                Delete
+            </button>
+        `;
+
+        grid.appendChild(item);
+    });
+}
+
+
+async function loadGalleryCount(serviceKey) {
+
+    const {
+        count,
+        error
+    } = await supabaseClient
+        .from("construction_service_sample_photos")
+        .select("id", {
+            count: "exact",
+            head: true
+        })
+        .eq("service_key", serviceKey);
+
+    const el =
+        document.getElementById(
+            "count-" + serviceKey
+        );
+
+    if (!el) return;
+
+    if (error) {
+
+        el.textContent =
+            "Sample Photos";
+
+        return;
+    }
+
+    el.textContent =
+        `${count || 0} sample photo(s)`;
+}
+
+
+/* =========================================================
+   UPLOAD MULTIPLE SAMPLE PHOTOS
+========================================================= */
+
+async function uploadGalleryPhotos() {
+
+    if (!currentGalleryService)
+        return;
+
+    const input =
+        document.getElementById("galleryFiles");
+
+    const files =
+        Array.from(input.files || []);
+
+    if (files.length === 0)
+        return;
+
+    try {
+
+        for (let i = 0; i < files.length; i++) {
+
+            const file = files[i];
+
+            const extension =
+                file.name
+                    .split(".")
+                    .pop()
+                    .toLowerCase();
+
+            const fileName =
+                Date.now() +
+                "-" +
+                i +
+                "-" +
+                Math.random()
+                    .toString(36)
+                    .substring(2) +
+                "." +
+                extension;
+
+            const path =
+                "services/gallery/" +
+                currentGalleryService.key +
+                "/" +
+                fileName;
+
+            const {
+                error: uploadError
+            } =
+                await supabaseClient.storage
+                    .from("construction-projects")
+                    .upload(
+                        path,
+                        file,
+                        {
+                            upsert: false,
+                            contentType: file.type
+                        }
+                    );
+
+            if (uploadError)
+                throw uploadError;
+
+            const {
+                data: publicData
+            } =
+                supabaseClient.storage
+                    .from("construction-projects")
+                    .getPublicUrl(path);
+
+            const {
+                count
+            } =
+                await supabaseClient
+                    .from(
+                        "construction_service_sample_photos"
+                    )
+                    .select("id", {
+                        count: "exact",
+                        head: true
+                    })
+                    .eq(
+                        "service_key",
+                        currentGalleryService.key
+                    );
+
+            const {
+                error: insertError
+            } =
+                await supabaseClient
+                    .from(
+                        "construction_service_sample_photos"
+                    )
+                    .insert({
+                        service_key:
+                            currentGalleryService.key,
+
+                        image_url:
+                            publicData.publicUrl,
+
+                        sort_order:
+                            (count || 0) + i
+                    });
+
+            if (insertError)
+                throw insertError;
+        }
+
+        input.value = "";
+
+        await loadGalleryPhotos();
+
+        await loadServices();
+
+        showMessage(
+            `${files.length} sample photo(s) uploaded successfully.`
+        );
+
+    } catch (error) {
+
+        showMessage(
+            "Unable to upload sample photos: " +
+            error.message,
+            "error"
+        );
+    }
+}
+
+
+/* =========================================================
+   DELETE SAMPLE PHOTO
+========================================================= */
+
+async function deleteGalleryPhoto(id) {
+
+    if (!confirm(
+        "Delete this sample photo?"
+    )) return;
+
+    const {
+        error
+    } = await supabaseClient
+        .from(
+            "construction_service_sample_photos"
+        )
+        .delete()
+        .eq("id", id);
+
+    if (error) {
+
+        showMessage(
+            "Unable to delete sample photo: " +
+            error.message,
+            "error"
+        );
+
+        return;
+    }
+
+    await loadGalleryPhotos();
+
+    await loadServices();
+
+    showMessage(
+        "Sample photo deleted."
+    );
+}
+
+
+/* =========================================================
+   COMPLETED PROJECTS
+========================================================= */
+
+document
+    .getElementById("projectForm")
+    .addEventListener(
+        "submit",
+        saveProject
+    );
+
+
+async function saveProject(event) {
+
+    event.preventDefault();
+
+    const projectId =
+        document.getElementById(
+            "projectId"
+        ).value;
+
+    const category =
+        document.getElementById(
+            "projectCategory"
+        ).value;
+
+    const title =
+        document.getElementById(
+            "projectTitle"
+        ).value.trim();
+
+    const location =
+        document.getElementById(
+            "projectLocation"
+        ).value.trim();
+
+    const description =
+        document.getElementById(
+            "projectDescription"
+        ).value.trim();
+
+    const sortOrder =
+        parseInt(
+            document.getElementById(
+                "projectSortOrder"
+            ).value
+        ) || 0;
+
+    const published =
+        document.getElementById(
+            "projectPublished"
+        ).checked;
+
+    const files =
+        Array.from(
+            document.getElementById(
+                "projectFiles"
+            ).files || []
+        );
+
+    try {
+
+        let imageUrls = [];
+
+        if (projectId) {
+
+            const {
+                data: existing,
+                error
+            } = await supabaseClient
+                .from("construction_projects")
+                .select("*")
+                .eq("id", projectId)
+                .single();
+
+            if (error)
+                throw error;
+
+            imageUrls =
+                existing.image_urls || [];
+        }
+
+
+        for (
+            let i = 0;
+            i < files.length;
+            i++
+        ) {
+
+            const file = files[i];
+
+            const extension =
+                file.name
+                    .split(".")
+                    .pop()
+                    .toLowerCase();
+
+            const fileName =
+                Date.now() +
+                "-" +
+                Math.random()
+                    .toString(36)
+                    .substring(2) +
+                "." +
+                extension;
+
+            const path =
+                "completed-projects/" +
+                category.toLowerCase() +
+                "/" +
+                fileName;
+
+            const {
+                error: uploadError
+            } =
+                await supabaseClient.storage
+                    .from("construction-projects")
+                    .upload(
+                        path,
+                        file,
+                        {
+                            upsert: false,
+                            contentType: file.type
+                        }
+                    );
+
+            if (uploadError)
+                throw uploadError;
+
+            const {
+                data: publicData
+            } =
+                supabaseClient.storage
+                    .from("construction-projects")
+                    .getPublicUrl(path);
+
+            imageUrls.push(
+                publicData.publicUrl
+            );
+        }
+
+
+        const projectData = {
+
+            category,
+            title,
+            location,
+            description,
+            sort_order: sortOrder,
+            published,
+
+            image_urls: imageUrls
+        };
+
+
+        if (projectId) {
+
+            const {
+                error
+            } = await supabaseClient
+                .from("construction_projects")
+                .update(projectData)
+                .eq("id", projectId);
+
+            if (error)
+                throw error;
+
+            showMessage(
+                "Project updated successfully."
+            );
+
+        } else {
+
+            const {
+                error
+            } = await supabaseClient
+                .from("construction_projects")
+                .insert(projectData);
+
+            if (error)
+                throw error;
+
+            showMessage(
+                "Project added successfully."
+            );
+        }
+
 
         resetProjectForm();
 
-        clearStatus();
+        await loadProjects();
 
+    } catch (error) {
+
+        showMessage(
+            "Unable to save project: " +
+            error.message,
+            "error"
+        );
     }
-);
+}
 
 
 /* =========================================================
@@ -1872,518 +1571,137 @@ cancelEditButton.addEventListener(
 
 async function loadProjects() {
 
-    projectList.innerHTML = `
-        <div class="loading">
-            Loading projects...
-        </div>
-    `;
-
-
     const {
         data,
         error
-    } =
-        await supabaseClient
+    } = await supabaseClient
+        .from("construction_projects")
+        .select("*")
+        .order("sort_order")
+        .order("created_at", {
+            ascending: false
+        });
 
-            .from(
-                "construction_projects"
-            )
-
-            .select(`
-                id,
-                category,
-                title,
-                location,
-                description,
-                image_urls,
-                published,
-                sort_order,
-                created_at
-            `)
-
-            .order(
-                "sort_order",
-                {
-                    ascending: true
-                }
-            )
-
-            .order(
-                "created_at",
-                {
-                    ascending: false
-                }
-            );
-
+    const container =
+        document.getElementById(
+            "projectsList"
+        );
 
     if (error) {
 
-        console.error(
-            "Project loading error:",
-            error
-        );
-
-
-        projectList.innerHTML = `
-            <div class="empty">
-                Unable to load construction projects.
-                <br><br>
-                ${escapeHtml(error.message)}
-            </div>
-        `;
+        container.innerHTML =
+            `<p>Unable to load projects: ${escapeHTML(error.message)}</p>`;
 
         return;
+    }
 
+    container.innerHTML = "";
+
+    if (!data || data.length === 0) {
+
+        container.innerHTML =
+            "<p>No completed projects yet.</p>";
+
+        return;
     }
 
 
-    currentProjects =
-        Array.isArray(data)
-            ? data
-            : [];
+    data.forEach(project => {
 
+        const card =
+            document.createElement("div");
 
-    renderProjects();
+        card.className =
+            "project-card";
 
-}
+        const images =
+            Array.isArray(project.image_urls)
+                ? project.image_urls
+                : [];
 
+        let imagesHTML = "";
 
-/* =========================================================
-   RENDER PROJECTS
-========================================================= */
+        images.forEach(url => {
 
-function renderProjects() {
-
-    if (!currentProjects.length) {
-
-        projectList.innerHTML = `
-            <div class="empty">
-                No construction projects have been added yet.
-            </div>
-        `;
-
-        return;
-
-    }
-
-
-    projectList.innerHTML =
-        currentProjects
-            .map(
-                createProjectCard
-            )
-            .join("");
-
-
-    attachProjectEvents();
-
-}
-
-
-/* =========================================================
-   PROJECT CARD
-========================================================= */
-
-function createProjectCard(
-    project
-) {
-
-    const images =
-        Array.isArray(
-            project.image_urls
-        )
-            ? project.image_urls
-            : [];
-
-
-    const firstImage =
-        images.length
-            ? images[0]
-            : "";
-
-
-    const imageHtml =
-        firstImage
-
-            ? `
+            imagesHTML += `
                 <img
-                    src="${escapeAttribute(firstImage)}"
-                    class="project-image"
-                    alt="${escapeAttribute(project.title || "Project")}"
+                    src="${url}"
+                    alt="Project photo"
                 >
-              `
-
-            : `
-                <div class="project-image no-image">
-                    No Photo
-                </div>
-              `;
+            `;
+        });
 
 
-    const status =
-        project.published
+        card.innerHTML = `
 
-            ? `
-                <div class="project-status published">
-                    ● Published
-                </div>
-              `
+            <h4>
+                ${escapeHTML(project.title || "")}
+            </h4>
 
-            : `
-                <div class="project-status hidden">
-                    ● Hidden
-                </div>
-              `;
-
-
-    const toggleText =
-        project.published
-            ? "Hide"
-            : "Publish";
-
-
-    const toggleClass =
-        project.published
-            ? "hide-button"
-            : "publish-button";
-
-
-    return `
-
-        <div class="project-item">
-
-            ${imageHtml}
-
-            <div class="project-details">
-
-                <span class="project-category-badge">
-                    ${escapeHtml(
-                        String(
-                            project.category || ""
-                        ).toUpperCase()
-                    )}
-                </span>
-
-                <h3>
-                    ${escapeHtml(
-                        project.title ||
-                        "Untitled Project"
-                    )}
-                </h3>
-
-                ${
-                    project.location
-                        ? `
-                            <div class="project-location">
-                                ${escapeHtml(
-                                    project.location
-                                )}
-                            </div>
-                          `
-                        : ""
-                }
-
-                ${
-                    project.description
-                        ? `
-                            <div class="project-description">
-                                ${escapeHtml(
-                                    project.description
-                                )}
-                            </div>
-                          `
-                        : ""
-                }
-
-                <div class="project-meta">
-                    ${images.length}
-                    ${images.length === 1 ? "photo" : "photos"}
-                </div>
-
-                ${status}
-
+            <div class="project-meta">
+                ${escapeHTML(project.category || "")}
+                ${project.location
+                    ? " • " +
+                      escapeHTML(project.location)
+                    : ""}
             </div>
 
+            <span class="project-status ${
+                project.published
+                    ? "status-published"
+                    : "status-hidden"
+            }">
+                ${
+                    project.published
+                        ? "Published"
+                        : "Hidden"
+                }
+            </span>
 
-            <div class="project-actions">
+            ${
+                project.description
+                    ?
+                    `<p>${escapeHTML(project.description)}</p>`
+                    :
+                    ""
+            }
+
+            <div class="project-images">
+                ${imagesHTML}
+            </div>
+
+            <div class="button-row">
 
                 <button
-                    type="button"
-                    class="small-button edit-button edit-project"
-                    data-id="${escapeAttribute(
-                        String(project.id)
-                    )}">
+                    class="btn-primary"
+                    onclick="editProject('${project.id}')"
+                >
                     Edit
                 </button>
 
-
                 <button
-                    type="button"
-                    class="small-button photos-button manage-photos"
-                    data-id="${escapeAttribute(
-                        String(project.id)
-                    )}">
-                    Manage Photos
+                    class="btn-warning"
+                    onclick="toggleProject('${project.id}', ${!project.published})"
+                >
+                    ${
+                        project.published
+                            ? "Hide"
+                            : "Publish"
+                    }
                 </button>
 
-
                 <button
-                    type="button"
-                    class="small-button ${toggleClass} toggle-project"
-                    data-id="${escapeAttribute(
-                        String(project.id)
-                    )}">
-                    ${toggleText}
-                </button>
-
-
-                <button
-                    type="button"
-                    class="small-button delete-button delete-project"
-                    data-id="${escapeAttribute(
-                        String(project.id)
-                    )}">
+                    class="btn-danger"
+                    onclick="deleteProject('${project.id}')"
+                >
                     Delete
                 </button>
 
             </div>
+        `;
 
-        </div>
-
-        <div
-            id="photoManager-${escapeAttribute(
-                String(project.id)
-            )}"
-            class="photo-manager">
-
-            <h4>
-                Project Photos
-            </h4>
-
-            <div class="photo-grid">
-
-                ${
-                    images.length
-                        ? images
-                            .map(
-                                (url, index) => `
-                                    <div
-                                        class="photo-manager-item">
-
-                                        <img
-                                            src="${escapeAttribute(url)}"
-                                            alt="Project photo ${index + 1}"
-                                        >
-
-                                        <div class="photo-manager-actions">
-
-                                            <button
-                                                type="button"
-                                                class="photo-delete delete-photo"
-                                                data-project-id="${escapeAttribute(
-                                                    String(project.id)
-                                                )}"
-                                                data-photo-index="${index}">
-                                                Delete Photo
-                                            </button>
-
-                                        </div>
-
-                                    </div>
-                                `
-                            )
-                            .join("")
-                        : `
-                            <div class="empty">
-                                No project photos.
-                            </div>
-                          `
-                }
-
-            </div>
-
-
-            <div class="add-more-photos">
-
-                <label>
-                    Add More Photos
-                </label>
-
-                <input
-                    type="file"
-                    class="additional-photo-input"
-                    data-project-id="${escapeAttribute(
-                        String(project.id)
-                    )}"
-                    accept="image/*"
-                    multiple>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-/* =========================================================
-   PROJECT EVENTS
-========================================================= */
-
-function attachProjectEvents() {
-
-
-    document
-        .querySelectorAll(
-            ".edit-project"
-        )
-        .forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        editProject(
-                            this.dataset.id
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".manage-photos"
-        )
-        .forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        const manager =
-                            document.getElementById(
-                                "photoManager-" +
-                                this.dataset.id
-                            );
-
-
-                        if (manager) {
-
-                            manager.classList.toggle(
-                                "active"
-                            );
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".toggle-project"
-        )
-        .forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        toggleProject(
-                            this.dataset.id
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".delete-project"
-        )
-        .forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        deleteProject(
-                            this.dataset.id
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".delete-photo"
-        )
-        .forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        deleteProjectPhoto(
-                            this.dataset.projectId,
-                            Number(
-                                this.dataset.photoIndex
-                            )
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".additional-photo-input"
-        )
-        .forEach(
-            input => {
-
-                input.addEventListener(
-                    "change",
-                    function() {
-
-                        addMoreProjectPhotos(
-                            this.dataset.projectId,
-                            Array.from(
-                                this.files || []
-                            )
-                        );
-
-                        this.value = "";
-
-                    }
-                );
-
-            }
-        );
-
+        container.appendChild(card);
+    });
 }
 
 
@@ -2391,158 +1709,129 @@ function attachProjectEvents() {
    EDIT PROJECT
 ========================================================= */
 
-function editProject(
-    projectId
-) {
+async function editProject(id) {
 
-    const project =
-        currentProjects.find(
-            item =>
-                String(item.id) ===
-                String(projectId)
-        );
+    const {
+        data,
+        error
+    } = await supabaseClient
+        .from("construction_projects")
+        .select("*")
+        .eq("id", id)
+        .single();
 
+    if (error) {
 
-    if (!project) {
-
-        return;
-
-    }
-
-
-    editingProjectId =
-        project.id;
-
-
-    projectCategory.value =
-        project.category || "";
-
-
-    projectTitle.value =
-        project.title || "";
-
-
-    projectLocation.value =
-        project.location || "";
-
-
-    projectDescription.value =
-        project.description || "";
-
-
-    projectSortOrder.value =
-        project.sort_order ?? 0;
-
-
-    projectPublished.value =
-        project.published
-            ? "true"
-            : "false";
-
-
-    selectedProjectFiles =
-        [];
-
-
-    selectedProjectFilesContainer
-        .innerHTML = "";
-
-
-    projectFormTitle.textContent =
-        "Edit Construction Project";
-
-
-    saveProjectButton.textContent =
-        "Save Changes";
-
-
-    cancelEditButton.style.display =
-        "inline-block";
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-/* =========================================================
-   TOGGLE PROJECT
-========================================================= */
-
-async function toggleProject(
-    projectId
-) {
-
-    const project =
-        currentProjects.find(
-            item =>
-                String(item.id) ===
-                String(projectId)
-        );
-
-
-    if (!project) {
-
-        return;
-
-    }
-
-
-    try {
-
-        const {
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    "construction_projects"
-                )
-
-                .update({
-                    published:
-                        !project.published
-                })
-
-                .eq(
-                    "id",
-                    project.id
-                );
-
-
-        if (error) {
-
-            throw error;
-
-        }
-
-
-        showStatus(
-            project.published
-                ? "Project hidden from the website."
-                : "Project published on the website.",
-            "success"
-        );
-
-
-        await loadProjects();
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        showStatus(
-            "Unable to update project status: " +
+        showMessage(
+            "Unable to load project: " +
             error.message,
             "error"
         );
 
+        return;
     }
 
+    document.getElementById(
+        "projectId"
+    ).value = data.id;
+
+    document.getElementById(
+        "projectCategory"
+    ).value = data.category || "Interior";
+
+    document.getElementById(
+        "projectTitle"
+    ).value = data.title || "";
+
+    document.getElementById(
+        "projectLocation"
+    ).value = data.location || "";
+
+    document.getElementById(
+        "projectDescription"
+    ).value = data.description || "";
+
+    document.getElementById(
+        "projectSortOrder"
+    ).value = data.sort_order || 0;
+
+    document.getElementById(
+        "projectPublished"
+    ).checked = !!data.published;
+
+    document.getElementById(
+        "projectSubmitButton"
+    ).textContent =
+        "Update Project";
+
+    window.scrollTo({
+        top: document.body.scrollHeight,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================================================
+   RESET PROJECT
+========================================================= */
+
+function resetProjectForm() {
+
+    document.getElementById(
+        "projectForm"
+    ).reset();
+
+    document.getElementById(
+        "projectId"
+    ).value = "";
+
+    document.getElementById(
+        "projectPublished"
+    ).checked = true;
+
+    document.getElementById(
+        "projectSubmitButton"
+    ).textContent =
+        "Add Project";
+}
+
+
+/* =========================================================
+   PUBLISH / HIDE
+========================================================= */
+
+async function toggleProject(
+    id,
+    published
+) {
+
+    const {
+        error
+    } = await supabaseClient
+        .from("construction_projects")
+        .update({
+            published
+        })
+        .eq("id", id);
+
+    if (error) {
+
+        showMessage(
+            "Unable to update project: " +
+            error.message,
+            "error"
+        );
+
+        return;
+    }
+
+    await loadProjects();
+
+    showMessage(
+        published
+            ? "Project published."
+            : "Project hidden."
+    );
 }
 
 
@@ -2550,1094 +1839,58 @@ async function toggleProject(
    DELETE PROJECT
 ========================================================= */
 
-async function deleteProject(
-    projectId
-) {
+async function deleteProject(id) {
 
-    const project =
-        currentProjects.find(
-            item =>
-                String(item.id) ===
-                String(projectId)
-        );
+    if (!confirm(
+        "Delete this completed project?"
+    )) return;
 
+    const {
+        error
+    } = await supabaseClient
+        .from("construction_projects")
+        .delete()
+        .eq("id", id);
 
-    if (!project) {
+    if (error) {
 
-        return;
-
-    }
-
-
-    if (
-        !confirm(
-            `Delete "${project.title || "this project"}"?\n\nThis cannot be undone.`
-        )
-    ) {
-
-        return;
-
-    }
-
-
-    try {
-
-        const {
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    "construction_projects"
-                )
-
-                .delete()
-
-                .eq(
-                    "id",
-                    project.id
-                );
-
-
-        if (error) {
-
-            throw error;
-
-        }
-
-
-        showStatus(
-            "Project deleted successfully.",
-            "success"
-        );
-
-
-        resetProjectForm();
-
-        await loadProjects();
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        showStatus(
+        showMessage(
             "Unable to delete project: " +
             error.message,
             "error"
         );
 
-    }
-
-}
-
-
-/* =========================================================
-   DELETE PROJECT PHOTO
-========================================================= */
-
-async function deleteProjectPhoto(
-    projectId,
-    photoIndex
-) {
-
-    const project =
-        currentProjects.find(
-            item =>
-                String(item.id) ===
-                String(projectId)
-        );
-
-
-    if (!project) {
-
         return;
-
     }
 
+    await loadProjects();
 
-    const images =
-        Array.isArray(
-            project.image_urls
-        )
-            ? [...project.image_urls]
-            : [];
-
-
-    if (
-        photoIndex < 0 ||
-        photoIndex >= images.length
-    ) {
-
-        return;
-
-    }
-
-
-    if (
-        !confirm(
-            "Delete this project photo?"
-        )
-    ) {
-
-        return;
-
-    }
-
-
-    images.splice(
-        photoIndex,
-        1
+    showMessage(
+        "Project deleted."
     );
-
-
-    try {
-
-        const {
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    "construction_projects"
-                )
-
-                .update({
-                    image_urls:
-                        images
-                })
-
-                .eq(
-                    "id",
-                    project.id
-                );
-
-
-        if (error) {
-
-            throw error;
-
-        }
-
-
-        showStatus(
-            "Project photo deleted.",
-            "success"
-        );
-
-
-        await loadProjects();
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        showStatus(
-            "Unable to delete project photo: " +
-            error.message,
-            "error"
-        );
-
-    }
-
 }
 
 
 /* =========================================================
-   ADD MORE PROJECT PHOTOS
+   ESCAPE HTML
 ========================================================= */
 
-async function addMoreProjectPhotos(
-    projectId,
-    files
-) {
+function escapeHTML(value) {
 
-    if (!files.length) {
-
-        return;
-
-    }
-
-
-    const project =
-        currentProjects.find(
-            item =>
-                String(item.id) ===
-                String(projectId)
-        );
-
-
-    if (!project) {
-
-        return;
-
-    }
-
-
-    try {
-
-        showStatus(
-            "Uploading additional project photos...",
-            "info"
-        );
-
-
-        const images =
-            Array.isArray(
-                project.image_urls
-            )
-                ? [...project.image_urls]
-                : [];
-
-
-        for (
-            const file
-            of files
-        ) {
-
-            const url =
-                await uploadProjectPhoto(
-                    file,
-                    project.category,
-                    project.title
-                );
-
-
-            images.push(
-                url
-            );
-
-        }
-
-
-        const {
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    "construction_projects"
-                )
-
-                .update({
-                    image_urls:
-                        images
-                })
-
-                .eq(
-                    "id",
-                    project.id
-                );
-
-
-        if (error) {
-
-            throw error;
-
-        }
-
-
-        showStatus(
-            "Additional project photos uploaded.",
-            "success"
-        );
-
-
-        await loadProjects();
-
-
-    } catch (error) {
-
-        console.error(error);
-
-        showStatus(
-            "Unable to upload additional photos: " +
-            error.message,
-            "error"
-        );
-
-    }
-
+    return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
 }
 
 
-/* =========================================================
-   LOAD SERVICE PHOTOS
-========================================================= */
-
-async function loadServicePhotos() {
-
-    servicePhotoContainer.innerHTML = `
-        <div class="loading">
-            Loading service photos...
-        </div>
-    `;
-
-
-    const {
-        data,
-        error
-    } =
-        await supabaseClient
-
-            .from(
-                "construction_service_photos"
-            )
-
-            .select(`
-                id,
-                category,
-                service_key,
-                service_name,
-                image_url,
-                created_at,
-                updated_at
-            `)
-
-            .order(
-                "category",
-                {
-                    ascending: true
-                }
-            );
-
-
-    if (error) {
-
-        console.error(
-            "Service photo loading error:",
-            error
-        );
-
-
-        servicePhotoContainer.innerHTML = `
-            <div class="empty">
-                Unable to load service photos.
-                <br><br>
-                ${escapeHtml(error.message)}
-            </div>
-        `;
-
-        return;
-
-    }
-
-
-    serviceRows =
-        Array.isArray(data)
-            ? data
-            : [];
-
-
-    /*
-     * Make sure all predefined services
-     * are represented even if a row is missing.
-     */
-
-    const combined =
-        SERVICE_DEFINITIONS.map(
-            definition => {
-
-                const existing =
-                    serviceRows.find(
-                        row =>
-                            row.service_key ===
-                            definition.key
-                    );
-
-
-                return existing
-                    ? existing
-                    : {
-                        id: null,
-                        category:
-                            definition.category,
-                        service_key:
-                            definition.key,
-                        service_name:
-                            definition.name,
-                        image_url:
-                            null
-                    };
-
-            }
-        );
-
-
-    serviceRows =
-        combined;
-
-
-    renderServicePhotos();
-
-}
-
-
-/* =========================================================
-   RENDER SERVICE PHOTOS
-========================================================= */
-
-function renderServicePhotos() {
-
-    const interior =
-        serviceRows.filter(
-            item =>
-                item.category ===
-                "Interior"
-        );
-
-
-    const exterior =
-        serviceRows.filter(
-            item =>
-                item.category ===
-                "Exterior"
-        );
-
-
-    servicePhotoContainer.innerHTML = `
-
-        <div class="service-area">
-
-            <div class="service-area-title">
-
-                <span>INTERIOR</span>
-
-                <h3>
-                    Interior Services
-                </h3>
-
-            </div>
-
-            <div class="service-admin-grid">
-
-                ${interior
-                    .map(
-                        createServiceCard
-                    )
-                    .join("")}
-
-            </div>
-
-        </div>
-
-
-        <div class="service-area">
-
-            <div class="service-area-title">
-
-                <span>EXTERIOR</span>
-
-                <h3>
-                    Exterior Services
-                </h3>
-
-            </div>
-
-            <div class="service-admin-grid">
-
-                ${exterior
-                    .map(
-                        createServiceCard
-                    )
-                    .join("")}
-
-            </div>
-
-        </div>
-
-    `;
-
-
-    attachServiceEvents();
-
-}
-
-
-/* =========================================================
-   CREATE SERVICE CARD
-========================================================= */
-
-function createServiceCard(
-    service
-) {
-
-    const hasPhoto =
-        Boolean(
-            service.image_url
-        );
-
-
-    const photoHtml =
-        hasPhoto
-
-            ? `
-                <img
-                    src="${escapeAttribute(
-                        service.image_url
-                    )}"
-                    alt="${escapeAttribute(
-                        service.service_name
-                    )}"
-                >
-              `
-
-            : `
-                No Service Photo
-              `;
-
-
-    return `
-
-        <div class="service-admin-card">
-
-            <div class="service-admin-photo">
-
-                ${photoHtml}
-
-            </div>
-
-
-            <div class="service-admin-info">
-
-                <h4>
-                    ${escapeHtml(
-                        service.service_name
-                    )}
-                </h4>
-
-
-                <div
-                    class="service-admin-status ${
-                        hasPhoto
-                            ? "service-has-photo"
-                            : "service-no-photo"
-                    }">
-
-                    ${
-                        hasPhoto
-                            ? "● Photo Uploaded"
-                            : "● No Photo"
-                    }
-
-                </div>
-
-
-                <div class="service-buttons">
-
-                    <input
-                        type="file"
-                        id="serviceFile-${escapeAttribute(
-                            service.service_key
-                        )}"
-                        class="service-file-input"
-                        data-service-key="${escapeAttribute(
-                            service.service_key
-                        )}"
-                        accept="image/*"
-                    >
-
-
-                    <button
-                        type="button"
-                        class="service-button service-upload choose-service-photo"
-                        data-service-key="${escapeAttribute(
-                            service.service_key
-                        )}">
-
-                        ${
-                            hasPhoto
-                                ? "Replace Photo"
-                                : "Upload Photo"
-                        }
-
-                    </button>
-
-
-                    <button
-                        type="button"
-                        class="service-button service-delete delete-service-photo"
-                        data-service-key="${escapeAttribute(
-                            service.service_key
-                        )}"
-                        ${hasPhoto ? "" : "disabled"}>
-
-                        Delete
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    `;
-
-}
-
-
-/* =========================================================
-   SERVICE EVENTS
-========================================================= */
-
-function attachServiceEvents() {
-
-    document
-        .querySelectorAll(
-            ".choose-service-photo"
-        )
-        .forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    function() {
-
-                        const key =
-                            this.dataset.serviceKey;
-
-
-                        const input =
-                            document.getElementById(
-                                "serviceFile-" +
-                                key
-                            );
-
-
-                        if (input) {
-
-                            input.click();
-
-                        }
-
-                    }
-                );
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".service-file-input"
-        )
-        .forEach(
-            input => {
-
-                input.addEventListener(
-                    "change",
-                    async function() {
-
-                        const file =
-                            this.files?.[0];
-
-
-                        const key =
-                            this.dataset.serviceKey;
-
-
-                        this.value = "";
-
-
-                        if (!file) {
-
-                            return;
-
-                        }
-
-
-                        await uploadServicePhoto(
-                            key,
-                            file
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            ".delete-service-photo"
-        )
-        .forEach(
-            button => {
-
-                button.addEventListener(
-                    "click",
-                    async function() {
-
-                        await deleteServicePhoto(
-                            this.dataset.serviceKey
-                        );
-
-                    }
-                );
-
-            }
-        );
-
-}
-
-
-/* =========================================================
-   UPLOAD SERVICE PHOTO
-========================================================= */
-
-async function uploadServicePhoto(
-    serviceKey,
-    file
-) {
-
-    const service =
-        SERVICE_DEFINITIONS.find(
-            item =>
-                item.key ===
-                serviceKey
-        );
-
-
-    if (!service) {
-
-        showStatus(
-            "Service not found.",
-            "error"
-        );
-
-        return;
-
-    }
-
-
-    try {
-
-        showStatus(
-            `Uploading ${service.name} photo...`,
-            "info"
-        );
-
-
-        const fileName =
-            safeFileName(
-                file.name
-            );
-
-
-        const path =
-            `services/${service.category.toLowerCase()}/${serviceKey}/${fileName}`;
-
-
-        const {
-            error: uploadError
-        } =
-            await supabaseClient.storage
-
-                .from(
-                    STORAGE_BUCKET
-                )
-
-                .upload(
-                    path,
-                    file,
-                    {
-                        cacheControl:
-                            "3600",
-
-                        upsert:
-                            false,
-
-                        contentType:
-                            file.type || undefined
-                    }
-                );
-
-
-        if (uploadError) {
-
-            throw uploadError;
-
-        }
-
-
-        const {
-            data:
-            publicData
-        } =
-            supabaseClient.storage
-
-                .from(
-                    STORAGE_BUCKET
-                )
-
-                .getPublicUrl(
-                    path
-                );
-
-
-        const imageUrl =
-            publicData.publicUrl;
-
-
-        /*
-         * Upsert means the service row is created
-         * if it does not exist, or updated if it does.
-         */
-
-        const {
-            error: dbError
-        } =
-            await supabaseClient
-
-                .from(
-                    "construction_service_photos"
-                )
-
-                .upsert(
-                    {
-                        category:
-                            service.category,
-
-                        service_key:
-                            service.key,
-
-                        service_name:
-                            service.name,
-
-                        image_url:
-                            imageUrl,
-
-                        updated_at:
-                            new Date().toISOString()
-
-                    },
-                    {
-                        onConflict:
-                            "service_key"
-                    }
-                );
-
-
-        if (dbError) {
-
-            throw dbError;
-
-        }
-
-
-        showStatus(
-            `${service.name} photo uploaded successfully.`,
-            "success"
-        );
-
-
-        await loadServicePhotos();
-
-
-    } catch (error) {
-
-        console.error(
-            "Service photo upload error:",
-            error
-        );
-
-
-        showStatus(
-            `Unable to upload ${service.name} photo: ` +
-            error.message,
-            "error"
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   DELETE SERVICE PHOTO
-========================================================= */
-
-async function deleteServicePhoto(
-    serviceKey
-) {
-
-    const service =
-        serviceRows.find(
-            item =>
-                item.service_key ===
-                serviceKey
-        );
-
-
-    if (!service) {
-
-        return;
-
-    }
-
-
-    if (!service.image_url) {
-
-        return;
-
-    }
-
-
-    if (
-        !confirm(
-            `Delete the ${service.service_name} photo?`
-        )
-    ) {
-
-        return;
-
-    }
-
-
-    try {
-
-        /*
-         * Clear the database image first.
-         */
-
-        const {
-            error
-        } =
-            await supabaseClient
-
-                .from(
-                    "construction_service_photos"
-                )
-
-                .update({
-                    image_url:
-                        null,
-
-                    updated_at:
-                        new Date().toISOString()
-                })
-
-                .eq(
-                    "service_key",
-                    serviceKey
-                );
-
-
-        if (error) {
-
-            throw error;
-
-        }
-
-
-        /*
-         * We intentionally leave the old Storage
-         * object in place here.
-         *
-         * This prevents an accidental Storage-path
-         * deletion from affecting another record.
-         */
-
-        showStatus(
-            `${service.service_name} photo removed from the website.`,
-            "success"
-        );
-
-
-        await loadServicePhotos();
-
-
-    } catch (error) {
-
-        console.error(
-            "Service photo delete error:",
-            error
-        );
-
-
-        showStatus(
-            "Unable to delete service photo: " +
-            error.message,
-            "error"
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   HTML ESCAPE
-========================================================= */
-
-function escapeHtml(
-    value
-) {
-
-    return String(value)
-
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-
-        .replace(
-            /</g,
-            "&lt;"
-        )
-
-        .replace(
-            />/g,
-            "&gt;"
-        )
-
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-
-}
-
-
-function escapeAttribute(
-    value
-) {
-
-    return escapeHtml(value);
-
-}
-
-
-/* =========================================================
-   INITIALIZE
-========================================================= */
-
-async function initializeAdmin() {
-
-    const authorized =
-        await checkAdmin();
-
-
-    if (!authorized) {
-
-        return;
-
-    }
-
-
-    await Promise.all([
-        loadServicePhotos(),
-        loadProjects()
-    ]);
-
+function escapeAttribute(value) {
+
+    return String(value || "")
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'");
 }
 
 
@@ -3645,10 +1898,19 @@ async function initializeAdmin() {
    START
 ========================================================= */
 
-document.addEventListener(
-    "DOMContentLoaded",
-    initializeAdmin
-);
+(async function init() {
+
+    const authorized =
+        await checkAdmin();
+
+    if (!authorized)
+        return;
+
+    await loadServices();
+
+    await loadProjects();
+
+})();
 
 </script>
 
