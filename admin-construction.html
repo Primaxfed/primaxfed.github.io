@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Miju Construction | Project Management</title>
 
-    <meta name="description"
-          content="Miju Construction project portfolio management">
+    <meta
+        name="description"
+        content="Miju Construction project portfolio management"
+    >
 
     <style>
+
         * {
             box-sizing: border-box;
         }
 
         body {
             margin: 0;
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             background: #f4f6f8;
             color: #1f2937;
         }
@@ -38,14 +41,21 @@
             font: inherit;
         }
 
+        /* =========================================
+           TOP BAR
+        ========================================= */
+
         .topbar {
             background: #111827;
             color: white;
             padding: 0 30px;
-            height: 70px;
+            min-height: 70px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
+            gap: 20px;
         }
 
         .brand {
@@ -57,11 +67,15 @@
         .brand-logo {
             width: 42px;
             height: 42px;
+
             border-radius: 8px;
+
             background: #2563eb;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             font-weight: bold;
             font-size: 17px;
         }
@@ -73,8 +87,10 @@
 
         .brand-text span {
             display: block;
+
             font-size: 12px;
             color: #9ca3af;
+
             margin-top: 2px;
         }
 
@@ -82,16 +98,24 @@
             display: flex;
             gap: 10px;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .top-actions a,
         .logout-btn {
             border: 1px solid #374151;
+
             background: transparent;
+
             color: white;
+
             padding: 9px 14px;
+
             border-radius: 7px;
+
             cursor: pointer;
+
             font-size: 13px;
         }
 
@@ -100,8 +124,22 @@
             background: #1f2937;
         }
 
+        .user-info {
+            font-size: 12px;
+            color: #9ca3af;
+        }
+
+
+        /* =========================================
+           MAIN
+        ========================================= */
+
         .container {
-            width: min(1200px, calc(100% - 32px));
+            width: min(
+                1200px,
+                calc(100% - 32px)
+            );
+
             margin: 35px auto 70px;
         }
 
@@ -111,93 +149,165 @@
 
         .page-title h1 {
             margin: 0 0 7px;
+
             font-size: 30px;
+
             color: #111827;
         }
 
         .page-title p {
             margin: 0;
+
             color: #6b7280;
+
             font-size: 15px;
         }
 
+
+        /* =========================================
+           NOTICE
+        ========================================= */
+
         .notice {
             display: none;
+
             padding: 13px 16px;
+
             border-radius: 8px;
+
             margin-bottom: 20px;
+
             font-size: 14px;
         }
 
         .notice.success {
             display: block;
+
             background: #ecfdf5;
+
             border: 1px solid #a7f3d0;
+
             color: #065f46;
         }
 
         .notice.error {
             display: block;
+
             background: #fef2f2;
+
             border: 1px solid #fecaca;
+
             color: #991b1b;
         }
 
+
+        /* =========================================
+           LOADING
+        ========================================= */
+
         .loading-screen {
             position: fixed;
+
             inset: 0;
-            background: rgba(255,255,255,.96);
+
+            background: rgba(
+                255,
+                255,
+                255,
+                .96
+            );
+
             z-index: 9999;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             flex-direction: column;
+
             gap: 14px;
         }
 
         .spinner {
             width: 38px;
             height: 38px;
+
             border: 4px solid #dbeafe;
+
             border-top-color: #2563eb;
+
             border-radius: 50%;
-            animation: spin .8s linear infinite;
+
+            animation:
+                spin .8s linear infinite;
         }
 
         @keyframes spin {
+
             to {
                 transform: rotate(360deg);
             }
+
         }
+
+
+        /* =========================================
+           LAYOUT
+        ========================================= */
 
         .admin-layout {
             display: grid;
-            grid-template-columns: 430px 1fr;
+
+            grid-template-columns:
+                430px 1fr;
+
             gap: 25px;
+
             align-items: start;
         }
 
+
+        /* =========================================
+           CARD
+        ========================================= */
+
         .card {
             background: white;
+
             border: 1px solid #e5e7eb;
+
             border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0,0,0,.05);
+
+            box-shadow:
+                0 4px 18px rgba(
+                    0,
+                    0,
+                    0,
+                    .05
+                );
         }
 
         .card-header {
             padding: 20px 22px;
-            border-bottom: 1px solid #e5e7eb;
+
+            border-bottom:
+                1px solid #e5e7eb;
         }
 
         .card-header h2 {
             margin: 0;
+
             font-size: 19px;
+
             color: #111827;
         }
 
         .card-header p {
             margin: 6px 0 0;
+
             color: #6b7280;
+
             font-size: 13px;
         }
 
@@ -205,15 +315,24 @@
             padding: 22px;
         }
 
+
+        /* =========================================
+           FORM
+        ========================================= */
+
         .form-group {
             margin-bottom: 18px;
         }
 
         .form-group label {
             display: block;
+
             margin-bottom: 7px;
+
             font-size: 13px;
+
             font-weight: 700;
+
             color: #374151;
         }
 
@@ -225,11 +344,18 @@
         select,
         textarea {
             width: 100%;
-            border: 1px solid #d1d5db;
+
+            border:
+                1px solid #d1d5db;
+
             border-radius: 7px;
+
             padding: 11px 12px;
+
             background: white;
+
             color: #111827;
+
             outline: none;
         }
 
@@ -237,60 +363,102 @@
         select:focus,
         textarea:focus {
             border-color: #2563eb;
-            box-shadow: 0 0 0 3px rgba(37,99,235,.10);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(
+                    37,
+                    99,
+                    235,
+                    .10
+                );
         }
 
         textarea {
             min-height: 120px;
+
             resize: vertical;
         }
 
+
+        /* =========================================
+           CATEGORY
+        ========================================= */
+
         .category-buttons {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+
+            grid-template-columns:
+                1fr 1fr;
+
             gap: 10px;
         }
 
         .category-btn {
-            border: 1px solid #d1d5db;
+            border:
+                1px solid #d1d5db;
+
             background: white;
+
             border-radius: 8px;
+
             padding: 12px;
+
             cursor: pointer;
+
             font-weight: 700;
+
             color: #4b5563;
         }
 
         .category-btn.active {
             background: #eff6ff;
+
             border-color: #2563eb;
+
             color: #1d4ed8;
         }
 
+
+        /* =========================================
+           DROP ZONE
+        ========================================= */
+
         .drop-zone {
-            border: 2px dashed #cbd5e1;
+            border:
+                2px dashed #cbd5e1;
+
             border-radius: 9px;
+
             padding: 25px 15px;
+
             text-align: center;
+
             cursor: pointer;
+
             background: #f8fafc;
+
             transition: .2s;
         }
 
         .drop-zone:hover,
         .drop-zone.dragover {
             border-color: #2563eb;
+
             background: #eff6ff;
         }
 
         .drop-zone strong {
             display: block;
+
             color: #374151;
+
             margin-bottom: 5px;
         }
 
         .drop-zone span {
             font-size: 12px;
+
             color: #6b7280;
         }
 
@@ -298,58 +466,98 @@
             display: none;
         }
 
+
+        /* =========================================
+           SELECTED FILES
+        ========================================= */
+
         .selected-files {
             margin-top: 12px;
         }
 
         .file-item {
             display: flex;
+
             align-items: center;
+
             gap: 10px;
+
             padding: 8px;
-            border: 1px solid #e5e7eb;
+
+            border:
+                1px solid #e5e7eb;
+
             border-radius: 7px;
+
             margin-bottom: 7px;
+
             background: #fafafa;
         }
 
         .file-thumb {
             width: 55px;
             height: 45px;
+
             border-radius: 5px;
+
             object-fit: cover;
+
             background: #e5e7eb;
         }
 
         .file-name {
             flex: 1;
+
             min-width: 0;
+
             font-size: 12px;
+
             overflow: hidden;
+
             text-overflow: ellipsis;
+
             white-space: nowrap;
         }
 
         .remove-file {
             border: none;
+
             background: #fee2e2;
+
             color: #b91c1c;
+
             width: 27px;
             height: 27px;
+
             border-radius: 5px;
+
             cursor: pointer;
+
             font-weight: bold;
         }
 
+
+        /* =========================================
+           BUTTONS
+        ========================================= */
+
         .primary-btn {
             width: 100%;
+
             border: none;
+
             border-radius: 8px;
+
             padding: 13px 18px;
+
             background: #2563eb;
+
             color: white;
+
             font-weight: 700;
+
             cursor: pointer;
+
             transition: .2s;
         }
 
@@ -359,67 +567,87 @@
 
         .primary-btn:disabled {
             opacity: .55;
+
             cursor: not-allowed;
         }
 
-        .secondary-btn {
-            border: 1px solid #d1d5db;
-            background: white;
-            color: #374151;
-            padding: 9px 13px;
-            border-radius: 7px;
-            cursor: pointer;
-        }
 
-        .secondary-btn:hover {
-            background: #f9fafb;
-        }
+        /* =========================================
+           PROJECT HEADER
+        ========================================= */
 
         .projects-header {
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             gap: 15px;
+
             margin-bottom: 15px;
         }
 
         .projects-header h2 {
             margin: 0;
+
             font-size: 20px;
         }
 
         .project-count {
             background: #eff6ff;
+
             color: #1d4ed8;
+
             padding: 5px 10px;
+
             border-radius: 999px;
+
             font-size: 12px;
+
             font-weight: 700;
         }
 
+
+        /* =========================================
+           PROJECT LIST
+        ========================================= */
+
         .project-list {
             display: grid;
+
             gap: 15px;
         }
 
         .project-card {
             background: white;
-            border: 1px solid #e5e7eb;
+
+            border:
+                1px solid #e5e7eb;
+
             border-radius: 11px;
+
             overflow: hidden;
         }
 
         .project-main {
             display: grid;
-            grid-template-columns: 180px 1fr;
+
+            grid-template-columns:
+                180px 1fr;
+
             min-height: 150px;
         }
 
         .project-cover {
             width: 100%;
+
             height: 100%;
+
             min-height: 150px;
+
             object-fit: cover;
+
             background: #e5e7eb;
         }
 
@@ -429,75 +657,116 @@
 
         .project-top {
             display: flex;
+
             justify-content: space-between;
+
             gap: 10px;
+
             align-items: flex-start;
         }
 
         .project-category {
             font-size: 11px;
+
             font-weight: 800;
+
             text-transform: uppercase;
+
             letter-spacing: .05em;
+
             color: #2563eb;
+
             margin-bottom: 5px;
         }
 
         .project-info h3 {
             margin: 0 0 5px;
+
             font-size: 18px;
+
             color: #111827;
         }
 
         .project-location {
             font-size: 12px;
+
             color: #6b7280;
+
             margin-bottom: 10px;
         }
 
         .project-description {
             font-size: 13px;
+
             color: #4b5563;
+
             line-height: 1.5;
+
             display: -webkit-box;
+
             -webkit-line-clamp: 3;
+
             -webkit-box-orient: vertical;
+
             overflow: hidden;
         }
 
         .status-badge {
             white-space: nowrap;
+
             font-size: 11px;
+
             font-weight: 700;
+
             padding: 5px 8px;
+
             border-radius: 999px;
         }
 
         .status-badge.published {
             background: #dcfce7;
+
             color: #166534;
         }
 
         .status-badge.hidden {
             background: #f3f4f6;
+
             color: #4b5563;
         }
 
+
+        /* =========================================
+           PROJECT ACTIONS
+        ========================================= */
+
         .project-actions {
-            border-top: 1px solid #e5e7eb;
+            border-top:
+                1px solid #e5e7eb;
+
             padding: 11px 15px;
+
             display: flex;
+
             gap: 8px;
+
             justify-content: flex-end;
+
             flex-wrap: wrap;
         }
 
         .action-btn {
-            border: 1px solid #d1d5db;
+            border:
+                1px solid #d1d5db;
+
             background: white;
+
             padding: 7px 10px;
+
             border-radius: 6px;
+
             cursor: pointer;
+
             font-size: 12px;
         }
 
@@ -507,83 +776,124 @@
 
         .action-btn.danger {
             border-color: #fecaca;
-            color: #b91c1c;
-            background: #fffafa;
-        }
 
-        .action-btn.success {
-            border-color: #bbf7d0;
-            color: #166534;
-            background: #f0fdf4;
+            color: #b91c1c;
+
+            background: #fffafa;
         }
 
         .image-count {
             color: #6b7280;
+
             font-size: 11px;
+
             margin-top: 7px;
         }
 
+
+        /* =========================================
+           EMPTY
+        ========================================= */
+
         .empty-state {
             padding: 45px 20px;
+
             text-align: center;
+
             color: #6b7280;
+
             background: white;
-            border: 1px dashed #d1d5db;
+
+            border:
+                1px dashed #d1d5db;
+
             border-radius: 10px;
         }
 
         .empty-state strong {
             display: block;
+
             color: #374151;
+
             margin-bottom: 7px;
         }
 
+
+        /* =========================================
+           PROGRESS
+        ========================================= */
+
         .progress-wrap {
             display: none;
+
             margin-top: 14px;
         }
 
         .progress-label {
             display: flex;
+
             justify-content: space-between;
+
             font-size: 12px;
+
             margin-bottom: 5px;
+
             color: #4b5563;
         }
 
         .progress-bar {
             height: 7px;
+
             background: #e5e7eb;
+
             border-radius: 999px;
+
             overflow: hidden;
         }
 
         .progress-value {
             width: 0;
+
             height: 100%;
+
             background: #2563eb;
+
             transition: width .2s;
         }
 
-        .user-info {
-            font-size: 12px;
-            color: #9ca3af;
-            margin-right: 5px;
-        }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
 
         @media (max-width: 900px) {
+
             .admin-layout {
                 grid-template-columns: 1fr;
             }
+
         }
 
         @media (max-width: 650px) {
+
             .topbar {
-                padding: 0 15px;
+                padding: 12px 15px;
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .brand {
+                justify-content: center;
             }
 
             .brand-text {
-                display: none;
+                display: block;
+            }
+
+            .top-actions {
+                justify-content: center;
             }
 
             .user-info {
@@ -591,7 +901,12 @@
             }
 
             .container {
-                width: min(100% - 20px, 1200px);
+                width:
+                    min(
+                        100% - 20px,
+                        1200px
+                    );
+
                 margin-top: 22px;
             }
 
@@ -605,6 +920,7 @@
 
             .project-cover {
                 height: 190px;
+
                 min-height: 0;
             }
 
@@ -615,38 +931,76 @@
             .action-btn {
                 flex: 1;
             }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-<!-- Loading -->
-<div class="loading-screen" id="loadingScreen">
+
+<!-- =====================================================
+     LOADING SCREEN
+===================================================== -->
+
+<div
+    class="loading-screen"
+    id="loadingScreen">
+
     <div class="spinner"></div>
-    <strong>Checking administrator access...</strong>
-    <span style="font-size:13px;color:#6b7280;">
+
+    <strong>
+        Checking administrator access...
+    </strong>
+
+    <span
+        style="
+            font-size:13px;
+            color:#6b7280;
+        "
+    >
         Please wait
     </span>
+
 </div>
 
-<!-- Top navigation -->
+
+<!-- =====================================================
+     TOP BAR
+===================================================== -->
+
 <header class="topbar">
 
     <div class="brand">
+
         <div class="brand-logo">
             PG
         </div>
 
         <div class="brand-text">
-            <strong>Primax Global, Inc.</strong>
-            <span>Miju Construction Management</span>
+
+            <strong>
+                Primax Global, Inc.
+            </strong>
+
+            <span>
+                Miju Construction Management
+            </span>
+
         </div>
+
     </div>
+
 
     <div class="top-actions">
 
-        <span class="user-info" id="userEmail">
+        <span
+            class="user-info"
+            id="userEmail"
+        >
             Checking...
         </span>
 
@@ -660,7 +1014,8 @@
 
         <button
             class="logout-btn"
-            id="logoutBtn">
+            id="logoutBtn"
+        >
             Logout
         </button>
 
@@ -669,25 +1024,38 @@
 </header>
 
 
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main class="container">
 
+
     <div class="page-title">
-        <h1>Construction Project Management</h1>
+
+        <h1>
+            Construction Project Management
+        </h1>
 
         <p>
             Add and manage Miju Construction Interior and Exterior projects.
         </p>
+
     </div>
 
 
-    <div id="notice" class="notice"></div>
+    <div
+        id="notice"
+        class="notice"
+    ></div>
 
 
     <div class="admin-layout">
 
-        <!-- =========================================
-             LEFT: ADD PROJECT
-        ========================================== -->
+
+        <!-- =================================================
+             ADD PROJECT
+        ================================================== -->
 
         <section class="card">
 
@@ -708,7 +1076,8 @@
 
                 <form id="projectForm">
 
-                    <!-- Category -->
+
+                    <!-- CATEGORY -->
 
                     <div class="form-group">
 
@@ -722,19 +1091,17 @@
                             <button
                                 type="button"
                                 class="category-btn active"
-                                data-category="Interior">
-
+                                data-category="Interior"
+                            >
                                 Interior
-
                             </button>
 
                             <button
                                 type="button"
                                 class="category-btn"
-                                data-category="Exterior">
-
+                                data-category="Exterior"
+                            >
                                 Exterior
-
                             </button>
 
                         </div>
@@ -742,12 +1109,13 @@
                         <input
                             type="hidden"
                             id="category"
-                            value="Interior">
+                            value="Interior"
+                        >
 
                     </div>
 
 
-                    <!-- Title -->
+                    <!-- TITLE -->
 
                     <div class="form-group">
 
@@ -760,12 +1128,13 @@
                             type="text"
                             id="title"
                             placeholder="Example: Complete Kitchen Remodeling"
-                            required>
+                            required
+                        >
 
                     </div>
 
 
-                    <!-- Location -->
+                    <!-- LOCATION -->
 
                     <div class="form-group">
 
@@ -776,12 +1145,13 @@
                         <input
                             type="text"
                             id="location"
-                            placeholder="Example: Los Angeles, CA">
+                            placeholder="Example: Los Angeles, CA"
+                        >
 
                     </div>
 
 
-                    <!-- Description -->
+                    <!-- DESCRIPTION -->
 
                     <div class="form-group">
 
@@ -791,12 +1161,13 @@
 
                         <textarea
                             id="description"
-                            placeholder="Describe the work completed on this project..."></textarea>
+                            placeholder="Describe the work completed on this project..."
+                        ></textarea>
 
                     </div>
 
 
-                    <!-- Photos -->
+                    <!-- PHOTOS -->
 
                     <div class="form-group">
 
@@ -807,7 +1178,8 @@
 
                         <div
                             class="drop-zone"
-                            id="dropZone">
+                            id="dropZone"
+                        >
 
                             <strong>
                                 Click to select photos
@@ -825,25 +1197,29 @@
 
                         </div>
 
+
                         <input
                             type="file"
                             id="photoInput"
-                            accept="image/jpeg,image/png,image/webp,image/heic"
-                            multiple>
+                            accept="image/jpeg,image/png,image/webp"
+                            multiple
+                        >
+
 
                         <div
                             class="selected-files"
-                            id="selectedFiles">
-                        </div>
+                            id="selectedFiles"
+                        ></div>
 
                     </div>
 
 
-                    <!-- Progress -->
+                    <!-- PROGRESS -->
 
                     <div
                         class="progress-wrap"
-                        id="progressWrap">
+                        id="progressWrap"
+                    >
 
                         <div class="progress-label">
 
@@ -861,23 +1237,22 @@
 
                             <div
                                 class="progress-value"
-                                id="progressValue">
-                            </div>
+                                id="progressValue"
+                            ></div>
 
                         </div>
 
                     </div>
 
 
-                    <!-- Submit -->
+                    <!-- SUBMIT -->
 
                     <button
                         type="submit"
                         class="primary-btn"
-                        id="submitBtn">
-
+                        id="submitBtn"
+                    >
                         Upload & Create Project
-
                     </button>
 
                 </form>
@@ -887,9 +1262,9 @@
         </section>
 
 
-        <!-- =========================================
-             RIGHT: EXISTING PROJECTS
-        ========================================== -->
+        <!-- =================================================
+             EXISTING PROJECTS
+        ================================================== -->
 
         <section>
 
@@ -901,7 +1276,8 @@
 
                 <span
                     class="project-count"
-                    id="projectCount">
+                    id="projectCount"
+                >
                     0 Projects
                 </span>
 
@@ -910,7 +1286,8 @@
 
             <div
                 class="project-list"
-                id="projectList">
+                id="projectList"
+            >
 
                 <div class="empty-state">
 
@@ -931,7 +1308,10 @@
 </main>
 
 
-<!-- Supabase -->
+<!-- =====================================================
+     SUPABASE
+===================================================== -->
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 
@@ -945,7 +1325,8 @@ const SUPABASE_URL =
     "https://nhjapidacizvhebtpzah.supabase.co";
 
 const SUPABASE_ANON_KEY =
-    "sb_publishable_wCblAx3mcI7V8dR-_VL_w_vFmvfdhV";
+    "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
+
 
 const supabaseClient =
     window.supabase.createClient(
@@ -971,70 +1352,112 @@ let selectedFiles = [];
 ========================================================= */
 
 const loadingScreen =
-    document.getElementById("loadingScreen");
+    document.getElementById(
+        "loadingScreen"
+    );
 
 const notice =
-    document.getElementById("notice");
+    document.getElementById(
+        "notice"
+    );
 
 const projectForm =
-    document.getElementById("projectForm");
+    document.getElementById(
+        "projectForm"
+    );
 
 const categoryInput =
-    document.getElementById("category");
+    document.getElementById(
+        "category"
+    );
 
 const titleInput =
-    document.getElementById("title");
+    document.getElementById(
+        "title"
+    );
 
 const locationInput =
-    document.getElementById("location");
+    document.getElementById(
+        "location"
+    );
 
 const descriptionInput =
-    document.getElementById("description");
+    document.getElementById(
+        "description"
+    );
 
 const photoInput =
-    document.getElementById("photoInput");
+    document.getElementById(
+        "photoInput"
+    );
 
 const dropZone =
-    document.getElementById("dropZone");
+    document.getElementById(
+        "dropZone"
+    );
 
 const selectedFilesContainer =
-    document.getElementById("selectedFiles");
+    document.getElementById(
+        "selectedFiles"
+    );
 
 const submitBtn =
-    document.getElementById("submitBtn");
+    document.getElementById(
+        "submitBtn"
+    );
 
 const projectList =
-    document.getElementById("projectList");
+    document.getElementById(
+        "projectList"
+    );
 
 const projectCount =
-    document.getElementById("projectCount");
+    document.getElementById(
+        "projectCount"
+    );
 
 const progressWrap =
-    document.getElementById("progressWrap");
+    document.getElementById(
+        "progressWrap"
+    );
 
 const progressText =
-    document.getElementById("progressText");
+    document.getElementById(
+        "progressText"
+    );
 
 const progressPercent =
-    document.getElementById("progressPercent");
+    document.getElementById(
+        "progressPercent"
+    );
 
 const progressValue =
-    document.getElementById("progressValue");
+    document.getElementById(
+        "progressValue"
+    );
 
 const userEmail =
-    document.getElementById("userEmail");
+    document.getElementById(
+        "userEmail"
+    );
 
 const logoutBtn =
-    document.getElementById("logoutBtn");
+    document.getElementById(
+        "logoutBtn"
+    );
 
 
 /* =========================================================
    NOTICE
 ========================================================= */
 
-function showNotice(message, type = "success") {
+function showNotice(
+    message,
+    type = "success"
+) {
 
-    notice.textContent = message;
+    notice.textContent =
+        message;
 
     notice.className =
         "notice " + type;
@@ -1043,15 +1466,6 @@ function showNotice(message, type = "success") {
         top: 0,
         behavior: "smooth"
     });
-
-}
-
-
-function clearNotice() {
-
-    notice.textContent = "";
-
-    notice.className = "notice";
 
 }
 
@@ -1065,19 +1479,27 @@ async function checkAdminAccess() {
     try {
 
         const {
-            data: {
-                session
-            },
-            error: sessionError
-        } = await supabaseClient.auth.getSession();
+            data,
+            error
+        } =
+            await supabaseClient
+                .auth
+                .getSession();
 
 
-        if (sessionError) {
-            throw sessionError;
+        if (error) {
+            throw error;
         }
 
 
-        if (!session || !session.user) {
+        const session =
+            data?.session;
+
+
+        if (
+            !session ||
+            !session.user
+        ) {
 
             window.location.href =
                 "login.html";
@@ -1095,7 +1517,7 @@ async function checkAdminAccess() {
 
 
         /*
-         * Verify admin_users table.
+         * Verify admin user
          */
 
         const {
@@ -1104,9 +1526,17 @@ async function checkAdminAccess() {
         } =
             await supabaseClient
                 .from("admin_users")
-                .select("user_id, role")
-                .eq("user_id", currentUser.id)
-                .eq("role", "admin")
+                .select(
+                    "user_id, role"
+                )
+                .eq(
+                    "user_id",
+                    currentUser.id
+                )
+                .eq(
+                    "role",
+                    "admin"
+                )
                 .maybeSingle();
 
 
@@ -1121,7 +1551,9 @@ async function checkAdminAccess() {
                 "You do not have administrator permission."
             );
 
-            await supabaseClient.auth.signOut();
+            await supabaseClient
+                .auth
+                .signOut();
 
             window.location.href =
                 "login.html";
@@ -1148,6 +1580,7 @@ async function checkAdminAccess() {
 
         return false;
     }
+
 }
 
 
@@ -1160,14 +1593,18 @@ async function initialize() {
     const allowed =
         await checkAdminAccess();
 
+
     if (!allowed) {
         return;
     }
 
+
     loadingScreen.style.display =
         "none";
 
+
     await loadProjects();
+
 }
 
 
@@ -1175,31 +1612,46 @@ initialize();
 
 
 /* =========================================================
-   CATEGORY SELECT
+   CATEGORY BUTTONS
 ========================================================= */
 
 document
-    .querySelectorAll(".category-btn")
-    .forEach(button => {
+    .querySelectorAll(
+        ".category-btn"
+    )
+    .forEach(
+        button => {
 
-        button.addEventListener(
-            "click",
-            () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-                document
-                    .querySelectorAll(".category-btn")
-                    .forEach(btn => {
-                        btn.classList.remove("active");
-                    });
+                    document
+                        .querySelectorAll(
+                            ".category-btn"
+                        )
+                        .forEach(
+                            btn => {
+                                btn.classList.remove(
+                                    "active"
+                                );
+                            }
+                        );
 
-                button.classList.add("active");
 
-                categoryInput.value =
-                    button.dataset.category;
-            }
-        );
+                    button.classList.add(
+                        "active"
+                    );
 
-    });
+
+                    categoryInput.value =
+                        button.dataset.category;
+
+                }
+            );
+
+        }
+    );
 
 
 /* =========================================================
@@ -1209,7 +1661,9 @@ document
 dropZone.addEventListener(
     "click",
     () => {
+
         photoInput.click();
+
     }
 );
 
@@ -1219,7 +1673,9 @@ photoInput.addEventListener(
     event => {
 
         addFiles(
-            Array.from(event.target.files)
+            Array.from(
+                event.target.files
+            )
         );
 
         photoInput.value = "";
@@ -1229,7 +1685,7 @@ photoInput.addEventListener(
 
 
 /* =========================================================
-   DRAG AND DROP
+   DRAG & DROP
 ========================================================= */
 
 dropZone.addEventListener(
@@ -1287,69 +1743,76 @@ function addFiles(files) {
     const allowedTypes = [
         "image/jpeg",
         "image/png",
-        "image/webp",
-        "image/heic"
+        "image/webp"
     ];
 
 
-    files.forEach(file => {
+    files.forEach(
+        file => {
 
-        if (
-            !allowedTypes.includes(
-                file.type
-            )
-        ) {
+            if (
+                !allowedTypes.includes(
+                    file.type
+                )
+            ) {
 
-            showNotice(
-                `Unsupported file type: ${file.name}`,
-                "error"
-            );
+                showNotice(
+                    `Unsupported file type: ${file.name}`,
+                    "error"
+                );
 
-            return;
+                return;
+            }
+
+
+            /*
+             * 50 MB maximum
+             */
+
+            if (
+                file.size >
+                50 * 1024 * 1024
+            ) {
+
+                showNotice(
+                    `${file.name} is larger than 50 MB.`,
+                    "error"
+                );
+
+                return;
+            }
+
+
+            /*
+             * Prevent duplicate files
+             */
+
+            const duplicate =
+                selectedFiles.some(
+                    existing =>
+                        existing.name ===
+                            file.name &&
+                        existing.size ===
+                            file.size &&
+                        existing.lastModified ===
+                            file.lastModified
+                );
+
+
+            if (!duplicate) {
+
+                selectedFiles.push(
+                    file
+                );
+
+            }
+
         }
-
-
-        /*
-         * 50 MB maximum.
-         */
-
-        if (
-            file.size >
-            50 * 1024 * 1024
-        ) {
-
-            showNotice(
-                `${file.name} is larger than 50 MB.`,
-                "error"
-            );
-
-            return;
-        }
-
-
-        /*
-         * Avoid duplicate files.
-         */
-
-        const duplicate =
-            selectedFiles.some(
-                existing =>
-                    existing.name === file.name &&
-                    existing.size === file.size &&
-                    existing.lastModified === file.lastModified
-            );
-
-
-        if (!duplicate) {
-
-            selectedFiles.push(file);
-
-        }
-
-    });
+    );
 
 
     renderSelectedFiles();
+
 }
 
 
@@ -1359,32 +1822,41 @@ function addFiles(files) {
 
 function renderSelectedFiles() {
 
-    selectedFilesContainer.innerHTML = "";
+    selectedFilesContainer.innerHTML =
+        "";
 
 
     selectedFiles.forEach(
         (file, index) => {
 
             const item =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
             item.className =
                 "file-item";
 
 
             const image =
-                document.createElement("img");
+                document.createElement(
+                    "img"
+                );
 
             image.className =
                 "file-thumb";
 
 
             image.src =
-                URL.createObjectURL(file);
+                URL.createObjectURL(
+                    file
+                );
 
 
             const name =
-                document.createElement("div");
+                document.createElement(
+                    "div"
+                );
 
             name.className =
                 "file-name";
@@ -1394,7 +1866,9 @@ function renderSelectedFiles() {
 
 
             const remove =
-                document.createElement("button");
+                document.createElement(
+                    "button"
+                );
 
             remove.type =
                 "button";
@@ -1421,11 +1895,18 @@ function renderSelectedFiles() {
             );
 
 
-            item.appendChild(image);
+            item.appendChild(
+                image
+            );
 
-            item.appendChild(name);
+            item.appendChild(
+                name
+            );
 
-            item.appendChild(remove);
+            item.appendChild(
+                remove
+            );
+
 
             selectedFilesContainer.appendChild(
                 item
@@ -1438,28 +1919,27 @@ function renderSelectedFiles() {
 
 
 /* =========================================================
-   CREATE UNIQUE FILE NAME
+   SAFE FILE NAME
 ========================================================= */
 
 function createSafeFileName(
     originalName
 ) {
 
+    const parts =
+        originalName.split(".");
+
+
     const extension =
-        originalName
-            .split(".")
-            .pop()
-            .toLowerCase();
-
-
-    const random =
-        crypto.randomUUID();
+        parts.length > 1
+            ? parts.pop().toLowerCase()
+            : "jpg";
 
 
     return (
         Date.now() +
         "-" +
-        random +
+        crypto.randomUUID() +
         "." +
         extension
     );
@@ -1497,7 +1977,9 @@ async function uploadPhoto(
     } =
         await supabaseClient
             .storage
-            .from(STORAGE_BUCKET)
+            .from(
+                STORAGE_BUCKET
+            )
             .upload(
                 filePath,
                 file,
@@ -1524,15 +2006,20 @@ async function uploadPhoto(
     } =
         supabaseClient
             .storage
-            .from(STORAGE_BUCKET)
+            .from(
+                STORAGE_BUCKET
+            )
             .getPublicUrl(
                 filePath
             );
 
 
     return {
-        path: filePath,
-        url: data.publicUrl
+        path:
+            filePath,
+
+        url:
+            data.publicUrl
     };
 
 }
@@ -1547,8 +2034,6 @@ projectForm.addEventListener(
     async event => {
 
         event.preventDefault();
-
-        clearNotice();
 
 
         const category =
@@ -1591,17 +2076,19 @@ projectForm.addEventListener(
         submitBtn.disabled =
             true;
 
+
         progressWrap.style.display =
             "block";
 
 
-        const uploadedFiles = [];
+        const uploadedFiles =
+            [];
 
 
         try {
 
             /*
-             * Upload photos one by one.
+             * Upload every photo
              */
 
             for (
@@ -1615,7 +2102,11 @@ projectForm.addEventListener(
 
 
                 progressText.textContent =
-                    `Uploading photo ${i + 1} of ${selectedFiles.length}...`;
+                    `Uploading photo ${
+                        i + 1
+                    } of ${
+                        selectedFiles.length
+                    }...`;
 
 
                 const result =
@@ -1642,6 +2133,7 @@ projectForm.addEventListener(
                 progressValue.style.width =
                     percent + "%";
 
+
                 progressPercent.textContent =
                     percent + "%";
 
@@ -1649,7 +2141,7 @@ projectForm.addEventListener(
 
 
             /*
-             * Save project in database.
+             * Save project
              */
 
             progressText.textContent =
@@ -1667,7 +2159,9 @@ projectForm.addEventListener(
                     insertError
             } =
                 await supabaseClient
-                    .from("construction_projects")
+                    .from(
+                        "construction_projects"
+                    )
                     .insert({
 
                         category:
@@ -1700,14 +2194,8 @@ projectForm.addEventListener(
 
 
             /*
-             * Success.
+             * Reset form
              */
-
-            showNotice(
-                "Project created successfully!",
-                "success"
-            );
-
 
             projectForm.reset();
 
@@ -1717,40 +2205,50 @@ projectForm.addEventListener(
 
 
             document
-                .querySelectorAll(".category-btn")
-                .forEach(btn => {
+                .querySelectorAll(
+                    ".category-btn"
+                )
+                .forEach(
+                    btn => {
 
-                    btn.classList.remove(
-                        "active"
-                    );
-
-                    if (
-                        btn.dataset.category ===
-                        "Interior"
-                    ) {
-
-                        btn.classList.add(
+                        btn.classList.remove(
                             "active"
                         );
 
-                    }
 
-                });
+                        if (
+                            btn.dataset.category ===
+                            "Interior"
+                        ) {
+
+                            btn.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    }
+                );
 
 
             selectedFiles = [];
 
+
             renderSelectedFiles();
 
-
-            progressWrap.style.display =
-                "none";
 
             progressValue.style.width =
                 "0%";
 
+
             progressPercent.textContent =
                 "0%";
+
+
+            showNotice(
+                "Project created successfully!",
+                "success"
+            );
 
 
             await loadProjects();
@@ -1764,13 +2262,12 @@ projectForm.addEventListener(
 
 
             /*
-             * If database insert fails after
-             * photos were uploaded, try to
-             * remove the uploaded photos.
+             * Remove uploaded files if
+             * database insert failed.
              */
 
             if (
-                uploadedFiles.length > 0
+                uploadedFiles.length
             ) {
 
                 const paths =
@@ -1781,16 +2278,22 @@ projectForm.addEventListener(
 
                 await supabaseClient
                     .storage
-                    .from(STORAGE_BUCKET)
-                    .remove(paths);
+                    .from(
+                        STORAGE_BUCKET
+                    )
+                    .remove(
+                        paths
+                    );
 
             }
 
 
             showNotice(
                 "Project upload failed: " +
-                (error.message ||
-                    "Unknown error"),
+                (
+                    error.message ||
+                    "Unknown error"
+                ),
                 "error"
             );
 
@@ -1827,14 +2330,17 @@ async function loadProjects() {
         error
     } =
         await supabaseClient
-            .from("construction_projects")
+            .from(
+                "construction_projects"
+            )
             .select(
                 "id, category, title, location, description, image_urls, published, sort_order, created_at"
             )
             .order(
                 "created_at",
                 {
-                    ascending: false
+                    ascending:
+                        false
                 }
             );
 
@@ -1849,8 +2355,12 @@ async function loadProjects() {
 
         projectList.innerHTML = `
             <div class="empty-state">
-                <strong>Unable to load projects</strong>
-                ${escapeHtml(error.message)}
+                <strong>
+                    Unable to load projects
+                </strong>
+                ${escapeHtml(
+                    error.message
+                )}
             </div>
         `;
 
@@ -1870,7 +2380,10 @@ async function loadProjects() {
 
         projectList.innerHTML = `
             <div class="empty-state">
-                <strong>No projects yet</strong>
+                <strong>
+                    No projects yet
+                </strong>
+
                 Add your first Interior or Exterior project using the form.
             </div>
         `;
@@ -1879,16 +2392,21 @@ async function loadProjects() {
     }
 
 
-    projectList.innerHTML = "";
+    projectList.innerHTML =
+        "";
 
 
-    data.forEach(project => {
+    data.forEach(
+        project => {
 
-        projectList.appendChild(
-            createProjectCard(project)
-        );
+            projectList.appendChild(
+                createProjectCard(
+                    project
+                )
+            );
 
-    });
+        }
+    );
 
 }
 
@@ -1902,7 +2420,10 @@ function createProjectCard(
 ) {
 
     const card =
-        document.createElement("article");
+        document.createElement(
+            "article"
+        );
+
 
     card.className =
         "project-card";
@@ -1961,6 +2482,7 @@ function createProjectCard(
                 `
             }
 
+
             <div class="project-info">
 
                 <div class="project-top">
@@ -1968,41 +2490,54 @@ function createProjectCard(
                     <div>
 
                         <div class="project-category">
-                            ${escapeHtml(project.category)}
+                            ${escapeHtml(
+                                project.category
+                            )}
                         </div>
 
                         <h3>
-                            ${escapeHtml(project.title)}
+                            ${escapeHtml(
+                                project.title
+                            )}
                         </h3>
 
                     </div>
 
+
                     <span
-                        class="status-badge ${statusClass}">
+                        class="status-badge ${statusClass}"
+                    >
                         ${statusText}
                     </span>
 
                 </div>
 
+
                 ${
                     project.location
                     ? `
                         <div class="project-location">
-                            📍 ${escapeHtml(project.location)}
+                            📍 ${escapeHtml(
+                                project.location
+                            )}
                         </div>
                     `
                     : ""
                 }
 
+
                 ${
                     project.description
                     ? `
                         <div class="project-description">
-                            ${escapeHtml(project.description)}
+                            ${escapeHtml(
+                                project.description
+                            )}
                         </div>
                     `
                     : ""
                 }
+
 
                 <div class="image-count">
                     📷 ${images.length}
@@ -2031,12 +2566,14 @@ function createProjectCard(
                 }
             </button>
 
+
             <button
                 class="action-btn"
                 data-action="photos"
             >
                 Manage Photos
             </button>
+
 
             <button
                 class="action-btn danger"
@@ -2050,23 +2587,17 @@ function createProjectCard(
     `;
 
 
-    /*
-     * Toggle published
-     */
-
     card
         .querySelector(
             '[data-action="toggle"]'
         )
         .addEventListener(
             "click",
-            () => togglePublished(project)
+            () => togglePublished(
+                project
+            )
         );
 
-
-    /*
-     * Manage photos
-     */
 
     card
         .querySelector(
@@ -2074,13 +2605,11 @@ function createProjectCard(
         )
         .addEventListener(
             "click",
-            () => managePhotos(project)
+            () => managePhotos(
+                project
+            )
         );
 
-
-    /*
-     * Delete
-     */
 
     card
         .querySelector(
@@ -2088,7 +2617,9 @@ function createProjectCard(
         )
         .addEventListener(
             "click",
-            () => deleteProject(project)
+            () => deleteProject(
+                project
+            )
         );
 
 
@@ -2115,15 +2646,21 @@ function normalizeImageUrls(
     }
 
 
-    if (typeof value === "string") {
+    if (
+        typeof value ===
+        "string"
+    ) {
 
         try {
 
             const parsed =
                 JSON.parse(value);
 
+
             if (
-                Array.isArray(parsed)
+                Array.isArray(
+                    parsed
+                )
             ) {
 
                 return parsed;
@@ -2145,7 +2682,7 @@ function normalizeImageUrls(
 
 
 /* =========================================================
-   TOGGLE PUBLISHED
+   PUBLISH / HIDE
 ========================================================= */
 
 async function togglePublished(
@@ -2160,7 +2697,9 @@ async function togglePublished(
         error
     } =
         await supabaseClient
-            .from("construction_projects")
+            .from(
+                "construction_projects"
+            )
             .update({
                 published:
                     newValue
@@ -2206,7 +2745,7 @@ async function deleteProject(
 
     const confirmed =
         confirm(
-            `Delete "${project.title}"?\n\nThis will remove the project from the website.`
+            `Delete "${project.title}"?\n\nThis will remove the project and its photos.`
         );
 
 
@@ -2216,10 +2755,6 @@ async function deleteProject(
 
 
     try {
-
-        /*
-         * Get image paths from URLs.
-         */
 
         const images =
             normalizeImageUrls(
@@ -2232,11 +2767,13 @@ async function deleteProject(
                 .map(
                     extractStoragePath
                 )
-                .filter(Boolean);
+                .filter(
+                    Boolean
+                );
 
 
         /*
-         * Delete photos first.
+         * Delete photos
          */
 
         if (paths.length) {
@@ -2247,8 +2784,12 @@ async function deleteProject(
             } =
                 await supabaseClient
                     .storage
-                    .from(STORAGE_BUCKET)
-                    .remove(paths);
+                    .from(
+                        STORAGE_BUCKET
+                    )
+                    .remove(
+                        paths
+                    );
 
 
             if (storageError) {
@@ -2264,14 +2805,16 @@ async function deleteProject(
 
 
         /*
-         * Delete database record.
+         * Delete database record
          */
 
         const {
             error
         } =
             await supabaseClient
-                .from("construction_projects")
+                .from(
+                    "construction_projects"
+                )
                 .delete()
                 .eq(
                     "id",
@@ -2339,31 +2882,22 @@ async function managePhotos(
         `Project: ${project.title}\n\n`;
 
     message +=
-        "Photo URLs:\n\n";
+        "Enter the photo number to delete.\n\n";
 
 
     images.forEach(
         (url, index) => {
 
             message +=
-                `${index + 1}. ${url}\n`;
+                `${index + 1}. Photo\n`;
 
         }
     );
 
 
-    /*
-     * For now, provide a simple photo
-     * deletion interface using prompts.
-     *
-     * A more advanced gallery editor can
-     * be added later if needed.
-     */
-
     const choice =
         prompt(
-            message +
-            "\nEnter the photo number to delete, or Cancel:"
+            message
         );
 
 
@@ -2399,7 +2933,7 @@ async function managePhotos(
 
     const confirmed =
         confirm(
-            `Delete photo #${number} from this project?`
+            `Delete photo #${number}?`
         );
 
 
@@ -2421,7 +2955,7 @@ async function managePhotos(
     try {
 
         /*
-         * Delete Storage file.
+         * Delete Storage file
          */
 
         if (storagePath) {
@@ -2432,7 +2966,9 @@ async function managePhotos(
             } =
                 await supabaseClient
                     .storage
-                    .from(STORAGE_BUCKET)
+                    .from(
+                        STORAGE_BUCKET
+                    )
                     .remove([
                         storagePath
                     ]);
@@ -2446,7 +2982,7 @@ async function managePhotos(
 
 
         /*
-         * Remove URL from array.
+         * Remove URL from database array
          */
 
         images.splice(
@@ -2459,7 +2995,9 @@ async function managePhotos(
             error
         } =
             await supabaseClient
-                .from("construction_projects")
+                .from(
+                    "construction_projects"
+                )
                 .update({
                     image_urls:
                         images
@@ -2517,13 +3055,6 @@ function extractStoragePath(
 
     try {
 
-        /*
-         * Public URL format:
-         *
-         * https://.../storage/v1/object/public/
-         * construction-projects/interior/file.jpg
-         */
-
         const marker =
             `/storage/v1/object/public/${STORAGE_BUCKET}/`;
 
@@ -2534,14 +3065,17 @@ function extractStoragePath(
             );
 
 
-        if (index === -1) {
+        if (
+            index === -1
+        ) {
             return null;
         }
 
 
         return decodeURIComponent(
             publicUrl.substring(
-                index + marker.length
+                index +
+                marker.length
             )
         );
 
@@ -2640,14 +3174,18 @@ logoutBtn.addEventListener(
 
 
 /* =========================================================
-   AUTH STATE MONITOR
+   AUTH STATE
 ========================================================= */
 
 supabaseClient.auth.onAuthStateChange(
-    (event, session) => {
+    (
+        event,
+        session
+    ) => {
 
         if (
-            event === "SIGNED_OUT"
+            event ===
+            "SIGNED_OUT"
         ) {
 
             window.location.href =
