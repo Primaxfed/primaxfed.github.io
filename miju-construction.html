@@ -10,6 +10,10 @@
 
 <style>
 
+/* =========================================================
+   RESET
+========================================================= */
+
 * {
     box-sizing: border-box;
 }
@@ -25,11 +29,16 @@ body {
     background: #ffffff;
 }
 
+
+/* =========================================================
+   HEADER
+========================================================= */
+
 header {
     position: sticky;
     top: 0;
     z-index: 500;
-    background: rgba(17,24,39,.96);
+    background: rgba(17, 24, 39, 0.97);
     color: white;
     padding: 16px 30px;
 }
@@ -37,6 +46,7 @@ header {
 .nav {
     max-width: 1200px;
     margin: auto;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,6 +55,7 @@ header {
 .logo {
     font-size: 23px;
     font-weight: 800;
+    letter-spacing: .3px;
 }
 
 .nav-links {
@@ -58,22 +69,34 @@ header {
     font-weight: 600;
 }
 
+.nav-links a:hover {
+    color: #fbbf24;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
 .hero {
     min-height: 520px;
+
     background:
         linear-gradient(
-            rgba(0,0,0,.55),
-            rgba(0,0,0,.55)
+            rgba(0, 0, 0, .55),
+            rgba(0, 0, 0, .55)
         ),
         url("images/construction-hero.jpg")
-        center/cover no-repeat;
+        center center / cover no-repeat;
 
     display: flex;
     align-items: center;
     justify-content: center;
+
     text-align: center;
     color: white;
-    padding: 40px 20px;
+
+    padding: 50px 20px;
 }
 
 .hero-content {
@@ -83,23 +106,35 @@ header {
 .hero h1 {
     font-size: 54px;
     margin: 0 0 18px;
+    line-height: 1.15;
 }
 
 .hero p {
     font-size: 21px;
     line-height: 1.6;
-    margin: 0 auto 28px;
+    margin: 0 auto 30px;
 }
 
 .btn {
     display: inline-block;
     padding: 13px 22px;
     border-radius: 6px;
+
     text-decoration: none;
     font-weight: 700;
+
     background: #f59e0b;
     color: white;
 }
+
+.btn:hover {
+    background: #d97706;
+}
+
+
+/* =========================================================
+   GENERAL SECTIONS
+========================================================= */
 
 section {
     padding: 75px 20px;
@@ -125,6 +160,11 @@ section {
     font-size: 17px;
 }
 
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
 .about {
     background: #f8fafc;
 }
@@ -132,18 +172,42 @@ section {
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
+
     gap: 50px;
+
     align-items: center;
 }
 
 .about h2 {
     font-size: 38px;
     margin-top: 0;
+    margin-bottom: 20px;
 }
 
 .about p {
     line-height: 1.8;
     color: #4b5563;
+    margin-bottom: 18px;
+}
+
+.about-image {
+    width: 100%;
+    max-height: 430px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+
+    display: block;
+}
+
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services-section {
+    background: #ffffff;
 }
 
 .services-category {
@@ -151,52 +215,77 @@ section {
 }
 
 .category-heading {
-    font-size: 28px;
-    margin-bottom: 22px;
+    font-size: 29px;
+
+    margin: 0 0 25px;
+
     border-left: 5px solid #f59e0b;
-    padding-left: 12px;
+
+    padding-left: 13px;
 }
 
 .service-grid {
     display: grid;
+
     grid-template-columns:
         repeat(3, minmax(0, 1fr));
+
     gap: 24px;
 }
 
+
+/* =========================================================
+   SERVICE CARD
+========================================================= */
+
 .service-card {
     background: white;
+
     border-radius: 12px;
+
     overflow: hidden;
+
     box-shadow:
-        0 4px 18px rgba(0,0,0,.09);
+        0 4px 18px rgba(0, 0, 0, .09);
 
     cursor: pointer;
+
     transition:
-        transform .2s,
-        box-shadow .2s;
+        transform .2s ease,
+        box-shadow .2s ease;
 }
 
 .service-card:hover {
     transform: translateY(-5px);
+
     box-shadow:
-        0 10px 28px rgba(0,0,0,.15);
+        0 10px 28px rgba(0, 0, 0, .16);
 }
 
-.service-card img,
+.service-card-image {
+    width: 100%;
+    height: 230px;
+
+    object-fit: cover;
+
+    display: block;
+
+    background: #e5e7eb;
+}
+
 .service-placeholder {
     width: 100%;
     height: 230px;
-    object-fit: cover;
-    display: block;
-}
 
-.service-placeholder {
     background: #e5e7eb;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     color: #6b7280;
+
+    font-weight: 600;
 }
 
 .service-info {
@@ -205,21 +294,32 @@ section {
 
 .service-info h4 {
     font-size: 21px;
-    margin: 0 0 8px;
+
+    margin: 0 0 9px;
 }
 
 .service-info p {
     color: #6b7280;
-    line-height: 1.5;
+
+    line-height: 1.55;
+
     margin: 0;
 }
 
 .click-note {
-    margin-top: 12px;
-    font-size: 13px;
-    font-weight: 700;
+    margin-top: 13px;
+
     color: #2563eb;
+
+    font-size: 13px;
+
+    font-weight: 700;
 }
+
+
+/* =========================================================
+   COMPLETED PROJECTS
+========================================================= */
 
 .projects {
     background: #f8fafc;
@@ -227,31 +327,48 @@ section {
 
 .project-grid {
     display: grid;
+
     grid-template-columns:
         repeat(2, minmax(0, 1fr));
+
     gap: 30px;
 }
 
 .project-card {
     background: white;
+
     border-radius: 12px;
+
     overflow: hidden;
+
     box-shadow:
-        0 4px 18px rgba(0,0,0,.08);
+        0 4px 18px rgba(0, 0, 0, .08);
 }
 
 .project-photo-grid {
     display: grid;
+
     grid-template-columns:
         repeat(2, 1fr);
+
     gap: 3px;
+
+    background: #e5e7eb;
 }
 
 .project-photo-grid img {
     width: 100%;
     height: 190px;
+
     object-fit: cover;
+
     cursor: pointer;
+
+    display: block;
+}
+
+.project-photo-grid img:hover {
+    opacity: .88;
 }
 
 .project-info {
@@ -260,29 +377,43 @@ section {
 
 .project-info h3 {
     margin: 0 0 7px;
+
     font-size: 23px;
 }
 
 .project-location {
     color: #6b7280;
+
     margin-bottom: 12px;
 }
 
 .project-info p {
     color: #4b5563;
+
     line-height: 1.6;
+
+    margin-bottom: 0;
 }
 
 .empty {
     text-align: center;
+
     color: #6b7280;
+
     padding: 30px;
 }
 
+
+/* =========================================================
+   PROCESS
+========================================================= */
+
 .process-grid {
     display: grid;
+
     grid-template-columns:
         repeat(4, 1fr);
+
     gap: 25px;
 }
 
@@ -293,127 +424,238 @@ section {
 .process-number {
     width: 55px;
     height: 55px;
+
     border-radius: 50%;
+
     background: #111827;
+
     color: white;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     margin: 0 auto 15px;
+
     font-weight: 800;
+
     font-size: 20px;
 }
 
+.process-card h3 {
+    margin-bottom: 10px;
+}
+
+.process-card p {
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
 .contact {
     background: #111827;
+
     color: white;
 }
 
 .contact-grid {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
+
     gap: 40px;
 }
 
 .contact h2 {
     font-size: 38px;
+
     margin-top: 0;
 }
 
 .contact p {
     line-height: 1.8;
+
     color: #d1d5db;
 }
 
 .contact a {
     color: #fbbf24;
-}
 
-footer {
-    background: #030712;
-    color: #9ca3af;
-    text-align: center;
-    padding: 25px 20px;
-}
-
-footer a {
-    color: #9ca3af;
     text-decoration: none;
 }
 
 
-/* =====================================================
-   GALLERY MODAL
-===================================================== */
+/* =========================================================
+   FOOTER
+========================================================= */
 
-.modal {
+footer {
+    background: #030712;
+
+    color: #9ca3af;
+
+    text-align: center;
+
+    padding: 25px 20px;
+}
+
+footer p {
+    margin: 7px 0;
+}
+
+footer a {
+    color: #9ca3af;
+
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   SERVICE GALLERY MODAL
+========================================================= */
+
+.service-modal {
     display: none;
+
     position: fixed;
+
     inset: 0;
-    z-index: 1000;
-    background: rgba(0,0,0,.88);
+
+    z-index: 1500;
+
+    background:
+        rgba(0, 0, 0, .90);
+
     padding: 25px;
+
     overflow-y: auto;
 }
 
-.modal.active {
+.service-modal.active {
     display: block;
 }
 
-.modal-inner {
+.service-modal-inner {
     max-width: 1150px;
-    margin: 25px auto;
-    position: relative;
+
+    margin: 20px auto;
 }
 
-.modal-header {
-    color: white;
+.service-modal-header {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
-    margin-bottom: 20px;
+
+    color: white;
+
+    margin-bottom: 18px;
 }
 
-.modal-header h2 {
+.service-modal-header h2 {
     margin: 0;
+
     font-size: 30px;
 }
 
-.close {
-    border: none;
-    background: rgba(255,255,255,.15);
-    color: white;
+.modal-close {
     width: 45px;
     height: 45px;
+
+    border: none;
+
     border-radius: 50%;
-    font-size: 24px;
+
+    background:
+        rgba(255, 255, 255, .15);
+
+    color: white;
+
+    font-size: 28px;
+
     cursor: pointer;
 }
 
+.modal-close:hover {
+    background:
+        rgba(255, 255, 255, .25);
+}
+
+
+/* =========================================================
+   MAIN GALLERY IMAGE
+========================================================= */
+
 .gallery-main {
     position: relative;
+
     text-align: center;
+
+    min-height: 250px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
 }
 
 .gallery-main img {
     max-width: 100%;
+
     max-height: 65vh;
+
     object-fit: contain;
+
     border-radius: 8px;
 }
 
+.gallery-message {
+    color: white;
+
+    font-size: 18px;
+
+    padding: 70px 20px;
+}
+
+
+/* =========================================================
+   GALLERY ARROWS
+========================================================= */
+
 .gallery-arrow {
     position: absolute;
+
     top: 50%;
-    transform: translateY(-50%);
+
+    transform:
+        translateY(-50%);
+
+    width: 50px;
+    height: 65px;
+
     border: none;
-    background: rgba(255,255,255,.2);
+
+    border-radius: 6px;
+
+    background:
+        rgba(255, 255, 255, .20);
+
     color: white;
-    width: 48px;
-    height: 60px;
-    font-size: 32px;
+
+    font-size: 36px;
+
     cursor: pointer;
-    border-radius: 5px;
+}
+
+.gallery-arrow:hover {
+    background:
+        rgba(255, 255, 255, .35);
 }
 
 .gallery-prev {
@@ -424,46 +666,83 @@ footer a {
     right: 10px;
 }
 
+
+/* =========================================================
+   GALLERY COUNTER
+========================================================= */
+
 .gallery-counter {
     color: white;
+
     text-align: center;
-    margin: 12px 0;
+
+    margin: 13px 0;
+
+    font-size: 15px;
 }
+
+
+/* =========================================================
+   GALLERY THUMBNAILS
+========================================================= */
 
 .gallery-thumbnails {
     display: grid;
+
     grid-template-columns:
         repeat(6, 1fr);
-    gap: 8px;
+
+    gap: 9px;
+
+    margin-top: 15px;
 }
 
 .gallery-thumbnails img {
     width: 100%;
+
     height: 90px;
+
     object-fit: cover;
+
     border-radius: 5px;
+
     cursor: pointer;
-    opacity: .65;
+
+    opacity: .60;
+}
+
+.gallery-thumbnails img:hover {
+    opacity: .90;
 }
 
 .gallery-thumbnails img.active {
     opacity: 1;
-    outline: 3px solid #f59e0b;
+
+    outline:
+        3px solid #f59e0b;
 }
 
 
-/* =====================================================
-   LIGHTBOX
-===================================================== */
+/* =========================================================
+   PROJECT LIGHTBOX
+========================================================= */
 
 .lightbox {
     display: none;
+
     position: fixed;
+
     inset: 0;
-    background: rgba(0,0,0,.94);
-    z-index: 2000;
+
+    z-index: 2500;
+
+    background:
+        rgba(0, 0, 0, .94);
+
     align-items: center;
+
     justify-content: center;
+
     padding: 25px;
 }
 
@@ -473,32 +752,40 @@ footer a {
 
 .lightbox img {
     max-width: 92vw;
+
     max-height: 90vh;
+
     object-fit: contain;
 }
 
 .lightbox-close {
     position: absolute;
-    top: 20px;
+
+    top: 18px;
     right: 25px;
+
     color: white;
-    font-size: 38px;
+
+    font-size: 42px;
+
     cursor: pointer;
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
-@media (max-width: 900px) {
+@media (max-width: 950px) {
 
     .service-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
     .process-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+            repeat(2, 1fr);
     }
 
     .about-grid,
@@ -506,10 +793,15 @@ footer a {
         grid-template-columns: 1fr;
     }
 
+    .about-image {
+        max-height: 400px;
+    }
+
     .project-grid {
         grid-template-columns: 1fr;
     }
 }
+
 
 @media (max-width: 600px) {
 
@@ -519,6 +811,10 @@ footer a {
 
     .nav-links {
         display: none;
+    }
+
+    .hero {
+        min-height: 460px;
     }
 
     .hero h1 {
@@ -534,6 +830,10 @@ footer a {
     }
 
     .section-title h2 {
+        font-size: 30px;
+    }
+
+    .about h2 {
         font-size: 30px;
     }
 
@@ -553,6 +853,21 @@ footer a {
     .gallery-thumbnails img {
         height: 75px;
     }
+
+    .gallery-arrow {
+        width: 40px;
+        height: 55px;
+
+        font-size: 28px;
+    }
+
+    .gallery-prev {
+        left: 4px;
+    }
+
+    .gallery-next {
+        right: 4px;
+    }
 }
 
 </style>
@@ -562,9 +877,9 @@ footer a {
 <body>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-====================================================== -->
+========================================================= -->
 
 <header>
 
@@ -576,15 +891,25 @@ footer a {
 
         <div class="nav-links">
 
-            <a href="#about">About</a>
+            <a href="#about">
+                About
+            </a>
 
-            <a href="#services">Services</a>
+            <a href="#services">
+                Services
+            </a>
 
-            <a href="#projects">Projects</a>
+            <a href="#projects">
+                Projects
+            </a>
 
-            <a href="#process">Process</a>
+            <a href="#process">
+                Process
+            </a>
 
-            <a href="#contact">Contact</a>
+            <a href="#contact">
+                Contact
+            </a>
 
         </div>
 
@@ -593,9 +918,9 @@ footer a {
 </header>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-====================================================== -->
+========================================================= -->
 
 <section class="hero">
 
@@ -622,9 +947,10 @@ footer a {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      ABOUT
-====================================================== -->
+     Quality Construction 부분은 여기에서만 표시
+========================================================= -->
 
 <section
     id="about"
@@ -652,23 +978,21 @@ footer a {
 
                 <p>
                     From kitchen and bathroom remodeling
-                    to roofing, concrete, painting,
-                    stucco and exterior improvements,
-                    we provide practical construction
-                    solutions tailored to each project.
+                    to roofing, concrete, painting, stucco
+                    and exterior improvements, we provide
+                    practical construction solutions
+                    tailored to each project.
                 </p>
 
             </div>
 
+
             <div>
 
                 <img
+                    class="about-image"
                     src="images/construction-hero.jpg"
                     alt="Miju Construction"
-                    style="
-                        width:100%;
-                        border-radius:12px;
-                    "
                 >
 
             </div>
@@ -680,11 +1004,14 @@ footer a {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      SERVICES
-====================================================== -->
+========================================================= -->
 
-<section id="services">
+<section
+    id="services"
+    class="services-section"
+>
 
     <div class="section-inner">
 
@@ -702,6 +1029,10 @@ footer a {
         </div>
 
 
+        <!-- =================================================
+             INTERIOR
+        ================================================== -->
+
         <div class="services-category">
 
             <h3 class="category-heading">
@@ -715,6 +1046,10 @@ footer a {
 
         </div>
 
+
+        <!-- =================================================
+             EXTERIOR
+        ================================================== -->
 
         <div class="services-category">
 
@@ -734,9 +1069,9 @@ footer a {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      COMPLETED PROJECTS
-====================================================== -->
+========================================================= -->
 
 <section
     id="projects"
@@ -768,9 +1103,9 @@ footer a {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      PROCESS
-====================================================== -->
+========================================================= -->
 
 <section id="process">
 
@@ -870,9 +1205,9 @@ footer a {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      CONTACT
-====================================================== -->
+========================================================= -->
 
 <section
     id="contact"
@@ -904,20 +1239,32 @@ footer a {
             <div>
 
                 <p>
-                    <strong>Phone</strong><br>
+
+                    <strong>
+                        Phone
+                    </strong>
+
+                    <br>
 
                     <a href="tel:2132470011">
                         213-247-0011
                     </a>
+
                 </p>
 
 
                 <p>
-                    <strong>Email</strong><br>
+
+                    <strong>
+                        Email
+                    </strong>
+
+                    <br>
 
                     <a href="mailto:david@primaxfed.com">
                         david@primaxfed.com
                     </a>
+
                 </p>
 
             </div>
@@ -929,9 +1276,9 @@ footer a {
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-====================================================== -->
+========================================================= -->
 
 <footer>
 
@@ -949,25 +1296,25 @@ footer a {
 </footer>
 
 
-<!-- =====================================================
-     SERVICE GALLERY MODAL
-====================================================== -->
+<!-- =========================================================
+     SERVICE SAMPLE GALLERY
+========================================================= -->
 
 <div
     id="serviceModal"
-    class="modal"
+    class="service-modal"
 >
 
-    <div class="modal-inner">
+    <div class="service-modal-inner">
 
-        <div class="modal-header">
+        <div class="service-modal-header">
 
             <h2 id="modalServiceName">
                 Service
             </h2>
 
             <button
-                class="close"
+                class="modal-close"
                 onclick="closeServiceGallery()"
             >
                 ×
@@ -978,20 +1325,31 @@ footer a {
 
         <div class="gallery-main">
 
+            <div
+                id="galleryMessage"
+                class="gallery-message"
+                style="display:none;"
+            ></div>
+
+
             <img
                 id="galleryMainImage"
                 src=""
                 alt=""
             >
 
+
             <button
+                id="galleryPrev"
                 class="gallery-arrow gallery-prev"
                 onclick="previousGalleryImage()"
             >
                 ‹
             </button>
 
+
             <button
+                id="galleryNext"
                 class="gallery-arrow gallery-next"
                 onclick="nextGalleryImage()"
             >
@@ -1017,9 +1375,9 @@ footer a {
 </div>
 
 
-<!-- =====================================================
+<!-- =========================================================
      PROJECT LIGHTBOX
-====================================================== -->
+========================================================= -->
 
 <div
     id="lightbox"
@@ -1045,6 +1403,10 @@ footer a {
 
 <script>
 
+/* =========================================================
+   SUPABASE
+========================================================= */
+
 const SUPABASE_URL =
     "https://nhjapidacizvhebtpzah.supabase.co";
 
@@ -1057,6 +1419,10 @@ const supabaseClient =
         SUPABASE_KEY
     );
 
+
+/* =========================================================
+   GALLERY VARIABLES
+========================================================= */
 
 let currentGallery = [];
 
@@ -1076,16 +1442,16 @@ const serviceDescriptions = {
         "Bathroom renovation including showers, vanities, tile, flooring and complete remodeling.",
 
     "flooring":
-        "Professional flooring installation and renovation for residential and commercial spaces.",
+        "Professional flooring installation and replacement for residential and commercial spaces.",
 
     "interior-painting":
-        "Interior painting and finishing for walls, ceilings, rooms and complete interiors.",
+        "Interior painting and finishing for homes, offices and commercial properties.",
 
     "drywall-ceiling":
-        "Drywall installation, repair, ceiling work and interior surface finishing.",
+        "Drywall installation, repair, ceiling work and interior surface improvements.",
 
     "general-interior-renovation":
-        "Complete interior renovation and remodeling solutions tailored to your property.",
+        "Interior remodeling and improvements for residential and commercial properties.",
 
     "concrete":
         "Concrete work including driveways, walkways, patios and other exterior improvements.",
@@ -1097,7 +1463,7 @@ const serviceDescriptions = {
         "Stucco and siding installation, repair and exterior wall improvements.",
 
     "exterior-painting":
-        "Professional exterior painting for homes, buildings and commercial properties.",
+        "Exterior painting for homes, buildings and commercial properties.",
 
     "fences-gates":
         "Fence and gate installation, repair and exterior property improvements.",
@@ -1105,6 +1471,44 @@ const serviceDescriptions = {
     "waterproofing-repairs":
         "Waterproofing, exterior repairs and protection against moisture and water damage."
 };
+
+
+/* =========================================================
+   SERVICE ORDER
+========================================================= */
+
+const interiorOrder = [
+
+    "kitchen-remodeling",
+
+    "bathroom-remodeling",
+
+    "flooring",
+
+    "interior-painting",
+
+    "drywall-ceiling",
+
+    "general-interior-renovation"
+
+];
+
+
+const exteriorOrder = [
+
+    "concrete",
+
+    "roofing",
+
+    "stucco-siding",
+
+    "exterior-painting",
+
+    "fences-gates",
+
+    "waterproofing-repairs"
+
+];
 
 
 /* =========================================================
@@ -1118,9 +1522,8 @@ async function loadServices() {
         error
     } = await supabaseClient
         .from("construction_service_photos")
-        .select("*")
-        .order("category")
-        .order("service_name");
+        .select("*");
+
 
     if (error) {
 
@@ -1132,34 +1535,40 @@ async function loadServices() {
         return;
     }
 
-    const interior =
-        data.filter(
-            x => x.category === "Interior"
-        );
 
-    const exterior =
-        data.filter(
-            x => x.category === "Exterior"
-        );
+    const serviceMap = {};
+
+    data.forEach(service => {
+
+        serviceMap[
+            service.service_key
+        ] = service;
+
+    });
+
 
     renderServices(
-        interior,
+        interiorOrder,
+        serviceMap,
         "interiorServices"
     );
 
+
     renderServices(
-        exterior,
+        exteriorOrder,
+        serviceMap,
         "exteriorServices"
     );
 }
 
 
 /* =========================================================
-   RENDER SERVICE CARDS
+   RENDER SERVICES
 ========================================================= */
 
 function renderServices(
-    services,
+    order,
+    serviceMap,
     containerId
 ) {
 
@@ -1168,15 +1577,26 @@ function renderServices(
             containerId
         );
 
+
     container.innerHTML = "";
 
-    services.forEach(service => {
+
+    order.forEach(serviceKey => {
+
+        const service =
+            serviceMap[serviceKey];
+
+
+        if (!service)
+            return;
+
 
         const card =
             document.createElement("div");
 
         card.className =
             "service-card";
+
 
         const description =
             serviceDescriptions[
@@ -1185,26 +1605,43 @@ function renderServices(
             "Professional construction and remodeling services.";
 
 
-        const imageHTML =
-            service.image_url
-            ?
-            `
-            <img
-                src="${service.image_url}"
-                alt="${escapeHTML(service.service_name)}"
-            >
-            `
-            :
-            `
-            <div class="service-placeholder">
-                Miju Construction
-            </div>
+        let imageHTML;
+
+
+        if (service.image_url) {
+
+            imageHTML = `
+
+                <img
+                    class="service-card-image"
+                    src="${escapeHTML(
+                        service.image_url
+                    )}"
+                    alt="${escapeHTML(
+                        service.service_name
+                    )}"
+                >
+
             `;
+
+        } else {
+
+            imageHTML = `
+
+                <div
+                    class="service-placeholder"
+                >
+                    Miju Construction
+                </div>
+
+            `;
+        }
 
 
         card.innerHTML = `
 
             ${imageHTML}
+
 
             <div class="service-info">
 
@@ -1214,26 +1651,34 @@ function renderServices(
                     )}
                 </h4>
 
+
                 <p>
                     ${escapeHTML(
                         description
                     )}
                 </p>
 
+
                 <div class="click-note">
                     Click to view sample photos →
                 </div>
 
             </div>
+
         `;
 
 
         card.addEventListener(
             "click",
-            () => openServiceGallery(
-                service.service_key,
-                service.service_name
-            )
+            function() {
+
+                openServiceGallery(
+                    service.service_key,
+                    service.service_name,
+                    service.image_url
+                );
+
+            }
         );
 
 
@@ -1248,100 +1693,19 @@ function renderServices(
 
 async function openServiceGallery(
     serviceKey,
-    serviceName
+    serviceName,
+    representativeImage
 ) {
-
-    const {
-        data,
-        error
-    } = await supabaseClient
-        .from(
-            "construction_service_sample_photos"
-        )
-        .select("*")
-        .eq(
-            "service_key",
-            serviceKey
-        )
-        .order("sort_order")
-        .order("created_at");
-
 
     currentGallery = [];
 
-    if (!error && data) {
-
-        currentGallery =
-            data.map(
-                item => item.image_url
-            );
-    }
-
-
-    /* If no sample gallery photos exist,
-       use representative photo */
-
-    if (
-        currentGallery.length === 0
-    ) {
-
-        const {
-            data: representative
-        } = await supabaseClient
-            .from(
-                "construction_service_photos"
-            )
-            .select("image_url")
-            .eq(
-                "service_key",
-                serviceKey
-            )
-            .maybeSingle();
-
-        if (
-            representative &&
-            representative.image_url
-        ) {
-
-            currentGallery = [
-                representative.image_url
-            ];
-        }
-    }
+    currentGalleryIndex = 0;
 
 
     document.getElementById(
         "modalServiceName"
-    ).textContent = serviceName;
-
-
-    if (currentGallery.length === 0) {
-
-        currentGallery = [];
-
-        document.getElementById(
-            "galleryMainImage"
-        ).style.display = "none";
-
-        document.getElementById(
-            "galleryCounter"
-        ).textContent =
-            "Sample photos coming soon.";
-
-        document.getElementById(
-            "galleryThumbnails"
-        ).innerHTML = "";
-
-    } else {
-
-        document.getElementById(
-            "galleryMainImage"
-        ).style.display = "block";
-
-        currentGalleryIndex = 0;
-
-        renderGallery();
-    }
+    ).textContent =
+        serviceName;
 
 
     document.getElementById(
@@ -1349,7 +1713,174 @@ async function openServiceGallery(
     ).classList.add("active");
 
 
-    document.body.style.overflow = "hidden";
+    document.body.style.overflow =
+        "hidden";
+
+
+    const mainImage =
+        document.getElementById(
+            "galleryMainImage"
+        );
+
+
+    const message =
+        document.getElementById(
+            "galleryMessage"
+        );
+
+
+    const thumbnails =
+        document.getElementById(
+            "galleryThumbnails"
+        );
+
+
+    const counter =
+        document.getElementById(
+            "galleryCounter"
+        );
+
+
+    mainImage.style.display =
+        "none";
+
+
+    message.style.display =
+        "none";
+
+
+    thumbnails.innerHTML =
+        "";
+
+
+    counter.textContent =
+        "Loading sample photos...";
+
+
+    try {
+
+        const {
+            data,
+            error
+        } = await supabaseClient
+            .from(
+                "construction_service_sample_photos"
+            )
+            .select("image_url")
+            .eq(
+                "service_key",
+                serviceKey
+            )
+            .order("sort_order")
+            .order("created_at");
+
+
+        if (
+            !error &&
+            data &&
+            data.length > 0
+        ) {
+
+            currentGallery =
+                data
+                    .map(
+                        item =>
+                            item.image_url
+                    )
+                    .filter(Boolean);
+
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Gallery load error:",
+            error
+        );
+
+    }
+
+
+    /*
+       If sample gallery is empty,
+       use the representative photo.
+    */
+
+    if (
+        currentGallery.length === 0 &&
+        representativeImage
+    ) {
+
+        currentGallery = [
+            representativeImage
+        ];
+    }
+
+
+    /*
+       No photos at all.
+    */
+
+    if (
+        currentGallery.length === 0
+    ) {
+
+        mainImage.style.display =
+            "none";
+
+
+        message.style.display =
+            "block";
+
+
+        message.textContent =
+            "Sample photos coming soon.";
+
+
+        counter.textContent =
+            "";
+
+
+        document.getElementById(
+            "galleryPrev"
+        ).style.display = "none";
+
+
+        document.getElementById(
+            "galleryNext"
+        ).style.display = "none";
+
+
+        return;
+    }
+
+
+    /*
+       Photos available.
+    */
+
+    message.style.display =
+        "none";
+
+
+    mainImage.style.display =
+        "block";
+
+
+    document.getElementById(
+        "galleryPrev"
+    ).style.display =
+        "block";
+
+
+    document.getElementById(
+        "galleryNext"
+    ).style.display =
+        "block";
+
+
+    renderGallery();
 }
 
 
@@ -1359,8 +1890,11 @@ async function openServiceGallery(
 
 function renderGallery() {
 
-    if (currentGallery.length === 0)
+    if (
+        currentGallery.length === 0
+    ) {
         return;
+    }
 
 
     const mainImage =
@@ -1368,10 +1902,12 @@ function renderGallery() {
             "galleryMainImage"
         );
 
+
     mainImage.src =
         currentGallery[
             currentGalleryIndex
         ];
+
 
     mainImage.alt =
         document.getElementById(
@@ -1390,20 +1926,28 @@ function renderGallery() {
             "galleryThumbnails"
         );
 
-    thumbnails.innerHTML = "";
+
+    thumbnails.innerHTML =
+        "";
 
 
     currentGallery.forEach(
-        (url, index) => {
+        function(url, index) {
 
             const img =
-                document.createElement("img");
+                document.createElement(
+                    "img"
+                );
 
-            img.src = url;
+
+            img.src =
+                url;
+
 
             img.alt =
                 "Sample photo " +
                 (index + 1);
+
 
             if (
                 index ===
@@ -1418,7 +1962,7 @@ function renderGallery() {
 
             img.addEventListener(
                 "click",
-                event => {
+                function(event) {
 
                     event.stopPropagation();
 
@@ -1426,26 +1970,35 @@ function renderGallery() {
                         index;
 
                     renderGallery();
+
                 }
             );
 
 
-            thumbnails.appendChild(img);
+            thumbnails.appendChild(
+                img
+            );
+
         }
     );
 }
 
 
 /* =========================================================
-   GALLERY NAVIGATION
+   PREVIOUS
 ========================================================= */
 
 function previousGalleryImage() {
 
-    if (currentGallery.length === 0)
+    if (
+        currentGallery.length <= 1
+    ) {
         return;
+    }
+
 
     currentGalleryIndex--;
+
 
     if (
         currentGalleryIndex < 0
@@ -1455,16 +2008,26 @@ function previousGalleryImage() {
             currentGallery.length - 1;
     }
 
+
     renderGallery();
 }
 
 
+/* =========================================================
+   NEXT
+========================================================= */
+
 function nextGalleryImage() {
 
-    if (currentGallery.length === 0)
+    if (
+        currentGallery.length <= 1
+    ) {
         return;
+    }
+
 
     currentGalleryIndex++;
+
 
     if (
         currentGalleryIndex >=
@@ -1474,9 +2037,14 @@ function nextGalleryImage() {
         currentGalleryIndex = 0;
     }
 
+
     renderGallery();
 }
 
+
+/* =========================================================
+   CLOSE SERVICE GALLERY
+========================================================= */
 
 function closeServiceGallery() {
 
@@ -1484,53 +2052,95 @@ function closeServiceGallery() {
         "serviceModal"
     ).classList.remove("active");
 
+
     document.body.style.overflow =
         "";
+
+
+    currentGallery = [];
+
+    currentGalleryIndex = 0;
 }
 
 
 /* =========================================================
-   KEYBOARD GALLERY
+   KEYBOARD CONTROLS
 ========================================================= */
 
 document.addEventListener(
     "keydown",
-    event => {
+    function(event) {
 
         const modal =
             document.getElementById(
                 "serviceModal"
             );
 
+
         if (
             !modal.classList.contains(
                 "active"
             )
-        ) return;
+        ) {
+            return;
+        }
 
 
-        if (event.key === "ArrowLeft") {
+        if (
+            event.key === "ArrowLeft"
+        ) {
 
             previousGalleryImage();
 
-        } else if (
+        }
+
+
+        if (
             event.key === "ArrowRight"
         ) {
 
             nextGalleryImage();
 
-        } else if (
+        }
+
+
+        if (
             event.key === "Escape"
         ) {
 
             closeServiceGallery();
+
         }
+
     }
 );
 
 
 /* =========================================================
-   COMPLETED PROJECTS
+   CLICK OUTSIDE SERVICE MODAL
+========================================================= */
+
+document
+    .getElementById("serviceModal")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target ===
+                this
+            ) {
+
+                closeServiceGallery();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   LOAD COMPLETED PROJECTS
 ========================================================= */
 
 async function loadProjects() {
@@ -1561,14 +2171,21 @@ async function loadProjects() {
             error
         );
 
-        container.innerHTML =
-            "<div class='empty'>Unable to load projects.</div>";
+
+        container.innerHTML = `
+
+            <div class="empty">
+                Unable to load completed projects.
+            </div>
+
+        `;
 
         return;
     }
 
 
-    container.innerHTML = "";
+    container.innerHTML =
+        "";
 
 
     if (
@@ -1576,20 +2193,26 @@ async function loadProjects() {
         data.length === 0
     ) {
 
-        container.innerHTML =
-            "<div class='empty'>Completed projects will be added soon.</div>";
+        container.innerHTML = `
+
+            <div class="empty">
+                Completed projects will be added soon.
+            </div>
+
+        `;
 
         return;
     }
 
 
     data.forEach(
-        project => {
+        function(project) {
 
             const card =
                 document.createElement(
                     "div"
                 );
+
 
             card.className =
                 "project-card";
@@ -1605,40 +2228,56 @@ async function loadProjects() {
                 [];
 
 
-            let photosHTML = "";
+            let photoHTML =
+                "";
 
 
             images.forEach(
-                (url, index) => {
+                function(url, index) {
 
-                    photosHTML += `
+                    photoHTML += `
 
                         <img
-                            src="${url}"
-                            alt="${escapeHTML(project.title || "Project")}"
+                            src="${escapeHTML(url)}"
+                            alt="${escapeHTML(
+                                project.title ||
+                                "Completed Project"
+                            )}"
                             onclick="openLightbox(
                                 '${escapeAttribute(url)}'
                             )"
                         >
 
                     `;
+
                 }
             );
 
 
+            let photoSection =
+                "";
+
+
+            if (
+                images.length > 0
+            ) {
+
+                photoSection = `
+
+                    <div class="project-photo-grid">
+
+                        ${photoHTML}
+
+                    </div>
+
+                `;
+
+            }
+
+
             card.innerHTML = `
 
-                ${
-                    images.length
-                    ?
-                    `
-                    <div class="project-photo-grid">
-                        ${photosHTML}
-                    </div>
-                    `
-                    :
-                    ""
-                }
+                ${photoSection}
 
 
                 <div class="project-info">
@@ -1655,9 +2294,11 @@ async function loadProjects() {
                         ?
                         `
                         <div class="project-location">
+
                             ${escapeHTML(
                                 project.location
                             )}
+
                         </div>
                         `
                         :
@@ -1670,9 +2311,11 @@ async function loadProjects() {
                         ?
                         `
                         <p>
+
                             ${escapeHTML(
                                 project.description
                             )}
+
                         </p>
                         `
                         :
@@ -1680,19 +2323,21 @@ async function loadProjects() {
                     }
 
                 </div>
+
             `;
 
 
             container.appendChild(
                 card
             );
+
         }
     );
 }
 
 
 /* =========================================================
-   LIGHTBOX
+   PROJECT LIGHTBOX
 ========================================================= */
 
 function openLightbox(url) {
@@ -1701,9 +2346,16 @@ function openLightbox(url) {
         "lightboxImage"
     ).src = url;
 
+
     document.getElementById(
         "lightbox"
-    ).classList.add("active");
+    ).classList.add(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "hidden";
 }
 
 
@@ -1711,30 +2363,57 @@ function closeLightbox() {
 
     document.getElementById(
         "lightbox"
-    ).classList.remove("active");
+    ).classList.remove(
+        "active"
+    );
+
+
+    document.body.style.overflow =
+        "";
 }
 
 
 /* =========================================================
-   ESCAPE
+   ESCAPE HTML
 ========================================================= */
 
 function escapeHTML(value) {
 
     return String(value || "")
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
+        .replace(
+            /&/g,
+            "&amp;"
+        )
+        .replace(
+            /</g,
+            "&lt;"
+        )
+        .replace(
+            />/g,
+            "&gt;"
+        )
+        .replace(
+            /"/g,
+            "&quot;"
+        )
+        .replace(
+            /'/g,
+            "&#039;"
+        );
 }
 
 
 function escapeAttribute(value) {
 
     return String(value || "")
-        .replace(/\\/g, "\\\\")
-        .replace(/'/g, "\\'");
+        .replace(
+            /\\/g,
+            "\\\\"
+        )
+        .replace(
+            /'/g,
+            "\\'"
+        );
 }
 
 
