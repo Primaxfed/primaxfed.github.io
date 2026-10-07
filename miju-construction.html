@@ -6,14 +6,12 @@
 
 <title>Miju Construction | Interior & Exterior Construction</title>
 
+<meta name="description"
+      content="Miju Construction provides professional interior and exterior construction, remodeling, roofing, concrete, painting, stucco and repair services for residential and commercial properties.">
+
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
-
 * {
     box-sizing: border-box;
 }
@@ -25,124 +23,167 @@ html {
 body {
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
-    color: #1f2937;
-    background: #ffffff;
+    color: #222;
+    background: #fff;
+    line-height: 1.6;
 }
 
+img {
+    max-width: 100%;
+}
 
-/* =========================================================
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================
    HEADER
-========================================================= */
+========================= */
 
 header {
     position: sticky;
     top: 0;
-    z-index: 500;
-    background: rgba(17, 24, 39, 0.97);
-    color: white;
-    padding: 16px 30px;
+    z-index: 1000;
+    background: #111;
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(0,0,0,.18);
 }
 
-.nav {
+.header-inner {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
+    padding: 0 22px;
+    min-height: 72px;
 
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    gap: 25px;
 }
 
 .logo {
-    font-size: 23px;
+    font-size: 22px;
     font-weight: 800;
-    letter-spacing: .3px;
+    letter-spacing: .8px;
+    white-space: nowrap;
 }
 
-.nav-links {
-    display: flex;
-    gap: 24px;
+.logo span {
+    color: #d4a017;
 }
 
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.nav-links a:hover {
-    color: #fbbf24;
-}
-
-
-/* =========================================================
-   HERO
-========================================================= */
-
-.hero {
-    min-height: 520px;
-
-    background:
-        linear-gradient(
-            rgba(0, 0, 0, .55),
-            rgba(0, 0, 0, .55)
-        ),
-        url("images/construction-hero.jpg")
-        center center / cover no-repeat;
-
+nav {
     display: flex;
     align-items: center;
-    justify-content: center;
+    gap: 25px;
+}
 
-    text-align: center;
-    color: white;
+nav a {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    transition: opacity .2s;
+}
 
-    padding: 50px 20px;
+nav a:hover {
+    opacity: .7;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    background: #1a1a1a;
+    color: #fff;
+}
+
+.hero-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 560px;
 }
 
 .hero-content {
-    max-width: 850px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 70px 45px;
 }
 
-.hero h1 {
-    font-size: 54px;
-    margin: 0 0 18px;
-    line-height: 1.15;
+.hero-content h1 {
+    margin: 0 0 20px;
+    font-size: clamp(38px, 5vw, 64px);
+    line-height: 1.05;
 }
 
-.hero p {
-    font-size: 21px;
-    line-height: 1.6;
-    margin: 0 auto 30px;
+.hero-content h1 span {
+    color: #d4a017;
+}
+
+.hero-content p {
+    margin: 0 0 30px;
+    max-width: 570px;
+    color: #ddd;
+    font-size: 18px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 .btn {
     display: inline-block;
     padding: 13px 22px;
-    border-radius: 6px;
-
-    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
     font-weight: 700;
-
-    background: #f59e0b;
-    color: white;
+    cursor: pointer;
+    border: 1px solid transparent;
 }
 
-.btn:hover {
-    background: #d97706;
+.btn-primary {
+    background: #d4a017;
+    color: #111;
 }
 
+.btn-secondary {
+    background: transparent;
+    color: #fff;
+    border-color: #777;
+}
 
-/* =========================================================
-   GENERAL SECTIONS
-========================================================= */
+.hero-image {
+    min-height: 560px;
+    overflow: hidden;
+    background: #222;
+}
 
-section {
-    padding: 75px 20px;
+.hero-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 560px;
+    display: block;
+    object-fit: cover;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+.section {
+    padding: 80px 22px;
 }
 
 .section-inner {
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 .section-title {
@@ -151,848 +192,754 @@ section {
 }
 
 .section-title h2 {
-    font-size: 38px;
-    margin: 0 0 12px;
+    margin: 0 0 10px;
+    font-size: 36px;
+    line-height: 1.2;
 }
 
 .section-title p {
-    color: #6b7280;
-    font-size: 17px;
+    margin: 0 auto;
+    max-width: 700px;
+    color: #666;
 }
 
-
-/* =========================================================
+/* =========================
    ABOUT
-========================================================= */
+========================= */
 
 .about {
-    background: #f8fafc;
+    background: #f7f7f7;
 }
 
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-
     gap: 50px;
-
     align-items: center;
 }
 
-.about h2 {
-    font-size: 38px;
+.about-text h2 {
     margin-top: 0;
-    margin-bottom: 20px;
+    font-size: 36px;
+    line-height: 1.2;
 }
 
-.about p {
-    line-height: 1.8;
-    color: #4b5563;
-    margin-bottom: 18px;
+.about-text p {
+    color: #555;
 }
 
 .about-image {
+    overflow: hidden;
+    border-radius: 6px;
+    background: #ddd;
+}
+
+.about-image img {
     width: 100%;
-    max-height: 430px;
-
+    height: 390px;
     object-fit: cover;
-
-    border-radius: 12px;
-
     display: block;
 }
 
-
-/* =========================================================
+/* =========================
    SERVICES
-========================================================= */
+========================= */
 
-.services-section {
-    background: #ffffff;
+.services {
+    background: #fff;
 }
 
-.services-category {
+.service-category {
     margin-bottom: 60px;
 }
 
-.category-heading {
-    font-size: 29px;
+.category-title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
 
-    margin: 0 0 25px;
+.category-title h3 {
+    margin: 0;
+    font-size: 28px;
+}
 
-    border-left: 5px solid #f59e0b;
-
-    padding-left: 13px;
+.category-line {
+    height: 2px;
+    flex: 1;
+    background: #ddd;
 }
 
 .service-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(3, minmax(0, 1fr));
-
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
 }
 
-
-/* =========================================================
-   SERVICE CARD
-========================================================= */
-
 .service-card {
-    background: white;
-
-    border-radius: 12px;
-
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
     overflow: hidden;
-
-    box-shadow:
-        0 4px 18px rgba(0, 0, 0, .09);
-
     cursor: pointer;
 
+    box-shadow: 0 4px 15px rgba(0,0,0,.06);
+
     transition:
-        transform .2s ease,
-        box-shadow .2s ease;
+        transform .2s,
+        box-shadow .2s;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-
-    box-shadow:
-        0 10px 28px rgba(0, 0, 0, .16);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,.12);
 }
 
-.service-card-image {
-    width: 100%;
-    height: 230px;
+.service-image {
+    height: 220px;
+    background: #eee;
+    overflow: hidden;
+}
 
+.service-image img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-
     display: block;
-
-    background: #e5e7eb;
 }
 
-.service-placeholder {
-    width: 100%;
-    height: 230px;
-
-    background: #e5e7eb;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    color: #6b7280;
-
-    font-weight: 600;
-}
-
-.service-info {
+.service-content {
     padding: 20px;
 }
 
-.service-info h4 {
-    font-size: 21px;
-
-    margin: 0 0 9px;
+.service-content h4 {
+    margin: 0 0 8px;
+    font-size: 20px;
 }
 
-.service-info p {
-    color: #6b7280;
-
-    line-height: 1.55;
-
+.service-content p {
     margin: 0;
+    color: #666;
+    font-size: 14px;
 }
 
-.click-note {
-    margin-top: 13px;
-
-    color: #2563eb;
-
-    font-size: 13px;
-
+.view-samples {
+    margin-top: 15px;
+    color: #b48600;
     font-weight: 700;
+    font-size: 13px;
 }
 
-
-/* =========================================================
-   COMPLETED PROJECTS
-========================================================= */
+/* =========================
+   PROJECTS
+========================= */
 
 .projects {
-    background: #f8fafc;
+    background: #f7f7f7;
 }
 
 .project-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
-
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
 .project-card {
-    background: white;
-
-    border-radius: 12px;
-
+    background: #fff;
+    border-radius: 6px;
     overflow: hidden;
-
-    box-shadow:
-        0 4px 18px rgba(0, 0, 0, .08);
+    box-shadow: 0 4px 15px rgba(0,0,0,.06);
 }
 
-.project-photo-grid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 3px;
-
-    background: #e5e7eb;
-}
-
-.project-photo-grid img {
-    width: 100%;
-    height: 190px;
-
-    object-fit: cover;
-
+.project-main-image {
+    height: 240px;
+    background: #ddd;
+    overflow: hidden;
     cursor: pointer;
+}
 
+.project-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     display: block;
 }
 
-.project-photo-grid img:hover {
-    opacity: .88;
-}
-
 .project-info {
-    padding: 22px;
+    padding: 20px;
 }
 
 .project-info h3 {
-    margin: 0 0 7px;
-
-    font-size: 23px;
+    margin: 0 0 5px;
+    font-size: 20px;
 }
 
 .project-location {
-    color: #6b7280;
-
-    margin-bottom: 12px;
+    color: #777;
+    font-size: 14px;
 }
 
-.project-info p {
-    color: #4b5563;
-
-    line-height: 1.6;
-
-    margin-bottom: 0;
-}
-
-.empty {
+.project-empty {
     text-align: center;
-
-    color: #6b7280;
-
+    color: #777;
     padding: 30px;
 }
 
-
-/* =========================================================
+/* =========================
    PROCESS
-========================================================= */
+========================= */
+
+.process {
+    background: #fff;
+}
 
 .process-grid {
     display: grid;
-
-    grid-template-columns:
-        repeat(4, 1fr);
-
+    grid-template-columns: repeat(4, 1fr);
     gap: 25px;
 }
 
 .process-card {
     text-align: center;
+    padding: 25px 15px;
 }
 
 .process-number {
     width: 55px;
     height: 55px;
-
-    border-radius: 50%;
-
-    background: #111827;
-
-    color: white;
+    margin: 0 auto 15px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    margin: 0 auto 15px;
+    border-radius: 50%;
+    background: #d4a017;
+    color: #111;
 
     font-weight: 800;
-
     font-size: 20px;
 }
 
 .process-card h3 {
-    margin-bottom: 10px;
+    margin: 0 0 8px;
 }
 
 .process-card p {
-    color: #6b7280;
-    line-height: 1.6;
+    margin: 0;
+    color: #666;
+    font-size: 14px;
 }
 
-
-/* =========================================================
+/* =========================
    CONTACT
-========================================================= */
+========================= */
 
 .contact {
-    background: #111827;
-
-    color: white;
+    background: #111;
+    color: #fff;
 }
 
-.contact-grid {
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
-
-    gap: 40px;
+.contact-inner {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .contact h2 {
-    font-size: 38px;
-
-    margin-top: 0;
+    margin: 0 0 15px;
+    font-size: 36px;
 }
 
 .contact p {
-    line-height: 1.8;
-
-    color: #d1d5db;
+    color: #ccc;
+    margin-bottom: 25px;
 }
 
-.contact a {
-    color: #fbbf24;
-
-    text-decoration: none;
-}
-
-
-/* =========================================================
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 footer {
-    background: #030712;
-
-    color: #9ca3af;
-
+    background: #080808;
+    color: #aaa;
+    padding: 25px 22px;
     text-align: center;
-
-    padding: 25px 20px;
+    font-size: 13px;
 }
 
-footer p {
-    margin: 7px 0;
+.footer-admin {
+    display: inline-block;
+    margin-top: 8px;
+    color: #777;
 }
 
-footer a {
-    color: #9ca3af;
-
-    text-decoration: none;
+.footer-admin:hover {
+    color: #d4a017;
 }
 
+/* =========================
+   MODAL
+========================= */
 
-/* =========================================================
-   SERVICE GALLERY MODAL
-========================================================= */
-
-.service-modal {
-    display: none;
-
+.modal {
     position: fixed;
-
     inset: 0;
+    z-index: 2000;
 
-    z-index: 1500;
+    background: rgba(0,0,0,.86);
 
-    background:
-        rgba(0, 0, 0, .90);
-
-    padding: 25px;
-
-    overflow-y: auto;
-}
-
-.service-modal.active {
-    display: block;
-}
-
-.service-modal-inner {
-    max-width: 1150px;
-
-    margin: 20px auto;
-}
-
-.service-modal-header {
-    display: flex;
-
-    justify-content: space-between;
-
+    display: none;
     align-items: center;
+    justify-content: center;
 
-    color: white;
-
-    margin-bottom: 18px;
+    padding: 20px;
 }
 
-.service-modal-header h2 {
+.modal.active {
+    display: flex;
+}
+
+.modal-box {
+    width: min(1000px, 100%);
+    max-height: 92vh;
+
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-header {
+    padding: 18px 22px;
+    background: #111;
+    color: #fff;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.modal-header h3 {
     margin: 0;
+    font-size: 21px;
+}
 
+.close-btn {
+    border: 0;
+    background: transparent;
+    color: #fff;
     font-size: 30px;
-}
-
-.modal-close {
-    width: 45px;
-    height: 45px;
-
-    border: none;
-
-    border-radius: 50%;
-
-    background:
-        rgba(255, 255, 255, .15);
-
-    color: white;
-
-    font-size: 28px;
-
     cursor: pointer;
+    line-height: 1;
 }
-
-.modal-close:hover {
-    background:
-        rgba(255, 255, 255, .25);
-}
-
-
-/* =========================================================
-   MAIN GALLERY IMAGE
-========================================================= */
 
 .gallery-main {
     position: relative;
-
-    text-align: center;
-
-    min-height: 250px;
+    height: min(62vh, 600px);
+    background: #111;
 
     display: flex;
-
     align-items: center;
-
     justify-content: center;
 }
 
 .gallery-main img {
-    max-width: 100%;
-
-    max-height: 65vh;
-
+    width: 100%;
+    height: 100%;
     object-fit: contain;
-
-    border-radius: 8px;
+    display: block;
 }
-
-.gallery-message {
-    color: white;
-
-    font-size: 18px;
-
-    padding: 70px 20px;
-}
-
-
-/* =========================================================
-   GALLERY ARROWS
-========================================================= */
 
 .gallery-arrow {
     position: absolute;
-
     top: 50%;
+    transform: translateY(-50%);
 
-    transform:
-        translateY(-50%);
+    width: 48px;
+    height: 48px;
 
-    width: 50px;
-    height: 65px;
+    border: 0;
+    border-radius: 50%;
 
-    border: none;
+    background: rgba(0,0,0,.65);
+    color: #fff;
 
-    border-radius: 6px;
-
-    background:
-        rgba(255, 255, 255, .20);
-
-    color: white;
-
-    font-size: 36px;
-
+    font-size: 28px;
     cursor: pointer;
 }
 
 .gallery-arrow:hover {
-    background:
-        rgba(255, 255, 255, .35);
+    background: rgba(0,0,0,.9);
 }
 
 .gallery-prev {
-    left: 10px;
+    left: 15px;
 }
 
 .gallery-next {
-    right: 10px;
+    right: 15px;
 }
 
-
-/* =========================================================
-   GALLERY COUNTER
-========================================================= */
-
-.gallery-counter {
-    color: white;
-
-    text-align: center;
-
-    margin: 13px 0;
-
-    font-size: 15px;
+.gallery-thumbs {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 12px;
+    background: #222;
 }
 
+.gallery-thumb {
+    width: 80px;
+    height: 60px;
+    flex: 0 0 auto;
 
-/* =========================================================
-   GALLERY THUMBNAILS
-========================================================= */
-
-.gallery-thumbnails {
-    display: grid;
-
-    grid-template-columns:
-        repeat(6, 1fr);
-
-    gap: 9px;
-
-    margin-top: 15px;
-}
-
-.gallery-thumbnails img {
-    width: 100%;
-
-    height: 90px;
-
-    object-fit: cover;
-
-    border-radius: 5px;
-
+    border: 2px solid transparent;
     cursor: pointer;
-
-    opacity: .60;
+    overflow: hidden;
+    border-radius: 3px;
 }
 
-.gallery-thumbnails img:hover {
-    opacity: .90;
+.gallery-thumb.active {
+    border-color: #d4a017;
 }
 
-.gallery-thumbnails img.active {
-    opacity: 1;
-
-    outline:
-        3px solid #f59e0b;
+.gallery-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-
-/* =========================================================
+/* =========================
    PROJECT LIGHTBOX
-========================================================= */
+========================= */
 
-.lightbox {
-    display: none;
-
+.project-lightbox {
     position: fixed;
-
     inset: 0;
+    z-index: 3000;
 
-    z-index: 2500;
+    background: rgba(0,0,0,.92);
 
-    background:
-        rgba(0, 0, 0, .94);
-
+    display: none;
     align-items: center;
-
     justify-content: center;
 
-    padding: 25px;
+    padding: 20px;
 }
 
-.lightbox.active {
+.project-lightbox.active {
     display: flex;
 }
 
-.lightbox img {
-    max-width: 92vw;
-
+.project-lightbox img {
+    max-width: 95vw;
     max-height: 90vh;
-
     object-fit: contain;
 }
 
 .lightbox-close {
-    position: absolute;
-
-    top: 18px;
+    position: fixed;
+    top: 20px;
     right: 25px;
 
-    color: white;
+    border: 0;
+    background: transparent;
+    color: #fff;
 
-    font-size: 42px;
-
+    font-size: 38px;
     cursor: pointer;
 }
 
+/* =========================
+   LOADING
+========================= */
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+.loading {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
 
-@media (max-width: 950px) {
+/* =========================
+   MOBILE
+========================= */
 
-    .service-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+@media (max-width: 900px) {
+
+    .header-inner {
+        min-height: 64px;
     }
 
-    .process-grid {
-        grid-template-columns:
-            repeat(2, 1fr);
+    nav {
+        gap: 14px;
     }
 
-    .about-grid,
-    .contact-grid {
+    nav a {
+        font-size: 12px;
+    }
+
+    .hero-inner {
         grid-template-columns: 1fr;
     }
 
-    .about-image {
-        max-height: 400px;
+    .hero-content {
+        padding: 55px 25px;
+    }
+
+    .hero-image {
+        min-height: 350px;
+        height: 350px;
+    }
+
+    .hero-image img {
+        min-height: 350px;
+        height: 350px;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .project-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-
 @media (max-width: 600px) {
 
-    header {
-        padding: 14px 16px;
+    .header-inner {
+        padding: 0 15px;
     }
 
-    .nav-links {
-        display: none;
-    }
-
-    .hero {
-        min-height: 460px;
-    }
-
-    .hero h1 {
-        font-size: 38px;
-    }
-
-    .hero p {
+    .logo {
         font-size: 17px;
     }
 
-    section {
-        padding: 55px 15px;
+    nav {
+        gap: 10px;
+    }
+
+    nav a:nth-child(1),
+    nav a:nth-child(3),
+    nav a:nth-child(4) {
+        display: none;
+    }
+
+    .hero-content {
+        padding: 45px 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+
+    .hero-content p {
+        font-size: 16px;
+    }
+
+    /*
+       IMPORTANT:
+       Mobile image is explicitly given a height.
+       This prevents the construction image from
+       appearing to disappear on phones.
+    */
+    .hero-image {
+        width: 100%;
+        height: 300px;
+        min-height: 300px;
+        display: block;
+    }
+
+    .hero-image img {
+        width: 100%;
+        height: 300px;
+        min-height: 300px;
+        display: block;
+        object-fit: cover;
+    }
+
+    .section {
+        padding: 60px 16px;
     }
 
     .section-title h2 {
         font-size: 30px;
     }
 
-    .about h2 {
+    .about-text h2 {
         font-size: 30px;
+    }
+
+    .about-image img {
+        height: 280px;
     }
 
     .service-grid {
         grid-template-columns: 1fr;
+        gap: 18px;
     }
 
-    .process-grid {
+    .service-image {
+        height: 230px;
+    }
+
+    .project-grid {
         grid-template-columns: 1fr;
     }
 
-    .gallery-thumbnails {
-        grid-template-columns:
-            repeat(3, 1fr);
+    .process-grid {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .gallery-thumbnails img {
-        height: 75px;
+    .category-title h3 {
+        font-size: 23px;
+    }
+
+    .gallery-main {
+        height: 55vh;
     }
 
     .gallery-arrow {
-        width: 40px;
-        height: 55px;
-
-        font-size: 28px;
-    }
-
-    .gallery-prev {
-        left: 4px;
-    }
-
-    .gallery-next {
-        right: 4px;
+        width: 42px;
+        height: 42px;
+        font-size: 23px;
     }
 }
-
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =========================================================
+<!-- =========================
      HEADER
-========================================================= -->
+========================= -->
 
 <header>
+    <div class="header-inner">
 
-    <div class="nav">
+        <a href="index.html" class="logo">
+            MIJU <span>CONSTRUCTION</span>
+        </a>
 
-        <div class="logo">
-            MIJU CONSTRUCTION
-        </div>
-
-        <div class="nav-links">
-
-            <a href="#about">
-                About
-            </a>
-
-            <a href="#services">
-                Services
-            </a>
-
-            <a href="#projects">
-                Projects
-            </a>
-
-            <a href="#process">
-                Process
-            </a>
-
-            <a href="#contact">
-                Contact
-            </a>
-
-        </div>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#projects">Projects</a>
+            <a href="#process">Process</a>
+            <a href="#contact">Contact</a>
+        </nav>
 
     </div>
-
 </header>
 
 
-<!-- =========================================================
+<!-- =========================
      HERO
-========================================================= -->
+========================= -->
 
 <section class="hero">
 
-    <div class="hero-content">
+    <div class="hero-inner">
 
-        <h1>
-            Miju Construction
-        </h1>
+        <div class="hero-content">
 
-        <p>
-            Professional Interior & Exterior
-            Construction and Remodeling Services.
-        </p>
+            <h1>
+                Building Better.<br>
+                <span>Building Right.</span>
+            </h1>
 
-        <a
-            href="#services"
-            class="btn"
-        >
-            Explore Our Services
-        </a>
+            <p>
+                Professional interior and exterior construction
+                and remodeling services for residential and
+                commercial properties.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#services" class="btn btn-primary">
+                    View Our Services
+                </a>
+
+                <a href="#contact" class="btn btn-secondary">
+                    Contact Us
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- REAL IMAGE - NOT A MARKDOWN LINK -->
+
+        <div class="hero-image">
+            <img
+                src="images/construction-hero.jpg"
+                alt="Miju Construction"
+                loading="eager"
+                onerror="this.style.display='none';"
+            >
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      ABOUT
-     Quality Construction 부분은 여기에서만 표시
-========================================================= -->
+========================= -->
 
-<section
-    id="about"
-    class="about"
->
+<section class="section about" id="about">
 
     <div class="section-inner">
 
         <div class="about-grid">
 
-            <div>
+            <div class="about-text">
 
                 <h2>
-                    Quality Construction.
+                    Quality Construction.<br>
                     Professional Results.
                 </h2>
 
                 <p>
-                    Miju Construction provides
-                    professional interior and exterior
-                    construction and remodeling services
-                    for residential and commercial
-                    properties.
+                    Miju Construction provides professional
+                    interior and exterior construction and
+                    remodeling services for residential and
+                    commercial properties.
                 </p>
 
                 <p>
-                    From kitchen and bathroom remodeling
-                    to roofing, concrete, painting, stucco
-                    and exterior improvements, we provide
-                    practical construction solutions
-                    tailored to each project.
+                    From kitchen and bathroom remodeling to
+                    roofing, concrete, painting, stucco and
+                    exterior improvements, we provide practical
+                    construction solutions tailored to each
+                    project.
                 </p>
 
             </div>
 
 
-            <div>
+            <div class="about-image">
 
                 <img
-                    class="about-image"
                     src="images/construction-hero.jpg"
-                    alt="Miju Construction"
+                    alt="Miju Construction construction services"
+                    loading="lazy"
+                    onerror="this.style.display='none';"
                 >
 
             </div>
@@ -1004,63 +951,74 @@ footer a {
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      SERVICES
-========================================================= -->
+========================= -->
 
-<section
-    id="services"
-    class="services-section"
->
+<section class="section services" id="services">
 
     <div class="section-inner">
 
         <div class="section-title">
 
-            <h2>
-                Our Services
-            </h2>
+            <h2>Our Services</h2>
 
             <p>
-                Click any service to view sample
-                construction and remodeling work.
+                Click any service to view sample construction
+                and remodeling work.
             </p>
 
         </div>
 
 
-        <!-- =================================================
-             INTERIOR
-        ================================================== -->
+        <!-- INTERIOR -->
 
-        <div class="services-category">
+        <div class="service-category">
 
-            <h3 class="category-heading">
-                Interior
-            </h3>
+            <div class="category-title">
+
+                <h3>Interior</h3>
+
+                <div class="category-line"></div>
+
+            </div>
 
             <div
-                id="interiorServices"
+                id="interior-services"
                 class="service-grid"
-            ></div>
+            >
+
+                <div class="loading">
+                    Loading services...
+                </div>
+
+            </div>
 
         </div>
 
 
-        <!-- =================================================
-             EXTERIOR
-        ================================================== -->
+        <!-- EXTERIOR -->
 
-        <div class="services-category">
+        <div class="service-category">
 
-            <h3 class="category-heading">
-                Exterior
-            </h3>
+            <div class="category-title">
+
+                <h3>Exterior</h3>
+
+                <div class="category-line"></div>
+
+            </div>
 
             <div
-                id="exteriorServices"
+                id="exterior-services"
                 class="service-grid"
-            ></div>
+            >
+
+                <div class="loading">
+                    Loading services...
+                </div>
+
+            </div>
 
         </div>
 
@@ -1069,57 +1027,56 @@ footer a {
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      COMPLETED PROJECTS
-========================================================= -->
+========================= -->
 
-<section
-    id="projects"
-    class="projects"
->
+<section class="section projects" id="projects">
 
     <div class="section-inner">
 
         <div class="section-title">
 
-            <h2>
-                Completed Projects
-            </h2>
+            <h2>Completed Projects</h2>
 
             <p>
-                A selection of our completed
-                construction projects.
+                A selection of completed construction
+                and remodeling projects.
             </p>
 
         </div>
 
         <div
-            id="projectsGrid"
+            id="project-grid"
             class="project-grid"
-        ></div>
+        >
+
+            <div class="loading">
+                Loading projects...
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      PROCESS
-========================================================= -->
+========================= -->
 
-<section id="process">
+<section class="section process" id="process">
 
     <div class="section-inner">
 
         <div class="section-title">
 
-            <h2>
-                Our Process
-            </h2>
+            <h2>Our Process</h2>
 
             <p>
-                A simple and professional approach
-                from consultation to completion.
+                A straightforward approach from consultation
+                to completion.
             </p>
 
         </div>
@@ -1129,17 +1086,13 @@ footer a {
 
             <div class="process-card">
 
-                <div class="process-number">
-                    1
-                </div>
+                <div class="process-number">1</div>
 
-                <h3>
-                    Consultation
-                </h3>
+                <h3>Consultation</h3>
 
                 <p>
-                    Discuss your project,
-                    goals and budget.
+                    We discuss your project, goals,
+                    needs and property.
                 </p>
 
             </div>
@@ -1147,17 +1100,13 @@ footer a {
 
             <div class="process-card">
 
-                <div class="process-number">
-                    2
-                </div>
+                <div class="process-number">2</div>
 
-                <h3>
-                    Planning
-                </h3>
+                <h3>Planning</h3>
 
                 <p>
-                    Develop the construction
-                    plan and scope of work.
+                    We determine the appropriate
+                    construction approach and scope.
                 </p>
 
             </div>
@@ -1165,17 +1114,13 @@ footer a {
 
             <div class="process-card">
 
-                <div class="process-number">
-                    3
-                </div>
+                <div class="process-number">3</div>
 
-                <h3>
-                    Construction
-                </h3>
+                <h3>Construction</h3>
 
                 <p>
-                    Professional execution
-                    of the project.
+                    Our work is performed with
+                    attention to quality and detail.
                 </p>
 
             </div>
@@ -1183,17 +1128,13 @@ footer a {
 
             <div class="process-card">
 
-                <div class="process-number">
-                    4
-                </div>
+                <div class="process-number">4</div>
 
-                <h3>
-                    Completion
-                </h3>
+                <h3>Completion</h3>
 
                 <p>
-                    Final inspection and
-                    project completion.
+                    We complete the project and
+                    review the finished work.
                 </p>
 
             </div>
@@ -1205,117 +1146,76 @@ footer a {
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      CONTACT
-========================================================= -->
+========================= -->
 
-<section
-    id="contact"
-    class="contact"
->
+<section class="section contact" id="contact">
 
-    <div class="section-inner">
+    <div class="contact-inner">
 
-        <div class="contact-grid">
+        <h2>Let's Talk About Your Project</h2>
 
-            <div>
+        <p>
+            Contact Miju Construction to discuss your
+            interior or exterior construction project.
+        </p>
 
-                <h2>
-                    Let's Talk About
-                    Your Project
-                </h2>
-
-                <p>
-                    Whether you are planning a
-                    kitchen remodel, bathroom renovation,
-                    roofing project or exterior
-                    improvement, contact us to discuss
-                    your project.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <p>
-
-                    <strong>
-                        Phone
-                    </strong>
-
-                    <br>
-
-                    <a href="tel:2132470011">
-                        213-247-0011
-                    </a>
-
-                </p>
-
-
-                <p>
-
-                    <strong>
-                        Email
-                    </strong>
-
-                    <br>
-
-                    <a href="mailto:david@primaxfed.com">
-                        david@primaxfed.com
-                    </a>
-
-                </p>
-
-            </div>
-
-        </div>
+        <a
+            href="mailto:info@primaxfed.com"
+            class="btn btn-primary"
+        >
+            Contact Us
+        </a>
 
     </div>
 
 </section>
 
 
-<!-- =========================================================
+<!-- =========================
      FOOTER
-========================================================= -->
+========================= -->
 
 <footer>
 
-    <p>
-        © 2026 Miju Construction.
-        All Rights Reserved.
-    </p>
+    <div>
+        © <span id="current-year"></span>
+        Miju Construction. All Rights Reserved.
+    </div>
 
-    <p>
-        <a href="login.html">
-            Admin Login
-        </a>
-    </p>
+    <a
+        href="login.html"
+        class="footer-admin"
+    >
+        Admin Login
+    </a>
 
 </footer>
 
 
-<!-- =========================================================
-     SERVICE SAMPLE GALLERY
-========================================================= -->
+<!-- =========================
+     SERVICE GALLERY MODAL
+========================= -->
 
 <div
-    id="serviceModal"
-    class="service-modal"
+    id="service-modal"
+    class="modal"
 >
 
-    <div class="service-modal-inner">
+    <div class="modal-box">
 
-        <div class="service-modal-header">
+        <div class="modal-header">
 
-            <h2 id="modalServiceName">
-                Service
-            </h2>
+            <h3 id="modal-service-title">
+                Service Samples
+            </h3>
 
             <button
-                class="modal-close"
-                onclick="closeServiceGallery()"
+                type="button"
+                class="close-btn"
+                id="close-service-modal"
+                aria-label="Close"
             >
                 ×
             </button>
@@ -1325,33 +1225,28 @@ footer a {
 
         <div class="gallery-main">
 
-            <div
-                id="galleryMessage"
-                class="gallery-message"
-                style="display:none;"
-            ></div>
+            <button
+                type="button"
+                class="gallery-arrow gallery-prev"
+                id="gallery-prev"
+                aria-label="Previous image"
+            >
+                ‹
+            </button>
 
 
             <img
-                id="galleryMainImage"
+                id="gallery-main-image"
                 src=""
                 alt=""
             >
 
 
             <button
-                id="galleryPrev"
-                class="gallery-arrow gallery-prev"
-                onclick="previousGalleryImage()"
-            >
-                ‹
-            </button>
-
-
-            <button
-                id="galleryNext"
+                type="button"
                 class="gallery-arrow gallery-next"
-                onclick="nextGalleryImage()"
+                id="gallery-next"
+                aria-label="Next image"
             >
                 ›
             </button>
@@ -1360,14 +1255,8 @@ footer a {
 
 
         <div
-            id="galleryCounter"
-            class="gallery-counter"
-        ></div>
-
-
-        <div
-            id="galleryThumbnails"
-            class="gallery-thumbnails"
+            id="gallery-thumbs"
+            class="gallery-thumbs"
         ></div>
 
     </div>
@@ -1375,27 +1264,28 @@ footer a {
 </div>
 
 
-<!-- =========================================================
+<!-- =========================
      PROJECT LIGHTBOX
-========================================================= -->
+========================= -->
 
 <div
-    id="lightbox"
-    class="lightbox"
-    onclick="closeLightbox()"
+    id="project-lightbox"
+    class="project-lightbox"
 >
 
-    <span
+    <button
+        type="button"
+        id="lightbox-close"
         class="lightbox-close"
+        aria-label="Close"
     >
         ×
-    </span>
+    </button>
 
     <img
-        id="lightboxImage"
+        id="lightbox-image"
         src=""
         alt=""
-        onclick="event.stopPropagation()"
     >
 
 </div>
@@ -1414,19 +1304,10 @@ const SUPABASE_KEY =
     "sb_publishable_wCblAx3NmcI7V8dR-_VL_w_vFmvfdhV";
 
 const supabaseClient =
-    supabase.createClient(
+    window.supabase.createClient(
         SUPABASE_URL,
         SUPABASE_KEY
     );
-
-
-/* =========================================================
-   GALLERY VARIABLES
-========================================================= */
-
-let currentGallery = [];
-
-let currentGalleryIndex = 0;
 
 
 /* =========================================================
@@ -1436,79 +1317,151 @@ let currentGalleryIndex = 0;
 const serviceDescriptions = {
 
     "kitchen-remodeling":
-        "Kitchen renovation, cabinets, countertops, islands and complete kitchen improvements.",
+        "Kitchen remodeling and renovation solutions designed around your space and needs.",
 
     "bathroom-remodeling":
-        "Bathroom renovation including showers, vanities, tile, flooring and complete remodeling.",
+        "Bathroom remodeling and renovation including updates, improvements and finishes.",
 
     "flooring":
-        "Professional flooring installation and replacement for residential and commercial spaces.",
+        "Flooring installation and replacement for residential and commercial spaces.",
 
     "interior-painting":
-        "Interior painting and finishing for homes, offices and commercial properties.",
+        "Professional interior painting for walls, ceilings and finished spaces.",
 
     "drywall-ceiling":
-        "Drywall installation, repair, ceiling work and interior surface improvements.",
+        "Drywall installation, repair and ceiling improvement services.",
 
     "general-interior-renovation":
-        "Interior remodeling and improvements for residential and commercial properties.",
+        "General interior renovation and remodeling for a wide range of projects.",
 
     "concrete":
-        "Concrete work including driveways, walkways, patios and other exterior improvements.",
+        "Concrete work for driveways, patios, walkways and other exterior improvements.",
 
     "roofing":
-        "Roofing installation, repair, maintenance and insulation solutions.",
+        "Roofing installation, repair and improvement services.",
 
     "stucco-siding":
-        "Stucco and siding installation, repair and exterior wall improvements.",
+        "Stucco and siding installation, repair and exterior improvements.",
 
     "exterior-painting":
-        "Exterior painting for homes, buildings and commercial properties.",
+        "Exterior painting services designed to improve and protect your property.",
 
     "fences-gates":
-        "Fence and gate installation, repair and exterior property improvements.",
+        "Fence and gate installation, replacement and repair services.",
 
     "waterproofing-repairs":
-        "Waterproofing, exterior repairs and protection against moisture and water damage."
+        "Waterproofing and exterior repair solutions to help protect your property."
 };
 
 
 /* =========================================================
-   SERVICE ORDER
+   FALLBACK SERVICE DATA
 ========================================================= */
 
-const interiorOrder = [
+const fallbackServices = [
 
-    "kitchen-remodeling",
+    {
+        category: "Interior",
+        service_key: "kitchen-remodeling",
+        service_name: "Kitchen Remodeling"
+    },
 
-    "bathroom-remodeling",
+    {
+        category: "Interior",
+        service_key: "bathroom-remodeling",
+        service_name: "Bathroom Remodeling"
+    },
 
-    "flooring",
+    {
+        category: "Interior",
+        service_key: "flooring",
+        service_name: "Flooring"
+    },
 
-    "interior-painting",
+    {
+        category: "Interior",
+        service_key: "interior-painting",
+        service_name: "Interior Painting"
+    },
 
-    "drywall-ceiling",
+    {
+        category: "Interior",
+        service_key: "drywall-ceiling",
+        service_name: "Drywall & Ceiling"
+    },
 
-    "general-interior-renovation"
+    {
+        category: "Interior",
+        service_key: "general-interior-renovation",
+        service_name: "General Interior Renovation"
+    },
 
+    {
+        category: "Exterior",
+        service_key: "concrete",
+        service_name: "Concrete"
+    },
+
+    {
+        category: "Exterior",
+        service_key: "roofing",
+        service_name: "Roofing"
+    },
+
+    {
+        category: "Exterior",
+        service_key: "stucco-siding",
+        service_name: "Stucco & Siding"
+    },
+
+    {
+        category: "Exterior",
+        service_key: "exterior-painting",
+        service_name: "Exterior Painting"
+    },
+
+    {
+        category: "Exterior",
+        service_key: "fences-gates",
+        service_name: "Fences & Gates"
+    },
+
+    {
+        category: "Exterior",
+        service_key: "waterproofing-repairs",
+        service_name: "Waterproofing & Repairs"
+    }
 ];
 
 
-const exteriorOrder = [
+/* =========================================================
+   HTML ESCAPE
+========================================================= */
 
-    "concrete",
+function escapeHTML(value) {
 
-    "roofing",
+    if (value === null || value === undefined) {
+        return "";
+    }
 
-    "stucco-siding",
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
 
-    "exterior-painting",
 
-    "fences-gates",
+/* =========================================================
+   SERVICE DATA
+========================================================= */
 
-    "waterproofing-repairs"
+let allServices = [];
 
-];
+let currentGalleryImages = [];
+
+let currentGalleryIndex = 0;
 
 
 /* =========================================================
@@ -1517,173 +1470,177 @@ const exteriorOrder = [
 
 async function loadServices() {
 
-    const {
-        data,
-        error
-    } = await supabaseClient
-        .from("construction_service_photos")
-        .select("*");
+    const interiorContainer =
+        document.getElementById("interior-services");
+
+    const exteriorContainer =
+        document.getElementById("exterior-services");
 
 
-    if (error) {
+    let services = [];
+
+
+    try {
+
+        const { data, error } =
+            await supabaseClient
+                .from("construction_service_photos")
+                .select(
+                    "category,service_key,service_name,image_url"
+                );
+
+        if (error) {
+            throw error;
+        }
+
+        services = data || [];
+
+    } catch (error) {
 
         console.error(
-            "Unable to load services:",
+            "Service loading error:",
             error
         );
 
-        return;
     }
 
 
+    /*
+       If the database cannot be loaded,
+       still show the 12 service cards.
+    */
+
     const serviceMap = {};
 
-    data.forEach(service => {
+    services.forEach(service => {
 
-        serviceMap[
-            service.service_key
-        ] = service;
+        serviceMap[service.service_key] = service;
 
     });
 
 
-    renderServices(
-        interiorOrder,
-        serviceMap,
-        "interiorServices"
+    allServices =
+        fallbackServices.map(service => {
+
+            return {
+                ...service,
+                image_url:
+                    serviceMap[service.service_key]
+                        ? serviceMap[service.service_key].image_url
+                        : null
+            };
+
+        });
+
+
+    renderServiceCategory(
+        "Interior",
+        interiorContainer
     );
 
-
-    renderServices(
-        exteriorOrder,
-        serviceMap,
-        "exteriorServices"
+    renderServiceCategory(
+        "Exterior",
+        exteriorContainer
     );
 }
 
 
 /* =========================================================
-   RENDER SERVICES
+   RENDER SERVICE CATEGORY
 ========================================================= */
 
-function renderServices(
-    order,
-    serviceMap,
-    containerId
+function renderServiceCategory(
+    category,
+    container
 ) {
 
-    const container =
-        document.getElementById(
-            containerId
+    const services =
+        allServices.filter(
+            service =>
+                service.category === category
         );
 
 
-    container.innerHTML = "";
+    if (!services.length) {
+
+        container.innerHTML =
+            '<div class="project-empty">No services available.</div>';
+
+        return;
+    }
 
 
-    order.forEach(serviceKey => {
+    container.innerHTML =
+        services.map(service => {
 
-        const service =
-            serviceMap[serviceKey];
-
-
-        if (!service)
-            return;
+            const image =
+                service.image_url ||
+                "images/construction-hero.jpg";
 
 
-        const card =
-            document.createElement("div");
-
-        card.className =
-            "service-card";
-
-
-        const description =
-            serviceDescriptions[
-                service.service_key
-            ] ||
-            "Professional construction and remodeling services.";
+            const description =
+                serviceDescriptions[
+                    service.service_key
+                ] ||
+                "Professional construction and remodeling services.";
 
 
-        let imageHTML;
-
-
-        if (service.image_url) {
-
-            imageHTML = `
-
-                <img
-                    class="service-card-image"
-                    src="${escapeHTML(
-                        service.image_url
-                    )}"
-                    alt="${escapeHTML(
-                        service.service_name
-                    )}"
-                >
-
-            `;
-
-        } else {
-
-            imageHTML = `
-
+            return `
                 <div
-                    class="service-placeholder"
+                    class="service-card"
+                    data-service-key="${escapeHTML(service.service_key)}"
                 >
-                    Miju Construction
-                </div>
 
+                    <div class="service-image">
+
+                        <img
+                            src="${escapeHTML(image)}"
+                            alt="${escapeHTML(service.service_name)}"
+                            loading="lazy"
+                            onerror="this.src='images/construction-hero.jpg';"
+                        >
+
+                    </div>
+
+
+                    <div class="service-content">
+
+                        <h4>
+                            ${escapeHTML(service.service_name)}
+                        </h4>
+
+                        <p>
+                            ${escapeHTML(description)}
+                        </p>
+
+                        <div class="view-samples">
+                            View Sample Work →
+                        </div>
+
+                    </div>
+
+                </div>
             `;
-        }
+
+        }).join("");
 
 
-        card.innerHTML = `
+    container
+        .querySelectorAll(".service-card")
+        .forEach(card => {
 
-            ${imageHTML}
+            card.addEventListener(
+                "click",
+                function() {
 
+                    openServiceGallery(
+                        this.dataset.serviceKey
+                    );
 
-            <div class="service-info">
+                }
+            );
 
-                <h4>
-                    ${escapeHTML(
-                        service.service_name
-                    )}
-                </h4>
-
-
-                <p>
-                    ${escapeHTML(
-                        description
-                    )}
-                </p>
-
-
-                <div class="click-note">
-                    Click to view sample photos →
-                </div>
-
-            </div>
-
-        `;
-
-
-        card.addEventListener(
-            "click",
-            function() {
-
-                openServiceGallery(
-                    service.service_key,
-                    service.service_name,
-                    service.image_url
-                );
-
-            }
-        );
-
-
-        container.appendChild(card);
-    });
+        });
 }
 
 
@@ -1692,110 +1649,95 @@ function renderServices(
 ========================================================= */
 
 async function openServiceGallery(
-    serviceKey,
-    serviceName,
-    representativeImage
+    serviceKey
 ) {
 
-    currentGallery = [];
+    const service =
+        allServices.find(
+            item =>
+                item.service_key === serviceKey
+        );
+
+
+    if (!service) {
+        return;
+    }
+
+
+    document.getElementById(
+        "modal-service-title"
+    ).textContent =
+        service.service_name;
+
+
+    const modal =
+        document.getElementById(
+            "service-modal"
+        );
+
+
+    modal.classList.add("active");
+
+
+    currentGalleryImages = [];
 
     currentGalleryIndex = 0;
 
 
-    document.getElementById(
-        "modalServiceName"
-    ).textContent =
-        serviceName;
-
-
-    document.getElementById(
-        "serviceModal"
-    ).classList.add("active");
-
-
-    document.body.style.overflow =
-        "hidden";
-
-
     const mainImage =
         document.getElementById(
-            "galleryMainImage"
+            "gallery-main-image"
         );
 
-
-    const message =
+    const thumbs =
         document.getElementById(
-            "galleryMessage"
+            "gallery-thumbs"
         );
 
 
-    const thumbnails =
-        document.getElementById(
-            "galleryThumbnails"
-        );
+    mainImage.src = "";
 
-
-    const counter =
-        document.getElementById(
-            "galleryCounter"
-        );
-
-
-    mainImage.style.display =
-        "none";
-
-
-    message.style.display =
-        "none";
-
-
-    thumbnails.innerHTML =
-        "";
-
-
-    counter.textContent =
-        "Loading sample photos...";
+    thumbs.innerHTML =
+        '<div style="color:#fff;padding:10px;">Loading...</div>';
 
 
     try {
 
-        const {
-            data,
-            error
-        } = await supabaseClient
-            .from(
-                "construction_service_sample_photos"
-            )
-            .select("image_url")
-            .eq(
-                "service_key",
-                serviceKey
-            )
-            .order("sort_order")
-            .order("created_at");
+        const { data, error } =
+            await supabaseClient
+                .from(
+                    "construction_service_sample_photos"
+                )
+                .select(
+                    "id,image_url,sort_order"
+                )
+                .eq(
+                    "service_key",
+                    serviceKey
+                )
+                .order(
+                    "sort_order",
+                    {
+                        ascending: true
+                    }
+                );
 
 
-        if (
-            !error &&
-            data &&
-            data.length > 0
-        ) {
-
-            currentGallery =
-                data
-                    .map(
-                        item =>
-                            item.image_url
-                    )
-                    .filter(Boolean);
-
+        if (error) {
+            throw error;
         }
+
+
+        currentGalleryImages =
+            (data || [])
+                .map(row => row.image_url)
+                .filter(Boolean);
 
 
     } catch (error) {
 
         console.error(
-            "Gallery load error:",
+            "Sample photo loading error:",
             error
         );
 
@@ -1803,81 +1745,41 @@ async function openServiceGallery(
 
 
     /*
-       If sample gallery is empty,
-       use the representative photo.
+       If no sample photos exist,
+       use the representative service photo.
     */
 
     if (
-        currentGallery.length === 0 &&
-        representativeImage
+        currentGalleryImages.length === 0 &&
+        service.image_url
     ) {
 
-        currentGallery = [
-            representativeImage
+        currentGalleryImages = [
+            service.image_url
         ];
+
     }
 
 
-    /*
-       No photos at all.
-    */
-
     if (
-        currentGallery.length === 0
+        currentGalleryImages.length === 0
     ) {
 
-        mainImage.style.display =
-            "none";
+        thumbs.innerHTML = `
+            <div style="
+                color:#fff;
+                padding:15px;
+                width:100%;
+                text-align:center;
+            ">
+                Sample photos coming soon.
+            </div>
+        `;
 
-
-        message.style.display =
-            "block";
-
-
-        message.textContent =
-            "Sample photos coming soon.";
-
-
-        counter.textContent =
-            "";
-
-
-        document.getElementById(
-            "galleryPrev"
-        ).style.display = "none";
-
-
-        document.getElementById(
-            "galleryNext"
-        ).style.display = "none";
-
+        mainImage.removeAttribute("src");
 
         return;
     }
-
-
-    /*
-       Photos available.
-    */
-
-    message.style.display =
-        "none";
-
-
-    mainImage.style.display =
-        "block";
-
-
-    document.getElementById(
-        "galleryPrev"
-    ).style.display =
-        "block";
-
-
-    document.getElementById(
-        "galleryNext"
-    ).style.display =
-        "block";
 
 
     renderGallery();
@@ -1890,137 +1792,86 @@ async function openServiceGallery(
 
 function renderGallery() {
 
-    if (
-        currentGallery.length === 0
-    ) {
-        return;
-    }
-
-
     const mainImage =
         document.getElementById(
-            "galleryMainImage"
+            "gallery-main-image"
+        );
+
+    const thumbs =
+        document.getElementById(
+            "gallery-thumbs"
         );
 
 
-    mainImage.src =
-        currentGallery[
+    const current =
+        currentGalleryImages[
             currentGalleryIndex
         ];
 
 
+    mainImage.src = current;
+
+
     mainImage.alt =
         document.getElementById(
-            "modalServiceName"
+            "modal-service-title"
         ).textContent;
 
 
-    document.getElementById(
-        "galleryCounter"
-    ).textContent =
-        `${currentGalleryIndex + 1} / ${currentGallery.length}`;
+    thumbs.innerHTML =
+        currentGalleryImages
+            .map((image, index) => {
+
+                return `
+                    <div
+                        class="gallery-thumb ${
+                            index === currentGalleryIndex
+                                ? "active"
+                                : ""
+                        }"
+                        data-index="${index}"
+                    >
+                        <img
+                            src="${escapeHTML(image)}"
+                            alt=""
+                        >
+                    </div>
+                `;
+
+            })
+            .join("");
 
 
-    const thumbnails =
-        document.getElementById(
-            "galleryThumbnails"
-        );
+    thumbs
+        .querySelectorAll(".gallery-thumb")
+        .forEach(thumb => {
 
-
-    thumbnails.innerHTML =
-        "";
-
-
-    currentGallery.forEach(
-        function(url, index) {
-
-            const img =
-                document.createElement(
-                    "img"
-                );
-
-
-            img.src =
-                url;
-
-
-            img.alt =
-                "Sample photo " +
-                (index + 1);
-
-
-            if (
-                index ===
-                currentGalleryIndex
-            ) {
-
-                img.classList.add(
-                    "active"
-                );
-            }
-
-
-            img.addEventListener(
+            thumb.addEventListener(
                 "click",
-                function(event) {
-
-                    event.stopPropagation();
+                function() {
 
                     currentGalleryIndex =
-                        index;
+                        Number(
+                            this.dataset.index
+                        );
 
                     renderGallery();
 
                 }
             );
 
-
-            thumbnails.appendChild(
-                img
-            );
-
-        }
-    );
+        });
 }
 
 
 /* =========================================================
-   PREVIOUS
+   GALLERY NEXT / PREVIOUS
 ========================================================= */
 
-function previousGalleryImage() {
+function galleryNext() {
 
     if (
-        currentGallery.length <= 1
-    ) {
-        return;
-    }
-
-
-    currentGalleryIndex--;
-
-
-    if (
-        currentGalleryIndex < 0
-    ) {
-
-        currentGalleryIndex =
-            currentGallery.length - 1;
-    }
-
-
-    renderGallery();
-}
-
-
-/* =========================================================
-   NEXT
-========================================================= */
-
-function nextGalleryImage() {
-
-    if (
-        currentGallery.length <= 1
+        currentGalleryImages.length === 0
     ) {
         return;
     }
@@ -2028,12 +1879,10 @@ function nextGalleryImage() {
 
     currentGalleryIndex++;
 
-
     if (
         currentGalleryIndex >=
-        currentGallery.length
+        currentGalleryImages.length
     ) {
-
         currentGalleryIndex = 0;
     }
 
@@ -2042,73 +1891,401 @@ function nextGalleryImage() {
 }
 
 
-/* =========================================================
-   CLOSE SERVICE GALLERY
-========================================================= */
+function galleryPrevious() {
 
-function closeServiceGallery() {
-
-    document.getElementById(
-        "serviceModal"
-    ).classList.remove("active");
+    if (
+        currentGalleryImages.length === 0
+    ) {
+        return;
+    }
 
 
-    document.body.style.overflow =
-        "";
+    currentGalleryIndex--;
+
+    if (currentGalleryIndex < 0) {
+
+        currentGalleryIndex =
+            currentGalleryImages.length - 1;
+
+    }
 
 
-    currentGallery = [];
-
-    currentGalleryIndex = 0;
+    renderGallery();
 }
 
 
 /* =========================================================
-   KEYBOARD CONTROLS
+   CLOSE SERVICE MODAL
+========================================================= */
+
+function closeServiceModal() {
+
+    document
+        .getElementById("service-modal")
+        .classList.remove("active");
+
+}
+
+
+document
+    .getElementById("close-service-modal")
+    .addEventListener(
+        "click",
+        closeServiceModal
+    );
+
+
+document
+    .getElementById("gallery-next")
+    .addEventListener(
+        "click",
+        galleryNext
+    );
+
+
+document
+    .getElementById("gallery-prev")
+    .addEventListener(
+        "click",
+        galleryPrevious
+    );
+
+
+document
+    .getElementById("service-modal")
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+                closeServiceModal();
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+async function loadProjects() {
+
+    const container =
+        document.getElementById(
+            "project-grid"
+        );
+
+
+    try {
+
+        const { data, error } =
+            await supabaseClient
+                .from("construction_projects")
+                .select("*")
+                .eq("published", true)
+                .order(
+                    "created_at",
+                    {
+                        ascending: false
+                    }
+                );
+
+
+        if (error) {
+            throw error;
+        }
+
+
+        const projects = data || [];
+
+
+        if (!projects.length) {
+
+            container.innerHTML = `
+                <div class="project-empty">
+                    Completed projects will be displayed here.
+                </div>
+            `;
+
+            return;
+        }
+
+
+        container.innerHTML =
+            projects.map(
+                project => {
+
+                    let images = [];
+
+
+                    if (
+                        Array.isArray(
+                            project.image_urls
+                        )
+                    ) {
+
+                        images =
+                            project.image_urls;
+
+                    } else if (
+                        typeof project.image_urls ===
+                        "string"
+                    ) {
+
+                        try {
+
+                            const parsed =
+                                JSON.parse(
+                                    project.image_urls
+                                );
+
+                            if (
+                                Array.isArray(parsed)
+                            ) {
+
+                                images = parsed;
+
+                            }
+
+                        } catch (e) {
+
+                            /*
+                               Ignore invalid JSON.
+                            */
+
+                        }
+
+                    }
+
+
+                    const firstImage =
+                        images.length
+                            ? images[0]
+                            : "images/construction-hero.jpg";
+
+
+                    const title =
+                        project.title ||
+                        project.name ||
+                        "Completed Project";
+
+
+                    const location =
+                        project.location ||
+                        "";
+
+
+                    return `
+                        <div class="project-card">
+
+                            <div
+                                class="project-main-image"
+                                data-project-image="${escapeHTML(firstImage)}"
+                            >
+
+                                <img
+                                    src="${escapeHTML(firstImage)}"
+                                    alt="${escapeHTML(title)}"
+                                    loading="lazy"
+                                    onerror="this.src='images/construction-hero.jpg';"
+                                >
+
+                            </div>
+
+
+                            <div class="project-info">
+
+                                <h3>
+                                    ${escapeHTML(title)}
+                                </h3>
+
+                                ${
+                                    location
+                                        ? `
+                                            <div class="project-location">
+                                                ${escapeHTML(location)}
+                                            </div>
+                                          `
+                                        : ""
+                                }
+
+                            </div>
+
+                        </div>
+                    `;
+
+                }
+            ).join("");
+
+
+        container
+            .querySelectorAll(
+                ".project-main-image"
+            )
+            .forEach(imageBox => {
+
+                imageBox.addEventListener(
+                    "click",
+                    function() {
+
+                        openProjectLightbox(
+                            this.dataset.projectImage
+                        );
+
+                    }
+                );
+
+            });
+
+
+    } catch (error) {
+
+        console.error(
+            "Project loading error:",
+            error
+        );
+
+
+        container.innerHTML = `
+            <div class="project-empty">
+                Completed projects will be displayed here.
+            </div>
+        `;
+
+    }
+
+}
+
+
+/* =========================================================
+   PROJECT LIGHTBOX
+========================================================= */
+
+function openProjectLightbox(
+    imageUrl
+) {
+
+    const lightbox =
+        document.getElementById(
+            "project-lightbox"
+        );
+
+    const image =
+        document.getElementById(
+            "lightbox-image"
+        );
+
+
+    image.src = imageUrl;
+
+    lightbox.classList.add("active");
+}
+
+
+function closeProjectLightbox() {
+
+    document
+        .getElementById(
+            "project-lightbox"
+        )
+        .classList.remove("active");
+
+}
+
+
+document
+    .getElementById(
+        "lightbox-close"
+    )
+    .addEventListener(
+        "click",
+        closeProjectLightbox
+    );
+
+
+document
+    .getElementById(
+        "project-lightbox"
+    )
+    .addEventListener(
+        "click",
+        function(event) {
+
+            if (
+                event.target === this
+            ) {
+
+                closeProjectLightbox();
+
+            }
+
+        }
+    );
+
+
+/* =========================================================
+   KEYBOARD
 ========================================================= */
 
 document.addEventListener(
     "keydown",
     function(event) {
 
-        const modal =
+        const serviceModal =
             document.getElementById(
-                "serviceModal"
+                "service-modal"
+            );
+
+        const lightbox =
+            document.getElementById(
+                "project-lightbox"
             );
 
 
         if (
-            !modal.classList.contains(
+            serviceModal.classList.contains(
                 "active"
             )
         ) {
-            return;
+
+            if (
+                event.key === "ArrowRight"
+            ) {
+
+                galleryNext();
+
+            }
+
+            if (
+                event.key === "ArrowLeft"
+            ) {
+
+                galleryPrevious();
+
+            }
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeServiceModal();
+
+            }
+
         }
 
 
         if (
-            event.key === "ArrowLeft"
-        ) {
-
-            previousGalleryImage();
-
-        }
-
-
-        if (
-            event.key === "ArrowRight"
-        ) {
-
-            nextGalleryImage();
-
-        }
-
-
-        if (
+            lightbox.classList.contains(
+                "active"
+            ) &&
             event.key === "Escape"
         ) {
 
-            closeServiceGallery();
+            closeProjectLightbox();
 
         }
 
@@ -2117,317 +2294,22 @@ document.addEventListener(
 
 
 /* =========================================================
-   CLICK OUTSIDE SERVICE MODAL
+   YEAR
 ========================================================= */
 
-document
-    .getElementById("serviceModal")
-    .addEventListener(
-        "click",
-        function(event) {
-
-            if (
-                event.target ===
-                this
-            ) {
-
-                closeServiceGallery();
-
-            }
-
-        }
-    );
-
-
-/* =========================================================
-   LOAD COMPLETED PROJECTS
-========================================================= */
-
-async function loadProjects() {
-
-    const {
-        data,
-        error
-    } = await supabaseClient
-        .from("construction_projects")
-        .select("*")
-        .eq("published", true)
-        .order("sort_order")
-        .order("created_at", {
-            ascending: false
-        });
-
-
-    const container =
-        document.getElementById(
-            "projectsGrid"
-        );
-
-
-    if (error) {
-
-        console.error(
-            "Unable to load projects:",
-            error
-        );
-
-
-        container.innerHTML = `
-
-            <div class="empty">
-                Unable to load completed projects.
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    container.innerHTML =
-        "";
-
-
-    if (
-        !data ||
-        data.length === 0
-    ) {
-
-        container.innerHTML = `
-
-            <div class="empty">
-                Completed projects will be added soon.
-            </div>
-
-        `;
-
-        return;
-    }
-
-
-    data.forEach(
-        function(project) {
-
-            const card =
-                document.createElement(
-                    "div"
-                );
-
-
-            card.className =
-                "project-card";
-
-
-            const images =
-                Array.isArray(
-                    project.image_urls
-                )
-                ?
-                project.image_urls
-                :
-                [];
-
-
-            let photoHTML =
-                "";
-
-
-            images.forEach(
-                function(url, index) {
-
-                    photoHTML += `
-
-                        <img
-                            src="${escapeHTML(url)}"
-                            alt="${escapeHTML(
-                                project.title ||
-                                "Completed Project"
-                            )}"
-                            onclick="openLightbox(
-                                '${escapeAttribute(url)}'
-                            )"
-                        >
-
-                    `;
-
-                }
-            );
-
-
-            let photoSection =
-                "";
-
-
-            if (
-                images.length > 0
-            ) {
-
-                photoSection = `
-
-                    <div class="project-photo-grid">
-
-                        ${photoHTML}
-
-                    </div>
-
-                `;
-
-            }
-
-
-            card.innerHTML = `
-
-                ${photoSection}
-
-
-                <div class="project-info">
-
-                    <h3>
-                        ${escapeHTML(
-                            project.title || ""
-                        )}
-                    </h3>
-
-
-                    ${
-                        project.location
-                        ?
-                        `
-                        <div class="project-location">
-
-                            ${escapeHTML(
-                                project.location
-                            )}
-
-                        </div>
-                        `
-                        :
-                        ""
-                    }
-
-
-                    ${
-                        project.description
-                        ?
-                        `
-                        <p>
-
-                            ${escapeHTML(
-                                project.description
-                            )}
-
-                        </p>
-                        `
-                        :
-                        ""
-                    }
-
-                </div>
-
-            `;
-
-
-            container.appendChild(
-                card
-            );
-
-        }
-    );
-}
-
-
-/* =========================================================
-   PROJECT LIGHTBOX
-========================================================= */
-
-function openLightbox(url) {
-
-    document.getElementById(
-        "lightboxImage"
-    ).src = url;
-
-
-    document.getElementById(
-        "lightbox"
-    ).classList.add(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "hidden";
-}
-
-
-function closeLightbox() {
-
-    document.getElementById(
-        "lightbox"
-    ).classList.remove(
-        "active"
-    );
-
-
-    document.body.style.overflow =
-        "";
-}
-
-
-/* =========================================================
-   ESCAPE HTML
-========================================================= */
-
-function escapeHTML(value) {
-
-    return String(value || "")
-        .replace(
-            /&/g,
-            "&amp;"
-        )
-        .replace(
-            /</g,
-            "&lt;"
-        )
-        .replace(
-            />/g,
-            "&gt;"
-        )
-        .replace(
-            /"/g,
-            "&quot;"
-        )
-        .replace(
-            /'/g,
-            "&#039;"
-        );
-}
-
-
-function escapeAttribute(value) {
-
-    return String(value || "")
-        .replace(
-            /\\/g,
-            "\\\\"
-        )
-        .replace(
-            /'/g,
-            "\\'"
-        );
-}
+document.getElementById(
+    "current-year"
+).textContent =
+    new Date().getFullYear();
 
 
 /* =========================================================
    START
 ========================================================= */
 
-(async function init() {
+loadServices();
 
-    await loadServices();
-
-    await loadProjects();
-
-})();
+loadProjects();
 
 </script>
 
