@@ -12,6 +12,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -45,21 +46,26 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
+
     background: #111;
     color: #fff;
+
     box-shadow: 0 2px 10px rgba(0,0,0,.18);
 }
 
 .header-inner {
     max-width: 1200px;
     margin: 0 auto;
+
     padding: 0 22px;
+
     min-height: 72px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 25px;
+
+    gap: 20px;
 }
 
 .logo {
@@ -76,48 +82,73 @@ header {
 nav {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 22px;
 }
 
 nav a {
     color: #fff;
     font-size: 14px;
     font-weight: 600;
-    transition: opacity .2s;
 }
 
 nav a:hover {
     opacity: .7;
 }
 
+.back-to-primax {
+    padding: 8px 13px;
+
+    border: 1px solid #d4a017;
+    border-radius: 4px;
+
+    color: #d4a017 !important;
+
+    font-weight: 700;
+    white-space: nowrap;
+
+    transition:
+        background .2s,
+        color .2s;
+}
+
+.back-to-primax:hover {
+    background: #d4a017;
+    color: #111 !important;
+}
+
+
 /* =========================
    HERO
 ========================= */
 
 .hero {
-    background: #1a1a1a;
+    background: #111;
     color: #fff;
 }
 
 .hero-inner {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
 
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 560px;
+    min-height: 390px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 70px 25px;
 }
 
 .hero-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 70px 45px;
+    max-width: 800px;
 }
 
 .hero-content h1 {
     margin: 0 0 20px;
-    font-size: clamp(38px, 5vw, 64px);
+
+    font-size: clamp(40px, 6vw, 64px);
     line-height: 1.05;
 }
 
@@ -126,25 +157,37 @@ nav a:hover {
 }
 
 .hero-content p {
-    margin: 0 0 30px;
-    max-width: 570px;
+    margin: 0 auto 30px;
+
+    max-width: 700px;
+
     color: #ddd;
+
     font-size: 18px;
 }
 
 .hero-buttons {
     display: flex;
+
+    justify-content: center;
+
     gap: 12px;
+
     flex-wrap: wrap;
 }
 
 .btn {
     display: inline-block;
+
     padding: 13px 22px;
+
     border-radius: 4px;
+
     font-size: 14px;
     font-weight: 700;
+
     cursor: pointer;
+
     border: 1px solid transparent;
 }
 
@@ -159,26 +202,18 @@ nav a:hover {
     border-color: #777;
 }
 
-.hero-image {
-    min-height: 560px;
-    overflow: hidden;
-    background: #222;
+.btn-secondary:hover {
+    background: #fff;
+    color: #111;
 }
 
-.hero-image img {
-    width: 100%;
-    height: 100%;
-    min-height: 560px;
-    display: block;
-    object-fit: cover;
-}
 
 /* =========================
    GENERAL
 ========================= */
 
 .section {
-    padding: 80px 22px;
+    padding: 75px 22px;
 }
 
 .section-inner {
@@ -193,15 +228,19 @@ nav a:hover {
 
 .section-title h2 {
     margin: 0 0 10px;
+
     font-size: 36px;
     line-height: 1.2;
 }
 
 .section-title p {
     margin: 0 auto;
+
     max-width: 700px;
+
     color: #666;
 }
+
 
 /* =========================
    ABOUT
@@ -211,35 +250,30 @@ nav a:hover {
     background: #f7f7f7;
 }
 
-.about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 50px;
-    align-items: center;
+.about-content {
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    text-align: center;
 }
 
-.about-text h2 {
+.about-content h2 {
     margin-top: 0;
+
     font-size: 36px;
     line-height: 1.2;
 }
 
-.about-text p {
+.about-content p {
     color: #555;
+
+    max-width: 780px;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.about-image {
-    overflow: hidden;
-    border-radius: 6px;
-    background: #ddd;
-}
-
-.about-image img {
-    width: 100%;
-    height: 390px;
-    object-fit: cover;
-    display: block;
-}
 
 /* =========================
    SERVICES
@@ -256,32 +290,43 @@ nav a:hover {
 .category-title {
     display: flex;
     align-items: center;
+
     gap: 15px;
+
     margin-bottom: 25px;
 }
 
 .category-title h3 {
     margin: 0;
+
     font-size: 28px;
 }
 
 .category-line {
     height: 2px;
+
     flex: 1;
+
     background: #ddd;
 }
 
 .service-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 24px;
 }
 
 .service-card {
     background: #fff;
+
     border: 1px solid #e5e5e5;
+
     border-radius: 6px;
+
     overflow: hidden;
+
     cursor: pointer;
 
     box-shadow: 0 4px 15px rgba(0,0,0,.06);
@@ -293,20 +338,39 @@ nav a:hover {
 
 .service-card:hover {
     transform: translateY(-4px);
+
     box-shadow: 0 8px 25px rgba(0,0,0,.12);
 }
 
 .service-image {
     height: 220px;
+
     background: #eee;
+
     overflow: hidden;
 }
 
 .service-image img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
+}
+
+.service-image-empty {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    color: #999;
+
+    font-size: 14px;
 }
 
 .service-content {
@@ -315,21 +379,28 @@ nav a:hover {
 
 .service-content h4 {
     margin: 0 0 8px;
+
     font-size: 20px;
 }
 
 .service-content p {
     margin: 0;
+
     color: #666;
+
     font-size: 14px;
 }
 
 .view-samples {
     margin-top: 15px;
+
     color: #b48600;
+
     font-weight: 700;
+
     font-size: 13px;
 }
+
 
 /* =========================
    PROJECTS
@@ -341,28 +412,38 @@ nav a:hover {
 
 .project-grid {
     display: grid;
+
     grid-template-columns: repeat(3, 1fr);
+
     gap: 25px;
 }
 
 .project-card {
     background: #fff;
+
     border-radius: 6px;
+
     overflow: hidden;
+
     box-shadow: 0 4px 15px rgba(0,0,0,.06);
 }
 
 .project-main-image {
     height: 240px;
+
     background: #ddd;
+
     overflow: hidden;
+
     cursor: pointer;
 }
 
 .project-main-image img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     display: block;
 }
 
@@ -372,19 +453,26 @@ nav a:hover {
 
 .project-info h3 {
     margin: 0 0 5px;
+
     font-size: 20px;
 }
 
 .project-location {
     color: #777;
+
     font-size: 14px;
 }
 
 .project-empty {
     text-align: center;
+
     color: #777;
+
     padding: 30px;
+
+    grid-column: 1 / -1;
 }
+
 
 /* =========================
    PROCESS
@@ -396,29 +484,37 @@ nav a:hover {
 
 .process-grid {
     display: grid;
+
     grid-template-columns: repeat(4, 1fr);
+
     gap: 25px;
 }
 
 .process-card {
     text-align: center;
+
     padding: 25px 15px;
 }
 
 .process-number {
     width: 55px;
     height: 55px;
+
     margin: 0 auto 15px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     border-radius: 50%;
+
     background: #d4a017;
+
     color: #111;
 
     font-weight: 800;
+
     font-size: 20px;
 }
 
@@ -428,9 +524,12 @@ nav a:hover {
 
 .process-card p {
     margin: 0;
+
     color: #666;
+
     font-size: 14px;
 }
+
 
 /* =========================
    CONTACT
@@ -438,24 +537,30 @@ nav a:hover {
 
 .contact {
     background: #111;
+
     color: #fff;
 }
 
 .contact-inner {
     max-width: 850px;
+
     margin: 0 auto;
+
     text-align: center;
 }
 
 .contact h2 {
     margin: 0 0 15px;
+
     font-size: 36px;
 }
 
 .contact p {
     color: #ccc;
+
     margin-bottom: 25px;
 }
+
 
 /* =========================
    FOOTER
@@ -463,15 +568,21 @@ nav a:hover {
 
 footer {
     background: #080808;
+
     color: #aaa;
+
     padding: 25px 22px;
+
     text-align: center;
+
     font-size: 13px;
 }
 
 .footer-admin {
     display: inline-block;
+
     margin-top: 8px;
+
     color: #777;
 }
 
@@ -479,18 +590,22 @@ footer {
     color: #d4a017;
 }
 
+
 /* =========================
-   MODAL
+   SERVICE GALLERY MODAL
 ========================= */
 
 .modal {
     position: fixed;
+
     inset: 0;
+
     z-index: 2000;
 
     background: rgba(0,0,0,.86);
 
     display: none;
+
     align-items: center;
     justify-content: center;
 
@@ -503,47 +618,64 @@ footer {
 
 .modal-box {
     width: min(1000px, 100%);
+
     max-height: 92vh;
 
     background: #fff;
+
     border-radius: 8px;
+
     overflow: hidden;
 
     display: flex;
+
     flex-direction: column;
 }
 
 .modal-header {
     padding: 18px 22px;
+
     background: #111;
+
     color: #fff;
 
     display: flex;
+
     align-items: center;
     justify-content: space-between;
+
     gap: 15px;
 }
 
 .modal-header h3 {
     margin: 0;
+
     font-size: 21px;
 }
 
 .close-btn {
     border: 0;
+
     background: transparent;
+
     color: #fff;
+
     font-size: 30px;
+
     cursor: pointer;
+
     line-height: 1;
 }
 
 .gallery-main {
     position: relative;
+
     height: min(62vh, 600px);
+
     background: #111;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 }
@@ -551,25 +683,32 @@ footer {
 .gallery-main img {
     width: 100%;
     height: 100%;
+
     object-fit: contain;
+
     display: block;
 }
 
 .gallery-arrow {
     position: absolute;
+
     top: 50%;
+
     transform: translateY(-50%);
 
     width: 48px;
     height: 48px;
 
     border: 0;
+
     border-radius: 50%;
 
     background: rgba(0,0,0,.65);
+
     color: #fff;
 
     font-size: 28px;
+
     cursor: pointer;
 }
 
@@ -587,20 +726,28 @@ footer {
 
 .gallery-thumbs {
     display: flex;
+
     gap: 10px;
+
     overflow-x: auto;
+
     padding: 12px;
+
     background: #222;
 }
 
 .gallery-thumb {
     width: 80px;
     height: 60px;
+
     flex: 0 0 auto;
 
     border: 2px solid transparent;
+
     cursor: pointer;
+
     overflow: hidden;
+
     border-radius: 3px;
 }
 
@@ -611,8 +758,10 @@ footer {
 .gallery-thumb img {
     width: 100%;
     height: 100%;
+
     object-fit: cover;
 }
+
 
 /* =========================
    PROJECT LIGHTBOX
@@ -620,12 +769,15 @@ footer {
 
 .project-lightbox {
     position: fixed;
+
     inset: 0;
+
     z-index: 3000;
 
     background: rgba(0,0,0,.92);
 
     display: none;
+
     align-items: center;
     justify-content: center;
 
@@ -639,21 +791,27 @@ footer {
 .project-lightbox img {
     max-width: 95vw;
     max-height: 90vh;
+
     object-fit: contain;
 }
 
 .lightbox-close {
     position: fixed;
+
     top: 20px;
     right: 25px;
 
     border: 0;
+
     background: transparent;
+
     color: #fff;
 
     font-size: 38px;
+
     cursor: pointer;
 }
+
 
 /* =========================
    LOADING
@@ -661,9 +819,14 @@ footer {
 
 .loading {
     text-align: center;
+
     padding: 30px;
+
     color: #777;
+
+    grid-column: 1 / -1;
 }
+
 
 /* =========================
    MOBILE
@@ -676,33 +839,11 @@ footer {
     }
 
     nav {
-        gap: 14px;
+        gap: 13px;
     }
 
     nav a {
         font-size: 12px;
-    }
-
-    .hero-inner {
-        grid-template-columns: 1fr;
-    }
-
-    .hero-content {
-        padding: 55px 25px;
-    }
-
-    .hero-image {
-        min-height: 350px;
-        height: 350px;
-    }
-
-    .hero-image img {
-        min-height: 350px;
-        height: 350px;
-    }
-
-    .about-grid {
-        grid-template-columns: 1fr;
     }
 
     .service-grid {
@@ -716,30 +857,38 @@ footer {
     .process-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
+
 
 @media (max-width: 600px) {
 
     .header-inner {
-        padding: 0 15px;
+        padding: 0 14px;
     }
 
     .logo {
-        font-size: 17px;
+        font-size: 16px;
     }
 
     nav {
-        gap: 10px;
+        gap: 8px;
     }
 
-    nav a:nth-child(1),
-    nav a:nth-child(3),
-    nav a:nth-child(4) {
+    nav a {
         display: none;
     }
 
-    .hero-content {
-        padding: 45px 20px;
+    .back-to-primax {
+        padding: 7px 10px;
+
+        font-size: 12px;
+    }
+
+    .hero-inner {
+        min-height: 340px;
+
+        padding: 55px 20px;
     }
 
     .hero-content h1 {
@@ -750,27 +899,6 @@ footer {
         font-size: 16px;
     }
 
-    /*
-       IMPORTANT:
-       Mobile image is explicitly given a height.
-       This prevents the construction image from
-       appearing to disappear on phones.
-    */
-    .hero-image {
-        width: 100%;
-        height: 300px;
-        min-height: 300px;
-        display: block;
-    }
-
-    .hero-image img {
-        width: 100%;
-        height: 300px;
-        min-height: 300px;
-        display: block;
-        object-fit: cover;
-    }
-
     .section {
         padding: 60px 16px;
     }
@@ -779,16 +907,13 @@ footer {
         font-size: 30px;
     }
 
-    .about-text h2 {
+    .about-content h2 {
         font-size: 30px;
-    }
-
-    .about-image img {
-        height: 280px;
     }
 
     .service-grid {
         grid-template-columns: 1fr;
+
         gap: 18px;
     }
 
@@ -815,34 +940,65 @@ footer {
     .gallery-arrow {
         width: 42px;
         height: 42px;
+
         font-size: 23px;
     }
+
 }
+
 </style>
 </head>
 
+
 <body>
+
 
 <!-- =========================
      HEADER
 ========================= -->
 
 <header>
+
     <div class="header-inner">
 
         <a href="index.html" class="logo">
             MIJU <span>CONSTRUCTION</span>
         </a>
 
+
         <nav>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#projects">Projects</a>
-            <a href="#process">Process</a>
-            <a href="#contact">Contact</a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="#services">
+                Services
+            </a>
+
+            <a href="#projects">
+                Projects
+            </a>
+
+            <a href="#process">
+                Process
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+            <a
+                href="https://primaxfed.com/index.html"
+                class="back-to-primax"
+            >
+                ← PrimaxFed
+            </a>
+
         </nav>
 
     </div>
+
 </header>
 
 
@@ -869,28 +1025,22 @@ footer {
 
             <div class="hero-buttons">
 
-                <a href="#services" class="btn btn-primary">
+                <a
+                    href="#services"
+                    class="btn btn-primary"
+                >
                     View Our Services
                 </a>
 
-                <a href="#contact" class="btn btn-secondary">
+                <a
+                    href="#contact"
+                    class="btn btn-secondary"
+                >
                     Contact Us
                 </a>
 
             </div>
 
-        </div>
-
-
-        <!-- REAL IMAGE - NOT A MARKDOWN LINK -->
-
-        <div class="hero-image">
-            <img
-                src="images/construction-hero.jpg"
-                alt="Miju Construction"
-                loading="eager"
-                onerror="this.style.display='none';"
-            >
         </div>
 
     </div>
@@ -902,47 +1052,34 @@ footer {
      ABOUT
 ========================= -->
 
-<section class="section about" id="about">
+<section
+    class="section about"
+    id="about"
+>
 
     <div class="section-inner">
 
-        <div class="about-grid">
+        <div class="about-content">
 
-            <div class="about-text">
+            <h2>
+                Quality Construction.<br>
+                Professional Results.
+            </h2>
 
-                <h2>
-                    Quality Construction.<br>
-                    Professional Results.
-                </h2>
+            <p>
+                Miju Construction provides professional
+                interior and exterior construction and
+                remodeling services for residential and
+                commercial properties.
+            </p>
 
-                <p>
-                    Miju Construction provides professional
-                    interior and exterior construction and
-                    remodeling services for residential and
-                    commercial properties.
-                </p>
-
-                <p>
-                    From kitchen and bathroom remodeling to
-                    roofing, concrete, painting, stucco and
-                    exterior improvements, we provide practical
-                    construction solutions tailored to each
-                    project.
-                </p>
-
-            </div>
-
-
-            <div class="about-image">
-
-                <img
-                    src="images/construction-hero.jpg"
-                    alt="Miju Construction construction services"
-                    loading="lazy"
-                    onerror="this.style.display='none';"
-                >
-
-            </div>
+            <p>
+                From kitchen and bathroom remodeling to
+                roofing, concrete, painting, stucco and
+                exterior improvements, we provide practical
+                construction solutions tailored to each
+                project.
+            </p>
 
         </div>
 
@@ -955,13 +1092,18 @@ footer {
      SERVICES
 ========================= -->
 
-<section class="section services" id="services">
+<section
+    class="section services"
+    id="services"
+>
 
     <div class="section-inner">
 
         <div class="section-title">
 
-            <h2>Our Services</h2>
+            <h2>
+                Our Services
+            </h2>
 
             <p>
                 Click any service to view sample construction
@@ -977,11 +1119,14 @@ footer {
 
             <div class="category-title">
 
-                <h3>Interior</h3>
+                <h3>
+                    Interior
+                </h3>
 
                 <div class="category-line"></div>
 
             </div>
+
 
             <div
                 id="interior-services"
@@ -1003,11 +1148,14 @@ footer {
 
             <div class="category-title">
 
-                <h3>Exterior</h3>
+                <h3>
+                    Exterior
+                </h3>
 
                 <div class="category-line"></div>
 
             </div>
+
 
             <div
                 id="exterior-services"
@@ -1031,13 +1179,18 @@ footer {
      COMPLETED PROJECTS
 ========================= -->
 
-<section class="section projects" id="projects">
+<section
+    class="section projects"
+    id="projects"
+>
 
     <div class="section-inner">
 
         <div class="section-title">
 
-            <h2>Completed Projects</h2>
+            <h2>
+                Completed Projects
+            </h2>
 
             <p>
                 A selection of completed construction
@@ -1045,6 +1198,7 @@ footer {
             </p>
 
         </div>
+
 
         <div
             id="project-grid"
@@ -1066,13 +1220,18 @@ footer {
      PROCESS
 ========================= -->
 
-<section class="section process" id="process">
+<section
+    class="section process"
+    id="process"
+>
 
     <div class="section-inner">
 
         <div class="section-title">
 
-            <h2>Our Process</h2>
+            <h2>
+                Our Process
+            </h2>
 
             <p>
                 A straightforward approach from consultation
@@ -1084,11 +1243,16 @@ footer {
 
         <div class="process-grid">
 
+
             <div class="process-card">
 
-                <div class="process-number">1</div>
+                <div class="process-number">
+                    1
+                </div>
 
-                <h3>Consultation</h3>
+                <h3>
+                    Consultation
+                </h3>
 
                 <p>
                     We discuss your project, goals,
@@ -1100,9 +1264,13 @@ footer {
 
             <div class="process-card">
 
-                <div class="process-number">2</div>
+                <div class="process-number">
+                    2
+                </div>
 
-                <h3>Planning</h3>
+                <h3>
+                    Planning
+                </h3>
 
                 <p>
                     We determine the appropriate
@@ -1114,9 +1282,13 @@ footer {
 
             <div class="process-card">
 
-                <div class="process-number">3</div>
+                <div class="process-number">
+                    3
+                </div>
 
-                <h3>Construction</h3>
+                <h3>
+                    Construction
+                </h3>
 
                 <p>
                     Our work is performed with
@@ -1128,9 +1300,13 @@ footer {
 
             <div class="process-card">
 
-                <div class="process-number">4</div>
+                <div class="process-number">
+                    4
+                </div>
 
-                <h3>Completion</h3>
+                <h3>
+                    Completion
+                </h3>
 
                 <p>
                     We complete the project and
@@ -1138,6 +1314,7 @@ footer {
                 </p>
 
             </div>
+
 
         </div>
 
@@ -1150,11 +1327,16 @@ footer {
      CONTACT
 ========================= -->
 
-<section class="section contact" id="contact">
+<section
+    class="section contact"
+    id="contact"
+>
 
     <div class="contact-inner">
 
-        <h2>Let's Talk About Your Project</h2>
+        <h2>
+            Let's Talk About Your Project
+        </h2>
 
         <p>
             Contact Miju Construction to discuss your
@@ -1180,9 +1362,12 @@ footer {
 <footer>
 
     <div>
-        © <span id="current-year"></span>
-        Miju Construction. All Rights Reserved.
+        ©
+        <span id="current-year"></span>
+        Miju Construction.
+        All Rights Reserved.
     </div>
+
 
     <a
         href="login.html"
@@ -1204,6 +1389,7 @@ footer {
 >
 
     <div class="modal-box">
+
 
         <div class="modal-header">
 
@@ -1282,6 +1468,7 @@ footer {
         ×
     </button>
 
+
     <img
         id="lightbox-image"
         src=""
@@ -1351,6 +1538,7 @@ const serviceDescriptions = {
 
     "waterproofing-repairs":
         "Waterproofing and exterior repair solutions to help protect your property."
+
 };
 
 
@@ -1431,6 +1619,7 @@ const fallbackServices = [
         service_key: "waterproofing-repairs",
         service_name: "Waterproofing & Repairs"
     }
+
 ];
 
 
@@ -1440,7 +1629,10 @@ const fallbackServices = [
 
 function escapeHTML(value) {
 
-    if (value === null || value === undefined) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
         return "";
     }
 
@@ -1454,7 +1646,7 @@ function escapeHTML(value) {
 
 
 /* =========================================================
-   SERVICE DATA
+   VARIABLES
 ========================================================= */
 
 let allServices = [];
@@ -1471,10 +1663,14 @@ let currentGalleryIndex = 0;
 async function loadServices() {
 
     const interiorContainer =
-        document.getElementById("interior-services");
+        document.getElementById(
+            "interior-services"
+        );
 
     const exteriorContainer =
-        document.getElementById("exterior-services");
+        document.getElementById(
+            "exterior-services"
+        );
 
 
     let services = [];
@@ -1484,16 +1680,21 @@ async function loadServices() {
 
         const { data, error } =
             await supabaseClient
-                .from("construction_service_photos")
+                .from(
+                    "construction_service_photos"
+                )
                 .select(
                     "category,service_key,service_name,image_url"
                 );
+
 
         if (error) {
             throw error;
         }
 
+
         services = data || [];
+
 
     } catch (error) {
 
@@ -1505,16 +1706,14 @@ async function loadServices() {
     }
 
 
-    /*
-       If the database cannot be loaded,
-       still show the 12 service cards.
-    */
-
     const serviceMap = {};
+
 
     services.forEach(service => {
 
-        serviceMap[service.service_key] = service;
+        serviceMap[
+            service.service_key
+        ] = service;
 
     });
 
@@ -1522,12 +1721,21 @@ async function loadServices() {
     allServices =
         fallbackServices.map(service => {
 
+            const databaseService =
+                serviceMap[
+                    service.service_key
+                ];
+
+
             return {
+
                 ...service,
+
                 image_url:
-                    serviceMap[service.service_key]
-                        ? serviceMap[service.service_key].image_url
+                    databaseService
+                        ? databaseService.image_url
                         : null
+
             };
 
         });
@@ -1538,10 +1746,12 @@ async function loadServices() {
         interiorContainer
     );
 
+
     renderServiceCategory(
         "Exterior",
         exteriorContainer
     );
+
 }
 
 
@@ -1573,10 +1783,6 @@ function renderServiceCategory(
     container.innerHTML =
         services.map(service => {
 
-            const image =
-                service.image_url ||
-                "images/construction-hero.jpg";
-
 
             const description =
                 serviceDescriptions[
@@ -1585,7 +1791,36 @@ function renderServiceCategory(
                 "Professional construction and remodeling services.";
 
 
+            let imageHTML = "";
+
+
+            if (service.image_url) {
+
+                imageHTML = `
+
+                    <img
+                        src="${escapeHTML(service.image_url)}"
+                        alt="${escapeHTML(service.service_name)}"
+                        loading="lazy"
+                    >
+
+                `;
+
+            } else {
+
+                imageHTML = `
+
+                    <div class="service-image-empty">
+                        Photo coming soon
+                    </div>
+
+                `;
+
+            }
+
+
             return `
+
                 <div
                     class="service-card"
                     data-service-key="${escapeHTML(service.service_key)}"
@@ -1593,12 +1828,7 @@ function renderServiceCategory(
 
                     <div class="service-image">
 
-                        <img
-                            src="${escapeHTML(image)}"
-                            alt="${escapeHTML(service.service_name)}"
-                            loading="lazy"
-                            onerror="this.src='images/construction-hero.jpg';"
-                        >
+                        ${imageHTML}
 
                     </div>
 
@@ -1606,12 +1836,18 @@ function renderServiceCategory(
                     <div class="service-content">
 
                         <h4>
-                            ${escapeHTML(service.service_name)}
+                            ${escapeHTML(
+                                service.service_name
+                            )}
                         </h4>
 
+
                         <p>
-                            ${escapeHTML(description)}
+                            ${escapeHTML(
+                                description
+                            )}
                         </p>
+
 
                         <div class="view-samples">
                             View Sample Work →
@@ -1620,13 +1856,16 @@ function renderServiceCategory(
                     </div>
 
                 </div>
+
             `;
 
         }).join("");
 
 
     container
-        .querySelectorAll(".service-card")
+        .querySelectorAll(
+            ".service-card"
+        )
         .forEach(card => {
 
             card.addEventListener(
@@ -1641,6 +1880,7 @@ function renderServiceCategory(
             );
 
         });
+
 }
 
 
@@ -1695,10 +1935,21 @@ async function openServiceGallery(
         );
 
 
-    mainImage.src = "";
+    mainImage.removeAttribute("src");
 
-    thumbs.innerHTML =
-        '<div style="color:#fff;padding:10px;">Loading...</div>';
+
+    thumbs.innerHTML = `
+
+        <div
+            style="
+                color:#fff;
+                padding:10px;
+            "
+        >
+            Loading...
+        </div>
+
+    `;
 
 
     try {
@@ -1730,7 +1981,10 @@ async function openServiceGallery(
 
         currentGalleryImages =
             (data || [])
-                .map(row => row.image_url)
+                .map(
+                    row =>
+                        row.image_url
+                )
                 .filter(Boolean);
 
 
@@ -1745,7 +1999,7 @@ async function openServiceGallery(
 
 
     /*
-       If no sample photos exist,
+       If there are no sample photos,
        use the representative service photo.
     */
 
@@ -1766,14 +2020,18 @@ async function openServiceGallery(
     ) {
 
         thumbs.innerHTML = `
-            <div style="
-                color:#fff;
-                padding:15px;
-                width:100%;
-                text-align:center;
-            ">
+
+            <div
+                style="
+                    color:#fff;
+                    padding:15px;
+                    width:100%;
+                    text-align:center;
+                "
+            >
                 Sample photos coming soon.
             </div>
+
         `;
 
         mainImage.removeAttribute("src");
@@ -1783,6 +2041,7 @@ async function openServiceGallery(
 
 
     renderGallery();
+
 }
 
 
@@ -1820,30 +2079,38 @@ function renderGallery() {
 
     thumbs.innerHTML =
         currentGalleryImages
-            .map((image, index) => {
+            .map(
+                (image, index) => {
 
-                return `
-                    <div
-                        class="gallery-thumb ${
-                            index === currentGalleryIndex
-                                ? "active"
-                                : ""
-                        }"
-                        data-index="${index}"
-                    >
-                        <img
-                            src="${escapeHTML(image)}"
-                            alt=""
+                    return `
+
+                        <div
+                            class="gallery-thumb ${
+                                index === currentGalleryIndex
+                                    ? "active"
+                                    : ""
+                            }"
+                            data-index="${index}"
                         >
-                    </div>
-                `;
 
-            })
+                            <img
+                                src="${escapeHTML(image)}"
+                                alt=""
+                            >
+
+                        </div>
+
+                    `;
+
+                }
+            )
             .join("");
 
 
     thumbs
-        .querySelectorAll(".gallery-thumb")
+        .querySelectorAll(
+            ".gallery-thumb"
+        )
         .forEach(thumb => {
 
             thumb.addEventListener(
@@ -1861,11 +2128,12 @@ function renderGallery() {
             );
 
         });
+
 }
 
 
 /* =========================================================
-   GALLERY NEXT / PREVIOUS
+   GALLERY NEXT
 ========================================================= */
 
 function galleryNext() {
@@ -1879,17 +2147,25 @@ function galleryNext() {
 
     currentGalleryIndex++;
 
+
     if (
         currentGalleryIndex >=
         currentGalleryImages.length
     ) {
+
         currentGalleryIndex = 0;
+
     }
 
 
     renderGallery();
+
 }
 
+
+/* =========================================================
+   GALLERY PREVIOUS
+========================================================= */
 
 function galleryPrevious() {
 
@@ -1902,7 +2178,10 @@ function galleryPrevious() {
 
     currentGalleryIndex--;
 
-    if (currentGalleryIndex < 0) {
+
+    if (
+        currentGalleryIndex < 0
+    ) {
 
         currentGalleryIndex =
             currentGalleryImages.length - 1;
@@ -1911,6 +2190,7 @@ function galleryPrevious() {
 
 
     renderGallery();
+
 }
 
 
@@ -1921,14 +2201,18 @@ function galleryPrevious() {
 function closeServiceModal() {
 
     document
-        .getElementById("service-modal")
+        .getElementById(
+            "service-modal"
+        )
         .classList.remove("active");
 
 }
 
 
 document
-    .getElementById("close-service-modal")
+    .getElementById(
+        "close-service-modal"
+    )
     .addEventListener(
         "click",
         closeServiceModal
@@ -1936,7 +2220,9 @@ document
 
 
 document
-    .getElementById("gallery-next")
+    .getElementById(
+        "gallery-next"
+    )
     .addEventListener(
         "click",
         galleryNext
@@ -1944,7 +2230,9 @@ document
 
 
 document
-    .getElementById("gallery-prev")
+    .getElementById(
+        "gallery-prev"
+    )
     .addEventListener(
         "click",
         galleryPrevious
@@ -1952,7 +2240,9 @@ document
 
 
 document
-    .getElementById("service-modal")
+    .getElementById(
+        "service-modal"
+    )
     .addEventListener(
         "click",
         function(event) {
@@ -1960,7 +2250,9 @@ document
             if (
                 event.target === this
             ) {
+
                 closeServiceModal();
+
             }
 
         }
@@ -1968,7 +2260,7 @@ document
 
 
 /* =========================================================
-   PROJECTS
+   LOAD COMPLETED PROJECTS
 ========================================================= */
 
 async function loadProjects() {
@@ -1983,9 +2275,14 @@ async function loadProjects() {
 
         const { data, error } =
             await supabaseClient
-                .from("construction_projects")
+                .from(
+                    "construction_projects"
+                )
                 .select("*")
-                .eq("published", true)
+                .eq(
+                    "published",
+                    true
+                )
                 .order(
                     "created_at",
                     {
@@ -1999,15 +2296,18 @@ async function loadProjects() {
         }
 
 
-        const projects = data || [];
+        const projects =
+            data || [];
 
 
         if (!projects.length) {
 
             container.innerHTML = `
+
                 <div class="project-empty">
                     Completed projects will be displayed here.
                 </div>
+
             `;
 
             return;
@@ -2015,130 +2315,200 @@ async function loadProjects() {
 
 
         container.innerHTML =
-            projects.map(
-                project => {
+            projects
+                .map(
+                    project => {
 
-                    let images = [];
+
+                        let images = [];
 
 
-                    if (
-                        Array.isArray(
-                            project.image_urls
-                        )
-                    ) {
+                        if (
+                            Array.isArray(
+                                project.image_urls
+                            )
+                        ) {
 
-                        images =
-                            project.image_urls;
+                            images =
+                                project.image_urls;
 
-                    } else if (
-                        typeof project.image_urls ===
-                        "string"
-                    ) {
+                        } else if (
+                            typeof project.image_urls ===
+                            "string"
+                        ) {
 
-                        try {
+                            try {
 
-                            const parsed =
-                                JSON.parse(
-                                    project.image_urls
+                                const parsed =
+                                    JSON.parse(
+                                        project.image_urls
+                                    );
+
+
+                                if (
+                                    Array.isArray(
+                                        parsed
+                                    )
+                                ) {
+
+                                    images = parsed;
+
+                                }
+
+                            } catch (e) {
+
+                                console.warn(
+                                    "Invalid project image data:",
+                                    e
                                 );
-
-                            if (
-                                Array.isArray(parsed)
-                            ) {
-
-                                images = parsed;
 
                             }
 
-                        } catch (e) {
+                        }
 
-                            /*
-                               Ignore invalid JSON.
-                            */
+
+                        const title =
+                            project.title ||
+                            project.name ||
+                            "Completed Project";
+
+
+                        const location =
+                            project.location ||
+                            "";
+
+
+                        if (
+                            images.length === 0
+                        ) {
+
+                            return `
+
+                                <div class="project-card">
+
+                                    <div
+                                        class="project-main-image"
+                                        style="
+                                            cursor:default;
+                                            display:flex;
+                                            align-items:center;
+                                            justify-content:center;
+                                            color:#888;
+                                        "
+                                    >
+                                        Project Photo
+                                    </div>
+
+
+                                    <div class="project-info">
+
+                                        <h3>
+                                            ${escapeHTML(
+                                                title
+                                            )}
+                                        </h3>
+
+                                        ${
+                                            location
+                                                ? `
+                                                    <div class="project-location">
+                                                        ${escapeHTML(
+                                                            location
+                                                        )}
+                                                    </div>
+                                                  `
+                                                : ""
+                                        }
+
+                                    </div>
+
+                                </div>
+
+                            `;
 
                         }
 
-                    }
+
+                        const firstImage =
+                            images[0];
 
 
-                    const firstImage =
-                        images.length
-                            ? images[0]
-                            : "images/construction-hero.jpg";
+                        return `
 
+                            <div class="project-card">
 
-                    const title =
-                        project.title ||
-                        project.name ||
-                        "Completed Project";
-
-
-                    const location =
-                        project.location ||
-                        "";
-
-
-                    return `
-                        <div class="project-card">
-
-                            <div
-                                class="project-main-image"
-                                data-project-image="${escapeHTML(firstImage)}"
-                            >
-
-                                <img
-                                    src="${escapeHTML(firstImage)}"
-                                    alt="${escapeHTML(title)}"
-                                    loading="lazy"
-                                    onerror="this.src='images/construction-hero.jpg';"
+                                <div
+                                    class="project-main-image"
+                                    data-project-image="${escapeHTML(
+                                        firstImage
+                                    )}"
                                 >
 
+                                    <img
+                                        src="${escapeHTML(
+                                            firstImage
+                                        )}"
+                                        alt="${escapeHTML(
+                                            title
+                                        )}"
+                                        loading="lazy"
+                                    >
+
+                                </div>
+
+
+                                <div class="project-info">
+
+                                    <h3>
+                                        ${escapeHTML(
+                                            title
+                                        )}
+                                    </h3>
+
+
+                                    ${
+                                        location
+                                            ? `
+                                                <div class="project-location">
+                                                    ${escapeHTML(
+                                                        location
+                                                    )}
+                                                </div>
+                                              `
+                                            : ""
+                                    }
+
+                                </div>
+
                             </div>
 
+                        `;
 
-                            <div class="project-info">
-
-                                <h3>
-                                    ${escapeHTML(title)}
-                                </h3>
-
-                                ${
-                                    location
-                                        ? `
-                                            <div class="project-location">
-                                                ${escapeHTML(location)}
-                                            </div>
-                                          `
-                                        : ""
-                                }
-
-                            </div>
-
-                        </div>
-                    `;
-
-                }
-            ).join("");
+                    }
+                )
+                .join("");
 
 
         container
             .querySelectorAll(
-                ".project-main-image"
+                ".project-main-image[data-project-image]"
             )
-            .forEach(imageBox => {
+            .forEach(
+                imageBox => {
 
-                imageBox.addEventListener(
-                    "click",
-                    function() {
+                    imageBox.addEventListener(
+                        "click",
+                        function() {
 
-                        openProjectLightbox(
-                            this.dataset.projectImage
-                        );
+                            openProjectLightbox(
+                                this.dataset.projectImage
+                            );
 
-                    }
-                );
+                        }
+                    );
 
-            });
+                }
+            );
 
 
     } catch (error) {
@@ -2150,9 +2520,11 @@ async function loadProjects() {
 
 
         container.innerHTML = `
+
             <div class="project-empty">
                 Completed projects will be displayed here.
             </div>
+
         `;
 
     }
@@ -2173,6 +2545,7 @@ function openProjectLightbox(
             "project-lightbox"
         );
 
+
     const image =
         document.getElementById(
             "lightbox-image"
@@ -2181,7 +2554,11 @@ function openProjectLightbox(
 
     image.src = imageUrl;
 
-    lightbox.classList.add("active");
+
+    lightbox.classList.add(
+        "active"
+    );
+
 }
 
 
@@ -2191,7 +2568,9 @@ function closeProjectLightbox() {
         .getElementById(
             "project-lightbox"
         )
-        .classList.remove("active");
+        .classList.remove(
+            "active"
+        );
 
 }
 
@@ -2239,6 +2618,7 @@ document.addEventListener(
                 "service-modal"
             );
 
+
         const lightbox =
             document.getElementById(
                 "project-lightbox"
@@ -2259,6 +2639,7 @@ document.addEventListener(
 
             }
 
+
             if (
                 event.key === "ArrowLeft"
             ) {
@@ -2266,6 +2647,7 @@ document.addEventListener(
                 galleryPrevious();
 
             }
+
 
             if (
                 event.key === "Escape"
@@ -2294,7 +2676,7 @@ document.addEventListener(
 
 
 /* =========================================================
-   YEAR
+   CURRENT YEAR
 ========================================================= */
 
 document.getElementById(
